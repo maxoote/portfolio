@@ -150,19 +150,40 @@ export const projects: Project[] = [
     image: mdnRetouche1,
     detailedDescription: {
       context: {
-        title: "Personal Branding & Soft Skills",
-        content: "Mon compte Instagram principal où je documente ma démarche créative."
+        title: "Contexte & Positionnement",
+        content: "Compte Instagram personnel dédié au storytelling créatif et à la documentation de mon processus de travail. Ce projet hybride mêle personal branding, pédagogie et création de contenu pour construire une identité professionnelle authentique et transparente auprès d'une communauté de créatifs et de pairs."
       },
       role: {
-        title: "Objectifs",
+        title: "Mon Rôle & Production",
+        intro: "Création complète de contenu multimédia (vidéo, photo, design) pour documenter mon parcours créatif",
         points: [
-          "Transparence : J'explique comment je fais, mes problèmes et mes solutions.",
-          "Aisance orale : L'exercice de parler face caméra m'entraîne à être plus à l'aise avec mon image et ma voix."
+          { title: "Storytelling Vidéo", content: "Production de vidéos BTS (Behind The Scenes) expliquant ma démarche créative, mes choix techniques et mes problèmes rencontrés, dans un format authentique et pédagogique." },
+          { title: "Design Graphique Expérimental", content: "Création d'affiches et de visuels spontanés (série unsortedprint) pour expérimenter et me détendre, tout en alimentant mon feed avec du contenu varié." },
+          { title: "Communication Régulière", content: "Publication systématique de stories, posts et reels pour maintenir un lien avec ma communauté et documenter mon évolution." },
+          { title: "Montage & Post-production", content: "Édition des vidéos et retouche photo pour adapter le contenu aux codes Instagram tout en préservant l'authenticité du message." }
         ]
+      },
+      keyLearnings: {
+        title: "Apprentissages Clés & Soft Skills",
+        points: [
+          { title: "Aisance Face Caméra", content: "L'exercice répété de parler face caméra et au micro m'a permis de développer une aisance orale et corporelle essentielle pour les présentations professionnelles." },
+          { title: "Vulgarisation Technique", content: "Capacité à expliquer des concepts techniques complexes (montage, design, code) de manière claire et accessible à différents publics." },
+          { title: "Transparence & Authenticité", content: "Partage non-filtré de mes échecs et succès pour créer une connexion authentique avec ma communauté et démystifier le processus créatif." },
+          { title: "Régularité de Production", content: "Discipline de création de contenu régulier malgré les contraintes de temps (études, freelance, compétitions sportives)." }
+        ]
+      },
+      vision: {
+        title: "Impact & Vision",
+        content: "Ce projet va au-delà du simple personal branding : c'est une vitrine vivante de mes compétences, un outil de réseautage professionnel et une archive de mon évolution créative. Il démontre ma capacité à créer du contenu engageant tout en gérant une identité de marque personnelle cohérente sur la durée."
+      },
+      competencesDemontrees: {
+        title: "Compétences Démontrées",
+        content: "Personal branding stratégique, création de contenu multimédia (vidéo, photo, design), storytelling visuel, aisance orale et communication caméra, vulgarisation technique, gestion de communauté, régularité de production, authenticité professionnelle, expérimentation graphique."
       }
     },
     gallery: [mdnStoryPort,mdnAnnonce1, mdnAnnonce2, mdnStream, mdnVid1, mdnVid2, mdnRetouche1, mdnRetouche2, mdnStoryRec],
     url: "https://www.instagram.com/mdn.maxime/",
+    tags: ['Personal Branding', 'Behind The Scenes', 'Storytelling', 'Instagram', 'Vidéo', 'Design Expérimental', 'Communication'],
     categories: ["Audiovisuel"]
   },
   {
@@ -171,13 +192,33 @@ export const projects: Project[] = [
     image: unsortedVidGif,
     detailedDescription: {
       context: {
-        title: "Chaîne YouTube & Instagram",
-        content: "Dans la même lignée que les photos, ces vidéos sont postées sans contexte, de manière aléatoire."
+        title: "Contexte & Démarche Artistique",
+        content: "Projet expérimental de création vidéo minimaliste publié sur YouTube et Instagram. Inspiré par l'esthétique du cinéma-vérité et du documentaire observationnel, ce projet capture des moments spontanés sans contexte ni post-production lourde. L'objectif est de valoriser l'authenticité brute et l'instant présent, en opposition à la sur-production dominante sur les réseaux sociaux."
+      },
+      role: {
+        title: "Mon Rôle",
+        intro: "Captation et diffusion de contenus visuels spontanés",
+        points: [
+          { title: "Captation Spontanée", content: "Tournage de séquences vidéo et photos sans mise en scène, directement du boîtier, privilégiant la réactivité et l'authenticité du moment." },
+          { title: "Direction Artistique Minimaliste", content: "Choix assumé d'une post-production volontairement légère pour préserver le caractère brut et documentaire des images." },
+          { title: "Curation & Publication", content: "Sélection et publication régulière de contenus sur YouTube et Instagram, créant une archive visuelle du quotidien sans narration imposée." }
+        ]
+      },
+      vision: {
+        title: "Vision Artistique",
+        content: "Ce projet questionne la sur-production et le perfectionnisme omniprésents dans la création de contenu digital. En publiant des vidéos 'unsorted' (non triées), je valorise l'imperfection et l'instant capturé comme œuvre en soi, dans une démarche proche du documentaire anthropologique ou du found footage artistique."
+      },
+      competencesDemontrees: {
+        title: "Compétences Démontrées",
+        content: "Direction artistique conceptuelle, captation vidéo réactive, sens du cadrage et de la composition instantanée, gestion de contenus multi-plateformes (YouTube, Instagram), capacité à développer une démarche créative cohérente sur la durée, compréhension des codes du cinéma-vérité et du documentaire."
       }
     },
-    gallery: [unsortedVidGif],
+    gallery: [],
+    url: "https://www.youtube.com/@unsortedvid", // Ajoute l'URL si tu l'as
+    tags: ['Vidéo Expérimentale', 'Cinéma Vérité', 'Documentaire', 'YouTube', 'Instagram', 'Captation Spontanée', 'Minimalisme'],
     categories: ["Audiovisuel"]
   },
+  
 
   // --- 🎨 BRANDING ---
   {
