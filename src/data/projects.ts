@@ -122,14 +122,28 @@ export const projects: Project[] = [
     image: compet1,
     detailedDescription: {
       context: {
-        title: "Storytelling Sportif",
-        content: "Série de stories Instagram annonçant mes résultats de compétitions (départementales, régionales, nationales). C'est un exercice de communication régulier et rapide."
+        title: "Contexte & Objectif",
+        content: "Série de stories Instagram documentant mon parcours en compétitions de tir sportif (départementales, régionales, nationales). Ce projet personnel allie ma passion pour le tir et mes compétences en communication visuelle pour promouvoir la discipline auprès d'un public large."
+      },
+      role: {
+        title: "Mon Rôle",
+        intro: "Création complète des contenus visuels pour réseaux sociaux",
+        points: [
+          { title: "Design Graphique", content: "Conception des visuels de stories avec une identité visuelle cohérente et impactante, adaptée aux codes Instagram." },
+          { title: "Communication Sportive", content: "Rédaction et mise en forme des résultats de manière claire et engageante pour valoriser la performance." },
+          { title: "Régularité & Réactivité", content: "Publication systématique après chaque compétition, nécessitant une production rapide et efficace tout en maintenant la qualité visuelle." }
+        ]
+      },
+      competencesDemontrees: {
+        title: "Compétences Démontrées",
+        content: "Design pour réseaux sociaux (format stories), communication sportive, personal branding, création de contenu régulier sous contrainte de temps, capacité à transformer des données brutes (résultats) en contenu visuellement attractif."
       }
     },
-    gallery: [compet1,compet2, compet3],
+    gallery: [compet1, compet2, compet3],
     url: "https://www.instagram.com/mdn.maxime/",
+    tags: ['Instagram Stories', 'Tir Sportif', 'Design Graphique', 'Communication', 'Personal Branding'],
     categories: ["Audiovisuel"]
-  },
+  },  
   {
     id: "mdn-maxime",
     title: "mdn.maxime",
