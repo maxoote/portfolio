@@ -76,9 +76,9 @@ import upChaumont1 from "../assets/unsortedprint/chaumont1.webp";
 import upChaumont2 from "../assets/unsortedprint/chaumont2.webp";
 
 // Mon Bureau
-import bureauAcceuil from "../assets/monBureau/acceuil.webp";
-import bureauMain from "../assets/monBureau/bureau.webp";
-import bureauFenetre from "../assets/monBureau/fenetre.webp";
+import bureauAcceuil from "../assets/monbureau/acceuil.webp";
+import bureauMain from "../assets/monbureau/bureau.webp";
+import bureauFenetre from "../assets/monbureau/fenetre.webp";
 
 // Album Tir Sportif
 import tir1798 from "../assets/albumTirSportif/IMG_1798.webp";
