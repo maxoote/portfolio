@@ -7,6 +7,6 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: "/~i2400571/portfolio3/", // adapte au chemin exact de ton hébergement
+  //base: "/~i2400571/portfolio3/", // adapte au chemin exact de ton hébergement
 
 })
