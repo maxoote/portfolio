@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+/* Effet slide un peu "saccadé" façon Win95 */
+
+@keyframes win95-slide {
+    0% {
+        transform: translateY(8px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* Curseur clignotant */
+
+@keyframes blink {
+    0%,
+    49% {
+        opacity: 1;
+    }
+    50%,
+    100% {
+        opacity: 0;
+    }
+}
+
+.no-select {
+    -webkit-user-select: none;
+    /* Safari */
+    user-select: none;
+}
