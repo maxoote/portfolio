@@ -227,53 +227,85 @@ export const projects: Project[] = [
     image: sth1,
     detailedDescription: {
       context: {
-        title: "Contexte",
-        content: "Projet personnel et bénévole au sein de mon club de tir. J'occupe le poste de responsable communication avec pour but de professionnaliser l'image de l'association."
+        title: "Contexte & Enjeux",
+        content: "Projet bénévole stratégique au sein de mon club de tir sportif, où j'occupe le poste de Responsable Communication depuis plusieurs années. L'enjeu principal : professionnaliser l'image de l'association pour attirer de nouveaux membres, fidéliser les bénévoles et renforcer la visibilité du club auprès des partenaires institutionnels et sponsors potentiels. Ce projet constitue mon laboratoire d'expérimentation réel où j'applique et teste mes apprentissages en communication multimédia."
       },
       role: {
-        title: "Mon Rôle",
-        intro: "Gestion complète de la communication visuelle et numérique :",
+        title: "Mon Rôle & Responsabilités",
+        intro: "Gestion complète et autonome de la communication visuelle, numérique et événementielle du club",
         points: [
-          "Identité : Création de la charte graphique et du logo.",
-          "Web : Conception et gestion du site internet sous WordPress.",
-          "Print : Réalisation des affiches pour les événements.",
-          "Événementiel : Organisation d'événements internes/externes pour la cohésion."
+          { title: "Identité Visuelle & Branding", content: "Refonte complète de la charte graphique et création du logo en respectant les codes visuels du tir sportif et l'identité locale. Alignement avec les chartes des autres clubs de la région pour une cohérence fédérale." },
+          { title: "Développement & Gestion Web", content: "Conception, développement et maintenance du site internet WordPress (http://sth85.fr). Migration depuis une version HTML/CSS/JS pure vers un CMS pour permettre l'autonomie des bénévoles dans la publication de contenus (actualités, résultats, événements)." },
+          { title: "Design Print & Supports de Communication", content: "Création des affiches événementielles, flyers, supports de communication interne. Production régulière de visuels pour promouvoir les compétitions, challenges et événements organisés par le club." },
+          { title: "Gestion Réseaux Sociaux", content: "Animation des comptes Instagram et Facebook avec création de contenus engageants (stories, posts, visuels) pour valoriser les performances sportives et la vie du club." },
+          { title: "Organisation Événementielle", content: "Planification et coordination d'événements internes (Challenge Diabolo, Tournoi des Écoles de Tir) et externes pour renforcer la cohésion d'équipe, recruter de nouveaux membres et développer le rayonnement du club." }
         ]
+      },
+      keyLearnings: {
+        title: "Apprentissages Clés & Compétences Développées",
+        points: [
+          { title: "Gestion de Projet Autonome", content: "Pilotage complet d'un projet de communication à long terme sans supervision directe, avec gestion des priorités et deadlines multiples." },
+          { title: "Adaptabilité Client/Utilisateur", content: "Compréhension des besoins d'utilisateurs non-techniques (bénévoles, membres du bureau) et adaptation des solutions (passage à WordPress pour faciliter l'autonomie)." },
+          { title: "Communication Multi-Supports", content: "Maîtrise de la cohérence visuelle sur différents médias : print, web, réseaux sociaux, signalétique événementielle." },
+          { title: "Gestion de Communauté", content: "Animation d'une communauté en ligne et hors-ligne, développement de l'engagement et de la fidélisation des membres." },
+          { title: "Évolution Technique Progressive", content: "Amélioration continue du site (SEO, optimisation, ajout de fonctionnalités) témoignant d'une démarche d'apprentissage et d'amélioration continue." }
+        ]
+      },
+      vision: {
+        title: "Projets en Cours & Vision Stratégique",
+        content: "Développement futur de contenus audiovisuels pour humaniser la communication : interviews de bénévoles, vidéo de présentation du club, reportages sur les compétitions nationales. Cette évolution vers l'audiovisuel témoigne d'une vision stratégique à long terme et d'une volonté de moderniser la communication sportive associative."
+      },
+      competencesDemontrees: {
+        title: "Compétences Démontrées",
+        content: "Gestion de projet autonome, identité visuelle et branding sportif, développement web WordPress, design print et événementiel, gestion de contenu multi-plateformes (web, RS, print), community management, organisation événementielle, adaptabilité aux besoins utilisateurs, évolution technique progressive, communication stratégique associative."
       }
     },
     gallery: [sth1, sth2, sth3, sth4, sth5, sth6, sth7, sth8],
     url: "http://sth85.fr/",
-    tags: ["Associatif", "WordPress", "Communication"],
-    categories: ["Branding", "Web-design", "Print"]
-  },
+    tags: ['Associatif', 'WordPress', 'Communication Globale', 'Branding Sportif', 'Gestion de Projet', 'Événementiel'],
+    categories: ["Branding"]
+  },  
   {
     id: "maron-bouillie",
     title: "Maron Bouillie",
     image: mbLogo,
     detailedDescription: {
       context: {
-        title: "Contexte & Objectif (SAE)",
-        content: "Projet universitaire (SAE) visant à refondre intégralement la Direction Artistique de la marque Maron Bouillie. L'objectif était de moderniser l'image de marque à travers une approche 360°."
+        title: "Contexte & Enjeux Stratégiques",
+        content: "Projet universitaire de grande envergure (SAE - Situation d'Apprentissage et d'Évaluation) simulant une mission d'agence complète. L'objectif : refondre intégralement la Direction Artistique de la marque Maron Bouillie, une marque de produits alimentaires artisanaux, pour la moderniser et la repositionner sur un marché concurrentiel. Le défi majeur était de créer une cohérence visuelle et narrative sur l'ensemble des supports de communication (print, digital, audiovisuel, packaging) tout en respectant les contraintes d'une identité de marque alimentaire (codes visuels, normes, attentes consommateurs)."
       },
       role: {
-        title: "Mon Rôle et Réalisations",
-        intro: "J'ai participé à la création globale de la nouvelle identité :",
+        title: "Mon Rôle & Production Complète",
+        intro: "Contribution majeure à la refonte globale de l'identité de marque sur l'ensemble de la chaîne de production créative",
         points: [
-          "Direction Artistique : Refonte du logo, palette de couleurs et typographie.",
-          "Audiovisuel : Création d'une vidéo explainer et motion design.",
-          "Photographie : Shooting photo produit et photo studio.",
-          "Print & Web : Réalisation d'affiches, d'un magazine et du web design."
+          { title: "Direction Artistique & Identité Visuelle", content: "Refonte complète du système d'identité : création du nouveau logo, définition de la palette de couleurs (harmonies, déclinaisons), sélection et hiérarchisation de la typographie pour garantir une cohérence sur tous les supports." },
+          { title: "Production Audiovisuelle", content: "Conception et réalisation d'une vidéo explainer présentant l'histoire et les valeurs de la marque, accompagnée d'animations motion design pour dynamiser le storytelling visuel et renforcer l'identité moderne." },
+          { title: "Photographie Studio & Produit", content: "Direction et réalisation de shootings photo : mise en scène produit (packshots professionnels avec éclairage studio), photographie lifestyle pour illustrer l'univers de la marque et créer une connexion émotionnelle avec les consommateurs." },
+          { title: "Design Print & Éditorial", content: "Création d'affiches promotionnelles et conception d'un magazine de marque (mise en page éditoriale, hiérarchie de l'information, intégration photos-textes) démontrant des compétences en design éditorial avancé." },
+          { title: "Web Design & Interface Digitale", content: "Conception des maquettes web (desktop et mobile) pour le site vitrine de la marque, intégrant la nouvelle identité visuelle et optimisant l'expérience utilisateur pour la présentation des produits." },
+          { title: "Stratégie Marketing & Communication", content: "Participation à la définition du positionnement de marque, des messages clés et de la stratégie de communication cross-média pour assurer une cohérence entre tous les points de contact." }
+        ]
+      },
+      keyLearnings: {
+        title: "Apprentissages Clés & Compétences Transversales",
+        points: [
+          { title: "Approche 360° & Vision Globale", content: "Maîtrise de la cohérence visuelle et narrative sur une multiplicité de supports (print, digital, audiovisuel, packaging), compétence essentielle en agence." },
+          { title: "Gestion de Contraintes Sectorielles", content: "Compréhension des codes visuels et des normes spécifiques au secteur alimentaire (clarté, appétence visuelle, confiance)." },
+          { title: "Production Multi-Médias", content: "Capacité à produire des contenus variés (vidéo, photo, print, web) avec un haut niveau de qualité sur chaque média." },
+          { title: "Travail en Équipe Projet", content: "Collaboration avec d'autres créatifs sur un projet complexe nécessitant coordination et synchronisation des livrables." },
+          { title: "Gestion de Projet Envergure", content: "Pilotage d'un projet de refonte complète avec multiples phases de production et deadlines serrées, similaire à un contexte professionnel d'agence." }
         ]
       },
       competencesDemontrees: {
-        title: "Compétences",
-        points: ["Branding", "Motion Design", "Photographie Studio", "Web Design", "Marketing"]
+        title: "Compétences Démontrées",
+        content: "Direction Artistique 360°, branding et identité visuelle, production audiovisuelle (vidéo explainer, motion design), photographie studio et produit (éclairage, mise en scène), design print et éditorial (affiches, magazine), web design et maquettage d'interface, stratégie de communication cross-média, gestion de projet complexe, cohérence visuelle multi-supports, sens esthétique et créativité appliquée au secteur alimentaire."
       }
     },
     gallery: [mbLogo, mbColor, mbTypo, mb1616, mb1627, mb1638, mb1677, mb1695, mb1718, mb1758, mb1760],
-    tags: ["Rebranding", "360°", "Scolaire"],
-    categories: ["Branding", "Audiovisuel", "Print", "Web-design"]
+    tags: ['Direction Artistique 360°', 'Branding', 'Motion Design', 'Photographie Studio', 'Design Éditorial', 'SAE', 'Projet d\'Agence'],
+    categories: ["Branding"]
   },
+  
   {
     id: "ta-solution-hypno",
     title: "TaSolutionHypno",
