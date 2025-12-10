@@ -36,17 +36,17 @@ import sth7 from "../assets/sth/7.png";
 import sth8 from "../assets/sth/8.webp";
 
 // Maron Bouillie
-import mbLogo from "../assets/maronBouillie/logo.webp";
-import mbColor from "../assets/maronBouillie/color.webp";
-import mbTypo from "../assets/maronBouillie/typo.webp";
-import mb1616 from "../assets/maronBouillie/IMG_1616.webp";
-import mb1627 from "../assets/maronBouillie/IMG_1627.webp";
-import mb1638 from "../assets/maronBouillie/IMG_1638.webp";
-import mb1677 from "../assets/maronBouillie/IMG_1677.webp";
-import mb1695 from "../assets/maronBouillie/IMG_1695.webp";
-import mb1718 from "../assets/maronBouillie/IMG_1718.webp";
-import mb1758 from "../assets/maronBouillie/IMG_1758.webp";
-import mb1760 from "../assets/maronBouillie/IMG_1760.webp";
+import mbLogo from "../assets/maronbouillie/logo.webp";
+import mbColor from "../assets/maronbouillie/color.webp";
+import mbTypo from "../assets/maronbouillie/typo.webp";
+import mb1616 from "../assets/maronbouillie/IMG_1616.webp";
+import mb1627 from "../assets/maronbouillie/IMG_1627.webp";
+import mb1638 from "../assets/maronbouillie/IMG_1638.webp";
+import mb1677 from "../assets/maronbouillie/IMG_1677.webp";
+import mb1695 from "../assets/maronbouillie/IMG_1695.webp";
+import mb1718 from "../assets/maronbouillie/IMG_1718.webp";
+import mb1758 from "../assets/maronbouillie/IMG_1758.webp";
+import mb1760 from "../assets/maronbouillie/IMG_1760.webp";
 
 // TaSolutionHypno
 import tshLogo from "../assets/taSolutionHypno/logoVF.webp";
