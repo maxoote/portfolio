@@ -49,11 +49,11 @@ import mb1758 from "../assets/maronbouillie/IMG_1758.webp";
 import mb1760 from "../assets/maronbouillie/IMG_1760.webp";
 
 // TaSolutionHypno
-import tshLogo from "../assets/taSolutionHypno/logoVF.webp";
-import tshFlyer1 from "../assets/taSolutionHypno/flyerVF_1.webp";
-import tshFlyer2 from "../assets/taSolutionHypno/flyerVF_2.webp";
-import tshCarte1 from "../assets/taSolutionHypno/carteDeVisiteVF_1.webp";
-import tshCarte2 from "../assets/taSolutionHypno/carteDeVisiteVF_2.webp";
+import tshLogo from "../assets/tasolutionhypno/logoVF.webp";
+import tshFlyer1 from "../assets/tasolutionhypno/flyerVF_1.webp";
+import tshFlyer2 from "../assets/tasolutionhypno/flyerVF_2.webp";
+import tshCarte1 from "../assets/tasolutionhypno/carteDeVisiteVF_1.webp";
+import tshCarte2 from "../assets/tasolutionhypno/carteDeVisiteVF_2.webp";
 
 // Anna Partout
 import anna1 from "../assets/annaPartout/affiche1VF.webp";
