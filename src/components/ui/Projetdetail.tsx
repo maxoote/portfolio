@@ -159,7 +159,7 @@ export default function ProjectDetail({ project, onClose }: Props) {
         <button
           key={i}
           onClick={() => openLightbox(i)}
-          className="w-full md:w-60 h-32 md:h-full max-h-60 overflow-hidden shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] z-50 flex justify-center"
+          className="w-full md:w-auto h-32 md:h-full max-h-60 overflow-hidden shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] z-50 flex justify-center"
         >
           <img src={src} alt="" className="object-fill p-1 h-full w-full" />
         </button>
