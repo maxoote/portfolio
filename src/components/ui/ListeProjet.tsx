@@ -26,14 +26,14 @@ export default function ListeProjet({ ids }: Props) {
         {items.map(p => (
           <li key={p.id} className="shrink-0 lg:shrink-1 lg:w-full">
             <Window
-              className="w-58 h-58 lg:w-full"
+              className="w-58 lg:w-full"
               title={p.title}
-              tailleTitle="text-lg"
+              tailleTitle="text-md"
               titleClassName="bg-blue-900 h-auto"
             >
               <button onClick={() => open(p.id)} className="relative block w-full">
                 <img
-                  className="w-full h-fit object-cover"
+                  className="w-full h-48 object-cover"
                   src={p.image}
                   alt={p.title}
                 />
