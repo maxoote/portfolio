@@ -33,7 +33,7 @@ export default function ListeProjet({ ids }: Props) {
             >
               <button onClick={() => open(p.id)} className="relative block w-full">
                 <img
-                  className="w-full h-48 object-cover"
+                  className="w-full h-fit object-cover"
                   src={p.image}
                   alt={p.title}
                 />
