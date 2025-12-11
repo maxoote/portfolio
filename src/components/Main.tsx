@@ -14,7 +14,7 @@ export default function Main() {
   const { goTo } = useNav()
   return (
     <section className="py-7 min-h-dvh bg-[url('./assets/fondprojet.png')] bg-no-repeat bg-center bg-cover">
-  <div className="mx-auto max-w-7xl lg:max-w-screen px-4 flex flex-col items-center gap-6">
+  <div className="mx-auto max-w-7xl lg:max-w-screen px-4 flex flex-col items-center gap-2">
     
     {/* Menu en haut */}
     <MenuWindow />
@@ -40,7 +40,7 @@ export default function Main() {
               { cat: "Web-design",    cover: imgWeb },
             ]}
             interval={4500}
-            aspectClassName="aspect-[16/9] lg:aspect-[16/5]"
+            aspectClassName="aspect-[16/9] lg:aspect-[16/4]"
           />
         </button>
       </Window>
