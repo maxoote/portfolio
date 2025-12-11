@@ -58,8 +58,12 @@ export default function Main() {
             <ListeProjet ids={["anna-partout", "mdn-maxime", "sth"]} />
           </div>
 
-          {/* Bouton fixe en bas à droite de la viewport */}
-          <button className="w-full" onClick={() => goTo("outils")}>
+          
+
+
+        </div>
+        {/* Bouton fixe en bas à droite de la viewport */}
+        <button className="w-full" onClick={() => goTo("outils")}>
           <Window
                 className="h-auto lg:absolute md:absolute   md:bottom-4 md:left-4/5 md:right-1/10 lg:bottom-4 lg:left-4/5 lg:right-0/10 lg:mr-3"
                 title="Découvrir mes Outils"
@@ -69,9 +73,6 @@ export default function Main() {
                 <> </>
             </Window>
           </button>
-
-
-        </div>
       </div>
     </section>
 
