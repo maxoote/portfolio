@@ -151,26 +151,22 @@ export default function ProjectDetail({ project, onClose }: Props) {
 
 
 
-      {project.gallery && project.gallery.length ? (
-        <div className="mt-6">
-          <h4 className="text-xl font-semibold mb-3">Galerie</h4>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-            {project.gallery.map((src, i) => (
-              <button
-                key={i}
-                onClick={() => openLightbox(i)}
-
-                className="w-60 h-32 md:h-full max-h-60 overflow-hidden shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] z-50 flex justify-center"
-              >
-                <img src={src} alt="" className=" object-fill p-1 h-full" />
-              </button>
-            ))}
-
-          </div>
-
-        </div>
-
-      ) : null}
+{project.gallery && project.gallery.length ? (
+  <div className="mt-6">
+    <h4 className="text-xl font-semibold mb-3">Galerie</h4>
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+      {project.gallery.map((src, i) => (
+        <button
+          key={i}
+          onClick={() => openLightbox(i)}
+          className="w-full md:w-60 h-32 md:h-full max-h-60 overflow-hidden shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] z-50 flex justify-center"
+        >
+          <img src={src} alt="" className="object-fill p-1 h-full w-full" />
+        </button>
+      ))}
+    </div>
+  </div>
+) : null}
 
       {project.tags && project.tags.length ? (
         <ul className="mt-6 flex flex-wrap gap-2">
