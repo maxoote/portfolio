@@ -203,44 +203,44 @@ export default function ProjectDetail({ project, onClose }: Props) {
 
       {/* Lightbox */}
       {lightboxIndex !== null && project.gallery && (
-        <div
-          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
-          onClick={closeLightbox}
-        >
-          <div className="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2 lg:top-3 lg:right-3 relative max-w-5xl max-h-[90vh] flex flex-col items-center justify-center box-border gap-5">
-            
-            <div className="flex items-center justify-between px-3 py-2 gap-2 text-white shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] bg-yellow-500 w-full">
-              <span className="font-semibold text-lg">Menu</span>
-            </div>
-         
+  <div
+    className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+    onClick={closeLightbox}
+  >
+    <div
+      className="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2 lg:top-3 lg:right-3 relative max-w-5xl max-h-[90vh] flex flex-col items-center justify-center box-border gap-5"
+      onClick={e => e.stopPropagation()}
+    >
+      <div className="flex items-center justify-between px-3 py-2 gap-2 text-white shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] bg-yellow-500 w-full">
+        <span className="font-semibold text-lg">Menu</span>
+      </div>
 
-          <button
-            onClick={prevImage}
-            className="absolute left-2 text-white text-3xl px-3 py-2 bg-black/40 rounded-full"
-          >
-            ‹
-          </button>
-          <img
-            src={project.gallery[lightboxIndex]}
-            alt=""
-            className="w-auto max-h-[80vh] mx-auto rounded shadow-lg"
-          />
-          <button
-            onClick={nextImage}
-            className="absolute right-2 text-white text-3xl px-3 py-2 bg-black/40 rounded-full"
-          >
-            ›
-          </button>
-          <button
-            onClick={closeLightbox}
-            className="absolute top-2 right-2 bg-black/60 text-white px-3 py-1 rounded"
-          >
-            ✕
-          </button>
-
-        </div>
-        </div>
-      )}
+      <button
+        onClick={prevImage}
+        className="absolute left-2 text-white text-3xl px-3 py-2 bg-black/40 rounded-full"
+      >
+        ‹
+      </button>
+      <img
+        src={project.gallery[lightboxIndex]}
+        alt=""
+        className="w-auto max-h-[80vh] mx-auto rounded shadow-lg"
+      />
+      <button
+        onClick={nextImage}
+        className="absolute right-2 text-white text-3xl px-3 py-2 bg-black/40 rounded-full"
+      >
+        ›
+      </button>
+      <button
+        onClick={closeLightbox}
+        className="absolute top-2 right-2 bg-black/60 text-white px-3 py-1 rounded"
+      >
+        ✕
+      </button>
+    </div>
+  </div>
+)}
     </div>
   )
 }
