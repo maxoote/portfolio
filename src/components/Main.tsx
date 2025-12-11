@@ -20,7 +20,7 @@ export default function Main() {
     <MenuWindow />
     
     {/* Container principal avec positionnement relatif pour le bouton absolu */}
-    <div className="relative w-full lg:w-3/5 flex flex-col gap-6">
+    <div className="relative w-full lg:w-3/5 flex flex-col gap-2">
       
       {/* Mon travail */}
       <Window 
