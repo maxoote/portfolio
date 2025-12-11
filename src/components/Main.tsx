@@ -59,18 +59,14 @@ export default function Main() {
           </div>
 
           {/* Bouton fixe en bas à droite de la viewport */}
-          <button
-            className="fixed bottom-4 right-4 z-50 hidden lg:block"
-            onClick={() => goTo("outils")}
-          >
-            <Window
-              className="h-auto"
-              title="Découvrir mes Outils"
-              tailleTitle="text-base sm:text-lg md:text-xl"
-              titleClassName="bg-red-400 hover:bg-red-500"
-              fleche
-            >
-              <></>
+          <button className="w-full" onClick={() => goTo("outils")}>
+          <Window
+                className="h-auto lg:absolute md:absolute   md:bottom-4 md:left-4/5 md:right-1/10 lg:bottom-4 lg:left-4/5 lg:right-0/10 lg:mr-3"
+                title="Découvrir mes Outils"
+                tailleTitle="text-base sm:text-lg md:text-xl"
+                titleClassName="bg-red-400 hover:bg-red-500"                fleche
+              >
+                <> </>
             </Window>
           </button>
 

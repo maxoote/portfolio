@@ -26,7 +26,7 @@ export default function ListeProjet({ ids }: Props) {
         {items.map(p => (
           <li key={p.id} className="shrink-0 lg:shrink-1 lg:w-full">
             <Window
-              className="w-58 lg:w-full"
+              className="w-58 aspect:[1/1]"
               title={p.title}
               tailleTitle="text-lg"
               titleClassName="bg-blue-900 h-20"
