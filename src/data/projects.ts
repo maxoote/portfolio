@@ -74,6 +74,7 @@ import upSch2 from "../assets/unsortedprint/schVF_2.webp";
 import upStl from "../assets/unsortedprint/STL_Flyer.webp";
 import upChaumont1 from "../assets/unsortedprint/chaumont1.webp";
 import upChaumont2 from "../assets/unsortedprint/chaumont2.webp";
+import pinkLucie from "../assets/unsortedprint/pinkluciev2.webp";
 
 // Mon Bureau
 import bureauAcceuil from "../assets/monbureau/acceuil.webp";
@@ -356,7 +357,7 @@ export const projects: Project[] = [
         content: "Collection de travaux d'impression et de design graphique divers (Flyers, Affiches, Tests)."
       }
     },
-    gallery: [up1, upAfficheAA, upSch1, upSch2, upStl, upChaumont1, upChaumont2],
+    gallery: [pinkLucie,upGrand,up1, upAfficheAA, upSch1, upSch2, upStl, upChaumont1, upChaumont2],
     categories: ["Print"]
   },
 
