@@ -38,74 +38,70 @@ function SectionView() {
       </section>
     )
   }
-
-  if (section === "main") {
-    return (
-      <main>
-        <section
-        
-          id="services"
-          aria-labelledby="services-title "
-        >
-          <h2 id="services-title" className="invisible">
-            Services en design graphique, web et communication digitale
-          </h2>
-          <Main />
-        </section>
-      </main>
-    )
-  }
-
-  if (section === "catalogue") {
-    return (
-      <main>
-        <section
-          id="catalogue"
-          aria-labelledby="catalogue-title"
-        >
-          <h2 id="catalogue-title" className="invisible">
-            Projets print et supports de communication
-          </h2>
-          <Catalogue />
-        </section>
-      </main>
-    )
-  }
-
-  if (section === "contact") {
-    return (
-      <main>
-        <section
-          id="contact"
-          aria-labelledby="contact-title"
-        >
-          <h2 id="contact-title" className="invisible">
-            Me contacter pour un projet en Vendée ou Pays de la Loire
-          </h2>
-          <Contact />
-        </section>
-      </main>
-    )
-  }
-
-  if (section === "outils") {
-    return (
-      <main>
-        <section
-          id="outils"
-          aria-labelledby="outils-title"
-        >
-          <h2 id="outils-title" className="invisible">
-            Outils et compétences utilisées sur mes projets
-          </h2>
-          <Outils />
-        </section>
-      </main>
-    )
-  }
-
-  return null
+if (section === "main") {
+  return (
+    <main>
+      <section
+        id="services"
+        aria-labelledby="services-title"
+      >
+        <h2 id="services-title" className="sr-only">
+          Services en design graphique, web et communication digitale
+        </h2>
+        <Main />
+      </section>
+    </main>
+  )
 }
+
+if (section === "catalogue") {
+  return (
+    <main>
+      <section
+        id="catalogue"
+        aria-labelledby="catalogue-title"
+      >
+        <h2 id="catalogue-title" className="sr-only">
+          Projets print et supports de communication
+        </h2>
+        <Catalogue />
+      </section>
+    </main>
+  )
+}
+
+if (section === "contact") {
+  return (
+    <main>
+      <section
+        id="contact"
+        aria-labelledby="contact-title"
+      >
+        <h2 id="contact-title" className="sr-only">
+          Me contacter pour un projet en Vendée ou Pays de la Loire
+        </h2>
+        <Contact />
+      </section>
+    </main>
+  )
+}
+
+if (section === "outils") {
+  return (
+    <main>
+      <section
+        id="outils"
+        aria-labelledby="outils-title"
+      >
+        <h2 id="outils-title" className="sr-only">
+          Outils et compétences utilisées sur mes projets
+        </h2>
+        <Outils />
+      </section>
+    </main>
+  )
+}}
+
 
 export default function App() {
   return (
