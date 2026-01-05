@@ -110,6 +110,21 @@ import pics9804 from "../assets/unsortedpics/IMG_9804.webp";
 import pics9810 from "../assets/unsortedpics/IMG_9810.webp";
 import picsMartin from "../assets/unsortedpics/martinv2.webp";
 import picsCover from "../assets/unsortedpics/cover.webp";
+import picsnouv1n from "../assets/unsortedpics/1normal.webp";
+import picsnouv2n from "../assets/unsortedpics/2normal.webp";
+import picsnouv3n from "../assets/unsortedpics/3normal.webp";
+import picsnouv4n from "../assets/unsortedpics/4normal.webp";
+import picsnouv5n from "../assets/unsortedpics/5normal.webp";
+import picsnouv6n from "../assets/unsortedpics/6normal.webp";
+import picsnouv7n from "../assets/unsortedpics/7normal.webp";
+import picsnouv1j from "../assets/unsortedpics/1jaune.webp";
+import picsnouv2j from "../assets/unsortedpics/2jaune.webp";
+import picsnouv3j from "../assets/unsortedpics/3jaune.webp";
+import picsnouv4j from "../assets/unsortedpics/4jaune.webp";
+import picsnouv5j from "../assets/unsortedpics/5jaune.webp";
+import picsnouv6j from "../assets/unsortedpics/6jaune.webp";
+import picsnouv7j from "../assets/unsortedpics/7jaune.webp";
+import picsnouv8j from "../assets/unsortedpics/8jaune.webp";
 
 
 // --- LISTE DES PROJETS ---
@@ -422,7 +437,7 @@ export const projects: Project[] = [
         content: "Série de photos publiées 'sans contexte', brutes ou juste sorties du boîtier. Une démarche spontanée pour capturer l'instant."
       }
     },
-    gallery: [picsCover, pics0163, pics0531, pics0853, pics0862, pics1334, pics1598, pics2088, pics9462, pics9469, pics9484, pics9804, pics9810, picsMartin],
+    gallery: [picsCover, pics0163, pics0531, pics0853, pics0862, pics1334, pics1598, pics2088, pics9462, pics9469, pics9484, pics9804, pics9810, picsMartin,picsnouv1n, picsnouv2n, picsnouv3n, picsnouv4n, picsnouv5n, picsnouv6n, picsnouv7n, picsnouv1j, picsnouv2j, picsnouv3j, picsnouv4j, picsnouv5j, picsnouv6j, picsnouv7j, picsnouv8j],
     categories: ["Photographie"]
   }
 ];
