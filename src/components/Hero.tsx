@@ -6,6 +6,7 @@ import RolesWindow from "./ui/RoleWindow"
 import { useNav } from "../navigation"
 import LogoSpin from "./ui/LogoWindow"
 import DraggableWindow from "./DraggableWindow"
+
 type Props = { data: HeroData }
 
 export default function Hero({ data }: Props) {
@@ -13,8 +14,15 @@ export default function Hero({ data }: Props) {
   const { goTo } = useNav()
 
   return (
-    <section className="relative isolate min-h-dvh min-w-screen overflow-hidden">
-      <h1 className="sr-only">{name}</h1>
+    <section
+      className="relative isolate min-h-dvh min-w-screen overflow-hidden"
+      aria-label="Section de présentation de Mandin Maxime, étudiant BUT MMI et graphiste freelance"
+    >
+      {/* H1 SEO clair et visible */}
+      <h1 className="sr-only">
+        {name} – Étudiant BUT MMI, graphiste, web-designer et vidéaste en Vendée et Pays de la Loire
+      </h1>
+
       <div className="absolute inset-0 -z-10 bg-purple-800 w-42" />
       <div className="absolute inset-0 -z-15 bg-purple-200 bg-[url('./assets/pentere.svg')] bg-no-repeat bg-center bg-cover" />
       <div className="absolute inset-0 -z-9 bg-[url('./assets/points.svg')] bg-no-repeat m-2" />
@@ -24,9 +32,10 @@ export default function Hero({ data }: Props) {
       <div className="absolute inset-0 -z-5 bg-[url('./assets/traits.svg')] bg-no-repeat bg-center top-3/6 -right-0" />
 
       <div className="mx-auto max-w-6xl px-4 pt-8 md:py-16 overflow-hidden md:max-h-screen md:pt-0 md:max-w-screen lg:max-h-screen lg:pt-0 lg:max-w-screen">
-        {/* Mobile / small screen layout: keep grid-based structure */}
+        {/* Mobile / small screen */}
         <div className="grid grid-cols-1 grid-rows-8 gap-3 md:hidden">
           <MenuWindow />
+
           {/* Bloc 1 → titre+intro */}
           <div className="row-span-3">
             <Window
@@ -36,6 +45,7 @@ export default function Hero({ data }: Props) {
               titleClassName="bg-purple-700"
             >
               <div className="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] bg-white border-2 p-2 md:p-3 h-full">
+                {/* Tagline en H2 (sous-titre) */}
                 <h2 className="text-base sm:text-lg md:text-2xl text-black font-semibold leading-tight">
                   {tagline}
                 </h2>
@@ -45,6 +55,7 @@ export default function Hero({ data }: Props) {
               </div>
             </Window>
           </div>
+
           {/* Bloc 2 → portrait + logo */}
           <div className="row-span-2">
             <div className="grid grid-cols-2 gap-3 h-full">
@@ -56,7 +67,7 @@ export default function Hero({ data }: Props) {
               >
                 <img
                   src={portrait}
-                  alt="Portrait de Mandin Maxime"
+                  alt="Portrait de Mandin Maxime, étudiant en BUT MMI et graphiste freelance"
                   className="object-cover shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]"
                   loading="lazy"
                 />
@@ -64,15 +75,16 @@ export default function Hero({ data }: Props) {
               <LogoSpin />
             </div>
           </div>
+
           {/* Bloc 3 → rôles */}
           <div className="row-span-3 flex flex-col gap-9">
             <RolesWindow memphis={true} />
-            <button className="w-full" onClick={() => goTo("main")}> 
+            <button className="w-full" onClick={() => goTo("main")}>
               <Window
                 className="h-auto"
                 title="Découvrir mes projets"
                 tailleTitle="text-base sm:text-lg md:text-xl"
-                titleClassName="bg-red-400" 
+                titleClassName="bg-red-400"
                 fleche
               >
                 <></>
@@ -80,9 +92,9 @@ export default function Hero({ data }: Props) {
             </button>
           </div>
         </div>
-        {/* Desktop layout: absolute draggable windows. Hidden on small screens */}
+
+        {/* Desktop layout */}
         <div className="hidden md:block relative min-h-screen">
-          {/* Each window wrapped separately to allow independent dragging */}
           {/* Menu window */}
           <DraggableWindow defaultPosition={{ x: 20, y: 20 }} className="z-50">
             <MenuWindow />
@@ -109,20 +121,21 @@ export default function Hero({ data }: Props) {
 
           {/* Portrait window */}
           <DraggableWindow defaultPosition={{ x: "75%", y: "20%" }} className="z-40">
-    <Window
-      title="photo.webp"
-      titleClassName="bg-green-400"
-      tailleTitle="text-sm sm:text-base"
-      className="max-w-sm md:w-[20vw] lg:w-[20vw]"
-    >
-      <img
-        src={portrait}
-        alt="Portrait de Mandin Maxime"
-        className="object-cover shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] no-select"
-        loading="lazy"
-      />
-    </Window>
-  </DraggableWindow>
+            <Window
+              title="photo.webp"
+              titleClassName="bg-green-400"
+              tailleTitle="text-sm sm:text-base"
+              className="max-w-sm md:w-[20vw] lg:w-[20vw]"
+            >
+              <img
+                src={portrait}
+                alt="Portrait de Mandin Maxime, étudiant en BUT MMI et graphiste freelance"
+                className="object-cover shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] no-select"
+                loading="lazy"
+              />
+            </Window>
+          </DraggableWindow>
+
           {/* Logo window */}
           <DraggableWindow defaultPosition={{ x: "65%", y: "55%" }} className="z-40">
             <LogoSpin />
@@ -134,17 +147,17 @@ export default function Hero({ data }: Props) {
           </DraggableWindow>
 
           {/* Call-to-action window */}
-            <button className="w-full" onClick={() => goTo("main")}> 
-              <Window
-                className="h-auto absolute bottom-4 left-2/5 right-2/5"
-                title="Découvrir mes projets"
-                tailleTitle="text-base sm:text-lg md:text-xl"
-                titleClassName="bg-red-400 hover:bg-red-500"                fleche
-              >
-                <></>
-              </Window>
-            </button>
-        
+          <button className="w-full" onClick={() => goTo("main")}>
+            <Window
+              className="h-auto absolute bottom-4 left-2/5 right-2/5"
+              title="Découvrir mes projets"
+              tailleTitle="text-base sm:text-lg md:text-xl"
+              titleClassName="bg-red-400 hover:bg-red-500"
+              fleche
+            >
+              <></>
+            </Window>
+          </button>
         </div>
       </div>
     </section>
