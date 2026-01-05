@@ -43,11 +43,11 @@ function SectionView() {
     return (
       <main>
         <section
-        className="invisible"
+        
           id="services"
           aria-labelledby="services-title "
         >
-          <h2 id="services-title">
+          <h2 id="services-title" className="invisible">
             Services en design graphique, web et communication digitale
           </h2>
           <Main />
@@ -60,11 +60,10 @@ function SectionView() {
     return (
       <main>
         <section
-        className="invisible"
           id="catalogue"
           aria-labelledby="catalogue-title"
         >
-          <h2 id="catalogue-title">
+          <h2 id="catalogue-title" className="invisible">
             Projets print et supports de communication
           </h2>
           <Catalogue />
@@ -77,11 +76,10 @@ function SectionView() {
     return (
       <main>
         <section
-        className="invisible"
           id="contact"
           aria-labelledby="contact-title"
         >
-          <h2 id="contact-title">
+          <h2 id="contact-title" className="invisible">
             Me contacter pour un projet en Vendée ou Pays de la Loire
           </h2>
           <Contact />
@@ -94,11 +92,10 @@ function SectionView() {
     return (
       <main>
         <section
-        className="invisible"
           id="outils"
           aria-labelledby="outils-title"
         >
-          <h2 id="outils-title">
+          <h2 id="outils-title" className="invisible">
             Outils et compétences utilisées sur mes projets
           </h2>
           <Outils />
