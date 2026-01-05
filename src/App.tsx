@@ -43,8 +43,9 @@ function SectionView() {
     return (
       <main>
         <section
+        className="invisible"
           id="services"
-          aria-labelledby="services-title"
+          aria-labelledby="services-title "
         >
           <h2 id="services-title">
             Services en design graphique, web et communication digitale
@@ -59,6 +60,7 @@ function SectionView() {
     return (
       <main>
         <section
+        className="invisible"
           id="catalogue"
           aria-labelledby="catalogue-title"
         >
@@ -75,6 +77,7 @@ function SectionView() {
     return (
       <main>
         <section
+        className="invisible"
           id="contact"
           aria-labelledby="contact-title"
         >
@@ -91,6 +94,7 @@ function SectionView() {
     return (
       <main>
         <section
+        className="invisible"
           id="outils"
           aria-labelledby="outils-title"
         >
