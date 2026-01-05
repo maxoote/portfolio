@@ -75,7 +75,15 @@ import upStl from "../assets/unsortedprint/STL_Flyer.webp";
 import upChaumont1 from "../assets/unsortedprint/chaumont1.webp";
 import upChaumont2 from "../assets/unsortedprint/chaumont2.webp";
 import pinkLucie from "../assets/unsortedprint/pinkluciev2.webp";
-
+import a3 from "../assets/unsortedprint/A3.webp";
+import cafelover from "../assets/unsortedprint/cafelover.webp";
+import gettingbored from "../assets/unsortedprint/gettingbored.webp";
+import justabovetheroof from "../assets/unsortedprint/justabovetheroof.webp";
+import presdetoi from "../assets/unsortedprint/presdetoi.webp";
+import vuemuette from "../assets/unsortedprint/vuemuette.webp";
+import vvb from "../assets/unsortedprint/vvb.webp";
+import wf1 from "../assets/unsortedprint/wf1.webp";
+import wf2 from "../assets/unsortedprint/wf2.webp";
 // Mon Bureau
 import bureauAcceuil from "../assets/monbureau/acceuil.webp";
 import bureauMain from "../assets/monbureau/bureau.webp";
@@ -372,7 +380,7 @@ export const projects: Project[] = [
         content: "Collection de travaux d'impression et de design graphique divers (Flyers, Affiches, Tests)."
       }
     },
-    gallery: [pinkLucie,upGrand,up1, upAfficheAA, upSch1, upSch2, upStl, upChaumont1, upChaumont2],
+    gallery: [a3, cafelover, gettingbored, justabovetheroof, presdetoi, vuemuette, vvb, wf1, wf2,pinkLucie,upGrand,up1, upAfficheAA, upSch1, upSch2, upStl, upChaumont1, upChaumont2],
     categories: ["Print"]
   },
 
