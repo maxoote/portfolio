@@ -96,7 +96,7 @@ export default function Hero({ data }: Props) {
           </DraggableWindow>
 
           {/* Titre + intro window */}
-          <DraggableWindow defaultPosition={{ x: "5%", y: "5%" }} className="z-40">
+          <DraggableWindow defaultPosition={{ x: "0%", y: "0%" }} className="z-40">
             <Window
               className="w-fit max-w-6xl h-fit md:w-[60vw] lg:w-[60vw]"
               title={name}
@@ -115,7 +115,7 @@ export default function Hero({ data }: Props) {
           </DraggableWindow>
 
           {/* Portrait window */}
-          <DraggableWindow defaultPosition={{ x: "5%", y: "30%" }} className="z-40">
+          <DraggableWindow defaultPosition={{ x: "0%", y: "35%" }} className="z-40">
             <Window
               title="photo.webp"
               titleClassName=""
@@ -132,12 +132,12 @@ export default function Hero({ data }: Props) {
           </DraggableWindow>
 
           {/* Logo window */}
-          <DraggableWindow defaultPosition={{ x: "75%", y: "20%" }} className="z-40">
+          <DraggableWindow defaultPosition={{ x: "100%", y: "0%" }} className="z-40">
             <LogoSpin />
           </DraggableWindow>
 
           {/* Roles window */}
-          <DraggableWindow defaultPosition={{ x: "5%", y: "90%" }} className="z-40">
+          <DraggableWindow defaultPosition={{ x: "25%", y: "50%" }} className="z-40">
             <RolesWindow memphis={true} />
           </DraggableWindow>
 
