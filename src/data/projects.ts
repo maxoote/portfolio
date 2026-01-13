@@ -412,14 +412,19 @@ export const projects: Project[] = [
           {
             title: "Préparation à l’impression",
             content:
-              "Mise en page finalisée en respectant les contraintes techniques (fonds perdus, marges, lisibilité) et export des fichiers pour impression de qualité."
+              "Mise en page finalisée en respectant les contraintes techniques (fonds perdus, marges, lisibilité) et export des fichiers pour une impression de qualité."
           }
         ]
+      },
+      vision: {
+        title: "Vision & Démarche Graphique",
+        content:
+          "Ce projet a été l’occasion d’utiliser la série d’affiches comme un terrain d’exploration autour de la narration visuelle. Chaque affiche propose une variation sur le même univers, permettant de tester différents degrés d’abstraction tout en conservant une identité commune. Ce travail questionne la frontière entre lisibilité et expression graphique : jusqu’où peut-on pousser la typographie et la mise en page tout en restant compréhensible pour le lecteur ?"
       },
       competencesDemontrees: {
         title: "Compétences Démontrées",
         content:
-          "Design d’affiche, utilisation expressive de la typographie, travail en série cohérente, mise en page et hiérarchie visuelle, capacité à interpréter un univers littéraire en langage graphique, préparation de fichiers pour l’impression."
+          "Design d’affiche, utilisation expressive de la typographie, travail en série cohérente, mise en page et hiérarchie visuelle, interprétation graphique d’un univers littéraire, préparation de fichiers pour l’impression."
       }
     },
     gallery: [anna1, anna2, anna3, anna4, anna4b, anna4c, anna5, anna6],
@@ -433,12 +438,70 @@ export const projects: Project[] = [
     detailedDescription: {
       context: {
         title: "Expérimentations Print",
-        content: "Collection de travaux d'impression et de design graphique divers (Flyers, Affiches, Tests)."
+        content:
+          "Collection de travaux d'impression et de design graphique réalisés hors cadre client : affiches, flyers, tests typographiques et compositions libres. Ce projet fonctionne comme un terrain de jeu graphique, sans contraintes de commande, pour explorer des idées rapidement."
+      },
+      role: {
+        title: "Réalisation & Direction Graphique",
+        intro:
+          "Création complète de chaque visuel, de l’idée brute jusqu’aux fichiers prêts à être imprimés.",
+        points: [
+          {
+            title: "Explorations typographiques",
+            content:
+              "Expérimentations autour de la lettre comme matière graphique : variations de corps, contrastes, surcouches, déconstruction et recomposition pour tester des ambiances et des rythmes visuels."
+          },
+          {
+            title: "Recherche de compositions",
+            content:
+              "Tests de grilles, de hiérarchie visuelle et d’équilibre entre textes, blocs colorés et images, dans des formats variés (affiche, flyer, A3, formats événementiels)."
+          },
+          {
+            title: "Couleur & ambiance visuelle",
+            content:
+              "Jeux sur les palettes colorées (saturées, pastel, contrastées) pour créer des univers distincts selon chaque visuel, tout en gardant une cohérence personnelle dans le style."
+          },
+          {
+            title: "Préparation print",
+            content:
+              "Mise en page finalisée et préparation des fichiers pour l’impression (fonds perdus, marges, résolution), permettant une éventuelle utilisation en situation réelle (affichage, communication événementielle, tests d’impression)."
+          }
+        ]
+      },
+      vision: {
+        title: "Vision & Démarche",
+        content:
+          "Unsorted Print est pensé comme un laboratoire graphique : un espace où expérimenter sans enjeu commercial direct, tester rapidement des idées et accepter l’imperfection. Cette démarche permet de nourrir les projets clients avec des pistes visuelles déjà explorées, tout en développant un style personnel plus affirmé."
+      },
+      competencesDemontrees: {
+        title: "Compétences Démontrées",
+        content:
+          "Design d’affiche et de flyer, expérimentation typographique, travail sur la couleur, gestion de la hiérarchie visuelle, mise en page pour l’impression, capacité à développer une identité graphique personnelle à travers des projets non commandés."
       }
     },
-    gallery: [a3, cafelover, gettingbored, justabovetheroof, presdetoi, vuemuette, vvb, wf1, wf2,pinkLucie,upGrand,up1, upAfficheAA, upSch1, upSch2, upStl, upChaumont1, upChaumont2],
+    gallery: [
+      a3,
+      cafelover,
+      gettingbored,
+      justabovetheroof,
+      presdetoi,
+      vuemuette,
+      vvb,
+      wf1,
+      wf2,
+      pinkLucie,
+      upGrand,
+      up1,
+      upAfficheAA,
+      upSch1,
+      upSch2,
+      upStl,
+      upChaumont1,
+      upChaumont2
+    ],
     categories: ["Print"]
   },
+  
 
   // --- 💻 PROGRAMMATION ---
   {
