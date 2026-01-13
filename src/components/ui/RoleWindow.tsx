@@ -25,7 +25,7 @@ export default function RolesWindow({ memphis = false }: Props) {
   return (
     <Window
       title="étudiant.exe"
-      titleClassName="bg-blue-500"
+      titleClassName=""
       tailleTitle="text-xl"
       className="relative w-full h-fit md:w-[28rem] overflow-hidden"
     >

@@ -8,7 +8,7 @@ export default function LogoSpin() {
   return (
     <Window
       title="Logo.webp"
-      titleClassName="bg-pink-700"
+      titleClassName=""
       tailleTitle="text-mg"
       className="w-fit h-fit md:w-[15vw] lg:w-[15vw]"
     >
