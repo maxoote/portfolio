@@ -68,7 +68,7 @@ export default function Main() {
                 className="h-auto lg:absolute md:absolute   md:bottom-4 md:left-4/5 md:right-1/10 lg:bottom-4 lg:left-4/5 lg:right-0/10 lg:mr-3"
                 title="Découvrir mes Outils"
                 tailleTitle="text-base sm:text-lg md:text-xl"
-                titleClassName="bg-red-400 hover:bg-red-500"                fleche
+                titleClassName="hover:bg-red-800 bg-red-600"                fleche
               >
                 <> </>
             </Window>
