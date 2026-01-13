@@ -132,7 +132,7 @@ export default function Hero({ data }: Props) {
           </DraggableWindow>
 
           {/* Logo window */}
-          <DraggableWindow defaultPosition={{ x: "84%", y: "12%" }} className="z-40">
+          <DraggableWindow defaultPosition={{ x: "65%", y: "15%" }} className="z-40">
             <LogoSpin />
           </DraggableWindow>
 
@@ -144,7 +144,7 @@ export default function Hero({ data }: Props) {
           {/* Call-to-action window */}
           <button className="w-full" onClick={() => goTo("main")}>
             <Window
-              className="h-auto absolute bottom-4 left-2/5 right-2/5"
+              className="h-auto absolute bottom-10 left-2/5 right-2/5"
               title="Découvrir mes projets"
               tailleTitle="text-base sm:text-lg md:text-xl"
               titleClassName="hover:bg-red-500"

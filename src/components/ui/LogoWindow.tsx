@@ -18,7 +18,7 @@ export default function LogoSpin() {
         loading="lazy"
         onClick={() => setSpinning(prev => !prev)} // mobile : toggle au clic
         className={[
-          "w-3/4 md:w-full lg:w-full justify-self-center object-cover rounded-full no-select",
+          "w-2/4 md:w-full lg:w-full justify-self-center object-cover rounded-full no-select",
           "hover:animate-[spin_0.5s_linear_infinite]", // PC : spin rapide au hover
           spinning ? "animate-[spin_0.5s_linear_infinite]" : "" // Mobile : spin si state actif
         ].join(" ")}
