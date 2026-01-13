@@ -23,10 +23,10 @@ export default function MenuWindow() {
 
       <nav id={panelId} className={`overflow-hidden transition-all duration-500 ease-in-out ${open ? "max-h-[500px] mt-3" : "max-h-0"} lg:mt-3`}>
         <ul className="flex flex-col items-center font-black gap-3 md:gap-6">
-          <li><button onClick={() => { goTo("hero"); setOpen(false) }}>Accueil</button></li>
-          <li><button onClick={() => { goTo("main"); setOpen(false) }}>Mon travail</button></li>
-          <li><button onClick={() => { goTo("catalogue"); setOpen(false) }}>Projets</button></li>
-          <li><button onClick={() => { goTo("contact"); setOpen(false) }}>Contact</button></li>
+          <li className="mb-2  flex items-center justify-between text-white px-3 py-2 bg-blue-900 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]"><button onClick={() => { goTo("hero"); setOpen(false) }}>Accueil</button></li>
+          <li  className="mb-2  flex items-center justify-between text-white px-3 py-2 bg-blue-900 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]"><button onClick={() => { goTo("main"); setOpen(false) }}>Mon travail</button></li>
+          <li  className="mb-2  flex items-center justify-between text-white px-3 py-2 bg-blue-900 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]"><button onClick={() => { goTo("catalogue"); setOpen(false) }}>Projets</button></li>
+          <li  className="mb-2  flex items-center justify-between text-white px-3 py-2 bg-blue-900 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]"><button onClick={() => { goTo("contact"); setOpen(false) }}>Contact</button></li>
         </ul>
       </nav>
     </div>
