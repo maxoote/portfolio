@@ -14,8 +14,9 @@ export default function Hero({ data }: Props) {
   const { goTo } = useNav()
 
   return (
+
     <section
-      className="relative isolate min-h-dvh min-w-screen overflow-hidden"
+      className="py-4 min-h-dvh bg-[url('./assets/fondprojet.png')] bg-no-repeat bg-center bg-cover"
       aria-label="Section de présentation de Mandin Maxime, étudiant BUT MMI et graphiste freelance"
     >
       {/* H1 SEO clair et visible */}
@@ -23,13 +24,7 @@ export default function Hero({ data }: Props) {
         {name} – Étudiant BUT MMI, graphiste, web-designer et vidéaste en Vendée et Pays de la Loire
       </h1>
 
-      <div className="absolute inset-0 -z-10 bg-purple-800 w-42" />
-      <div className="absolute inset-0 -z-15 bg-purple-200 bg-[url('./assets/pentere.svg')] bg-no-repeat bg-center bg-cover" />
-      <div className="absolute inset-0 -z-9 bg-[url('./assets/points.svg')] bg-no-repeat m-2" />
-      <div className="absolute inset-0 -z-9 bg-[url('./assets/zigzag.svg')] bg-no-repeat top-1/4 -left-2" />
-      <div className="absolute inset-0 -z-9 bg-[url('./assets/zigzag.svg')] bg-no-repeat top-3/4 -left-2" />
-      <div className="absolute inset-0 -z-9 bg-[url('./assets/zigzag.svg')] bg-no-repeat top-2/4 -right-2 scale-x-[-1]" />
-      <div className="absolute inset-0 -z-5 bg-[url('./assets/traits.svg')] bg-no-repeat bg-center top-3/6 -right-0" />
+      
 
       <div className="mx-auto max-w-6xl px-4 pt-8 md:py-16 overflow-hidden md:max-h-screen md:pt-0 md:max-w-screen lg:max-h-screen lg:pt-0 lg:max-w-screen">
         {/* Mobile / small screen */}
