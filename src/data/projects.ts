@@ -513,17 +513,47 @@ export const projects: Project[] = [
     detailedDescription: {
       context: {
         title: "Genèse du projet",
-        content: "Initialement prévu pour être mon portfolio universitaire, ce projet s'est révélé trop complexe pour une navigation fluide d'information rapide."
+        content:
+          "Initialement conçu comme un portfolio universitaire, ce projet a rapidement pris une ampleur plus immersive et narrative. La volonté de créer une expérience très visuelle et interactive l’a rendu moins adapté à une consultation rapide d’informations, mais en a fait un terrain d’expérimentation créatif riche."
+      },
+      role: {
+        title: "Conception & Développement",
+        intro:
+          "Création complète de l’univers, de l’idée de 'bureau virtuel' jusqu’au développement front-end.",
+        points: [
+          {
+            title: "Concept d’interface diegétique",
+            content:
+              "Conception d’une interface qui prend la forme d’un bureau physique virtuel : l’utilisateur explore un espace plutôt qu’un simple menu, ce qui transforme la navigation en expérience."
+          },
+          {
+            title: "Direction artistique de l’espace",
+            content:
+              "Choix des cadrages, des éléments visuels (fenêtre, bureau, objets) et des ambiances pour représenter un espace de travail idéal, cohérent avec ton univers graphique et ta manière de travailler."
+          },
+          {
+            title: "Intégration & interactions",
+            content:
+              "Mise en place des zones cliquables, transitions et mises en avant de contenus (projets, informations) en privilégiant une expérience immersive plutôt qu’un simple défilement de page."
+          }
+        ]
       },
       vision: {
         title: "Pivot Créatif",
-        content: "J'ai décidé de conserver ce projet comme une 'extension de mon univers'. C'est un espace numérique personnel et créatif qui représente mon espace de travail idéalisé, codé sur mesure."
+        content:
+          "Le projet a évolué d’un portfolio 'classique' vers une extension de ton univers personnel. Plutôt que d’optimiser à tout prix la lisibilité, « Mon Bureau » assume son rôle d’espace expérimental : une sorte de pièce numérique dans laquelle on entre pour découvrir ton travail autrement. Ce projet sert de laboratoire pour tester des idées d’interface plus narratives, qui pourront ensuite être réinjectées dans des projets plus fonctionnels."
+      },
+      competencesDemontrees: {
+        title: "Compétences Démontrées",
+        content:
+          "Conception d’interface immersive, web-design orienté narration, réflexion UX entre esthétique et lisibilité, capacité à faire pivoter un projet en cours vers un objet plus expérimental, cohérence visuelle entre univers graphique et interface."
       }
     },
     gallery: [bureauMain, bureauAcceuil, bureauFenetre],
     url: "https://perso.univ-lemans.fr/~i2400571/portfolio2/bureau.php",
     categories: ["Programmation", "Web-design"]
   },
+  
   {
     id: "portfolio-2025",
     title: "Portfolio 2025",
