@@ -37,7 +37,7 @@ export default function Hero({ data }: Props) {
               className="w-full h-fit"
               title={name}
               tailleTitle="text-lg sm:text-xl md:text-2xl"
-              titleClassName="bg-purple-700"
+              titleClassName=""
             >
               <div className="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] bg-white border-2 p-2 md:p-3 h-full">
                 {/* Tagline en H2 (sous-titre) */}
@@ -56,7 +56,7 @@ export default function Hero({ data }: Props) {
             <div className="grid grid-cols-2 gap-3 h-full">
               <Window
                 title="photo.webp"
-                titleClassName="bg-green-400"
+                titleClassName=""
                 tailleTitle="text-sm sm:text-base"
                 className="h-fit"
               >
@@ -79,7 +79,7 @@ export default function Hero({ data }: Props) {
                 className="h-auto"
                 title="Découvrir mes projets"
                 tailleTitle="text-base sm:text-lg md:text-xl"
-                titleClassName="bg-red-400"
+                titleClassName=""
                 fleche
               >
                 <></>
@@ -101,7 +101,7 @@ export default function Hero({ data }: Props) {
               className="w-fit max-w-6xl h-fit md:w-[60vw] lg:w-[60vw]"
               title={name}
               tailleTitle="text-6xl"
-              titleClassName="bg-purple-700"
+              titleClassName=""
             >
               <div className="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] bg-white border-2 p-2 md:p-3 h-full">
                 <h2 className="text-base sm:text-lg md:text-2xl text-black font-semibold leading-tight">
@@ -118,7 +118,7 @@ export default function Hero({ data }: Props) {
           <DraggableWindow defaultPosition={{ x: "75%", y: "20%" }} className="z-40">
             <Window
               title="photo.webp"
-              titleClassName="bg-green-400"
+              titleClassName=""
               tailleTitle="text-sm sm:text-base"
               className="max-w-sm md:w-[20vw] lg:w-[20vw]"
             >
@@ -147,7 +147,7 @@ export default function Hero({ data }: Props) {
               className="h-auto absolute bottom-4 left-2/5 right-2/5"
               title="Découvrir mes projets"
               tailleTitle="text-base sm:text-lg md:text-xl"
-              titleClassName="bg-red-400 hover:bg-red-500"
+              titleClassName="hover:bg-red-500"
               fleche
             >
               <></>
