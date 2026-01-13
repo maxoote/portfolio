@@ -79,7 +79,7 @@ export default function Hero({ data }: Props) {
                 className="h-auto"
                 title="Découvrir mes projets"
                 tailleTitle="text-base sm:text-lg md:text-xl"
-                titleClassName=""
+                titleClassName="hover:bg-red-800 bg-red-600"
                 fleche
               >
                 <></>
