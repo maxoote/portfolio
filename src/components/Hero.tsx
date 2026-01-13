@@ -144,7 +144,7 @@ export default function Hero({ data }: Props) {
           {/* Call-to-action window */}
           <button className="w-full" onClick={() => goTo("main")}>
             <Window
-              className="h-auto absolute bottom-10 left-2/5 right-2/5"
+              className="h-auto absolute bottom-10 left-1/5 right-1/5"
               title="Découvrir mes projets"
               tailleTitle="text-base sm:text-lg md:text-xl"
               titleClassName="hover:bg-red-500"
