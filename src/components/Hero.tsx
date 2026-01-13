@@ -96,7 +96,7 @@ export default function Hero({ data }: Props) {
           </DraggableWindow>
 
           {/* Titre + intro window */}
-          <DraggableWindow defaultPosition={{ x: "5%", y: "10%" }} className="z-40">
+          <DraggableWindow defaultPosition={{ x: "5%", y: "5%" }} className="z-40">
             <Window
               className="w-fit max-w-6xl h-fit md:w-[60vw] lg:w-[60vw]"
               title={name}
@@ -137,7 +137,7 @@ export default function Hero({ data }: Props) {
           </DraggableWindow>
 
           {/* Roles window */}
-          <DraggableWindow defaultPosition={{ x: "10%", y: "70%" }} className="z-40">
+          <DraggableWindow defaultPosition={{ x: "5%", y: "90%" }} className="z-40">
             <RolesWindow memphis={true} />
           </DraggableWindow>
 
