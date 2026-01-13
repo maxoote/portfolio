@@ -336,30 +336,6 @@ export const projects: Project[] = [
     image: tshLogo,
     detailedDescription: {
       context: {
-        title: "Contexte Professionnel",
-        content:
-          "Accompagnement d'une hypnothérapeute dans le lancement de son activité libérale. L'objectif était de créer une identité visuelle rassurante et professionnelle, capable d'inspirer confiance dès le premier contact (site, carte, flyer)."
-      },
-      role: {
-        title: "Mon Rôle (Direction Artistique)",
-        points: [
-          "Branding : Création du logo, définition de la palette colorimétrique et choix typographiques pour traduire visuellement l'univers de l'hypnose (apaisement, écoute, accompagnement).",
-          "Print : Conception des cartes de visite et des flyers promotionnels, en veillant à la lisibilité des informations clés (coordonnées, spécialités, prise de rendez-vous).",
-          "Cohérence de marque : Accompagnement sur la déclinaison de l'identité (print et futur digital) afin de garantir une image homogène sur l'ensemble des supports."
-        ]
-      }
-    },
-    gallery: [tshLogo, tshFlyer1, tshFlyer2, tshCarte1, tshCarte2],
-    categories: ["Branding", "Print"]
-  },
-
-  // --- 🖨️ PRINT ---
-  {
-    id: "ta-solution-hypno",
-    title: "TaSolutionHypno",
-    image: tshLogo,
-    detailedDescription: {
-      context: {
         title: "Contexte & Enjeux",
         content:
           "Accompagnement d'une hypnothérapeute dans le lancement de son activité libérale. L'enjeu principal : construire une identité visuelle professionnelle, rassurante et mémorable pour inspirer confiance dès le premier contact (flyer, carte de visite, bouche-à-oreille) et clarifier son positionnement face à une offre de soins alternative parfois méconnue."
@@ -401,6 +377,25 @@ export const projects: Project[] = [
     categories: ["Branding", "Print"]
   },
   
+
+  // --- 🖨️ PRINT ---
+  {
+    id: "anna-partout",
+    title: "Anna Partout",
+    image: anna1,
+    detailedDescription: {
+      context: {
+        title: "Contexte",
+        content: "Projet universitaire autour de l'œuvre littéraire 'Anna Partout'."
+      },
+      role: {
+        title: "Réalisation",
+        points:[ "Conception d'une série d'affiches artistiques interprétant l'univers du livre, jouant sur la typographie et la composition visuelle."]
+      }
+    },
+    gallery: [anna1, anna2, anna3, anna4, anna4b, anna4c, anna5, anna6],
+    categories: ["Print"]
+  },
   {
     id: "unsorted-print",
     title: "Unsorted Print",
