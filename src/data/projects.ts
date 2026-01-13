@@ -337,14 +337,15 @@ export const projects: Project[] = [
     detailedDescription: {
       context: {
         title: "Contexte Professionnel",
-        content: "Accompagnement d'une hypnothérapeute pour le lancement de son activité libérale. Le client avait besoin d'une identité visuelle complète pour démarrer."
+        content:
+          "Accompagnement d'une hypnothérapeute dans le lancement de son activité libérale. L'objectif était de créer une identité visuelle rassurante et professionnelle, capable d'inspirer confiance dès le premier contact (site, carte, flyer)."
       },
       role: {
         title: "Mon Rôle (Direction Artistique)",
         points: [
-          "Branding : Création du logo et définition de la palette couleur.",
-          "Print : Conception des cartes de visite et des flyers promotionnels.",
-          "Conseil : Accompagnement sur la cohérence visuelle des supports."
+          "Branding : Création du logo, définition de la palette colorimétrique et choix typographiques pour traduire visuellement l'univers de l'hypnose (apaisement, écoute, accompagnement).",
+          "Print : Conception des cartes de visite et des flyers promotionnels, en veillant à la lisibilité des informations clés (coordonnées, spécialités, prise de rendez-vous).",
+          "Cohérence de marque : Accompagnement sur la déclinaison de l'identité (print et futur digital) afin de garantir une image homogène sur l'ensemble des supports."
         ]
       }
     },
