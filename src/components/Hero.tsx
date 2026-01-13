@@ -137,7 +137,7 @@ export default function Hero({ data }: Props) {
           </DraggableWindow>
 
           {/* Roles window */}
-          <DraggableWindow defaultPosition={{ x: "25%", y: "50%" }} className="z-40">
+          <DraggableWindow defaultPosition={{ x: "30%", y: "30%" }} className="z-40">
             <RolesWindow memphis={true} />
           </DraggableWindow>
 
