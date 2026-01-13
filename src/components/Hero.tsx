@@ -132,7 +132,7 @@ export default function Hero({ data }: Props) {
           </DraggableWindow>
 
           {/* Logo window */}
-          <DraggableWindow defaultPosition={{ x: "65%", y: "15%" }} className="z-40">
+          <DraggableWindow defaultPosition={{ x: "70%", y: "30%" }} className="z-40">
             <LogoSpin />
           </DraggableWindow>
 
