@@ -437,46 +437,46 @@ export const projects: Project[] = [
     image: upGrand,
     detailedDescription: {
       context: {
-        title: "Expérimentations Print",
+        title: "Expérimentations & Archives Print",
         content:
-          "Collection de travaux d'impression et de design graphique réalisés hors cadre client : affiches, flyers, tests typographiques et compositions libres. Ce projet fonctionne comme un terrain de jeu graphique, sans contraintes de commande, pour explorer des idées rapidement."
+          "Dossier qui réunit mes créations print qui n’ont pas vocation à devenir des projets autonomes à part entière : affiches isolées, essais graphiques, flyers, tests de composition, etc. C’est un espace-archive pour rassembler et montrer ma production personnelle en design imprimé en dehors des commandes ou des projets universitaires structurés. Au sein de cet ensemble se trouve également une vraie série plus construite, « Unsorted Print », qui pousse plus loin la démarche expérimentale."
       },
       role: {
         title: "Réalisation & Direction Graphique",
         intro:
-          "Création complète de chaque visuel, de l’idée brute jusqu’aux fichiers prêts à être imprimés.",
+          "Création de l’ensemble des visuels, de l’esquisse à la préparation technique pour l’impression.",
         points: [
           {
-            title: "Explorations typographiques",
+            title: "Regroupement de créations autonomes",
             content:
-              "Expérimentations autour de la lettre comme matière graphique : variations de corps, contrastes, surcouches, déconstruction et recomposition pour tester des ambiances et des rythmes visuels."
+              "Sélection et organisation de visuels qui, pris individuellement, ne justifient pas un projet dédié, mais témoignent de recherches graphiques ponctuelles (typographie, couleur, texture, mise en page)."
           },
           {
-            title: "Recherche de compositions",
+            title: "Série « Unsorted Print »",
             content:
-              "Tests de grilles, de hiérarchie visuelle et d’équilibre entre textes, blocs colorés et images, dans des formats variés (affiche, flyer, A3, formats événementiels)."
+              "Développement d’une série d’affiches plus aboutie à l’intérieur de cet ensemble, utilisant le principe d’images « non triées » comme terrain d’expérimentation sur la composition, la densité visuelle et la hiérarchie de l’information."
           },
           {
-            title: "Couleur & ambiance visuelle",
+            title: "Explorations typographiques & visuelles",
             content:
-              "Jeux sur les palettes colorées (saturées, pastel, contrastées) pour créer des univers distincts selon chaque visuel, tout en gardant une cohérence personnelle dans le style."
+              "Travail libre sur la typographie, les contrastes, la mise en page et les palettes colorées, sans contrainte de commande, pour tester rapidement des idées réutilisables ensuite dans des projets clients ou scolaires."
           },
           {
             title: "Préparation print",
             content:
-              "Mise en page finalisée et préparation des fichiers pour l’impression (fonds perdus, marges, résolution), permettant une éventuelle utilisation en situation réelle (affichage, communication événementielle, tests d’impression)."
+              "Mise en page et export des fichiers en conditions réelles d’impression (formats, fonds perdus, marges), permettant d’imprimer ces essais pour affichage, tests ou expositions."
           }
         ]
       },
       vision: {
         title: "Vision & Démarche",
         content:
-          "Unsorted Print est pensé comme un laboratoire graphique : un espace où expérimenter sans enjeu commercial direct, tester rapidement des idées et accepter l’imperfection. Cette démarche permet de nourrir les projets clients avec des pistes visuelles déjà explorées, tout en développant un style personnel plus affirmé."
+          "Unsorted Print fonctionne comme un répertoire vivant de recherches graphiques : un endroit où empiler, sans filtre, les essais imprimés qui jalonnent le processus créatif. La présence d’une série plus construite à l’intérieur de ce dossier montre comment des expérimentations isolées peuvent peu à peu se transformer en véritable projet cohérent."
       },
       competencesDemontrees: {
         title: "Compétences Démontrées",
         content:
-          "Design d’affiche et de flyer, expérimentation typographique, travail sur la couleur, gestion de la hiérarchie visuelle, mise en page pour l’impression, capacité à développer une identité graphique personnelle à travers des projets non commandés."
+          "Design d’affiche et de flyer, expérimentation typographique, mise en page print, gestion de la couleur, structuration d’un corpus de travaux personnels, capacité à faire évoluer de simples tests en série graphique plus aboutie."
       }
     },
     gallery: [
@@ -501,6 +501,8 @@ export const projects: Project[] = [
     ],
     categories: ["Print"]
   },
+
+
   
 
   // --- 💻 PROGRAMMATION ---
