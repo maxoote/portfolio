@@ -554,7 +554,6 @@ export const projects: Project[] = [
     categories: ["Programmation", "Web-design"]
   },
   
-  
   {
     id: "portfolio-2025",
     title: "Portfolio 2025",
@@ -562,16 +561,51 @@ export const projects: Project[] = [
     detailedDescription: {
       context: {
         title: "Contexte",
-        content: "Le site sur lequel vous naviguez actuellement. C'est l'adaptation fonctionnelle et professionnelle du projet 'Mon Bureau'."
+        content:
+          "Vous êtes actuellement dessus. Ce site est la version fonctionnelle et professionnelle de mon portfolio. Il est né d’un besoin simple : présenter clairement qui je suis, ce que je fais et comment je travaille, tout en tirant les leçons de mes précédentes expérimentations, notamment le projet « Mon Bureau »."
       },
       role: {
-        title: "Tech Stack",
-        points: ["Développé entièrement en React avec TypeScript. L'objectif est de présenter efficacement qui je suis et ce que je fais, avec une UX optimisée par rapport aux versions précédentes."]
+        title: "Conception & Développement",
+        intro:
+          "J’ai pensé, designé et développé ce portfolio de A à Z, en partant de ma propre expérience utilisateur : qu’est-ce que j’aimerais voir en tant que recruteur, client ou collaborateur potentiel ?",
+        points: [
+          {
+            title: "Architecture & UX",
+            content:
+              "J’ai simplifié la structure de navigation par rapport à mes anciens portfolios, pour aller droit au but : projets, profil, contact. L’objectif est de rendre la découverte de mon travail fluide, sans sacrifier la dimension visuelle."
+          },
+          {
+            title: "Direction artistique du site",
+            content:
+              "J’ai défini une identité visuelle sobre mais marquée (couleurs, typographies, rythme des sections) afin de laisser la place aux projets tout en affirmant mon univers graphique."
+          },
+          {
+            title: "Tech stack (React + TypeScript)",
+            content:
+              "J’ai développé le site entièrement en React avec TypeScript. Cela me permet d’avoir un code structuré, maintenable et évolutif, tout en profitant de composants réutilisables pour les différentes sections du portfolio."
+          },
+          {
+            title: "Performances & confort de lecture",
+            content:
+              "J’ai accordé une attention particulière à la lisibilité des textes, au comportement sur différents écrans et au temps de chargement, pour proposer une expérience agréable, que ce soit sur ordinateur ou mobile."
+          }
+        ]
+      },
+      vision: {
+        title: "Vision & évolution",
+        content:
+          "Ce portfolio n’est pas une version figée : je le considère comme un projet vivant. J’y ajoute, j’y ajuste et j’y expérimente au fil de mes nouveaux projets. C’est à la fois une vitrine professionnelle et un espace de test pour mes idées en web-design et en développement front-end."
+      },
+      competencesDemontrees: {
+        title: "Compétences démontrées",
+        content:
+          "Conception d’interface orientée utilisateur, web-design, développement front-end avec React et TypeScript, structuration d’un portfolio professionnel, optimisation de l’UX et de la lisibilité, mise en place d’une base technique évolutive pour faire vivre le site dans le temps."
       }
     },
     gallery: [],
     categories: ["Programmation", "Web-design"]
   },
+  
 
   // --- 📸 PHOTOGRAPHIE ---
   {
