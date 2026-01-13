@@ -385,17 +385,47 @@ export const projects: Project[] = [
     image: anna1,
     detailedDescription: {
       context: {
-        title: "Contexte",
-        content: "Projet universitaire autour de l'œuvre littéraire 'Anna Partout'."
+        title: "Contexte & Objectifs",
+        content:
+          "Projet universitaire de design graphique autour de l'œuvre littéraire « Anna Partout ». L'objectif était de traduire visuellement l'univers du livre à travers une série d'affiches conceptuelles, en utilisant la typographie et la composition comme principaux vecteurs de narration."
       },
       role: {
-        title: "Réalisation",
-        points:[ "Conception d'une série d'affiches artistiques interprétant l'univers du livre, jouant sur la typographie et la composition visuelle."]
+        title: "Réalisation & Direction Artistique",
+        intro:
+          "Conception complète de la série d'affiches, de l'analyse de l'œuvre jusqu'aux fichiers prêts à être imprimés.",
+        points: [
+          {
+            title: "Analyse de l'univers littéraire",
+            content:
+              "Lecture et déconstruction de l'œuvre pour identifier les thèmes centraux (errance, identité, fragments de vie) et définir un axe visuel cohérent pour l’ensemble de la série."
+          },
+          {
+            title: "Explorations typographiques",
+            content:
+              "Travail de la typographie comme matière expressive : jeu sur les corps, les espacements, les ruptures et les alignements pour suggérer le rythme du texte et l’état émotionnel du personnage."
+          },
+          {
+            title: "Composition & Série d’affiches",
+            content:
+              "Création d’une série cohérente d’affiches, jouant sur les variations de mise en page, de formats et de densité visuelle, tout en conservant un système graphique commun (grille, marges, hiérarchie)."
+          },
+          {
+            title: "Préparation à l’impression",
+            content:
+              "Mise en page finalisée en respectant les contraintes techniques (fonds perdus, marges, lisibilité) et export des fichiers pour impression de qualité."
+          }
+        ]
+      },
+      competencesDemontrees: {
+        title: "Compétences Démontrées",
+        content:
+          "Design d’affiche, utilisation expressive de la typographie, travail en série cohérente, mise en page et hiérarchie visuelle, capacité à interpréter un univers littéraire en langage graphique, préparation de fichiers pour l’impression."
       }
     },
     gallery: [anna1, anna2, anna3, anna4, anna4b, anna4c, anna5, anna6],
     categories: ["Print"]
   },
+  
   {
     id: "unsorted-print",
     title: "Unsorted Print",
