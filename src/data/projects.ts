@@ -355,22 +355,52 @@ export const projects: Project[] = [
 
   // --- 🖨️ PRINT ---
   {
-    id: "anna-partout",
-    title: "Anna Partout",
-    image: anna1,
+    id: "ta-solution-hypno",
+    title: "TaSolutionHypno",
+    image: tshLogo,
     detailedDescription: {
       context: {
-        title: "Contexte",
-        content: "Projet universitaire autour de l'œuvre littéraire 'Anna Partout'."
+        title: "Contexte & Enjeux",
+        content:
+          "Accompagnement d'une hypnothérapeute dans le lancement de son activité libérale. L'enjeu principal : construire une identité visuelle professionnelle, rassurante et mémorable pour inspirer confiance dès le premier contact (flyer, carte de visite, bouche-à-oreille) et clarifier son positionnement face à une offre de soins alternative parfois méconnue."
       },
       role: {
-        title: "Réalisation",
-        points:[ "Conception d'une série d'affiches artistiques interprétant l'univers du livre, jouant sur la typographie et la composition visuelle."]
+        title: "Mon Rôle & Direction Artistique",
+        intro:
+          "Prise en charge complète de l'identité graphique et des supports imprimés pour soutenir le lancement de l'activité.",
+        points: [
+          {
+            title: "Identité Visuelle & Logo",
+            content:
+              "Création du logo, définition de la palette colorimétrique et des choix typographiques pour traduire les valeurs clés de la pratique : apaisement, écoute, bienveillance et accompagnement."
+          },
+          {
+            title: "Supports Print Professionnels",
+            content:
+              "Conception des cartes de visite et des flyers promotionnels, en travaillant particulièrement la hiérarchie de l'information (prestations, coordonnées, prise de contact) afin de faciliter la compréhension pour un public large."
+          },
+          {
+            title: "Cohérence de Marque",
+            content:
+              "Mise en place de principes graphiques simples à réutiliser (marges, styles, iconographie) pour garantir une image homogène sur les futurs supports, qu'ils soient imprimés ou digitaux."
+          },
+          {
+            title: "Accompagnement & Conseil",
+            content:
+              "Conseil sur le ton visuel à adopter pour se différencier des codes médicaux classiques tout en restant crédible, et sur la manière d'utiliser les supports print dans sa communication locale."
+          }
+        ]
+      },
+      competencesDemontrees: {
+        title: "Compétences Démontrées",
+        content:
+          "Direction artistique pour une petite structure, création d'identité visuelle complète, design print (flyers, cartes de visite), travail sur une image de marque rassurante dans le domaine du bien-être, capacité à vulgariser des enjeux graphiques pour un client non spécialiste."
       }
     },
-    gallery: [anna1, anna2, anna3, anna4, anna4b, anna4c, anna5, anna6],
-    categories: ["Print"]
+    gallery: [tshLogo, tshFlyer1, tshFlyer2, tshCarte1, tshCarte2],
+    categories: ["Branding", "Print"]
   },
+  
   {
     id: "unsorted-print",
     title: "Unsorted Print",
