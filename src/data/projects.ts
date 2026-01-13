@@ -374,7 +374,7 @@ export const projects: Project[] = [
       }
     },
     gallery: [tshLogo, tshFlyer1, tshFlyer2, tshCarte1, tshCarte2],
-    tags: ['Branding, Identité Visuelle, Hypnothérapie, Bien-être, Logo, Print, Carte de Visite, Flyer'],
+    tags: ['Branding', 'Identité Visuelle', 'Hypnothérapie', 'Bien‑être', 'Logo', 'Print', 'Carte de Visite', 'Flyer'],
     categories: ["Branding", "Print"]
   },
   
@@ -429,7 +429,7 @@ export const projects: Project[] = [
       }
     },
     gallery: [anna1, anna2, anna3, anna4, anna4b, anna4c, anna5, anna6],
-    tags: ["Affiche, Design Graphique, Typographie, Projet Universitaire, Littérature, Série d'Affiches, Expérimentation Visuelle"],
+    tags: ['Affiche', 'Design Graphique', 'Typographie', 'Projet Universitaire', 'Littérature', 'Série d\'Affiches', 'Expérimentation Visuelle'],
 
     categories: ["Print"]
   },
@@ -502,7 +502,7 @@ export const projects: Project[] = [
       upChaumont1,
       upChaumont2
     ],
-    tags: ["Print, Affiche, Flyer, Projet Personnel, Expérimentation Graphique, Typographie, Couleur, Recherche Visuelle"],
+    tags: ['Print', 'Affiche', 'Flyer', 'Projet Personnel', 'Expérimentation Graphique', 'Typographie', 'Couleur', 'Recherche Visuelle'],
 
     categories: ["Print"]
   },
@@ -555,7 +555,7 @@ export const projects: Project[] = [
       }
     },
     gallery: [bureauMain, bureauAcceuil, bureauFenetre],
-    tags: ["Portfolio Expérimental, Interface Immersive, Web-design, Expérience Utilisateur, Interface Narrative, Projet Personnel"],
+    tags: ['Portfolio Expérimental', 'Interface Immersive', 'Web-design', 'Expérience Utilisateur', 'Interface Narrative', 'Projet Personnel'],
     url: "https://perso.univ-lemans.fr/~i2400571/portfolio2/bureau.php",
     categories: ["Programmation", "Web-design"]
   },
@@ -609,7 +609,7 @@ export const projects: Project[] = [
       }
     },
     gallery: [],
-    tags: ["Portfolio, React, TypeScript, Front-end, Développement Web, Web-design, UX, UI"],
+    tags: ['Portfolio', 'React', 'TypeScript', 'Front-end', 'Développement Web', 'Web-design', 'UX', 'UI'],
 
     categories: ["Programmation", "Web-design"]
   },
@@ -627,7 +627,7 @@ export const projects: Project[] = [
       }
     },
     gallery: [tir9209, tir1798, tir1800, tir1807, tir9116, tir9170, tir9181, tir9201, tir9309A, tir9309ANB, tir9318, tir9854],
-    tags: ["Photographie, Tir Sportif, Album, Documentation, Esthétique Sportive"],
+    tags: ['Photographie', 'Tir Sportif', 'Album', 'Documentation', 'Esthétique Sportive'],
 
     categories: ["Photographie"]
   },
@@ -642,7 +642,7 @@ export const projects: Project[] = [
       }
     },
     gallery: [picsCover, pics0163, pics0531, pics0853, pics0862, pics1334, pics1598, pics2088, pics9462, pics9469, pics9484, pics9804, pics9810, picsMartin,picsnouv1n, picsnouv2n, picsnouv3n, picsnouv4n, picsnouv5n, picsnouv6n, picsnouv7n, picsnouv1j, picsnouv2j, picsnouv3j, picsnouv4j, picsnouv5j, picsnouv6j, picsnouv7j, picsnouv8j],
-    tags: ["Photographie, Projet Personnel, Captation Spontanée, Instant, Sans Contexte, Brut"],
+    tags: ['Photographie', 'Projet Personnel', 'Captation Spontanée', 'Instant', 'Sans Contexte', 'Brut'],
     categories: ["Photographie"]
   }
 ];
