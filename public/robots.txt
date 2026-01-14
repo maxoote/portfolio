@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mandinmaxime.vercel.app/sitemap.xml
