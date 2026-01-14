@@ -17,10 +17,10 @@ const heroData: HeroData = {
     { label: "Web-designer" },
     { label: "Développeur front" },
     { label: "Graphiste print & digital" },
-    { label: "Vidéaste" },
+    { label: "Vidéaste" }, 
   ],
   ctas: [
-    { label: "Découvrir mes projets", href: "#projects", variant: "solid" },
+    { label:"Découvir mes projets", href: "#projects", variant: "solid" },
     { label: "Me contacter", href: "#contact", variant: "ghost" },
   ],
 }

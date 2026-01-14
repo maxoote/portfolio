@@ -17,6 +17,9 @@
     <!-- Auteur -->
     <meta name="author" content="Maxime Mandin" />
 
+    <!-- IMPORTANT: autoriser l'indexation -->
+    <meta name="robots" content="index, follow" />
+
     <!-- Canonical -->
     <link rel="canonical" href="https://mandinmaxime.vercel.app/" />
 
@@ -27,7 +30,6 @@
     <meta property="og:description" content="Création de logo, supports print et vidéos professionnelles pour petites entreprises en Vendée et Pays de la Loire." />
     <meta property="og:url" content="https://mandinmaxime.vercel.app/" />
     <meta property="og:site_name" content="Maxime Mandin - Graphiste Freelance" />
-    <!-- Idéalement une image 1200x630 dédiée (og-image) -->
     <meta property="og:image" content="https://mandinmaxime.vercel.app/src/assets/photoprofil.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -40,6 +42,22 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="src/assets/logoMaximeMandin.png" />
+
+    <!-- JSON-LD (exemple Person) : compléter sameAs par tes profils -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Maxime Mandin",
+            "url": "https://mandinmaxime.vercel.app/",
+            "sameAs": [
+                "https://www.linkedin.com/in/TON-LINKEDIN",
+                "https://github.com/maxoote"
+            ],
+            "jobTitle": "Graphiste Freelance",
+            "description": "Graphiste freelance en Vendée spécialisé en création de logos, supports print et vidéos pour TPE/PME."
+        }
+    </script>
 </head>
 
 <body>
