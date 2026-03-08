@@ -33,6 +33,7 @@ function SectionView() {
       <section
         id="hero"
         aria-label="Présentation de Mandin Maxime, étudiant BUT MMI et graphiste freelance en Vendée"
+        className="animate-fade-in"
       >
         <Hero data={heroData} />
       </section>
@@ -44,6 +45,7 @@ if (section === "main") {
       <section
         id="services"
         aria-labelledby="services-title"
+        className="animate-fade-in"
       >
         <h2 id="services-title" className="sr-only">
           Services en design graphique, web et communication digitale
@@ -60,6 +62,7 @@ if (section === "catalogue") {
       <section
         id="catalogue"
         aria-labelledby="catalogue-title"
+        className="animate-fade-in"
       >
         <h2 id="catalogue-title" className="sr-only">
           Projets print et supports de communication
@@ -76,6 +79,7 @@ if (section === "contact") {
       <section
         id="contact"
         aria-labelledby="contact-title"
+        className="animate-fade-in"
       >
         <h2 id="contact-title" className="sr-only">
           Me contacter pour un projet en Vendée ou Pays de la Loire
@@ -92,6 +96,7 @@ if (section === "outils") {
       <section
         id="outils"
         aria-labelledby="outils-title"
+        className="animate-fade-in"
       >
         <h2 id="outils-title" className="sr-only">
           Outils et compétences utilisées sur mes projets

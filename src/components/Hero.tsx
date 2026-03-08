@@ -32,7 +32,7 @@ export default function Hero({ data }: Props) {
           <MenuWindow />
 
           {/* Bloc 1 → titre+intro */}
-          <div className="row-span-3">
+          <div className="row-span-3 animate-stagger-fade-in" style={{ animationDelay: "0ms" }}>
             <Window
               className="w-full h-fit"
               title={name}
@@ -52,7 +52,7 @@ export default function Hero({ data }: Props) {
           </div>
 
           {/* Bloc 2 → portrait + logo */}
-          <div className="row-span-2">
+          <div className="row-span-2 animate-stagger-fade-in" style={{ animationDelay: "100ms" }}>
             <div className="grid grid-cols-2 gap-3 h-full">
               <Window
                 title="photo.webp"
@@ -63,7 +63,7 @@ export default function Hero({ data }: Props) {
                 <img
                   src={portrait}
                   alt="Portrait de Mandin Maxime, étudiant en BUT MMI et graphiste freelance"
-                  className="object-cover shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]"
+                  className="object-cover shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] animate-image-fade-in"
                   loading="lazy"
                 />
               </Window>
@@ -72,7 +72,7 @@ export default function Hero({ data }: Props) {
           </div>
 
           {/* Bloc 3 → rôles */}
-          <div className="row-span-3 flex flex-col gap-9">
+          <div className="row-span-3 flex flex-col gap-9 animate-stagger-fade-in" style={{ animationDelay: "200ms" }}>
             <RolesWindow memphis={true} />
             <button className="w-full" onClick={() => goTo("main")}>
               <Window

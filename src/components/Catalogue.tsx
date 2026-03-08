@@ -12,7 +12,7 @@ export default function Catalogue() {
   const [activeId, setActiveId] = useState<string | null>(null)
   const [cat, setCat] = useState<Cat>("Tout")
 
-  // Gestion de l’ancre (#id)
+  // Gestion de l'ancre (#id)
   useEffect(() => {
     const id = window.location.hash.replace("#", "")
     if (id) setActiveId(id)
@@ -69,16 +69,17 @@ export default function Catalogue() {
         >
           {/* Filtres */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-4">
-            {categories.map(c => (
+            {categories.map((c, idx) => (
               <button
                 key={c}
                 onClick={() => {
                   setCat(c)
                   setActiveId(null)
                 }}
+                style={{ animationDelay: `${idx * 50}ms` }}
                 className={[
-                  "px-3 py-1 border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]",
-                  cat === c ? "bg-gray-500 text-white font-bold" : "bg-white",
+                  "px-3 py-1 border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] transition-all duration-250 ease-out hover:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,0_4px_8px_rgba(0,0,0,0.2)] hover:scale-105 animate-stagger-fade-in",
+                  cat === c ? "bg-gray-500 text-white font-bold" : "bg-white hover:bg-gray-100",
                 ].join(" ")}
               >
                 {c}
@@ -89,9 +90,10 @@ export default function Catalogue() {
                 setCat("Tout")
                 setActiveId(null)
               }}
+              style={{ animationDelay: `${categories.length * 50}ms` }}
               className={[
-                "px-3 py-1 border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]",
-                cat === "Tout" ? "bg-gray-500 text-white font-bold" : "bg-white",
+                "px-3 py-1 border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] transition-all duration-250 ease-out hover:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,0_4px_8px_rgba(0,0,0,0.2)] hover:scale-105 animate-stagger-fade-in",
+                cat === "Tout" ? "bg-gray-500 text-white font-bold" : "bg-white hover:bg-gray-100",
               ].join(" ")}
             >
               Tout
@@ -103,14 +105,19 @@ export default function Catalogue() {
   {!active ? (
     // Si aucun projet n'est actif, on affiche la grille
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-      {projects.map(p => (
-        <ProjectCard
+      {projects.map((p, idx) => (
+        <div
           key={p.id}
-          title={p.title}
-          image={p.image}
-          onClick={() => setActiveId(p.id)}
-          className="aspect-square"
-        />
+          style={{ animationDelay: `${idx * 75}ms` }}
+          className="animate-stagger-fade-in"
+        >
+          <ProjectCard
+            title={p.title}
+            image={p.image}
+            onClick={() => setActiveId(p.id)}
+            className="aspect-square"
+          />
+        </div>
       ))}
     </div>
   ) : (

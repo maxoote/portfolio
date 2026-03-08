@@ -4,9 +4,13 @@ import { useState } from "react"
 type Props = { project: Project; onClose: () => void }
 export default function ProjectDetail({ project, onClose }: Props) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
+  const [prevIndex, setPrevIndex] = useState<number | null>(null)
 
   const openLightbox = (i: number) => setLightboxIndex(i)
-  const closeLightbox = () => setLightboxIndex(null)
+  const closeLightbox = () => {
+    setPrevIndex(lightboxIndex)
+    setTimeout(() => setLightboxIndex(null), 200)
+  }
 
   const prevImage = () => {
     if (lightboxIndex === null || !project.gallery) return
@@ -18,26 +22,26 @@ export default function ProjectDetail({ project, onClose }: Props) {
   }
 
   return (
-    <div className="w-full shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] bg-gray-200 p-4">
+    <div className="w-full shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] bg-gray-200 p-4 animate-fade-in">
       <div className="flex items-center justify-between mb-3 bg-blue-900 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] p-2">
         <h3 className="text-2xl font-bold text-white">{project.title}</h3>
         <button
           onClick={onClose}
-          className="p-2 px-3.5 text-2xl bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]"
+          className="p-2 px-3.5 text-2xl bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] transition-all duration-200 hover:bg-gray-500 hover:scale-110"
         >
           ✕
         </button>
       </div>
 
-      <div className="w-full aspect-[16/3] overflow-hidden shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
+      <div className="w-full aspect-[16/3] overflow-hidden shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] animate-image-fade-in">
         <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
       </div>
 
       {project.url ? (
-        <div className="mt-4">
+        <div className="mt-4 animate-stagger-fade-in" style={{ animationDelay: "100ms" }}>
           <a
             href={project.url}
-            className="underline font-semibold"
+            className="underline font-semibold hover:text-blue-600 transition-colors"
             target="_blank"
             rel="noreferrer"
           >
@@ -48,29 +52,22 @@ export default function ProjectDetail({ project, onClose }: Props) {
 
       {project.detailedDescription ? (
         <div className="mt-6 text-left space-y-6">
-          {/*
-      Ce code vérifie pour chaque section si elle existe avant de tenter de l'afficher.
-      Cela évite les erreurs si un projet n'a que certaines sections.
-    */}
 
-          {/* Section de type Contenu Simple (paragraphe) */}
           {project.detailedDescription.context && (
-            <div className="description-section">
+            <div className="description-section animate-stagger-fade-in" style={{ animationDelay: "150ms" }}>
               <h4 className="text-xl font-bold mb-2">{project.detailedDescription.context.title}</h4>
               <p className="leading-relaxed">{project.detailedDescription.context.content}</p>
             </div>
           )}
 
-          {/* Section de type Liste de Points */}
           {project.detailedDescription.role && (
-            <div className="description-section">
+            <div className="description-section animate-stagger-fade-in" style={{ animationDelay: "200ms" }}>
               <h4 className="text-xl font-bold mb-2">{project.detailedDescription.role.title}</h4>
               {project.detailedDescription.role.intro && (
                 <p className="leading-relaxed italic mb-3">{project.detailedDescription.role.intro}</p>
               )}
               <ul className="list-disc list-inside space-y-2">
                 {project.detailedDescription.role.points.map((point, index) => {
-                  // Ici, on vérifie si le 'point' est un simple texte ou un objet détaillé
                   if (typeof point === 'string') {
                     return <li key={index}>{point}</li>;
                   }
@@ -84,9 +81,8 @@ export default function ProjectDetail({ project, onClose }: Props) {
             </div>
           )}
 
-          {/* Section de type Apprentissages Clés (liste) */}
           {project.detailedDescription.keyLearnings && (
-            <div className="description-section">
+            <div className="description-section animate-stagger-fade-in" style={{ animationDelay: "250ms" }}>
               <h4 className="text-xl font-bold mb-2">{project.detailedDescription.keyLearnings.title}</h4>
               <ul className="list-disc list-inside space-y-2">
                 {project.detailedDescription.keyLearnings.points.map((point, index) => (
@@ -98,28 +94,24 @@ export default function ProjectDetail({ project, onClose }: Props) {
             </div>
           )}
 
-          {/* Section de type Apprentissage Critique (paragraphe) */}
           {project.detailedDescription.criticalLearning && (
-            <div className="description-section">
+            <div className="description-section animate-stagger-fade-in" style={{ animationDelay: "300ms" }}>
               <h4 className="text-xl font-bold mb-2">{project.detailedDescription.criticalLearning.title}</h4>
               <p className="leading-relaxed">{project.detailedDescription.criticalLearning.content}</p>
             </div>
           )}
 
-          {/* Section Vision (paragraphe) */}
           {project.detailedDescription.vision && (
-            <div className="description-section">
+            <div className="description-section animate-stagger-fade-in" style={{ animationDelay: "350ms" }}>
               <h4 className="text-xl font-bold mb-2">{project.detailedDescription.vision.title}</h4>
               <p className="leading-relaxed">{project.detailedDescription.vision.content}</p>
             </div>
           )}
 
-          {/* Section Compétences (peut être paragraphe ou liste) */}
           {project.detailedDescription.competencesDemontrees && (
-            <div className="description-section">
+            <div className="description-section animate-stagger-fade-in" style={{ animationDelay: "400ms" }}>
               <h4 className="text-xl font-bold mb-2">{project.detailedDescription.competencesDemontrees.title}</h4>
               {'points' in project.detailedDescription.competencesDemontrees ? (
-                // Si c'est une liste de points
                 <ul className="list-disc list-inside space-y-2">
                   {project.detailedDescription.competencesDemontrees.points.map((point, index) => (
                     typeof point === 'string'
@@ -128,7 +120,6 @@ export default function ProjectDetail({ project, onClose }: Props) {
                   ))}
                 </ul>
               ) : (
-                // Si c'est un simple paragraphe
                 <p className="leading-relaxed">{project.detailedDescription.competencesDemontrees.content}</p>
               )}
             </div>
@@ -136,12 +127,11 @@ export default function ProjectDetail({ project, onClose }: Props) {
 
         </div>
       ) : project.description ? (
-        // Fallback pour les projets qui ont encore l'ancienne description
-        <p className="mt-3 leading-relaxed">{project.description}</p>
+        <p className="mt-3 leading-relaxed animate-stagger-fade-in" style={{ animationDelay: "150ms" }}>{project.description}</p>
       ) : null}
       {project.videoUrl ? (
 
-        <div className="mt-6">
+        <div className="mt-6 animate-stagger-fade-in" style={{ animationDelay: "450ms" }}>
 
           <video src={project.videoUrl} controls className="w-full h-auto" />
 
@@ -152,16 +142,16 @@ export default function ProjectDetail({ project, onClose }: Props) {
 
 
 {project.gallery && project.gallery.length ? (
-  <div className="mt-6">
+  <div className="mt-6 animate-stagger-fade-in" style={{ animationDelay: "500ms" }}>
     <h4 className="text-xl font-semibold mb-3">Galerie</h4>
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
       {project.gallery.map((src, i) => (
         <button
           key={i}
           onClick={() => openLightbox(i)}
-          className="w-full md:w-auto h-32 md:h-full max-h-60 overflow-hidden shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] z-50 flex justify-center"
+          className="w-full md:w-auto h-32 md:h-full max-h-60 overflow-hidden shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] z-50 flex justify-center transition-all duration-250 hover:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,0_8px_16px_rgba(0,0,0,0.3)] hover:scale-105"
         >
-          <img src={src} alt="" className="object-fill p-1 h-full w-full" />
+          <img src={src} alt="" className="object-fill p-1 h-full w-full animate-image-fade-in" />
         </button>
       ))}
     </div>
@@ -169,11 +159,11 @@ export default function ProjectDetail({ project, onClose }: Props) {
 ) : null}
 
       {project.tags && project.tags.length ? (
-        <ul className="mt-6 flex flex-wrap gap-2">
+        <ul className="mt-6 flex flex-wrap gap-2 animate-stagger-fade-in" style={{ animationDelay: "550ms" }}>
           {project.tags.map(t => (
             <li
               key={t}
-              className="px-2 py-1 bg-white border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] hover:bg-gray-400 "
+              className="px-2 py-1 bg-white border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] hover:bg-gray-400 transition-all duration-200"
             >
               {t}
             </li>
@@ -182,7 +172,7 @@ export default function ProjectDetail({ project, onClose }: Props) {
       ) : null}
 
       {project.categories && project.categories.length ? (
-        <div className="mt-6">
+        <div className="mt-6 animate-stagger-fade-in" style={{ animationDelay: "600ms" }}>
           <h4 className="text-lg font-semibold mb-2">Catégories</h4>
           <ul className="flex flex-wrap gap-2">
             {project.categories.map(c => (
@@ -200,37 +190,39 @@ export default function ProjectDetail({ project, onClose }: Props) {
       {/* Lightbox */}
       {lightboxIndex !== null && project.gallery && (
   <div
-    className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+    className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 animate-fade-in"
     onClick={closeLightbox}
   >
     <div
-      className="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2 lg:top-3 lg:right-3 relative max-w-5xl max-h-[90vh] flex flex-col items-center justify-center box-border gap-5"
+      className="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2 lg:top-3 lg:right-3 relative max-w-5xl max-h-[90vh] flex flex-col items-center justify-center box-border gap-5 animate-image-fade-in"
       onClick={e => e.stopPropagation()}
     >
       <div className="flex items-center justify-between px-3 py-2 gap-2 text-white shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] bg-yellow-500 w-full">
-        <span className="font-semibold text-lg">Menu</span>
+        <span className="font-semibold text-lg">Image {lightboxIndex + 1} / {project.gallery.length}</span>
       </div>
 
       <button
         onClick={prevImage}
-        className="absolute left-2 text-white text-3xl px-3 py-2 bg-black/40 rounded-full"
+        className="absolute left-2 text-white text-3xl px-3 py-2 bg-black/40 rounded-full transition-all duration-200 hover:bg-black/60 hover:scale-110"
+        aria-label="Image précédente"
       >
         ‹
       </button>
       <img
         src={project.gallery[lightboxIndex]}
-        alt=""
+        alt={`Image ${lightboxIndex + 1}`}
         className="w-auto max-h-[80vh] mx-auto rounded shadow-lg"
       />
       <button
         onClick={nextImage}
-        className="absolute right-2 text-white text-3xl px-3 py-2 bg-black/40 rounded-full"
+        className="absolute right-2 text-white text-3xl px-3 py-2 bg-black/40 rounded-full transition-all duration-200 hover:bg-black/60 hover:scale-110"
+        aria-label="Image suivante"
       >
         ›
       </button>
       <button
         onClick={closeLightbox}
-        className="absolute top-2 right-2 bg-black/60 text-white px-3 py-1 rounded"
+        className="absolute top-2 right-2 bg-black/60 text-white px-3 py-1 rounded transition-all duration-200 hover:bg-black/80 hover:scale-110"
       >
         ✕
       </button>

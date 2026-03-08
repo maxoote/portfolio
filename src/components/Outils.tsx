@@ -58,13 +58,13 @@ export default function Outils() {
       className="mt-4 flex flex-col overflow-hidden h-[85vh]"
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4 overflow-auto">
-          {skills.map(s => {
+          {skills.map((s, idx) => {
             const scale = s.scale ?? 5
             const pct = Math.max(0, Math.min(100, (s.score / scale) * 100))
             return (
-              <div key={s.id} className="bg-gray-200 p-3 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
+              <div key={s.id} className="bg-gray-200 p-3 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] animate-stagger-fade-in" style={{ animationDelay: `${idx * 50}ms` }}>
                 <div className="flex items-center gap-3">
-                  <img src={s.img} alt="" className="w-10 h-10 object-contain" />
+                  <img src={s.img} alt="" className="w-10 h-10 object-contain animate-image-fade-in" />
                   <div className="flex-1 flex items-baseline justify-between">
                     <h4 className="font-semibold">{s.label}</h4>
                     <span className="text-sm">{s.score}/{scale}</span>
@@ -72,13 +72,16 @@ export default function Outils() {
                 </div>
 
                 <div
-                  className="mt-2 h-5 bg-gray-300 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]"
+                  className="mt-2 h-5 bg-gray-300 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] overflow-hidden"
                   role="progressbar"
                   aria-valuemin={0}
                   aria-valuemax={scale}
                   aria-valuenow={s.score}
                 >
-                  <div className="h-full bg-gray-500 transition-[width]" style={{ width: `${pct}%` }} />
+                  <div
+                    className="h-full bg-gray-500 transition-all duration-1000 ease-out"
+                    style={{ width: `${pct}%`, animation: `progress-fill ${800 + idx * 100}ms ease-out forwards` }}
+                  />
                 </div>
 
                 {s.note ? <p className="mt-2 text-sm leading-snug">{s.note}</p> : null}

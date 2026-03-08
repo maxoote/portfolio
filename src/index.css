@@ -1,5 +1,36 @@
 @import "tailwindcss";
 
+/* Scroll smooth global */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Désactiver pour utilisateurs avec prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Fade-in animation pour transitions de section */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 400ms ease-out;
+}
+
 /* Effet slide un peu "saccadé" façon Win95 */
 
 @keyframes win95-slide {
@@ -27,8 +58,93 @@
     }
 }
 
+/* Stagger animation - utiliser avec animation-delay */
+@keyframes stagger-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-stagger-fade-in {
+  animation: stagger-fade-in 600ms ease-out forwards;
+}
+
+/* Image fade-in et zoom subtil */
+@keyframes image-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-image-fade-in {
+  animation: image-fade-in 500ms ease-out;
+}
+
+/* Scale hover effect pour cartes */
+@keyframes hover-scale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.03);
+  }
+}
+
+/* Menu slide down animation */
+@keyframes menu-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-menu-slide-down {
+  animation: menu-slide-down 250ms ease-out;
+}
+
+/* Rotation chevron pour toggle button */
+@keyframes chevron-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+/* Progress bar fill animation */
+@keyframes progress-fill {
+  from {
+    width: 0%;
+  }
+}
+
+.animate-progress-fill {
+  animation: progress-fill;
+}
+
 .no-select {
     -webkit-user-select: none;
     /* Safari */
     user-select: none;
+}
+
+/* Focus visible states pour accessibilité */
+:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 2px;
 }

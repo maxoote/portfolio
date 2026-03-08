@@ -82,7 +82,12 @@ export default function CategoryCarousel({
     <div className={`relative w-full ${aspectClassName} overflow-hidden shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] bg-gray-200`}>
       {/* Image */}
       {current?.cover ? (
-        <img src={current.cover} alt={current.cat} className="absolute inset-0 w-full h-full object-cover" />
+        <img
+          key={current.cat}
+          src={current.cover}
+          alt={current.cat}
+          className="absolute inset-0 w-full h-full object-cover animate-image-fade-in"
+        />
       ) : (
         <div className="absolute inset-0 grid place-items-center text-sm">Aucune image</div>
       )}
@@ -91,7 +96,7 @@ export default function CategoryCarousel({
       <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-black/20" />
 
       {/* Titre + nb projets — haut gauche */}
-      <div className="absolute top-2 left-2 flex gap-2">
+      <div className="absolute top-2 left-2 flex gap-2 animate-fade-in" style={{ animationDuration: "300ms" }}>
         <div className="px-2 py-1 bg-white/80 backdrop-blur-sm text-sm md:text-base font-bold border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
           {current?.cat}
         </div>
@@ -101,27 +106,27 @@ export default function CategoryCarousel({
       </div>
 
       {/* Indice — haut droit */}
-      <div className="absolute top-2 right-2 px-2 py-1 bg-white/80 backdrop-blur-sm text-xs md:text-sm font-semibold border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
+      <div className="absolute top-2 right-2 px-2 py-1 bg-white/80 backdrop-blur-sm text-xs md:text-sm font-semibold border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] animate-fade-in" style={{ animationDuration: "300ms" }}>
         {i + 1}/{total}
       </div>
 
-      
+
 
       {/* Progress + dots */}
       <div className="absolute inset-x-0 bottom-2 flex flex-col items-center gap-2">
         <div className="w-48 md:w-64 h-1.5 bg-white/60 border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] overflow-hidden">
-          <div className="h-full bg-gray-700" style={{ width: `${progress * 100}%` }} />
+          <div className="h-full bg-gray-700 transition-all duration-200 ease-linear" style={{ width: `${progress * 100}%` }} />
         </div>
         <div className="flex gap-1.5">
-         
+
         </div>
       </div>
 
-      
+
 
       {/* Clique plein cadre = ouvre le catalogue filtré */}
       <button
-        className="absolute inset-0"
+        className="absolute inset-0 transition-opacity duration-200 hover:bg-black/10"
         aria-label={current ? `Ouvrir la catégorie ${current.cat}` : "Ouvrir la catégorie"}
         onClick={() => current && openCatalogueWithCat(current.cat)}
       />
