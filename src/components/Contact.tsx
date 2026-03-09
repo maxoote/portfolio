@@ -75,7 +75,7 @@ export default function Contact() {
             </label>
             <button
               type="submit"
-              className="self-center px-6 py-2 font-bold bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] transition-all duration-200 ease-out hover:bg-gray-500 hover:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,0_4px_8px_rgba(0,0,0,0.2)] hover:scale-105 animate-stagger-fade-in"
+              className="self-center px-6 py-2 font-bold text-white bg-blue-600 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] transition-all duration-200 ease-out hover:bg-blue-700 hover:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,0_4px_8px_rgba(0,0,0,0.2)] hover:scale-105 animate-stagger-fade-in"
               style={{ animationDelay: "300ms" }}
             >
               Envoyer
@@ -98,7 +98,7 @@ export default function Contact() {
               tailleTitle="text-lg"
               className="text-center h-full"
             >
-              <p className="inline-block px-6 py-2 font-bold bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">Compte perso</p>
+              <p className="inline-block px-6 py-2 font-bold text-white bg-blue-600 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">Compte perso</p>
             </Window>
           </a>
 
@@ -115,7 +115,7 @@ export default function Contact() {
               tailleTitle="text-lg"
               className="text-center h-full"
             >
-              <p className="inline-block px-6 py-2 font-bold bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">Profil professionnel</p>
+              <p className="inline-block px-6 py-2 font-bold text-white bg-blue-600 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">Profil professionnel</p>
             </Window>
           </a>
         </div>
@@ -133,7 +133,7 @@ export default function Contact() {
               href="https://perso.univ-lemans.fr/~i2400571/portfolio2/bureau.php"
               target="_blank"
               rel="noreferrer"
-              className="inline-block px-6 py-2 font-bold bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] transition-all duration-200 hover:bg-gray-500 hover:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,0_4px_8px_rgba(0,0,0,0.2)]"
+              className="inline-block px-6 py-2 font-bold text-white bg-blue-600 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] transition-all duration-200 hover:bg-blue-700 hover:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,0_4px_8px_rgba(0,0,0,0.2)]"
             >
               Découvrir mon bureau
             </a>

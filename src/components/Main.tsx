@@ -23,30 +23,32 @@ export default function Main() {
         <div className="relative w-full lg:w-3/5 flex flex-col gap-2">
 
           {/* Mon travail */}
-          <Window
-            className="mx-0"
-            title="Mon travail"
-            tailleTitle="text-4xl"
-            titleClassName="bg-blue-900"
-          >
-            <button onClick={() => goTo("catalogue")} className="w-full">
-              <CategoryCarousel
-                slides={[
-                  { cat: "Audiovisuel", cover: imgA },
-                  { cat: "Branding", cover: imgB },
-                  { cat: "Photographie", cover: imgC },
-                  { cat: "Print", cover: imgP },
-                  { cat: "Programmation", cover: imgDev },
-                  { cat: "Web-design", cover: imgWeb },
-                ]}
-                interval={4500}
-                aspectClassName="aspect-[16/9] lg:aspect-[16/4]"
-              />
-            </button>
-          </Window>
+          <div className="animate-stagger-fade-in" style={{ animationDelay: "0ms" }}>
+            <Window
+              className="mx-0"
+              title="Mon travail"
+              tailleTitle="text-4xl"
+              titleClassName="bg-blue-900"
+            >
+              <button onClick={() => goTo("catalogue")} className="w-full">
+                <CategoryCarousel
+                  slides={[
+                    { cat: "Audiovisuel", cover: imgA },
+                    { cat: "Branding", cover: imgB },
+                    { cat: "Photographie", cover: imgC },
+                    { cat: "Print", cover: imgP },
+                    { cat: "Programmation", cover: imgDev },
+                    { cat: "Web-design", cover: imgWeb },
+                  ]}
+                  interval={4500}
+                  aspectClassName="aspect-[16/9] lg:aspect-[16/4]"
+                />
+              </button>
+            </Window>
+          </div>
 
           {/* Mes Derniers Projets */}
-          <div>
+          <div className="animate-stagger-fade-in" style={{ animationDelay: "100ms" }}>
             <Window
               className="mt-0"
               title="Mes Derniers Projets"
@@ -63,7 +65,7 @@ export default function Main() {
 
         </div>
         {/* Bouton fixe en bas à droite de la viewport */}
-        <button className="w-full" onClick={() => goTo("outils")}>
+        <button className="w-full animate-stagger-fade-in" onClick={() => goTo("outils")} style={{ animationDelay: "200ms" }}>
           <Window
                 className="h-auto lg:absolute md:absolute   md:bottom-4 md:left-4/5 md:right-1/10 lg:bottom-4 lg:left-4/5 lg:right-0/10 lg:mr-3"
                 title="Découvrir mes Outils"

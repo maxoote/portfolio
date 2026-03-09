@@ -72,14 +72,14 @@ export default function Outils() {
                 </div>
 
                 <div
-                  className="mt-2 h-5 bg-gray-300 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] overflow-hidden"
+                  className="mt-2 h-5 bg-white border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] overflow-hidden"
                   role="progressbar"
                   aria-valuemin={0}
                   aria-valuemax={scale}
                   aria-valuenow={s.score}
                 >
                   <div
-                    className="h-full bg-gray-500 transition-all duration-1000 ease-out"
+                    className="h-full bg-blue-600 transition-all duration-1000 ease-out"
                     style={{ width: `${pct}%`, animation: `progress-fill ${800 + idx * 100}ms ease-out forwards` }}
                   />
                 </div>
