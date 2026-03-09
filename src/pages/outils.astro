@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import flechePng from '../assets/fleche.png';
+import { Image } from 'astro:assets';
+
+// Icônes
+import icHtml from '../assets/outils/html.png';
+import icTail from '../assets/outils/tail.png';
+import icCss from '../assets/outils/css.png';
+import icDv from '../assets/outils/dv.png';
+import icJs from '../assets/outils/js.png';
+import ic365 from '../assets/outils/365.png';
+import icPhp from '../assets/outils/php.png';
+import icFigma from '../assets/outils/figma.png';
+import icPub from '../assets/outils/afpu.png';
+import icPhoto from '../assets/outils/afp.png';
+import icDesigner from '../assets/outils/afd.png';
+import icReact from '../assets/outils/react.png';
+import icTs from '../assets/outils/ts.png';
+import icSql from '../assets/outils/sql.png';
+
+const skills = [
+  { id: "html",     label: "HTML",               score: 4,   scale: 5, note: "Structure des pages, SEO sémantique",        img: icHtml },
+  { id: "tailwind", label: "Tailwind",            score: 2.5, scale: 5, note: "Mise en page utilitaire, responsive",         img: icTail },
+  { id: "css",      label: "CSS",                 score: 3.5, scale: 5, note: "Layouts, animations simples",                 img: icCss },
+  { id: "davinci",  label: "DaVinci Resolve",     score: 3,   scale: 5, note: "Montage, étalonnage, motion design",          img: icDv },
+  { id: "js",       label: "JavaScript",          score: 3,   scale: 5, note: "DOM, fetch, petites apps",                    img: icJs },
+  { id: "o365",     label: "Office 365",          score: 4,   scale: 5, note: "Docs, slides, tableaux",                      img: ic365 },
+  { id: "php",      label: "PHP",                 score: 2,   scale: 5, note: "Pages dynamiques simples",                    img: icPhp },
+  { id: "figma",    label: "Figma",               score: 3.5, scale: 5, note: "Maquettes UI, prototypage",                   img: icFigma },
+  { id: "pub",      label: "Affinity Publisher",  score: 4,   scale: 5, note: "Mise en page print",                          img: icPub },
+  { id: "photo",    label: "Affinity Photo",      score: 4.5, scale: 5, note: "Retouche et compositing",                     img: icPhoto },
+  { id: "designer", label: "Affinity Designer",   score: 4,   scale: 5, note: "Vectoriel, logos",                            img: icDesigner },
+  { id: "react",    label: "React",               score: 2,   scale: 5, note: "Composants, hooks de base",                   img: icReact },
+  { id: "ts",       label: "TypeScript",          score: 1,   scale: 5, note: "Types de base",                               img: icTs },
+  { id: "sql",      label: "SQL",                 score: 1.5, scale: 5, note: "CRUD simple",                                 img: icSql },
+];
+---
+
+<BaseLayout
+  title="Mes outils & compétences — Maxime Mandin"
+  description="Découvrez les outils et compétences de Maxime Mandin : HTML, CSS, React, Figma, Affinity, DaVinci Resolve et plus."
+>
+  <div class="min-h-dvh py-6">
+    <div class="mx-auto max-w-7xl px-4">
+
+      <div class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2 mt-16">
+        <div class="mb-2 flex items-center justify-between text-white px-3 py-2 bg-blue-900 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
+          <span class="font-semibold text-xl no-select">Mes outils</span>
+          <span class="p-1 px-2 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] no-select">✕</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+          {skills.map((s, idx) => {
+            const pct = Math.max(0, Math.min(100, (s.score / s.scale) * 100));
+            return (
+              <div
+                class="bg-gray-200 p-3 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] animate-stagger-fade-in hover:scale-105 hover:-translate-y-1 hover:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,0_4px_8px_rgba(0,0,0,0.15)] transition-all duration-250"
+                style={`animation-delay: ${idx * 50}ms`}
+              >
+                <div class="flex items-center gap-3">
+                  <Image src={s.img} alt={`Logo ${s.label}`} class="w-10 h-10 object-contain animate-image-fade-in" width={40} height={40} />
+                  <div class="flex-1 flex items-baseline justify-between">
+                    <h4 class="font-semibold">{s.label}</h4>
+                    <span class="text-sm">{s.score}/{s.scale}</span>
+                  </div>
+                </div>
+
+                <div
+                  class="mt-2 h-5 bg-white border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] overflow-hidden"
+                  role="progressbar"
+                  aria-valuemin={0}
+                  aria-valuemax={s.scale}
+                  aria-valuenow={s.score}
+                >
+                  <div
+                    class="h-full bg-blue-600"
+                    style={`width: ${pct}%; animation: progress-fill ${800 + idx * 100}ms ease-out forwards`}
+                  />
+                </div>
+
+                {s.note && <p class="mt-2 text-sm leading-snug">{s.note}</p>}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <!-- CTA Projets -->
+      <a
+        href="/main"
+        class="block mt-4 hover:-translate-y-1 hover:shadow-md transition-all duration-250 ease-out active:scale-95"
+      >
+        <div class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2">
+          <div class="mb-2 flex items-center justify-between text-white px-3 py-2 bg-red-900 hover:bg-red-800 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
+            <span class="font-semibold text-xl no-select">Projets</span>
+            <Image src={flechePng} alt="Flèche" class="h-6 w-6 select-none no-select" width={24} height={24} draggable={false} />
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</BaseLayout>

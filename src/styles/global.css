@@ -1,0 +1,245 @@
+@import "tailwindcss";
+
+/* =====================================================
+   DESIGN SYSTEM — THÈME WINDOWS 95
+   Tokens centralisés via @theme (Tailwind v4)
+   ===================================================== */
+
+@theme {
+  /* Palette Win95 */
+  --color-win-surface: #c0c0c0;
+  --color-win-highlight: #ffffff;
+  --color-win-shadow: #808080;
+  --color-win-dark: #000000;
+  --color-win-title: #000080;
+  --color-win-title-text: #ffffff;
+  --color-win-accent: #cc0000;
+  --color-win-menu: #ffdd00;
+
+  /* Ombres biseautées Win95 */
+  --shadow-win-outset:
+    inset 1px 1px 0px 0px var(--color-win-highlight),
+    inset -1px -1px 0px 0px var(--color-win-dark),
+    inset 2px 2px 0px 0px var(--color-win-surface),
+    inset -2px -2px 0px 0px var(--color-win-shadow);
+
+  --shadow-win-inset:
+    inset 1px 1px 0px 0px var(--color-win-shadow),
+    inset -1px -1px 0px 0px var(--color-win-highlight),
+    inset 2px 2px 0px 0px var(--color-win-dark),
+    inset -2px -2px 0px 0px var(--color-win-surface);
+
+  --shadow-win-deep:
+    inset 2px 2px 0px 0px var(--color-win-highlight),
+    inset -2px -2px 0px 0px var(--color-win-dark),
+    8px 8px 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* =====================================================
+   COMPOSANTS WIN95 RÉUTILISABLES
+   ===================================================== */
+
+@layer components {
+  .win95-window {
+    background-color: var(--color-win-surface);
+    box-shadow: var(--shadow-win-outset);
+    border: 1px solid var(--color-win-dark);
+  }
+
+  .win95-window-deep {
+    background-color: var(--color-win-surface);
+    box-shadow: var(--shadow-win-deep);
+    border: 1px solid var(--color-win-dark);
+  }
+
+  .win95-btn {
+    background-color: var(--color-win-surface);
+    box-shadow: var(--shadow-win-outset);
+    border: 1px solid var(--color-win-dark);
+    padding: 4px 12px 4px 12px;
+    cursor: pointer;
+    transition: box-shadow 0s, padding 0s;
+  }
+
+  .win95-btn:active {
+    box-shadow: var(--shadow-win-inset);
+    padding: 5px 11px 3px 13px;
+  }
+
+  .win95-btn-red {
+    background-color: var(--color-win-accent);
+    color: var(--color-win-highlight);
+    box-shadow: var(--shadow-win-outset);
+    border: 1px solid var(--color-win-dark);
+    padding: 4px 12px;
+    cursor: pointer;
+    transition: box-shadow 0s, padding 0s;
+  }
+
+  .win95-btn-red:active {
+    box-shadow: var(--shadow-win-inset);
+    padding: 5px 11px 3px 13px;
+  }
+
+  .win95-input {
+    background-color: white;
+    box-shadow: var(--shadow-win-inset);
+    border: 1px solid var(--color-win-dark);
+    padding: 2px 4px;
+  }
+
+  .win95-title-bar {
+    background-color: var(--color-win-title);
+    color: var(--color-win-title-text);
+    padding: 2px 4px;
+    font-weight: bold;
+    font-size: 0.75rem;
+  }
+}
+
+/* =====================================================
+   GLOBAL
+   ===================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+.no-select {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* =====================================================
+   ANIMATIONS (conservées de l'ancienne version)
+   ===================================================== */
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in { animation: fade-in 400ms ease-out; }
+.animate-fade-in-slow { animation: fade-in 600ms ease-out; }
+.animate-fade-in-fast { animation: fade-in 200ms ease-out; }
+
+@keyframes stagger-fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-stagger-fade-in {
+  animation: stagger-fade-in 600ms ease-out forwards;
+}
+
+@keyframes image-fade-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-image-fade-in { animation: image-fade-in 500ms ease-out; }
+.animate-image-fade-in-slow { animation: image-fade-in 800ms ease-out; }
+
+@keyframes window-bounce-in {
+  0% { opacity: 0; transform: scale(0.9) translateY(20px); }
+  70% { opacity: 1; transform: scale(1.05) translateY(-5px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+.animate-window-bounce-in {
+  animation: window-bounce-in 600ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes pop-in {
+  0% { opacity: 0; transform: scale(0.85); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.animate-pop-in {
+  animation: pop-in 350ms cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes menu-slide-down {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-menu-slide-down { animation: menu-slide-down 250ms ease-out; }
+
+@keyframes float-up {
+  from { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  to { transform: translateY(0px); }
+}
+.animate-float-up { animation: float-up 4s ease-in-out infinite; }
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(204, 0, 0, 0.7); }
+  50% { box-shadow: 0 0 0 8px rgba(204, 0, 0, 0); }
+}
+.animate-pulse-glow { animation: pulse-glow 2s infinite; }
+
+@keyframes progress-fill {
+  from { width: 0%; }
+}
+.animate-progress-fill { animation: progress-fill; }
+
+@keyframes slide-out-right {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(100%); }
+}
+.animate-slide-out-right { animation: slide-out-right 400ms ease-in forwards; }
+
+@keyframes carousel-slide {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+.animate-carousel-slide { animation: carousel-slide 400ms ease-in-out forwards; }
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+.animate-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Stagger delays */
+.animate-stagger-delay-1 { animation-delay: 50ms; }
+.animate-stagger-delay-2 { animation-delay: 100ms; }
+.animate-stagger-delay-3 { animation-delay: 150ms; }
+.animate-stagger-delay-4 { animation-delay: 200ms; }
+.animate-stagger-delay-5 { animation-delay: 250ms; }
+.animate-stagger-delay-6 { animation-delay: 300ms; }
+
+@media (max-width: 768px) {
+  .animate-float-up { animation: none; }
+  .animate-stagger-delay-1 { animation-delay: 25ms; }
+  .animate-stagger-delay-2 { animation-delay: 50ms; }
+}
+
+/* View Transitions — animations de page */
+@keyframes slide-from-right {
+  from { transform: translateX(30px); opacity: 0; }
+}
+@keyframes slide-to-left {
+  to { transform: translateX(-30px); opacity: 0; }
+}
+::view-transition-old(root) {
+  animation: 300ms ease-in slide-to-left;
+}
+::view-transition-new(root) {
+  animation: 300ms ease-out slide-from-right;
+}

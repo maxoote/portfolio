@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CatalogueFilter from '../components/islands/CatalogueFilter';
+---
+
+<BaseLayout
+  title="Projets — Maxime Mandin"
+  description="Galerie complète des projets de Maxime Mandin : audiovisuel, branding, photographie, print, programmation, web-design."
+>
+  <div class="min-h-dvh py-6">
+    <div class="mx-auto max-w-7xl px-4">
+      <CatalogueFilter client:load />
+    </div>
+  </div>
+</BaseLayout>

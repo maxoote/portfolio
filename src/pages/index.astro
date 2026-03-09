@@ -1,0 +1,150 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import portrait from '../assets/photoprofil.png';
+import flechePng from '../assets/fleche.png';
+
+const heroData = {
+  name: "Mandin Maxime",
+  tagline: "Je conçois des expériences visuelles du concept à la production",
+  intro: "Étudiant en deuxième année de BUT Métiers du Multimédia et de l'Internet à Laval, je conçois des projets alliant design graphique, développement web et communication digitale pour les petites entreprises et associations en Vendée et Pays de la Loire.",
+  status: "EN RECHERCHE D'ALTERNANCE",
+  location: "2ème année BUT MMI, Laval",
+  badges: ["Design Graphique", "Développement Web", "Audiovisuel & Branding"],
+};
+---
+
+<BaseLayout
+  title="Graphiste Freelance Vendée | Logo, Print, Vidéo | Maxime Mandin"
+  description="Graphiste freelance en Vendée spécialisé en création de logos, supports print, vidéo et sites web pour TPE et associations."
+>
+  <section
+    class="min-h-dvh flex flex-col"
+    aria-label="Section de présentation de Mandin Maxime, en recherche d'alternance"
+  >
+    <h1 class="sr-only">{heroData.name} — {heroData.status}</h1>
+    <p class="sr-only">{heroData.intro}</p>
+
+    <div class="flex-1 flex items-center justify-center px-4 py-6 md:py-0">
+      <div class="mx-auto max-w-6xl w-full">
+
+        <!-- Desktop: Side-by-side -->
+        <div class="hidden md:grid md:grid-cols-12 md:gap-8 md:items-center">
+          <!-- Portrait -->
+          <div class="md:col-span-4 animate-stagger-fade-in md:animate-float-up" style="animation-delay: 0ms">
+            <div class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2">
+              <div class="mb-2 flex items-center justify-between text-white px-3 py-2 bg-blue-900 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
+                <span class="font-semibold text-sm no-select">photo.webp</span>
+                <span class="p-1 px-2 text-mg bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] no-select">✕</span>
+              </div>
+              <Image
+                src={portrait}
+                alt={`Portrait de ${heroData.name}`}
+                class="w-full object-cover shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] animate-image-fade-in"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="md:col-span-8 animate-stagger-fade-in space-y-4" style="animation-delay: 100ms">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">{heroData.name}</h2>
+            <p class="text-lg md:text-xl font-semibold text-gray-800">{heroData.tagline}</p>
+
+            <div>
+              <span class="inline-block px-4 py-2 bg-red-600 text-white font-bold text-sm md:text-base shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] animate-pulse-glow">
+                ● {heroData.status}
+              </span>
+            </div>
+
+            <p class="text-xs md:text-sm text-gray-700">{heroData.location}</p>
+
+            <div class="flex flex-wrap gap-2 pt-2">
+              {heroData.badges.map((badge, idx) => (
+                <span
+                  class="px-3 py-1 bg-gray-200 border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-xs md:text-sm font-semibold text-gray-900 animate-stagger-fade-in"
+                  style={`animation-delay: ${150 + idx * 50}ms`}
+                >
+                  {badge}
+                </span>
+              ))}
+            </div>
+
+            <!-- CTA -->
+            <div class="pt-4">
+              <a
+                href="/main"
+                class="inline-block w-full md:w-auto hover:-translate-y-1 hover:shadow-md transition-all duration-250 ease-out active:scale-95 animate-stagger-fade-in"
+                style="animation-delay: 300ms"
+              >
+                <div class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2">
+                  <div class="mb-2 flex items-center justify-between text-white px-3 py-2 bg-red-600 hover:bg-red-800 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
+                    <span class="font-semibold text-base md:text-lg no-select">Découvrir mes projets</span>
+                    <Image src={flechePng} alt="Flèche" class="h-6 w-6 select-none no-select" draggable={false} />
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile: Stacked -->
+        <div class="md:hidden">
+          <div class="animate-stagger-fade-in mb-6" style="animation-delay: 0ms">
+            <div class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2">
+              <div class="mb-2 flex items-center justify-between text-white px-3 py-2 bg-blue-900 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
+                <span class="font-semibold text-sm no-select">photo.webp</span>
+                <span class="p-1 px-2 text-mg bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] no-select">✕</span>
+              </div>
+              <Image
+                src={portrait}
+                alt={`Portrait de ${heroData.name}`}
+                class="w-full object-cover shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] animate-image-fade-in"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <div class="animate-stagger-fade-in space-y-3" style="animation-delay: 100ms">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">{heroData.name}</h2>
+            <p class="text-base sm:text-lg font-semibold text-gray-800">{heroData.tagline}</p>
+
+            <div>
+              <span class="inline-block px-3 py-1 bg-red-600 text-white font-bold text-xs sm:text-sm shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] animate-pulse-glow">
+                ● {heroData.status}
+              </span>
+            </div>
+
+            <p class="text-xs text-gray-700">{heroData.location}</p>
+
+            <div class="flex flex-wrap gap-2 pt-2">
+              {heroData.badges.map((badge, idx) => (
+                <span
+                  class="px-2 py-1 bg-gray-200 border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-xs font-semibold text-gray-900 animate-stagger-fade-in"
+                  style={`animation-delay: ${150 + idx * 50}ms`}
+                >
+                  {badge}
+                </span>
+              ))}
+            </div>
+
+            <div class="pt-3">
+              <a
+                href="/main"
+                class="block w-full hover:-translate-y-1 hover:shadow-md transition-all duration-250 ease-out active:scale-95"
+              >
+                <div class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2">
+                  <div class="mb-2 flex items-center justify-between text-white px-3 py-2 bg-red-600 hover:bg-red-800 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
+                    <span class="font-semibold text-base sm:text-lg no-select">Découvrir mes projets</span>
+                    <Image src={flechePng} alt="Flèche" class="h-6 w-6 select-none no-select" draggable={false} />
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>
