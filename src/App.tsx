@@ -19,26 +19,6 @@ const heroData: HeroData = {
     { label: "Développement Web" },
     { label: "Audiovisuel & Branding" },
   ],
-  featuredProjects: ["sth", "mdn-maxime", "maron-bouillie"],
-  valueProps: [
-    {
-      title: "Pluridisciplinaire",
-      description: "Design + Dev + Vidéo = Une vision globale et cohérente du projet"
-    },
-    {
-      title: "Autonome & Proactif",
-      description: "STH piloté en autonomie depuis 3 ans. Gestion complète de la conception à l'exécution"
-    },
-    {
-      title: "Résultats Mesurables",
-      description: "5k+ followers sur mdn.maxime. Preuve de consistance, engagement et évolution constante"
-    }
-  ],
-  ctas: [
-    { label: "Voir mes meilleurs projets", href: "#catalogue", variant: "solid" },
-    { label: "Télécharger mon CV", href: "#contact", variant: "ghost" },
-    { label: "M'envoyer une offre", href: "#contact", variant: "ghost" },
-  ],
 }
 
 function SectionView() {
