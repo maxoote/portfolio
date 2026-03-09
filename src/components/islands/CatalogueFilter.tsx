@@ -85,7 +85,14 @@ export default function CatalogueFilter() {
               ].join(" ")}
             >
               <span className="flex items-center gap-1.5">
-                <span className={["opacity-40 group-hover:opacity-100 text-xs", cat === "Tout" ? "opacity-100" : ""].join(" ")}>▶</span>
+                <span className={["opacity-40 group-hover:opacity-100 text-xs", cat === "Tout" ? "opacity-100" : ""].join(" ")}><svg 
+  xmlns="http://www.w3.org/2000/svg" 
+  viewBox="0 0 20 20" 
+  fill="currentColor" 
+  className={["w-3.5 h-3.5 transition-opacity opacity-40 group-hover:opacity-100", cat === "Tout" ? "opacity-100" : ""].join(" ")}
+>
+  <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
+</svg></span>
                 Tout voir
               </span>
               <span className={["text-xs no-select", cat === "Tout" ? "text-white/70" : "text-gray-400 group-hover:text-white/60"].join(" ")}>
@@ -107,7 +114,14 @@ export default function CatalogueFilter() {
                 ].join(" ")}
               >
                 <span className="flex items-center gap-1.5">
-                  <span className={["opacity-40 group-hover:opacity-100 text-xs", cat === c ? "opacity-100" : ""].join(" ")}>▶</span>
+                  <span className={["opacity-40 group-hover:opacity-100 text-xs", cat === c ? "opacity-100" : ""].join(" ")}><svg 
+  xmlns="http://www.w3.org/2000/svg" 
+  viewBox="0 0 20 20" 
+  fill="currentColor" 
+  className={["w-3.5 h-3.5 transition-opacity opacity-40 group-hover:opacity-100", cat === "Tout" ? "opacity-100" : ""].join(" ")}
+>
+  <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
+</svg></span>
                   {c}
                 </span>
                 <span className={["text-xs no-select", cat === c ? "text-white/70" : "text-gray-400 group-hover:text-white/60"].join(" ")}>
