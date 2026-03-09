@@ -137,6 +137,204 @@ html {
   animation: progress-fill;
 }
 
+/* Window bounce-in animation (Win95 style entrance) */
+@keyframes window-bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.05) translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-window-bounce-in {
+  animation: window-bounce-in 600ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Pop-in animation (modals, cards) */
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-pop-in {
+  animation: pop-in 350ms cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+/* Slide out to the right (exit animation) */
+@keyframes slide-out-right {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+.animate-slide-out-right {
+  animation: slide-out-right 400ms ease-in forwards;
+}
+
+/* Subtle continuous float animation */
+@keyframes float-up {
+  from {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float-up {
+  animation: float-up 4s ease-in-out infinite;
+}
+
+/* Shimmer/skeleton loading animation */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Pulse glow effect for CTAs/highlights */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(59, 130, 246, 0);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Button press animation */
+@keyframes button-press {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.98);
+  }
+}
+
+/* Input focus glow */
+@keyframes input-focus-glow {
+  from {
+    box-shadow: inset 2px 2px 0 0 #fff, inset -2px -2px 0 0 #000;
+  }
+  to {
+    box-shadow: inset 2px 2px 0 0 #fff, inset -2px -2px 0 0 #000, 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+}
+
+/* Carousel smooth slide */
+@keyframes carousel-slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-carousel-slide {
+  animation: carousel-slide 400ms ease-in-out forwards;
+}
+
+/* Hover lift effect */
+@keyframes hover-lift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-2px);
+  }
+}
+
+/* Stagger delay utilities for complex sequences */
+.animate-stagger-delay-1 {
+  animation-delay: 50ms;
+}
+
+.animate-stagger-delay-2 {
+  animation-delay: 100ms;
+}
+
+.animate-stagger-delay-3 {
+  animation-delay: 150ms;
+}
+
+.animate-stagger-delay-4 {
+  animation-delay: 200ms;
+}
+
+.animate-stagger-delay-5 {
+  animation-delay: 250ms;
+}
+
+.animate-stagger-delay-6 {
+  animation-delay: 300ms;
+}
+
+/* Fade-in variants */
+.animate-fade-in-slow {
+  animation: fade-in 600ms ease-out;
+}
+
+.animate-fade-in-fast {
+  animation: fade-in 200ms ease-out;
+}
+
+/* Image fade-in slow variant */
+.animate-image-fade-in-slow {
+  animation: image-fade-in 800ms ease-out;
+}
+
+/* Mobile-first: Disable float animations on small screens */
+@media (max-width: 768px) {
+  .animate-float-up {
+    animation: none;
+  }
+
+  /* Faster stagger on mobile */
+  .animate-stagger-delay-1 {
+    animation-delay: 25ms;
+  }
+
+  .animate-stagger-delay-2 {
+    animation-delay: 50ms;
+  }
+}
+
 .no-select {
     -webkit-user-select: none;
     /* Safari */

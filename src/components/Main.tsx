@@ -65,7 +65,7 @@ export default function Main() {
 
         </div>
         {/* Bouton fixe en bas à droite de la viewport */}
-        <button className="w-full animate-stagger-fade-in" onClick={() => goTo("outils")} style={{ animationDelay: "200ms" }}>
+        <button className="w-full animate-stagger-fade-in hover:-translate-y-1 hover:shadow-md transition-all duration-250 ease-out active:scale-95" onClick={() => goTo("outils")} style={{ animationDelay: "200ms" }}>
           <Window
                 className="h-auto lg:absolute md:absolute   md:bottom-4 md:left-4/5 md:right-1/10 lg:bottom-4 lg:left-4/5 lg:right-0/10 lg:mr-3"
                 title="Découvrir mes Outils"

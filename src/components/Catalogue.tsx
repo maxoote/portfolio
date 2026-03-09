@@ -78,7 +78,7 @@ export default function Catalogue() {
                 }}
                 style={{ animationDelay: `${idx * 50}ms` }}
                 className={[
-                  "px-3 py-1 border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] transition-all duration-250 ease-out hover:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,0_4px_8px_rgba(0,0,0,0.2)] hover:scale-105 animate-stagger-fade-in",
+                  "px-3 py-1 border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] transition-all duration-250 ease-out hover:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,0_4px_8px_rgba(0,0,0,0.2)] hover:scale-110 focus-visible:outline-2 outline-offset-2 outline-blue-500 active:shadow-[inset_-2px_-2px_0_0_#fff,inset_2px_2px_0_0_#000] animate-stagger-fade-in",
                   cat === c ? "bg-gray-500 text-white font-bold" : "bg-white hover:bg-gray-100",
                 ].join(" ")}
               >
@@ -92,7 +92,7 @@ export default function Catalogue() {
               }}
               style={{ animationDelay: `${categories.length * 50}ms` }}
               className={[
-                "px-3 py-1 border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] transition-all duration-250 ease-out hover:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,0_4px_8px_rgba(0,0,0,0.2)] hover:scale-105 animate-stagger-fade-in",
+                "px-3 py-1 border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] transition-all duration-250 ease-out hover:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,0_4px_8px_rgba(0,0,0,0.2)] hover:scale-110 focus-visible:outline-2 outline-offset-2 outline-blue-500 active:shadow-[inset_-2px_-2px_0_0_#fff,inset_2px_2px_0_0_#000] animate-stagger-fade-in",
                 cat === "Tout" ? "bg-gray-500 text-white font-bold" : "bg-white hover:bg-gray-100",
               ].join(" ")}
             >

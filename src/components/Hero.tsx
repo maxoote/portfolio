@@ -74,7 +74,7 @@ export default function Hero({ data }: Props) {
           {/* Bloc 3 → rôles */}
           <div className="row-span-3 flex flex-col gap-9 animate-stagger-fade-in" style={{ animationDelay: "200ms" }}>
             <RolesWindow memphis={true} />
-            <button className="w-full" onClick={() => goTo("main")}>
+            <button className="w-full hover:-translate-y-1 transition-all duration-250 active:scale-95" onClick={() => goTo("main")}>
               <Window
                 className="h-auto"
                 title="Découvrir mes projets"
@@ -91,12 +91,20 @@ export default function Hero({ data }: Props) {
         {/* Desktop layout */}
         <div className="hidden md:block relative min-h-screen">
           {/* Menu window */}
-          <DraggableWindow defaultPosition={{ x: 20, y: 20 }} className="z-50">
+          <DraggableWindow
+            defaultPosition={{ x: 20, y: 20 }}
+            className="z-50 animate-window-bounce-in"
+            style={{ animationDelay: "0ms" }}
+          >
             <MenuWindow />
           </DraggableWindow>
 
           {/* Titre + intro window */}
-          <DraggableWindow defaultPosition={{ x: "0%", y: "0%" }} className="z-40">
+          <DraggableWindow
+            defaultPosition={{ x: "0%", y: "0%" }}
+            className="z-40 animate-window-bounce-in"
+            style={{ animationDelay: "150ms" }}
+          >
             <Window
               className="w-fit max-w-6xl h-fit md:w-[60vw] lg:w-[60vw]"
               title={name}
@@ -115,7 +123,11 @@ export default function Hero({ data }: Props) {
           </DraggableWindow>
 
           {/* Portrait window */}
-          <DraggableWindow defaultPosition={{ x: "0%", y: "35%" }} className="z-40">
+          <DraggableWindow
+            defaultPosition={{ x: "0%", y: "35%" }}
+            className="z-40 animate-window-bounce-in"
+            style={{ animationDelay: "300ms" }}
+          >
             <Window
               title="photo.webp"
               titleClassName=""
@@ -125,26 +137,37 @@ export default function Hero({ data }: Props) {
               <img
                 src={portrait}
                 alt="Portrait de Mandin Maxime, étudiant en BUT MMI et graphiste freelance"
-                className="object-cover shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] no-select"
+                className="object-cover shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] no-select md:animate-float-up"
                 loading="lazy"
               />
             </Window>
           </DraggableWindow>
 
           {/* Logo window */}
-          <DraggableWindow defaultPosition={{ x: "80%", y: "20%" }} className="z-40">
+          <DraggableWindow
+            defaultPosition={{ x: "80%", y: "20%" }}
+            className="z-40 animate-window-bounce-in"
+            style={{ animationDelay: "450ms" }}
+          >
             <LogoSpin />
           </DraggableWindow>
 
           {/* Roles window */}
-          <DraggableWindow defaultPosition={{ x: "28%", y: "35%" }} className="z-40">
+          <DraggableWindow
+            defaultPosition={{ x: "28%", y: "35%" }}
+            className="z-40 animate-window-bounce-in"
+            style={{ animationDelay: "600ms" }}
+          >
             <RolesWindow memphis={true} />
           </DraggableWindow>
 
           {/* Call-to-action window */}
-          <button className="w-full" onClick={() => goTo("main")}>
+          <button
+            className="w-full hover:-translate-y-1 hover:shadow-md transition-all duration-250 ease-out active:scale-95 absolute bottom-10 left-1/5 right-1/5"
+            onClick={() => goTo("main")}
+          >
             <Window
-              className="h-auto absolute bottom-10 left-1/5 right-1/5"
+              className="h-auto"
               title="Découvrir mes projets"
               tailleTitle="text-base sm:text-lg md:text-xl"
               titleClassName="hover:bg-red-800 bg-red-600"

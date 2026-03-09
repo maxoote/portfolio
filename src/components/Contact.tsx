@@ -47,7 +47,7 @@ export default function Contact() {
                 name="name"
                 value={formData.name}
                 onChange={(e) => { setFormData({...formData, name: e.target.value}); setErrors({...errors, name: ''}) }}
-                className={`mt-1 p-2 border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] transition-all duration-200 ${errors.name ? 'border-red-500 bg-red-50' : 'focus:border-blue-500'}`}
+                className={`mt-1 p-2 border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] transition-all duration-300 focus:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,0_0_0_3px_rgba(59,130,246,0.1)] focus-visible:outline-none ${errors.name ? 'border-red-500 bg-red-50' : 'focus:border-blue-500'}`}
               />
               {errors.name && <span className="text-red-600 text-sm mt-1 animate-fade-in">{errors.name}</span>}
             </label>
@@ -58,7 +58,7 @@ export default function Contact() {
                 name="email"
                 value={formData.email}
                 onChange={(e) => { setFormData({...formData, email: e.target.value}); setErrors({...errors, email: ''}) }}
-                className={`mt-1 p-2 border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] transition-all duration-200 ${errors.email ? 'border-red-500 bg-red-50' : 'focus:border-blue-500'}`}
+                className={`mt-1 p-2 border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] transition-all duration-300 focus:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,0_0_0_3px_rgba(59,130,246,0.1)] focus-visible:outline-none ${errors.email ? 'border-red-500 bg-red-50' : 'focus:border-blue-500'}`}
               />
               {errors.email && <span className="text-red-600 text-sm mt-1 animate-fade-in">{errors.email}</span>}
             </label>
@@ -69,13 +69,13 @@ export default function Contact() {
                 rows={4}
                 value={formData.message}
                 onChange={(e) => { setFormData({...formData, message: e.target.value}); setErrors({...errors, message: ''}) }}
-                className={`mt-1 p-2 border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] transition-all duration-200 ${errors.message ? 'border-red-500 bg-red-50' : 'focus:border-blue-500'}`}
+                className={`mt-1 p-2 border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] transition-all duration-300 focus:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,0_0_0_3px_rgba(59,130,246,0.1)] focus-visible:outline-none ${errors.message ? 'border-red-500 bg-red-50' : 'focus:border-blue-500'}`}
               />
               {errors.message && <span className="text-red-600 text-sm mt-1 animate-fade-in">{errors.message}</span>}
             </label>
             <button
               type="submit"
-              className="self-center px-6 py-2 font-bold text-white bg-blue-600 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] transition-all duration-200 ease-out hover:bg-blue-700 hover:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,0_4px_8px_rgba(0,0,0,0.2)] hover:scale-105 animate-stagger-fade-in"
+              className="self-center px-6 py-2 font-bold text-white bg-blue-600 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] transition-all duration-200 ease-out hover:bg-blue-700 hover:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,0_4px_8px_rgba(0,0,0,0.2)] hover:scale-105 active:scale-95 active:shadow-[inset_-2px_-2px_0_0_#fff,inset_2px_2px_0_0_#000] animate-stagger-fade-in"
               style={{ animationDelay: "300ms" }}
             >
               Envoyer
@@ -89,7 +89,7 @@ export default function Contact() {
             href="https://www.instagram.com/mdn.maxime/"
             target="_blank"
             rel="noreferrer"
-            className="animate-stagger-fade-in transition-all duration-250 hover:scale-105 hover:-translate-y-1"
+            className="animate-stagger-fade-in transition-all duration-250 hover:scale-105 hover:-translate-y-1 hover:shadow-lg"
             style={{ animationDelay: "400ms" }}
           >
             <Window
@@ -106,7 +106,7 @@ export default function Contact() {
             href="https://www.linkedin.com/in/maxime-mandin"
             target="_blank"
             rel="noreferrer"
-            className="animate-stagger-fade-in transition-all duration-250 hover:scale-105 hover:-translate-y-1"
+            className="animate-stagger-fade-in transition-all duration-250 hover:scale-105 hover:-translate-y-1 hover:shadow-lg"
             style={{ animationDelay: "450ms" }}
           >
             <Window
@@ -126,14 +126,14 @@ export default function Contact() {
             title="Mon bureau"
             titleClassName="bg-gray-700"
             tailleTitle="text-lg"
-            className="text-center transition-all duration-250 hover:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,0_8px_16px_rgba(0,0,0,0.3)]"
+            className="text-center transition-all duration-250 hover:scale-105 hover:-translate-y-1 hover:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,0_8px_16px_rgba(0,0,0,0.3)]"
           >
 
             <a
               href="https://perso.univ-lemans.fr/~i2400571/portfolio2/bureau.php"
               target="_blank"
               rel="noreferrer"
-              className="inline-block px-6 py-2 font-bold text-white bg-blue-600 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] transition-all duration-200 hover:bg-blue-700 hover:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,0_4px_8px_rgba(0,0,0,0.2)]"
+              className="inline-block px-6 py-2 font-bold text-white bg-blue-600 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] transition-all duration-200 hover:bg-blue-700 hover:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,0_4px_8px_rgba(0,0,0,0.2)] active:scale-95 active:shadow-[inset_-2px_-2px_0_0_#fff,inset_2px_2px_0_0_#000]"
             >
               Découvrir mon bureau
             </a>

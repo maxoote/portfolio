@@ -62,7 +62,7 @@ export default function Outils() {
             const scale = s.scale ?? 5
             const pct = Math.max(0, Math.min(100, (s.score / scale) * 100))
             return (
-              <div key={s.id} className="bg-gray-200 p-3 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] animate-stagger-fade-in" style={{ animationDelay: `${idx * 50}ms` }}>
+              <div key={s.id} className="bg-gray-200 p-3 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] animate-stagger-fade-in hover:scale-105 hover:-translate-y-1 hover:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,0_4px_8px_rgba(0,0,0,0.15)] transition-all duration-250" style={{ animationDelay: `${idx * 50}ms` }}>
                 <div className="flex items-center gap-3">
                   <img src={s.img} alt="" className="w-10 h-10 object-contain animate-image-fade-in" />
                   <div className="flex-1 flex items-baseline justify-between">
@@ -91,7 +91,7 @@ export default function Outils() {
         </div>
       </Window>
 
-      <button className="w-full" onClick={() => goTo("main")}>
+      <button className="w-full hover:-translate-y-1 hover:shadow-md transition-all duration-250 ease-out active:scale-95" onClick={() => goTo("main")}>
       <Window className="mt-4" title="Projet" tailleTitle="text-xl" titleClassName="bg-red-900" fleche>
         <></>
       </Window>

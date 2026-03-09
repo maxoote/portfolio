@@ -4,11 +4,9 @@ import { useState } from "react"
 type Props = { project: Project; onClose: () => void }
 export default function ProjectDetail({ project, onClose }: Props) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
-  const [prevIndex, setPrevIndex] = useState<number | null>(null)
 
   const openLightbox = (i: number) => setLightboxIndex(i)
   const closeLightbox = () => {
-    setPrevIndex(lightboxIndex)
     setTimeout(() => setLightboxIndex(null), 200)
   }
 
