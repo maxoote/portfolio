@@ -1,58 +1,89 @@
 import { useState } from "react"
 
-export default function MenuWindow() {
-  const [open, setOpen] = useState(false)
-  const panelId = "menu-panel"
+const links = [
+  { label: "Accueil",     href: "/" },
+  { label: "Mon travail", href: "/main" },
+  { label: "Projets",     href: "/catalogue" },
+  { label: "Outils",      href: "/outils" },
+  { label: "Contact",     href: "/contact" },
+]
 
-  const navigate = (href: string) => {
-    setOpen(false)
-    window.location.href = href
-  }
+function isActive(href: string, pathname: string) {
+  if (href === "/") return pathname === "/"
+  return pathname === href || pathname.startsWith(href + "/")
+}
+
+export default function MenuWindow({ pathname = "" }: { pathname?: string }) {
+  const [open, setOpen] = useState(false)
 
   return (
-    <div className="w-auto md:w-64 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2 fixed top-0 right-0 z-50 lg:top-3 lg:right-3">
-      <div className="flex items-center justify-between px-3 py-2 gap-2 text-white shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] bg-yellow-500">
-        <span className="font-semibold text-lg">Menu</span>
+    <>
+      {/* ── Taskbar ── */}
+      <div className="fixed top-0 left-0 right-0 z-50 h-9 bg-gray-300 flex items-center px-1 gap-1 shadow-[inset_0_-1px_0_0_#808080,0_1px_0_0_#000]">
+
+        {/* Brand / Start */}
+        <a
+          href="/"
+          className="h-7 px-3 flex items-center gap-1.5 font-bold text-xs whitespace-nowrap no-select bg-gray-300 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] hover:bg-gray-200 active:shadow-[inset_2px_2px_0_0_#000,inset_-2px_-2px_0_0_#fff]"
+        >
+          ★ Maxime Mandin
+        </a>
+
+        {/* Séparateur */}
+        <div className="h-5 w-px mx-0.5 bg-[#808080] shadow-[1px_0_0_#fff] flex-shrink-0" />
+
+        {/* Nav desktop */}
+        <nav className="hidden md:flex items-center gap-0.5 flex-1">
+          {links.map(({ label, href }) => {
+            const active = isActive(href, pathname)
+            return (
+              <a
+                key={href}
+                href={href}
+                className={[
+                  "h-7 px-3 flex items-center text-xs font-semibold whitespace-nowrap no-select transition-colors",
+                  active
+                    ? "bg-gray-400 shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff]"
+                    : "bg-gray-300 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#808080] hover:bg-gray-200 active:shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff]",
+                ].join(" ")}
+              >
+                {label}
+              </a>
+            )
+          })}
+        </nav>
+
+        {/* Hamburger mobile */}
         <button
-          type="button"
+          className="md:hidden ml-auto h-7 px-2.5 flex items-center font-bold text-sm no-select bg-gray-300 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] active:shadow-[inset_2px_2px_0_0_#000,inset_-2px_-2px_0_0_#fff]"
           onClick={() => setOpen(v => !v)}
-          aria-expanded={open}
-          aria-controls={panelId}
-          className="p-1 px-2.5 text-xl bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] transition-all duration-250 ease-out hover:bg-gray-500 active:shadow-[inset_-2px_-2px_0_0_#fff,inset_2px_2px_0_0_#000] active:scale-95"
-          style={{ transform: open ? "rotate(90deg)" : "rotate(0deg)" }}
+          aria-label="Navigation"
         >
           {open ? "✕" : "≡"}
         </button>
       </div>
 
-      <nav
-        id={panelId}
-        className={`overflow-hidden transition-all duration-300 ease-in-out ${open ? "max-h-[500px] mt-3" : "max-h-0"} lg:mt-3`}
-      >
-        <ul className="flex flex-col items-center font-black gap-1">
-          {[
-            { label: "Accueil", href: "/" },
-            { label: "Mon travail", href: "/main" },
-            { label: "Projets", href: "/catalogue" },
-            { label: "Outils", href: "/outils" },
-            { label: "Contact", href: "/contact" },
-          ].map(({ label, href }, idx) => (
-            <li
-              key={href}
-              className="w-full animate-menu-slide-down"
-              style={{ animationDelay: `${idx * 50}ms` }}
-            >
+      {/* Dropdown mobile */}
+      {open && (
+        <div className="md:hidden fixed top-9 left-0 right-0 z-50 bg-gray-300 shadow-[0_4px_0_0_#000] animate-menu-slide-down">
+          {links.map(({ label, href }) => {
+            const active = isActive(href, pathname)
+            return (
               <a
+                key={href}
                 href={href}
-                onClick={(e) => { e.preventDefault(); navigate(href) }}
-                className="flex items-center justify-between text-white px-3 py-2 bg-red-600 hover:bg-red-800 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] hover:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,0_4px_8px_rgba(0,0,0,0.2)] transition-all duration-200 hover:scale-105 hover:-translate-y-0.5 w-full"
+                onClick={() => setOpen(false)}
+                className={[
+                  "flex items-center px-4 py-2.5 text-sm font-semibold border-b border-[#808080] last:border-0 no-select",
+                  active ? "bg-blue-900 text-white" : "hover:bg-blue-900 hover:text-white",
+                ].join(" ")}
               >
                 {label}
               </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </div>
+            )
+          })}
+        </div>
+      )}
+    </>
   )
 }

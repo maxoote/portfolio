@@ -88,11 +88,11 @@ const canonicalUrl = canonical ?? Astro.url.href;
   </head>
 
   <body
-    class="bg-gray-300 min-h-dvh"
+    class="bg-gray-300 min-h-dvh pt-9"
     style="background-image: url('/fondprojet.png'); background-repeat: no-repeat; background-size: cover; background-position: center; background-attachment: fixed;"
   >
     <header transition:persist="win95-menu">
-      <MenuWindow client:load />
+      <MenuWindow client:load pathname={Astro.url.pathname} />
     </header>
 
     <main>

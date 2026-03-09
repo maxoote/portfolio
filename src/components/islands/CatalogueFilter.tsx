@@ -57,7 +57,7 @@ export default function CatalogueFilter() {
       title="Mes projets"
       titleClassName="bg-blue-900"
       tailleTitle="text-2xl"
-      className="mt-16 flex flex-col overflow-hidden h-[88vh]"
+      className="flex-1 min-h-0 flex flex-col overflow-hidden"
     >
       {/* Filtres */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 p-3 pb-0">
