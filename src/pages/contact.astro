@@ -7,62 +7,88 @@ import ContactForm from '../components/islands/ContactForm';
   title="Contact — Maxime Mandin"
   description="Contactez Maxime Mandin pour un projet de design graphique, développement web ou audiovisuel en Vendée et Pays de la Loire."
 >
-  <div class="min-h-[calc(100dvh-2.25rem)] py-4">
-    <div class="mx-auto max-w-7xl px-4 mt-4">
+  <section class="h-[calc(100dvh-2.25rem)] flex flex-col p-3 md:p-5 overflow-hidden">
 
-      <ContactForm client:load />
+    <!-- Layout 2 colonnes -->
+    <div class="flex-1 min-h-0 flex flex-col md:flex-row gap-4 md:gap-5">
 
-      <!-- Réseaux sociaux -->
-      <div class="max-w-5xl mx-auto mt-8 grid grid-cols-2 sm:grid-cols-3 gap-4">
+      <!-- Colonne gauche : formulaire -->
+      <div class="flex-1 min-h-0 flex flex-col">
+        <ContactForm client:load />
+      </div>
+
+      <!-- Colonne droite : liens sociaux -->
+      <div class="flex-shrink-0 w-full md:w-64 flex flex-col gap-4 md:gap-5">
+
+        <!-- Instagram -->
         <a
           href="https://www.instagram.com/mdn.maxime/"
           target="_blank"
           rel="noreferrer"
-          class="animate-stagger-fade-in transition-all duration-250 hover:scale-105 hover:-translate-y-1 hover:shadow-lg"
-          style="animation-delay: 400ms"
+          class="group block animate-window-bounce-in hover:-translate-y-0.5 transition-all duration-200"
+          style="animation-delay: 150ms"
         >
-          <div class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2 h-full text-center">
-            <div class="mb-2 flex items-center justify-between text-white px-3 py-2 bg-pink-600 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
-              <span class="font-semibold text-lg no-select">Instagram</span>
-              <span class="p-1 px-2 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] no-select">✕</span>
+          <div class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2">
+            <div class="mb-2 flex items-center justify-between text-white px-3 py-1.5 bg-pink-600 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
+              <span class="font-semibold text-sm no-select">Instagram</span>
+              <span class="p-0.5 px-1.5 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select">✕</span>
             </div>
-            <p class="inline-block px-6 py-2 font-bold text-white bg-blue-600 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">Compte perso</p>
+            <div class="shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff] bg-white px-3 py-2 text-center">
+              <p class="text-xs text-gray-600">@mdn.maxime</p>
+              <span class="inline-block mt-1 px-4 py-1 font-bold text-xs text-white bg-pink-600 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">Compte perso</span>
+            </div>
           </div>
         </a>
 
+        <!-- LinkedIn -->
         <a
           href="https://www.linkedin.com/in/maxime-mandin"
           target="_blank"
           rel="noreferrer"
-          class="animate-stagger-fade-in transition-all duration-250 hover:scale-105 hover:-translate-y-1 hover:shadow-lg"
-          style="animation-delay: 450ms"
+          class="group block animate-window-bounce-in hover:-translate-y-0.5 transition-all duration-200"
+          style="animation-delay: 200ms"
         >
-          <div class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2 h-full text-center">
-            <div class="mb-2 flex items-center justify-between text-white px-3 py-2 bg-blue-600 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
-              <span class="font-semibold text-lg no-select">LinkedIn</span>
-              <span class="p-1 px-2 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] no-select">✕</span>
+          <div class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2">
+            <div class="mb-2 flex items-center justify-between text-white px-3 py-1.5 bg-blue-700 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
+              <span class="font-semibold text-sm no-select">LinkedIn</span>
+              <span class="p-0.5 px-1.5 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select">✕</span>
             </div>
-            <p class="inline-block px-6 py-2 font-bold text-white bg-blue-600 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">Profil professionnel</p>
+            <div class="shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff] bg-white px-3 py-2 text-center">
+              <p class="text-xs text-gray-600">maxime-mandin</p>
+              <span class="inline-block mt-1 px-4 py-1 font-bold text-xs text-white bg-blue-700 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">Profil professionnel</span>
+            </div>
           </div>
         </a>
 
+        <!-- Mon bureau -->
         <a
           href="https://perso.univ-lemans.fr/~i2400571/portfolio2/bureau.php"
           target="_blank"
           rel="noreferrer"
-          class="col-span-2 sm:col-span-1 animate-stagger-fade-in transition-all duration-250 hover:scale-105 hover:-translate-y-1 hover:shadow-lg"
-          style="animation-delay: 500ms"
+          class="group block animate-window-bounce-in hover:-translate-y-0.5 transition-all duration-200"
+          style="animation-delay: 250ms"
         >
-          <div class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2 h-full text-center">
-            <div class="mb-2 flex items-center justify-between text-white px-3 py-2 bg-gray-700 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
-              <span class="font-semibold text-lg no-select">Mon bureau</span>
-              <span class="p-1 px-2 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] no-select">✕</span>
+          <div class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2">
+            <div class="mb-2 flex items-center justify-between text-white px-3 py-1.5 bg-gray-700 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
+              <span class="font-semibold text-sm no-select">Mon bureau</span>
+              <span class="p-0.5 px-1.5 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select">✕</span>
             </div>
-            <p class="inline-block px-6 py-2 font-bold text-white bg-blue-600 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">Découvrir mon bureau</p>
+            <div class="shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff] bg-white px-3 py-2 text-center">
+              <p class="text-xs text-gray-600">Portfolio interactif</p>
+              <span class="inline-block mt-1 px-4 py-1 font-bold text-xs text-white bg-gray-700 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">Découvrir</span>
+            </div>
           </div>
         </a>
-      </div>
 
+        <!-- Barre de statut -->
+        <div class="mt-auto flex gap-1">
+          <span class="flex-1 text-xs px-2 py-1 shadow-[inset_1px_1px_0_0_#808080,inset_-1px_-1px_0_0_#fff] bg-gray-300 no-select">
+            Réponse sous 48h
+          </span>
+        </div>
+
+      </div>
     </div>
-  </div>
+
+  </section>
 </BaseLayout>

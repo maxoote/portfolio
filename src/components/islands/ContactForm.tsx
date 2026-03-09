@@ -57,7 +57,7 @@ export default function ContactForm() {
     }`
 
   return (
-    <div className="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2 max-w-2xl mx-auto animate-fade-in">
+    <div className="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2 animate-fade-in h-full flex flex-col">
       <div className="mb-2 flex items-center justify-between text-white px-3 py-2 bg-blue-700 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
         <span className="font-semibold text-2xl no-select">Contactez-moi</span>
         <span className="p-1 px-2 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] no-select">✕</span>
@@ -73,7 +73,7 @@ export default function ContactForm() {
         </div>
       )}
 
-      <form className="flex flex-col gap-4 p-4" onSubmit={handleSubmit}>
+      <form className="flex flex-col gap-4 p-4 flex-1 overflow-y-auto" onSubmit={handleSubmit}>
         <label className="flex flex-col font-semibold animate-stagger-fade-in" style={{ animationDelay: "0ms" }}>
           Nom
           <input
