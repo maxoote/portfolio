@@ -1,10 +1,11 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Hero from "./components/Hero"
 import Main from "./components/Main"
 import Catalogue from "./components/Catalogue"
 import Contact from "./components/Contact"
 import Outils from "./components/Outils"
+import ProjectPage from "./components/ProjectPage"
 import { Analytics } from "@vercel/analytics/react"
-import { NavProvider, useNav } from "./navigation"
 import type { HeroData } from "./types/hero"
 
 const heroData: HeroData = {
@@ -21,21 +22,44 @@ const heroData: HeroData = {
   ],
 }
 
-function SectionView() {
-  const { section } = useNav()
+export default function App() {
+  return (
+    <BrowserRouter>
+      <div className="h-screen overflow-hidden">
+        <Routes>
+          <Route path="/" element={<HomePage heroData={heroData} />} />
+          <Route path="/main" element={<MainPage />} />
+          <Route path="/catalogue" element={<CataloguePage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/outils" element={<OutilsPage />} />
+          <Route path="/projects/:id" element={<ProjectPage />} />
+        </Routes>
+        <footer className="sr-only">
+          <p>
+            Portfolio de Mandin Maxime, étudiant en BUT MMI à Laval,
+            spécialisé en graphisme, web design, print et vidéo pour les
+            petites entreprises et associations en Vendée, Laval et Pays de la Loire.
+          </p>
+        </footer>
+        <Analytics />
+      </div>
+    </BrowserRouter>
+  )
+}
 
-  if (section === "hero") {
-    return (
-      <section
-        id="hero"
-        aria-label="Présentation de Mandin Maxime, étudiant BUT MMI et graphiste freelance en Vendée"
-        className="animate-fade-in"
-      >
-        <Hero data={heroData} />
-      </section>
-    )
-  }
-if (section === "main") {
+function HomePage({ heroData }: { heroData: HeroData }) {
+  return (
+    <section
+      id="hero"
+      aria-label="Présentation de Mandin Maxime, étudiant BUT MMI et graphiste freelance en Vendée"
+      className="animate-fade-in"
+    >
+      <Hero data={heroData} />
+    </section>
+  )
+}
+
+function MainPage() {
   return (
     <main>
       <section
@@ -52,7 +76,7 @@ if (section === "main") {
   )
 }
 
-if (section === "catalogue") {
+function CataloguePage() {
   return (
     <main>
       <section
@@ -69,7 +93,7 @@ if (section === "catalogue") {
   )
 }
 
-if (section === "contact") {
+function ContactPage() {
   return (
     <main>
       <section
@@ -86,7 +110,7 @@ if (section === "contact") {
   )
 }
 
-if (section === "outils") {
+function OutilsPage() {
   return (
     <main>
       <section
@@ -100,25 +124,5 @@ if (section === "outils") {
         <Outils />
       </section>
     </main>
-  )
-}}
-
-
-export default function App() {
-  return (
-    <NavProvider>
-      <div className="h-screen overflow-hidden">
-        <SectionView />
-        <footer className="sr-only">
-          {/* Footer invisible visuellement mais lisible par Google / lecteurs d'écran */}
-          <p>
-            Portfolio de Mandin Maxime, étudiant en BUT MMI à Laval,
-            spécialisé en graphisme, web design, print et vidéo pour les
-            petites entreprises et associations en Vendée, Laval et Pays de la Loire.
-          </p>
-        </footer>
-        <Analytics />
-      </div>
-    </NavProvider>
   )
 }

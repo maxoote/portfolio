@@ -1,13 +1,13 @@
 import type { HeroData } from "../types/hero"
 import Window from "./ui/Window"
 import MenuWindow from "./MenuWindow"
-import { useNav } from "../navigation"
+import { useNavigate } from "react-router-dom"
 import portrait from "../assets/photoprofil.png"
 
 type Props = { data: HeroData }
 
 export default function Hero({ data }: Props) {
-  const { goTo } = useNav()
+  const navigate = useNavigate()
   const { name, tagline, status, location, badges } = data
 
   return (
@@ -84,7 +84,7 @@ export default function Hero({ data }: Props) {
               {/* CTA Button */}
               <div className="pt-4">
                 <button
-                  onClick={() => goTo("main")}
+                  onClick={() => navigate("/main")}
                   className="w-full md:w-auto hover:-translate-y-1 hover:shadow-md transition-all duration-250 ease-out active:scale-95"
                   style={{ animationDelay: "300ms" }}
                 >
@@ -159,7 +159,7 @@ export default function Hero({ data }: Props) {
               {/* CTA Button */}
               <div className="pt-3">
                 <button
-                  onClick={() => goTo("main")}
+                  onClick={() => navigate("/main")}
                   className="w-full hover:-translate-y-1 hover:shadow-md transition-all duration-250 ease-out active:scale-95"
                   style={{ animationDelay: "300ms" }}
                 >

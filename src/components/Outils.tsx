@@ -1,7 +1,7 @@
 // src/components/Outils.tsx
 import Window from "./ui/Window"
 import MenuWindow from "./MenuWindow"
-import { useNav } from "../navigation"
+import { useNavigate } from "react-router-dom"
 
 // Imports des icônes (dans src/assets/outils/)
 import icHtml from "../assets/outils/html.png"
@@ -46,7 +46,7 @@ const skills: Skill[] = [
 ]
 
 export default function Outils() {
-  const { goTo } = useNav()
+  const navigate = useNavigate()
   return (
     <div className="min-h-dvh bg-[url('./assets/fondprojet.png')] bg-cover bg-no-repeat py-6">
   <div className="mx-auto max-w-7xl px-4">
@@ -64,7 +64,7 @@ export default function Outils() {
             return (
               <div key={s.id} className="bg-gray-200 p-3 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] animate-stagger-fade-in hover:scale-105 hover:-translate-y-1 hover:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,0_4px_8px_rgba(0,0,0,0.15)] transition-all duration-250" style={{ animationDelay: `${idx * 50}ms` }}>
                 <div className="flex items-center gap-3">
-                  <img src={s.img} alt="" className="w-10 h-10 object-contain animate-image-fade-in" />
+                  <img src={s.img} alt={`Logo ${s.label}`} className="w-10 h-10 object-contain animate-image-fade-in" />
                   <div className="flex-1 flex items-baseline justify-between">
                     <h4 className="font-semibold">{s.label}</h4>
                     <span className="text-sm">{s.score}/{scale}</span>
@@ -91,7 +91,7 @@ export default function Outils() {
         </div>
       </Window>
 
-      <button className="w-full hover:-translate-y-1 hover:shadow-md transition-all duration-250 ease-out active:scale-95" onClick={() => goTo("main")}>
+      <button className="w-full hover:-translate-y-1 hover:shadow-md transition-all duration-250 ease-out active:scale-95" onClick={() => navigate("/main")}>
       <Window className="mt-4" title="Projet" tailleTitle="text-xl" titleClassName="bg-red-900" fleche>
         <></>
       </Window>

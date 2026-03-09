@@ -6,13 +6,78 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://mandinmaxime.vercel.app/#projects</loc>
+    <loc>https://mandinmaxime.vercel.app/main</loc>
+    <priority>0.85</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://mandinmaxime.vercel.app/catalogue</loc>
+    <priority>0.85</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://mandinmaxime.vercel.app/contact</loc>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://mandinmaxime.vercel.app/#contact</loc>
+    <loc>https://mandinmaxime.vercel.app/projects/maxime-compet</loc>
+    <priority>0.75</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://mandinmaxime.vercel.app/projects/mdn-maxime</loc>
     <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://mandinmaxime.vercel.app/projects/unsorted-vid</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://mandinmaxime.vercel.app/projects/sth</loc>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://mandinmaxime.vercel.app/projects/maron-bouillie</loc>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://mandinmaxime.vercel.app/projects/ta-solution-hypno</loc>
+    <priority>0.75</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://mandinmaxime.vercel.app/projects/anna-partout</loc>
+    <priority>0.75</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://mandinmaxime.vercel.app/projects/unsorted-print</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://mandinmaxime.vercel.app/projects/mon-bureau</loc>
+    <priority>0.75</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://mandinmaxime.vercel.app/projects/portfolio-2025</loc>
+    <priority>0.75</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://mandinmaxime.vercel.app/projects/album-tir-sportif</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://mandinmaxime.vercel.app/projects/unsorted-pics</loc>
+    <priority>0.70</priority>
     <changefreq>monthly</changefreq>
   </url>
 </urlset>
