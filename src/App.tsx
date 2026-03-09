@@ -9,19 +9,35 @@ import type { HeroData } from "./types/hero"
 
 const heroData: HeroData = {
   name: "Mandin Maxime",
-  tagline: "Étudiant BUT MMI - Graphiste & Web-designer en Vendée",
+  tagline: "Je conçois des expériences visuelles du concept à la production",
   intro:
     "Étudiant en deuxième année de BUT Métiers du Multimédia et de l'Internet à Laval, je conçois des projets alliant design graphique, développement web et communication digitale pour les petites entreprises et associations en Vendée et Pays de la Loire.",
+  status: "EN RECHERCHE D'ALTERNANCE",
+  location: "2ème année BUT MMI, Laval",
   badges: [
-    { label: "Étudiant MMI" },
-    { label: "Web-designer" },
-    { label: "Développeur front" },
-    { label: "Graphiste print & digital" },
-    { label: "Vidéaste" }, 
+    { label: "Design Graphique" },
+    { label: "Développement Web" },
+    { label: "Audiovisuel & Branding" },
+  ],
+  featuredProjects: ["sth", "mdn-maxime", "maron-bouillie"],
+  valueProps: [
+    {
+      title: "Pluridisciplinaire",
+      description: "Design + Dev + Vidéo = Une vision globale et cohérente du projet"
+    },
+    {
+      title: "Autonome & Proactif",
+      description: "STH piloté en autonomie depuis 3 ans. Gestion complète de la conception à l'exécution"
+    },
+    {
+      title: "Résultats Mesurables",
+      description: "5k+ followers sur mdn.maxime. Preuve de consistance, engagement et évolution constante"
+    }
   ],
   ctas: [
-    { label:"Découvir mes projets", href: "#projects", variant: "solid" },
-    { label: "Me contacter", href: "#contact", variant: "ghost" },
+    { label: "Voir mes meilleurs projets", href: "#catalogue", variant: "solid" },
+    { label: "Télécharger mon CV", href: "#contact", variant: "ghost" },
+    { label: "M'envoyer une offre", href: "#contact", variant: "ghost" },
   ],
 }
 

@@ -1,183 +1,208 @@
 import type { HeroData } from "../types/hero"
 import Window from "./ui/Window"
-import portrait from "../assets/photoprofil.png"
 import MenuWindow from "./MenuWindow"
-import RolesWindow from "./ui/RoleWindow"
+import FeaturedProjects from "./ui/FeaturedProjects"
+import ValuePropositions from "./ui/ValuePropositions"
 import { useNav } from "../navigation"
-import LogoSpin from "./ui/LogoWindow"
-import DraggableWindow from "./DraggableWindow"
+import portrait from "../assets/photoprofil.png"
 
 type Props = { data: HeroData }
 
 export default function Hero({ data }: Props) {
-  const { name, tagline, intro } = data
   const { goTo } = useNav()
+  const {
+    name,
+    tagline,
+    status,
+    location,
+    badges,
+    featuredProjects = [],
+    valueProps = [],
+    ctas = [],
+  } = data
 
   return (
-
     <section
       className="py-4 min-h-dvh bg-[url('./assets/fondprojet.png')] bg-no-repeat bg-center bg-cover"
-      aria-label="Section de présentation de Mandin Maxime, étudiant BUT MMI et graphiste freelance"
+      aria-label="Section de présentation de Mandin Maxime, en recherche d'alternance"
     >
-      {/* H1 SEO clair et visible */}
       <h1 className="sr-only">
-        {name} – Étudiant BUT MMI, graphiste, web-designer et vidéaste en Vendée et Pays de la Loire
+        {name} – {status || "Étudiant"} en Alternance
       </h1>
 
-      
+      <div className="mx-auto max-w-6xl px-4 py-6 md:py-12 overflow-hidden">
+        {/* SECTION 1: Mini-header avec status */}
+        <MenuWindow />
 
-      <div className="mx-auto max-w-6xl px-4 pt-8 md:py-16 overflow-hidden md:max-h-screen md:pt-0 md:max-w-screen lg:max-h-screen lg:pt-0 lg:max-w-screen">
-        {/* Mobile / small screen */}
-        <div className="grid grid-cols-1 grid-rows-8 gap-3 md:hidden">
-          <MenuWindow />
-
-          {/* Bloc 1 → titre+intro */}
-          <div className="row-span-3 animate-stagger-fade-in" style={{ animationDelay: "0ms" }}>
-            <Window
-              className="w-full h-fit"
-              title={name}
-              tailleTitle="text-lg sm:text-xl md:text-2xl"
-              titleClassName=""
-            >
-              <div className="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] bg-white border-2 p-2 md:p-3 h-full">
-                {/* Tagline en H2 (sous-titre) */}
-                <h2 className="text-base sm:text-lg md:text-2xl text-black font-semibold leading-tight">
-                  {tagline}
-                </h2>
-                <p className="mt-2 md:mt-4 text-sm md:text-base text-neutral-800 leading-relaxed">
-                  {intro}
-                </p>
-              </div>
-            </Window>
-          </div>
-
-          {/* Bloc 2 → portrait + logo */}
-          <div className="row-span-2 animate-stagger-fade-in" style={{ animationDelay: "100ms" }}>
-            <div className="grid grid-cols-2 gap-3 h-full">
+        <div className="mb-12">
+          {/* Desktop: Side-by-side layout */}
+          <div className="hidden md:grid md:grid-cols-12 md:gap-6 md:mb-12 md:items-start">
+            {/* Portrait - Desktop */}
+            <div className="md:col-span-3 animate-stagger-fade-in md:animate-float-up" style={{ animationDelay: "0ms" }}>
               <Window
                 title="photo.webp"
                 titleClassName=""
-                tailleTitle="text-sm sm:text-base"
+                tailleTitle="text-sm"
                 className="h-fit"
               >
                 <img
                   src={portrait}
-                  alt="Portrait de Mandin Maxime, étudiant en BUT MMI et graphiste freelance"
-                  className="object-cover shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] animate-image-fade-in"
+                  alt={`Portrait de ${name}`}
+                  className="w-full object-cover shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] animate-image-fade-in"
                   loading="lazy"
                 />
               </Window>
-              <LogoSpin />
+            </div>
+
+            {/* Name, tagline, status, badges - Desktop */}
+            <div className="md:col-span-9 animate-stagger-fade-in" style={{ animationDelay: "100ms" }}>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+                {name}
+              </h2>
+              <p className="text-lg md:text-xl font-semibold text-gray-800 mb-3">
+                {tagline}
+              </p>
+
+              {/* Status Badge */}
+              {status && (
+                <div className="mb-4 inline-block">
+                  <span className="px-4 py-2 bg-red-600 text-white font-bold text-sm md:text-base shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] animate-pulse-glow">
+                    ● {status}
+                  </span>
+                </div>
+              )}
+
+              {location && (
+                <p className="text-xs md:text-sm text-gray-700 mb-4">
+                  {location}
+                </p>
+              )}
+
+              {/* Badges */}
+              {badges && badges.length > 0 && (
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {badges.map((badge, idx) => (
+                    <span
+                      key={idx}
+                      className="px-3 py-1 bg-gray-200 border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-xs md:text-sm font-semibold text-gray-900 animate-stagger-fade-in"
+                      style={{ animationDelay: `${150 + idx * 50}ms` }}
+                    >
+                      {badge.label}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 
-          {/* Bloc 3 → rôles */}
-          <div className="row-span-3 flex flex-col gap-9 animate-stagger-fade-in" style={{ animationDelay: "200ms" }}>
-            <RolesWindow memphis={true} />
-            <button className="w-full hover:-translate-y-1 transition-all duration-250 active:scale-95" onClick={() => goTo("main")}>
+          {/* Mobile: Stacked layout */}
+          <div className="md:hidden">
+            <div className="animate-stagger-fade-in mb-4" style={{ animationDelay: "0ms" }}>
               <Window
-                className="h-auto"
-                title="Découvrir mes projets"
-                tailleTitle="text-base sm:text-lg md:text-xl"
-                titleClassName="hover:bg-red-800 bg-red-600"
-                fleche
+                title="photo.webp"
+                titleClassName=""
+                tailleTitle="text-sm"
+                className="h-fit"
               >
-                <></>
+                <img
+                  src={portrait}
+                  alt={`Portrait de ${name}`}
+                  className="w-full object-cover shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] animate-image-fade-in"
+                  loading="lazy"
+                />
               </Window>
-            </button>
+            </div>
+
+            <div className="animate-stagger-fade-in" style={{ animationDelay: "100ms" }}>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+                {name}
+              </h2>
+              <p className="text-base sm:text-lg font-semibold text-gray-800 mb-3">
+                {tagline}
+              </p>
+
+              {status && (
+                <div className="mb-4 inline-block">
+                  <span className="px-3 py-1 bg-red-600 text-white font-bold text-xs sm:text-sm shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] animate-pulse-glow">
+                    ● {status}
+                  </span>
+                </div>
+              )}
+
+              {location && (
+                <p className="text-xs text-gray-700 mb-3">
+                  {location}
+                </p>
+              )}
+
+              {badges && badges.length > 0 && (
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {badges.map((badge, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2 py-1 bg-gray-200 border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-xs font-semibold text-gray-900 animate-stagger-fade-in"
+                      style={{ animationDelay: `${150 + idx * 50}ms` }}
+                    >
+                      {badge.label}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
-        {/* Desktop layout */}
-        <div className="hidden md:block relative min-h-screen">
-          {/* Menu window */}
-          <DraggableWindow
-            defaultPosition={{ x: 20, y: 20 }}
-            className="z-50 animate-window-bounce-in"
-            style={{ animationDelay: "0ms" }}
-          >
-            <MenuWindow />
-          </DraggableWindow>
+        {/* SECTION 2: Featured Projects */}
+        {featuredProjects && featuredProjects.length > 0 && (
+          <div className="mb-12 animate-stagger-fade-in" style={{ animationDelay: "300ms" }}>
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">
+              Réalisations Clés
+            </h3>
+            <FeaturedProjects projectIds={featuredProjects} />
+          </div>
+        )}
 
-          {/* Titre + intro window */}
-          <DraggableWindow
-            defaultPosition={{ x: "0%", y: "0%" }}
-            className="z-40 animate-window-bounce-in"
-            style={{ animationDelay: "150ms" }}
-          >
-            <Window
-              className="w-fit max-w-6xl h-fit md:w-[60vw] lg:w-[60vw]"
-              title={name}
-              tailleTitle="text-6xl"
-              titleClassName=""
-            >
-              <div className="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] bg-white border-2 p-2 md:p-3 h-full">
-                <h2 className="text-base sm:text-lg md:text-2xl text-black font-semibold leading-tight">
-                  {tagline}
-                </h2>
-                <p className="mt-2 md:mt-4 text-sm md:text-base text-neutral-800 leading-relaxed">
-                  {intro}
-                </p>
-              </div>
-            </Window>
-          </DraggableWindow>
+        {/* SECTION 3: Value Propositions */}
+        {valueProps && valueProps.length > 0 && (
+          <div className="mb-12 animate-stagger-fade-in" style={{ animationDelay: "400ms" }}>
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">
+              Pourquoi moi ?
+            </h3>
+            <ValuePropositions items={valueProps} />
+          </div>
+        )}
 
-          {/* Portrait window */}
-          <DraggableWindow
-            defaultPosition={{ x: "0%", y: "35%" }}
-            className="z-40 animate-window-bounce-in"
-            style={{ animationDelay: "300ms" }}
-          >
-            <Window
-              title="photo.webp"
-              titleClassName=""
-              tailleTitle="text-sm sm:text-base"
-              className="max-w-sm md:w-[25vw] lg:w-[25vw]"
-            >
-              <img
-                src={portrait}
-                alt="Portrait de Mandin Maxime, étudiant en BUT MMI et graphiste freelance"
-                className="object-cover shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] no-select md:animate-float-up"
-                loading="lazy"
-              />
-            </Window>
-          </DraggableWindow>
-
-          {/* Logo window */}
-          <DraggableWindow
-            defaultPosition={{ x: "80%", y: "20%" }}
-            className="z-40 animate-window-bounce-in"
-            style={{ animationDelay: "450ms" }}
-          >
-            <LogoSpin />
-          </DraggableWindow>
-
-          {/* Roles window */}
-          <DraggableWindow
-            defaultPosition={{ x: "28%", y: "35%" }}
-            className="z-40 animate-window-bounce-in"
-            style={{ animationDelay: "600ms" }}
-          >
-            <RolesWindow memphis={true} />
-          </DraggableWindow>
-
-          {/* Call-to-action window */}
-          <button
-            className="w-full hover:-translate-y-1 hover:shadow-md transition-all duration-250 ease-out active:scale-95 absolute bottom-10 left-1/5 right-1/5"
-            onClick={() => goTo("main")}
-          >
-            <Window
-              className="h-auto"
-              title="Découvrir mes projets"
-              tailleTitle="text-base sm:text-lg md:text-xl"
-              titleClassName="hover:bg-red-800 bg-red-600"
-              fleche
-            >
-              <></>
-            </Window>
-          </button>
-        </div>
+        {/* SECTION 4: Call-to-Actions */}
+        {ctas && ctas.length > 0 && (
+          <div className="animate-stagger-fade-in" style={{ animationDelay: "500ms" }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {ctas.map((cta, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => {
+                    if (cta.href.startsWith("#")) {
+                      goTo(cta.href.substring(1) as any)
+                    }
+                  }}
+                  className="w-full hover:-translate-y-1 hover:shadow-md transition-all duration-250 ease-out active:scale-95"
+                  style={{ animationDelay: `${550 + idx * 50}ms` }}
+                >
+                  <Window
+                    className="h-auto animate-stagger-fade-in"
+                    title={cta.label}
+                    tailleTitle="text-base md:text-lg"
+                    titleClassName="bg-blue-900 hover:bg-blue-800"
+                    fleche
+                  >
+                    <></>
+                  </Window>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   )
 }
+
