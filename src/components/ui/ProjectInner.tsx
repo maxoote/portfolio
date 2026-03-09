@@ -1,9 +1,9 @@
-type Props = { title: string; image: string }
+type Props = { title: string; image: string | { src: string } }
 export default function ProjectInner({ title, image }: Props) {
   return (
     <>
       <img
-        src={image}
+        src={(image as any)?.src ?? image}
         alt={title}
         className="absolute inset-0 w-full h-full object-cover animate-image-fade-in"
         loading="lazy"

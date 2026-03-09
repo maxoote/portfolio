@@ -32,7 +32,7 @@ export default function ProjectDetail({ project, onClose }: Props) {
       </div>
 
       <div className="w-full aspect-[16/3] overflow-hidden shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] animate-image-fade-in">
-        <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+        <img src={(project.image as any)?.src ?? project.image} alt={project.title} className="w-full h-full object-cover" />
       </div>
 
       {project.url ? (
@@ -149,7 +149,7 @@ export default function ProjectDetail({ project, onClose }: Props) {
           onClick={() => openLightbox(i)}
           className="w-full md:w-auto h-32 md:h-full max-h-60 overflow-hidden shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] z-50 flex justify-center transition-all duration-250 hover:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,0_8px_16px_rgba(0,0,0,0.3)] hover:scale-105"
         >
-          <img src={src} alt={`${project.title} - Image ${i + 1}`} className="object-fill p-1 h-full w-full animate-image-fade-in" />
+          <img src={(src as any)?.src ?? src} alt={`${project.title} - Image ${i + 1}`} className="object-fill p-1 h-full w-full animate-image-fade-in" />
         </button>
       ))}
     </div>
@@ -207,7 +207,7 @@ export default function ProjectDetail({ project, onClose }: Props) {
         ‹
       </button>
       <img
-        src={project.gallery[lightboxIndex]}
+        src={(project.gallery[lightboxIndex] as any)?.src ?? project.gallery[lightboxIndex]}
         alt={`Image ${lightboxIndex + 1}`}
         className="w-auto max-h-[80vh] mx-auto rounded shadow-lg"
       />
