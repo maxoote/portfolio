@@ -10,6 +10,7 @@ const links = [
 
 function isActive(href: string, pathname: string) {
   if (href === "/") return pathname === "/"
+  if (href === "/catalogue") return pathname === "/catalogue" || pathname.startsWith("/projects/")
   return pathname === href || pathname.startsWith(href + "/")
 }
 

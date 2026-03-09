@@ -12,14 +12,11 @@ export function getStaticPaths() {
 
 const { project } = Astro.props;
 
-// Description courte pour meta (contexte ou premiers 160 caractères)
 const shortDesc = project.detailedDescription?.context?.content?.slice(0, 160) ??
   `Projet ${project.title} par Maxime Mandin.`;
 
-// Image OG (src de l'import ES6)
 const ogImageSrc = (project.image as any)?.src ?? '';
 
-// VisualArtwork JSON-LD pour SEO
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "VisualArtwork",
@@ -43,28 +40,38 @@ const structuredData = {
 >
   <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
-  <div class="min-h-dvh py-6">
-    <div class="mx-auto max-w-7xl px-4 mt-16">
+  <div class="py-8 px-4 md:px-8">
+    <div class="mx-auto max-w-4xl">
 
-      <!-- Vue détail (island React pour lightbox + interactivité) -->
+      <!-- Détail du projet -->
       <ProjectDetailIsland project={project} client:load />
 
-      <!-- CTA contextuel en fin de page -->
-      <div class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-4 mt-8 text-center animate-stagger-fade-in" style="animation-delay: 700ms">
-        <p class="font-bold text-gray-900 mb-3">Ce projet vous intéresse ?</p>
-        <div class="flex flex-wrap gap-3 justify-center">
-          <a
-            href="/contact"
-            class="px-6 py-2 font-bold text-white bg-red-600 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] hover:bg-red-800 hover:scale-105 hover:-translate-y-0.5 transition-all duration-200 active:scale-95"
-          >
-            Me contacter
-          </a>
-          <a
-            href="/catalogue"
-            class="px-6 py-2 font-bold bg-gray-200 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] hover:bg-gray-300 hover:scale-105 hover:-translate-y-0.5 transition-all duration-200 active:scale-95"
-          >
-            Voir tous les projets
-          </a>
+      <!-- CTA contextuel -->
+      <div
+        class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2 mt-10 animate-stagger-fade-in"
+        style="animation-delay: 700ms"
+      >
+        <div class="mb-2 flex items-center justify-between text-white px-3 py-1.5 bg-blue-900 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
+          <span class="font-semibold text-xs no-select">action.exe</span>
+          <span class="p-0.5 px-1.5 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select">✕</span>
+        </div>
+        <div class="shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff] bg-white px-6 py-5 text-center">
+          <p class="font-bold text-gray-900 mb-1">Ce projet vous intéresse ?</p>
+          <p class="text-sm text-gray-600 mb-4">Discutons de votre projet ensemble.</p>
+          <div class="flex flex-wrap gap-3 justify-center">
+            <a
+              href="/contact"
+              class="px-6 py-2 font-bold text-white bg-red-600 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] hover:bg-red-700 transition-colors no-select active:shadow-[inset_2px_2px_0_0_#000,inset_-2px_-2px_0_0_#fff]"
+            >
+              Me contacter
+            </a>
+            <a
+              href="/catalogue"
+              class="px-6 py-2 font-bold bg-gray-300 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] hover:bg-gray-400 transition-colors no-select active:shadow-[inset_2px_2px_0_0_#000,inset_-2px_-2px_0_0_#fff]"
+            >
+              Voir tous les projets
+            </a>
+          </div>
         </div>
       </div>
 
