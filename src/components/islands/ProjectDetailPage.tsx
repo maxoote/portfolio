@@ -45,6 +45,9 @@ export default function ProjectDetailPage({ project }: Props) {
             src={(project.image as any)?.src ?? project.image}
             alt={project.title}
             className="w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
           />
         </div>
 
@@ -146,6 +149,8 @@ export default function ProjectDetailPage({ project }: Props) {
                       src={(src as any)?.src ?? src}
                       alt={`${project.title} ${i + 1}`}
                       className="object-cover w-full h-full animate-image-fade-in"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </button>
                 ))}

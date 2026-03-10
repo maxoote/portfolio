@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import { projects } from '../data/projects';
 
 const categories = [
@@ -91,9 +93,11 @@ const featuredProjects = featuredIds
               >
                 <!-- Vignette -->
                 <div class="w-36 md:w-52 flex-shrink-0 relative overflow-hidden">
-                  <img
-                    src={(project.image as any).src ?? project.image}
+                  <Image
+                    src={project.image as ImageMetadata}
                     alt={project.title}
+                    width={208}
+                    height={156}
                     class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
