@@ -43,6 +43,15 @@ const structuredData = {
   <div class="py-8 px-4 md:px-8">
     <div class="mx-auto max-w-4xl">
 
+      <!-- Breadcrumb -->
+      <nav aria-label="Fil d'Ariane" class="mb-4 flex items-center gap-1 text-xs px-2 py-1 shadow-[inset_1px_1px_0_0_#808080,inset_-1px_-1px_0_0_#fff] bg-gray-300 animate-fade-in">
+        <a href="/" class="hover:underline transition-colors">Accueil</a>
+        <span aria-hidden="true" class="text-gray-500 px-1">›</span>
+        <a href="/catalogue" class="hover:underline transition-colors">Projets</a>
+        <span aria-hidden="true" class="text-gray-500 px-1">›</span>
+        <span class="font-semibold text-gray-900 truncate">{project.title}</span>
+      </nav>
+
       <!-- Détail du projet -->
       <ProjectDetailIsland project={project} client:load />
 

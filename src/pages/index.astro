@@ -104,9 +104,12 @@ const categories = [...new Set(projects.flatMap(p => p.categories ?? []))];
               </div>
             </div>
 
-            <div class="mt-2 flex justify-end gap-2">
+            <div class="mt-2 flex justify-end gap-2 flex-wrap">
               <a href="/catalogue" class="px-4 py-1.5 bg-gray-300 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-xs font-semibold hover:bg-gray-400 transition-colors no-select active:shadow-[inset_2px_2px_0_0_#000,inset_-2px_-2px_0_0_#fff]">
                 Mes projets
+              </a>
+              <a href="/contact" class="px-4 py-1.5 bg-red-600 text-white shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-xs font-semibold hover:bg-red-700 transition-colors no-select active:shadow-[inset_2px_2px_0_0_#000,inset_-2px_-2px_0_0_#fff]">
+                Me contacter
               </a>
               <a href="/main" class="px-4 py-1.5 bg-gray-300 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-xs font-semibold hover:bg-gray-400 transition-colors no-select active:shadow-[inset_2px_2px_0_0_#000,inset_-2px_-2px_0_0_#fff] flex items-center gap-1.5">
                 Découvrir
