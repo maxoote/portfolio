@@ -24,7 +24,7 @@ type WindowProps = {
               draggable={false}
             />
           ) : (
-            <span className="p-1 px-2 text-mg bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] no-select">
+            <span aria-hidden="true" className="p-1 px-2 text-mg bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] no-select">
               ✕
             </span>
           )}

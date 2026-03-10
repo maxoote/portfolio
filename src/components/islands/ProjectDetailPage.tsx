@@ -1,11 +1,13 @@
 import { useState } from "react"
 import type { Project } from "../../types/projects"
+import { useFocusTrap } from "../../hooks/useFocusTrap"
 
 type Props = { project: Project }
 
 export default function ProjectDetailPage({ project }: Props) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
 
+  const closeLightbox = () => setLightboxIndex(null)
   const prevImage = () => {
     if (lightboxIndex === null || !project.gallery?.length) return
     setLightboxIndex((lightboxIndex - 1 + project.gallery.length) % project.gallery.length)
@@ -15,6 +17,8 @@ export default function ProjectDetailPage({ project }: Props) {
     setLightboxIndex((lightboxIndex + 1) % project.gallery.length)
   }
 
+  const modalRef = useFocusTrap(lightboxIndex !== null, closeLightbox, prevImage, nextImage)
+
   return (
     <div className="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2 animate-fade-in">
 
@@ -22,8 +26,8 @@ export default function ProjectDetailPage({ project }: Props) {
       <div className="mb-2 flex items-center justify-between bg-blue-900 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] px-3 py-2">
         <h1 className="text-base font-bold text-white leading-tight">{project.title}</h1>
         <div className="flex gap-1 flex-shrink-0 ml-4">
-          <span className="p-0.5 px-2 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select">—</span>
-          <span className="p-0.5 px-2 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select">□</span>
+          <span aria-hidden="true" className="p-0.5 px-2 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select">—</span>
+          <span aria-hidden="true" className="p-0.5 px-2 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select">□</span>
           <a
             href="/catalogue"
             className="p-0.5 px-2 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select hover:bg-red-600 hover:text-white transition-colors"
@@ -168,16 +172,21 @@ export default function ProjectDetailPage({ project }: Props) {
       {lightboxIndex !== null && project.gallery && (
         <div
           className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 animate-fade-in"
-          onClick={() => setLightboxIndex(null)}
+          onClick={closeLightbox}
         >
           <div
+            ref={modalRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label={`Galerie — image ${lightboxIndex + 1} sur ${project.gallery.length}`}
             className="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2 relative max-w-5xl max-h-[90vh] flex flex-col gap-2 m-4 animate-image-fade-in"
             onClick={e => e.stopPropagation()}
           >
             <div className="flex items-center justify-between px-3 py-1.5 text-white shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] bg-blue-900">
               <span className="font-semibold text-xs no-select">Image {lightboxIndex + 1} / {project.gallery.length}</span>
               <button
-                onClick={() => setLightboxIndex(null)}
+                onClick={closeLightbox}
+                aria-label="Fermer la galerie"
                 className="p-0.5 px-2 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select hover:bg-red-600 hover:text-white transition-colors"
               >✕</button>
             </div>

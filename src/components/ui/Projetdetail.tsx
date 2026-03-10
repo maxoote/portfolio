@@ -1,5 +1,6 @@
 import type { Project } from "../../types/projects"
 import { useState } from "react"
+import { useFocusTrap } from "../../hooks/useFocusTrap"
 
 type Props = { project: Project; onClose: () => void }
 export default function ProjectDetail({ project, onClose }: Props) {
@@ -18,6 +19,8 @@ export default function ProjectDetail({ project, onClose }: Props) {
     if (lightboxIndex === null || !project.gallery) return
     setLightboxIndex((lightboxIndex + 1) % project.gallery.length)
   }
+
+  const lightboxRef = useFocusTrap(lightboxIndex !== null, closeLightbox, prevImage, nextImage)
 
   return (
     <div className="w-full shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] bg-gray-200 p-4 animate-fade-in">
@@ -192,6 +195,10 @@ export default function ProjectDetail({ project, onClose }: Props) {
     onClick={closeLightbox}
   >
     <div
+      ref={lightboxRef}
+      role="dialog"
+      aria-modal="true"
+      aria-label={`Galerie — image ${lightboxIndex !== null ? lightboxIndex + 1 : ""} sur ${project.gallery?.length ?? 0}`}
       className="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2 lg:top-3 lg:right-3 relative max-w-5xl max-h-[90vh] flex flex-col items-center justify-center box-border gap-5 animate-image-fade-in"
       onClick={e => e.stopPropagation()}
     >
@@ -220,6 +227,7 @@ export default function ProjectDetail({ project, onClose }: Props) {
       </button>
       <button
         onClick={closeLightbox}
+        aria-label="Fermer la galerie"
         className="absolute top-2 right-2 bg-black/60 text-white px-3 py-1 rounded transition-all duration-200 hover:bg-black/80 hover:scale-110"
       >
         ✕

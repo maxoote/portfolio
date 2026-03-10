@@ -45,7 +45,7 @@ export default function RolesWindow({ memphis = false }: Props) {
         </span>
 
         {/* Mot qui change */}
-        <div className="relative min-w-[10ch] w-2/3  text-center">
+        <div className="relative min-w-[10ch] w-2/3  text-center" aria-live="polite" aria-atomic="true">
           <span
             key={index} /* remonte le span pour relancer l'animation à chaque changement */
             className="inline-flex  items-center justify-center   text-lg md:text-2xl  animate-[win95-slide_320ms_steps(4,end)_both]"
