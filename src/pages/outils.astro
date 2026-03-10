@@ -139,7 +139,7 @@ const groups = [
               </div>
 
               <!-- Grille des outils du groupe -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {g.skills.map((s, idx) => {
                   const pct = Math.max(0, Math.min(100, (s.score / s.scale) * 100));
                   return (

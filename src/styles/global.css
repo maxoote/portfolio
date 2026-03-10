@@ -105,6 +105,21 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Background page — background-attachment: fixed désactivé sur iOS/mobile
+   car il provoque un bug de rendu connu sur Safari */
+.page-bg {
+  background-image: url('/fondprojet.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+@media (max-width: 768px) {
+  .page-bg {
+    background-attachment: scroll;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -193,12 +208,6 @@ html {
   from { width: 0%; }
 }
 .animate-progress-fill { animation: progress-fill; }
-
-@keyframes slide-out-right {
-  from { opacity: 1; transform: translateX(0); }
-  to { opacity: 0; transform: translateX(100%); }
-}
-.animate-slide-out-right { animation: slide-out-right 400ms ease-in forwards; }
 
 @keyframes carousel-slide {
   from { transform: translateX(0); }

@@ -15,7 +15,6 @@
     "@tailwindcss/vite": "^4.1.13",
     "@vercel/analytics": "^1.6.1",
     "astro": "^5.18.0",
-    "motion": "^12.35.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
