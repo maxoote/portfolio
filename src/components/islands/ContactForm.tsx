@@ -27,7 +27,7 @@ export default function ContactForm() {
     setStatus({ state: "loading", message: "Envoi en cours..." })
 
     // Clé Web3Forms — à remplacer par la vraie clé depuis https://web3forms.com
-    formData.append("access_key", import.meta.env.PUBLIC_WEB3FORMS_KEY ?? "86f8000d-8539-4404-808f-81750437f5e7")
+    formData.append("access_key", import.meta.env.PUBLIC_WEB3FORMS_KEY ?? "")
     formData.append("subject", "Nouveau message depuis le portfolio")
 
     try {
