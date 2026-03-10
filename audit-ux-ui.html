@@ -1,0 +1,684 @@
+  <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audit UX/UI — Portfolio Mandin Maxime</title>
+  <style>
+    :root {
+      --navy: #000080;
+      --gray: #c0c0c0;
+      --red: #cc0000;
+      --white: #ffffff;
+      --black: #000000;
+      --light: #f5f5f5;
+      --border: #d0d0d0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #f0f0f0;
+      padding: 2rem;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    }
+
+    /* HEADER */
+    .header {
+      background: var(--navy);
+      color: white;
+      padding: 2.5rem 3rem;
+    }
+    .header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .header .meta {
+      font-size: 0.85rem;
+      opacity: 0.75;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .header .meta span::before { content: "— "; }
+
+    /* CONTENT */
+    .content { padding: 2.5rem 3rem; }
+
+    /* TOC */
+    .toc {
+      background: #f8f8f8;
+      border-left: 4px solid var(--navy);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .toc h3 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 0.75rem; }
+    .toc ol { padding-left: 1.25rem; }
+    .toc li { margin-bottom: 0.3rem; }
+    .toc a { color: var(--navy); text-decoration: none; font-size: 0.875rem; }
+    .toc a:hover { text-decoration: underline; }
+
+    /* SECTIONS */
+    .part {
+      margin-bottom: 3rem;
+    }
+    .part-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--navy);
+    }
+    .part-number {
+      background: var(--navy);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 3px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .part-header h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin: 1.75rem 0 0.75rem;
+      padding: 0.4rem 0.75rem;
+      background: #f0f4ff;
+      border-left: 3px solid var(--navy);
+      border-radius: 0 3px 3px 0;
+    }
+
+    h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #444;
+      margin: 1.25rem 0 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    p { margin-bottom: 0.75rem; font-size: 0.9rem; }
+
+    ul, ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    li {
+      margin-bottom: 0.4rem;
+      font-size: 0.9rem;
+    }
+    li strong { color: #111; }
+
+    code {
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 0.8rem;
+      background: #f0f0f0;
+      padding: 0.1em 0.4em;
+      border-radius: 3px;
+      color: #c0392b;
+    }
+
+    /* SUBSECTION UX/UI */
+    .subsection-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+    }
+    .tag-ux { background: #fff3cd; color: #856404; }
+    .tag-ui { background: #d1ecf1; color: #0c5460; }
+
+    /* PRIORITY TABLE */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      margin-top: 1rem;
+    }
+    thead {
+      background: var(--navy);
+      color: white;
+    }
+    th {
+      padding: 0.6rem 0.75rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 0.03em;
+    }
+    td {
+      padding: 0.55rem 0.75rem;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+    }
+    tr:nth-child(even) td { background: #fafafa; }
+    tr:hover td { background: #f0f4ff; }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+    .badge-haute { background: #fde8e8; color: #c0392b; }
+    .badge-moyenne { background: #fff3cd; color: #856404; }
+    .badge-basse { background: #e8f5e9; color: #2e7d32; }
+    .badge-rapide { background: #e8f5e9; color: #2e7d32; }
+    .badge-moyen { background: #fff3cd; color: #856404; }
+    .badge-long { background: #fde8e8; color: #c0392b; }
+
+    /* SUMMARY BOX */
+    .summary-box {
+      background: #f0f4ff;
+      border: 1px solid #c5d3f0;
+      border-radius: 4px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .summary-box h3 {
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0 0 0.75rem;
+      color: var(--navy);
+      font-size: 1rem;
+    }
+    .summary-box p { font-size: 0.9rem; margin: 0; color: #333; }
+
+    /* PAGE BREAK */
+    @media print {
+      body { background: white; padding: 0; }
+      .page { box-shadow: none; border: none; }
+      .part { page-break-inside: avoid; }
+      table { page-break-inside: auto; }
+      tr { page-break-inside: avoid; }
+      thead { display: table-header-group; }
+    }
+
+    /* FOOTER */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 1rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <h1>Audit UX/UI — Portfolio Mandin Maxime</h1>
+    <div class="meta">
+      <span>mandinmaxime.vercel.app</span>
+      <span>Astro + React + Tailwind CSS</span>
+      <span>10 mars 2026</span>
+      <span>39 fichiers analysés</span>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- TABLE OF MATIÈRES -->
+    <div class="toc">
+      <h3>Sommaire</h3>
+      <ol>
+        <li><a href="#part1">Ce qui est déjà en place</a></li>
+        <li><a href="#part2">Ce qui reste à intégrer ou améliorer (UX + UI)</a></li>
+        <li><a href="#part3">Priorités recommandées</a></li>
+      </ol>
+    </div>
+
+
+    <!-- ==================== PARTIE 1 ==================== -->
+    <div class="part" id="part1">
+      <div class="part-header">
+        <span class="part-number">Partie 1</span>
+        <h2>Ce qui est déjà en place</h2>
+      </div>
+
+      <h3>Navigation globale — <code>MenuWindow.tsx</code></h3>
+      <ul>
+        <li>Taskbar fixe Win95 persistante sur toutes les pages via <code>transition:persist</code></li>
+        <li>5 liens desktop + hamburger mobile avec dropdown animé (<code>menu-slide-down</code>)</li>
+        <li>État actif correct : shadow inversée desktop, fond bleu mobile</li>
+        <li>Détection intelligente : <code>/projects/[slug]</code> active l'item <code>/catalogue</code></li>
+        <li><code>aria-label="Navigation"</code> présent sur le bouton hamburger</li>
+      </ul>
+
+      <h3>Page Hero — <code>index.astro</code></h3>
+      <ul>
+        <li>Structure en deux lignes : portrait + profil / 3 widgets statistiques</li>
+        <li><code>&lt;h1 class="sr-only"&gt;</code> et description cachée pour les screen readers</li>
+        <li>Animations d'entrée <code>window-bounce-in</code> sur chaque fenêtre avec délais échelonnés</li>
+        <li>Badges de spécialisation staggerés (200ms + 60ms par item)</li>
+        <li>Badge de disponibilité avec <code>pulse-glow</code> pour attirer l'attention</li>
+        <li>Layout responsive : colonne sur mobile, 2 colonnes sur desktop</li>
+        <li><code>RoleWindow</code> : rotation de rôles toutes les 1800ms + curseur clignotant animé</li>
+      </ul>
+
+      <h3>Page Mon Travail — <code>main.astro</code></h3>
+      <ul>
+        <li>Sidebar avec catégories, compteurs et chevron indicateur</li>
+        <li>Cartes projets horizontales (image + titre + catégories + lien)</li>
+        <li>Hover : <code>-translate-y-0.5</code> + shadow renforcée</li>
+        <li>Passage vers <code>/catalogue</code> avec filtre automatique via <code>sessionStorage</code></li>
+        <li>Sidebar : scroll horizontal mobile, scroll vertical desktop</li>
+      </ul>
+
+      <h3>Catalogue — <code>CatalogueFilter.tsx</code></h3>
+      <ul>
+        <li>Filtrage par catégorie single-select avec compteurs</li>
+        <li>Grille responsive (2 → 3 → 4 colonnes)</li>
+        <li>URL hash synchronisé (<code>#project-id</code>) — URL partageable</li>
+        <li><code>sessionStorage.wantedCat</code> lu au mount pour auto-filtrage depuis <code>/main</code></li>
+        <li>Modal plein écran pour le détail de chaque projet</li>
+      </ul>
+
+      <h3>Détail Projet — <code>ProjectDetailPage.tsx</code></h3>
+      <ul>
+        <li>Hero image <code>aspect-[16/7]</code> en cover</li>
+        <li>Sections structurées : contexte, rôle, apprentissages, vision, compétences</li>
+        <li>Galerie en grille 2-3 colonnes avec lightbox intégré</li>
+        <li>Navigation prev/next dans le lightbox avec wrap circulaire</li>
+        <li>Animations d'entrée staggerées par section (150ms + 50ms par bloc)</li>
+        <li>Tags et lien externe vers le projet</li>
+      </ul>
+
+      <h3>Outils — <code>outils.astro</code></h3>
+      <ul>
+        <li>Sidebar de 4 catégories (Web, Design, Audiovisuel, Bureautique)</li>
+        <li>14 compétences avec progress bars animées au chargement</li>
+        <li><code>role="progressbar"</code> sur chaque barre</li>
+        <li>Score numérique affiché (ex : "3.5/5"), icône par outil (36×36px)</li>
+        <li>CTA "Voir les projets →" en bas de sidebar</li>
+      </ul>
+
+      <h3>Contact — <code>contact.astro</code> + <code>ContactForm.tsx</code></h3>
+      <ul>
+        <li>Formulaire 3 champs + validation client-side par champ</li>
+        <li>4 états gérés : idle / loading / success / error</li>
+        <li>Auto-dismiss du message de succès (5 secondes)</li>
+        <li>Lien email fallback (<code>maxime.mandin@icloud.com</code>)</li>
+        <li>3 fenêtres liens sociaux (Instagram, LinkedIn, Mon bureau) avec hover lift</li>
+        <li>Erreurs affichées sous chaque champ concerné</li>
+      </ul>
+
+      <h3>Système de design — <code>global.css</code></h3>
+      <ul>
+        <li>Tokens cohérents : <code>--color-win-surface</code>, <code>--color-win-title</code>, <code>--color-win-accent</code></li>
+        <li>Shadows bevel Win95 : <code>--shadow-win-outset</code> / <code>--shadow-win-inset</code></li>
+        <li>15+ animations CSS nommées et réutilisées dans tout le projet</li>
+        <li><code>@media (prefers-reduced-motion: reduce)</code> respecté globalement</li>
+        <li><code>:focus-visible</code> défini globalement (2px solid black avec offset)</li>
+      </ul>
+
+      <h3>SEO & accessibilité de base — <code>BaseLayout.astro</code></h3>
+      <ul>
+        <li>Open Graph complet (og:title, og:image, og:url, og:locale)</li>
+        <li>Twitter Card configurée</li>
+        <li>JSON-LD : Person, LocalBusiness, VisualArtwork par projet</li>
+        <li>Sitemap auto-généré via <code>@astrojs/sitemap</code></li>
+        <li>Vercel Analytics injecté dynamiquement</li>
+      </ul>
+    </div>
+
+
+    <!-- ==================== PARTIE 2 ==================== -->
+    <div class="part" id="part2">
+      <div class="part-header">
+        <span class="part-number">Partie 2</span>
+        <h2>Ce qui reste à intégrer ou améliorer</h2>
+      </div>
+
+      <h4><span class="subsection-tag tag-ux">UX</span> Expérience utilisateur</h4>
+
+      <h3>Navigation &amp; architecture de l'information</h3>
+      <ul>
+        <li>Pas de <strong>breadcrumb</strong> sur les pages <code>/projects/[slug]</code> — l'utilisateur ne sait pas où il se situe dans la hiérarchie</li>
+        <li>Pas de <strong>bouton "retour"</strong> dans le détail projet hors modal — seule la navigation globale existe</li>
+        <li>Les pages <code>/main</code> et <code>/catalogue</code> se chevauchent perceptivement sans différenciation claire dans la navigation</li>
+        <li>Pas de lien direct depuis la hero vers un projet spécifique — les fenêtres de la page d'accueil ne sont pas cliquables</li>
+      </ul>
+
+      <h3>Transitions &amp; animations entre pages</h3>
+      <ul>
+        <li>Les View Transitions CSS (<code>::view-transition-old/new</code>) font référence à des keyframes <code>slide-left</code> / <code>slide-right</code> qui sont <strong>absentes de <code>global.css</code></strong> — les transitions de page sont vraisemblablement silencieuses</li>
+        <li>Pas de transition de sortie sur les fenêtres lors d'un changement de page</li>
+      </ul>
+
+      <h3>Feedback utilisateur</h3>
+      <ul>
+        <li>Bouton submit du formulaire : l'état <strong>loading ne modifie pas le style visuel</strong> du bouton (même apparence, juste texte "Envoi...")</li>
+        <li>Inputs du formulaire non désactivés visuellement pendant le chargement</li>
+        <li>Lightbox : <strong>pas de placeholder ni skeleton</strong> pendant le chargement des images haute résolution</li>
+        <li><code>CategoryCarousel</code> : aucune indication visuelle que le clic ouvre une autre page (pas de curseur pointer vérifié, pas de label explicatif)</li>
+        <li>Boutons de window controls (—, □, ✕) <strong>non fonctionnels mais visuellement identiques</strong> aux boutons actifs — risque de confusion</li>
+      </ul>
+
+      <h3>Accessibilité</h3>
+      <ul>
+        <li>Pas de <strong>skip link</strong> ("Aller au contenu principal") — première interaction clavier bloquée sur la navigation</li>
+        <li>Boutons décoratifs (—, □, ✕) sans <code>aria-hidden</code> ni <code>disabled</code> — ils apparaissent dans l'arbre d'accessibilité</li>
+        <li>Lightbox : <strong>pas de focus trap</strong> — Tab sort du modal</li>
+        <li>Lightbox : <strong>aucune gestion des touches</strong> <code>ArrowLeft</code> / <code>ArrowRight</code> / <code>Escape</code></li>
+        <li><code>CategoryCarousel</code> : clic entier sur un <code>&lt;div&gt;</code> — inaccessible au clavier (devrait être un <code>&lt;button&gt;</code> ou <code>&lt;a&gt;</code>)</li>
+        <li>SVG et images décoratives sans <code>aria-hidden="true"</code></li>
+        <li>Progress bars : <code>aria-valuenow</code> devrait être en pourcentage (0–100), pas le score brut (ex : 3.5)</li>
+        <li><code>RoleWindow</code> : le texte animé n'est <strong>pas annoncé aux screen readers</strong> (<code>aria-live</code> manquant)</li>
+      </ul>
+
+      <h3>Mobile UX</h3>
+      <ul>
+        <li>Modal de détail projet : plein écran sur mobile mais <strong>sans gestion du scroll interne</strong> — les galeries longues peuvent être inaccessibles</li>
+        <li>Sidebar de <code>/main</code> : scroll horizontal difficile sur mobile, pas de <code>scroll-snap</code></li>
+        <li>Boutons prev/next du lightbox : non dimensionnés pour les <strong>touch targets</strong> (minimum recommandé : 44×44px)</li>
+        <li>Pas de <strong>swipe gesture</strong> sur le lightbox ni sur le carousel</li>
+      </ul>
+
+      <h3>Micro-interactions manquantes</h3>
+      <ul>
+        <li>Hover state passif sur les tags de projet (aucune interaction)</li>
+        <li>Pas d'animation sur les liens "Voir le projet →" dans <code>/main</code></li>
+        <li><code>LogoWindow</code> : le spin au clic mobile est fonctionnel mais rien n'indique à l'utilisateur que le logo est interactif</li>
+      </ul>
+
+      <h3>Parcours utilisateur &amp; conversion</h3>
+      <ul>
+        <li><strong>Pas de CTA vers <code>/contact</code> depuis la hero</strong> — seuls "Mes projets" et "Découvrir" sont présents</li>
+        <li>Page <code>/outils</code> sans lien vers <code>/contact</code> ni vers les projets correspondant aux compétences</li>
+        <li>Pas de message d'appel à l'action en bas de page ou dans un footer</li>
+        <li>Section CTA de <code>/projects/[slug]</code> très minimaliste — 2 boutons simples sans accroche textuelle</li>
+      </ul>
+
+
+      <h4 style="margin-top:2rem;"><span class="subsection-tag tag-ui">UI</span> Interface utilisateur</h4>
+
+      <h3>Cohérence du design system</h3>
+      <ul>
+        <li><code>index.css</code> (348 lignes) est un <strong>doublon direct de <code>global.css</code></strong> avec les mêmes variables <code>@theme</code> et animations — l'un des deux est legacy</li>
+        <li><code>Window.tsx</code> : props <code>tailleClassName</code> et <code>tailleTitle</code> remplissent le même rôle — nomenclature incohérente</li>
+        <li><code>hover:scale-103</code> dans <code>ProjectCard.tsx</code> est <strong>invalide en Tailwind standard</strong> (doit être <code>hover:scale-[1.03]</code>) — l'effet hover scale est probablement inactif</li>
+      </ul>
+
+      <h3>Composants manquants ou inconsistants</h3>
+      <ul>
+        <li>Pas de composant <strong>Toast / notification global</strong> — chaque composant gère ses propres alertes en inline</li>
+        <li>Pas de composant <strong>Skeleton / Loader</strong> — les images se chargent sans placeholder</li>
+        <li>Pas de composant <strong>Breadcrumb</strong></li>
+        <li><code>CategoryCarousel</code> est défini mais <strong>non intégré dans les pages actuelles</strong> (absent de <code>index.astro</code> et <code>main.astro</code>)</li>
+      </ul>
+
+      <h3>États manquants sur les éléments interactifs</h3>
+      <ul>
+        <li>Boutons de catégorie dans <code>/main</code> et <code>/outils</code> : pas d'état <code>focus-visible</code> différencié du focus global</li>
+        <li>Bouton submit : état <code>loading</code> visuellement identique à l'état <code>idle</code></li>
+        <li>Liens de navigation dans <code>MenuWindow</code> : état <code>focus</code> non distinct de l'état <code>active</code></li>
+        <li>Cartes projet dans la grille : pas d'état de focus pour la navigation clavier</li>
+        <li>Boutons prev/next du lightbox : pas d'état <code>active</code> / <code>pressed</code> visible</li>
+      </ul>
+
+      <h3>Images &amp; médias</h3>
+      <ul>
+        <li>Images de galerie sans <code>alt</code> text individualisé — seul un alt générique ou vide est possible</li>
+        <li>Le champ <code>videoUrl</code> est défini dans le type <code>Project</code> mais <strong>aucun composant ne l'affiche</strong> — les projets Audiovisuel n'ont pas d'embed vidéo</li>
+        <li>Images lightbox non optimisées pour l'affichage plein écran</li>
+        <li>Portrait hero : même image pour tous les breakpoints, pas de version mobile recadrée</li>
+      </ul>
+
+      <h3>Dark / Light mode</h3>
+      <ul>
+        <li>Aucun dark mode implémenté</li>
+        <li><code>prefers-color-scheme: dark</code> non géré — le thème Win95 gris clair est le seul mode disponible</li>
+      </ul>
+
+      <h3>Animations non implémentées ou inutilisées</h3>
+      <ul>
+        <li><code>slide-out-right</code> définie mais aucun composant ne l'utilise</li>
+        <li><code>hover-lift</code> définie mais non appliquée via classe utilitaire</li>
+        <li><code>chevron-rotate</code> définie mais non appliquée au chevron de la sidebar dans <code>/main</code></li>
+        <li>La librairie <code>motion</code> (Framer Motion v12) est installée mais <strong>aucun composant ne l'utilise</strong> — ~50KB ajoutés inutilement au bundle</li>
+        <li>View Transitions : les keyframes <code>slide-left</code> / <code>slide-right</code> sont référencées mais absentes de <code>global.css</code></li>
+      </ul>
+
+      <h3>Détails visuels perfectibles</h3>
+      <ul>
+        <li>Grille skill cards dans <code>/outils</code> : passe de 1 à 3 colonnes sans palier <code>md:grid-cols-2</code></li>
+        <li>Progress bars : même couleur bleue pour tous les niveaux — pas de différenciation visuelle entre "TypeScript: 1/5" et "Figma: 3.5/5"</li>
+        <li><code>background-attachment: fixed</code> sur l'image de fond — <strong>bug iOS connu</strong> (parallax cassé sur Safari mobile)</li>
+        <li>Fenêtres sociales dans <code>/contact</code> : couleurs de title bar custom (rose, bleu vif, gris foncé) qui s'écartent du design system Win95 navy/gris</li>
+      </ul>
+    </div>
+
+
+    <!-- ==================== PARTIE 3 ==================== -->
+    <div class="part" id="part3">
+      <div class="part-header">
+        <span class="part-number">Partie 3</span>
+        <h2>Priorités recommandées</h2>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Problème</th>
+            <th>Priorité</th>
+            <th>Effort</th>
+            <th>Fichier(s)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><strong>Web3Forms key non configurée</strong> — le formulaire ne fonctionne pas en production</td>
+            <td><span class="badge badge-haute">Haute</span></td>
+            <td><span class="badge badge-rapide">Rapide</span></td>
+            <td><code>.env</code></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><strong><code>hover:scale-103</code> invalide</strong> — le hover scale sur les cartes projet ne s'applique pas</td>
+            <td><span class="badge badge-haute">Haute</span></td>
+            <td><span class="badge badge-rapide">Rapide</span></td>
+            <td><code>ProjectCard.tsx</code></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><strong>Focus trap manquant dans le lightbox</strong> — Tab sort du modal</td>
+            <td><span class="badge badge-haute">Haute</span></td>
+            <td><span class="badge badge-moyen">Moyen</span></td>
+            <td><code>CatalogueFilter.tsx</code>, <code>ProjectDetailPage.tsx</code></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><strong>Clavier lightbox (←/→/Echap) absent</strong> — inaccessible sans souris</td>
+            <td><span class="badge badge-haute">Haute</span></td>
+            <td><span class="badge badge-rapide">Rapide</span></td>
+            <td><code>ProjectDetailPage.tsx</code></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td><strong>Skip link manquant</strong> — première interaction clavier bloquée par la nav</td>
+            <td><span class="badge badge-haute">Haute</span></td>
+            <td><span class="badge badge-rapide">Rapide</span></td>
+            <td><code>BaseLayout.astro</code></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td><strong>View Transitions keyframes absentes</strong> — transitions de page silencieuses</td>
+            <td><span class="badge badge-haute">Haute</span></td>
+            <td><span class="badge badge-rapide">Rapide</span></td>
+            <td><code>global.css</code></td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td><strong><code>CategoryCarousel</code> non accessible</strong> — div cliquable, pas de bouton sémantique</td>
+            <td><span class="badge badge-haute">Haute</span></td>
+            <td><span class="badge badge-rapide">Rapide</span></td>
+            <td><code>CategoryCarousel.tsx</code></td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td><strong>Supprimer <code>index.css</code> legacy</strong> — doublon de <code>global.css</code></td>
+            <td><span class="badge badge-moyenne">Moyenne</span></td>
+            <td><span class="badge badge-rapide">Rapide</span></td>
+            <td><code>src/index.css</code></td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td><strong>Loading state du bouton submit</strong> — aucun retour visuel pendant l'envoi</td>
+            <td><span class="badge badge-moyenne">Moyenne</span></td>
+            <td><span class="badge badge-rapide">Rapide</span></td>
+            <td><code>ContactForm.tsx</code></td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td><strong><code>aria-live</code> sur RoleWindow</strong> — rôles rotatifs non annoncés aux screen readers</td>
+            <td><span class="badge badge-moyenne">Moyenne</span></td>
+            <td><span class="badge badge-rapide">Rapide</span></td>
+            <td><code>RoleWindow.tsx</code></td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td><strong><code>aria-hidden</code> sur boutons décoratifs</strong> (—, □, ✕)</td>
+            <td><span class="badge badge-moyenne">Moyenne</span></td>
+            <td><span class="badge badge-rapide">Rapide</span></td>
+            <td><code>Window.tsx</code></td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td><strong><code>videoUrl</code> non affiché</strong> — projets Audiovisuel sans embed vidéo</td>
+            <td><span class="badge badge-moyenne">Moyenne</span></td>
+            <td><span class="badge badge-moyen">Moyen</span></td>
+            <td><code>ProjectDetailPage.tsx</code>, <code>projects.ts</code></td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td><strong>Supprimer <code>motion</code></strong> — dépendance ~50KB non utilisée</td>
+            <td><span class="badge badge-moyenne">Moyenne</span></td>
+            <td><span class="badge badge-rapide">Rapide</span></td>
+            <td><code>package.json</code></td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td><strong>CTA vers <code>/contact</code> depuis la hero</strong> — aucun parcours direct vers la conversion</td>
+            <td><span class="badge badge-moyenne">Moyenne</span></td>
+            <td><span class="badge badge-rapide">Rapide</span></td>
+            <td><code>index.astro</code></td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td><strong><code>background-attachment: fixed</code> bug iOS</strong> — parallax cassé sur Safari mobile</td>
+            <td><span class="badge badge-moyenne">Moyenne</span></td>
+            <td><span class="badge badge-rapide">Rapide</span></td>
+            <td><code>global.css</code></td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td><strong>Breadcrumb sur <code>/projects/[slug]</code></strong> — désorientation de l'utilisateur</td>
+            <td><span class="badge badge-moyenne">Moyenne</span></td>
+            <td><span class="badge badge-moyen">Moyen</span></td>
+            <td><code>projects/[slug].astro</code></td>
+          </tr>
+          <tr>
+            <td>17</td>
+            <td><strong>Grille outils : palier intermédiaire</strong> <code>md:grid-cols-2</code> manquant</td>
+            <td><span class="badge badge-basse">Basse</span></td>
+            <td><span class="badge badge-rapide">Rapide</span></td>
+            <td><code>outils.astro</code></td>
+          </tr>
+          <tr>
+            <td>18</td>
+            <td><strong>Touch targets lightbox</strong> — boutons prev/next trop petits sur mobile (&lt;44px)</td>
+            <td><span class="badge badge-basse">Basse</span></td>
+            <td><span class="badge badge-rapide">Rapide</span></td>
+            <td><code>ProjectDetailPage.tsx</code></td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td><strong>Animations CSS inutilisées</strong> (<code>slide-out-right</code>, <code>hover-lift</code>, <code>chevron-rotate</code>)</td>
+            <td><span class="badge badge-basse">Basse</span></td>
+            <td><span class="badge badge-rapide">Rapide</span></td>
+            <td><code>global.css</code></td>
+          </tr>
+          <tr>
+            <td>20</td>
+            <td><strong>Scroll snap horizontal</strong> sur la sidebar catégories mobile</td>
+            <td><span class="badge badge-basse">Basse</span></td>
+            <td><span class="badge badge-rapide">Rapide</span></td>
+            <td><code>main.astro</code></td>
+          </tr>
+          <tr>
+            <td>21</td>
+            <td><strong>Alt text galerie individualisé</strong> par image de projet</td>
+            <td><span class="badge badge-basse">Basse</span></td>
+            <td><span class="badge badge-long">Long</span></td>
+            <td><code>projects.ts</code></td>
+          </tr>
+          <tr>
+            <td>22</td>
+            <td><strong>Swipe gesture</strong> lightbox et carousel sur mobile</td>
+            <td><span class="badge badge-basse">Basse</span></td>
+            <td><span class="badge badge-long">Long</span></td>
+            <td><code>ProjectDetailPage.tsx</code>, <code>CategoryCarousel.tsx</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="summary-box">
+      <h3>Synthèse exécutive</h3>
+      <p>
+        Le portfolio présente une identité visuelle forte et cohérente (thème Win95), une architecture d'information correcte et des bases d'accessibilité solides.
+        Les blockers immédiats sont : le formulaire de contact non configuré (Web3Forms), le hover scale cassé sur les cartes projet, et les lacunes d'accessibilité clavier dans le lightbox (focus trap + touches).
+        Ces 7 premiers points peuvent être résolus en moins d'une journée de travail et améliorent directement la perception par un recruteur ou un client.
+        Le reste relève d'un polish progressif qui n'affecte pas la navigation principale.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <span>Audit UX/UI — mandinmaxime.vercel.app</span>
+    <span>Généré le 10 mars 2026</span>
+  </div>
+
+</div>
+</body>
+</html>

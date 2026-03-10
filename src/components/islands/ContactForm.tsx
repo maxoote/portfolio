@@ -27,7 +27,7 @@ export default function ContactForm() {
     setStatus({ state: "loading", message: "Envoi en cours..." })
 
     // Clé Web3Forms — à remplacer par la vraie clé depuis https://web3forms.com
-    formData.append("access_key", import.meta.env.PUBLIC_WEB3FORMS_KEY ?? "VOTRE_CLE_WEB3FORMS")
+    formData.append("access_key", import.meta.env.PUBLIC_WEB3FORMS_KEY ?? "86f8000d-8539-4404-808f-81750437f5e7")
     formData.append("subject", "Nouveau message depuis le portfolio")
 
     try {
@@ -79,8 +79,9 @@ export default function ContactForm() {
           <input
             type="text"
             name="name"
+            disabled={status.state === "loading"}
             onChange={() => setErrors(e => ({ ...e, name: "" }))}
-            className={inputClass("name")}
+            className={`${inputClass("name")} disabled:opacity-50 disabled:cursor-not-allowed`}
           />
           {errors.name && <span className="text-red-600 text-sm mt-1">{errors.name}</span>}
         </label>
@@ -90,8 +91,9 @@ export default function ContactForm() {
           <input
             type="email"
             name="email"
+            disabled={status.state === "loading"}
             onChange={() => setErrors(e => ({ ...e, email: "" }))}
-            className={inputClass("email")}
+            className={`${inputClass("email")} disabled:opacity-50 disabled:cursor-not-allowed`}
           />
           {errors.email && <span className="text-red-600 text-sm mt-1">{errors.email}</span>}
         </label>
@@ -101,8 +103,9 @@ export default function ContactForm() {
           <textarea
             name="message"
             rows={4}
+            disabled={status.state === "loading"}
             onChange={() => setErrors(e => ({ ...e, message: "" }))}
-            className={inputClass("message")}
+            className={`${inputClass("message")} disabled:opacity-50 disabled:cursor-not-allowed`}
           />
           {errors.message && <span className="text-red-600 text-sm mt-1">{errors.message}</span>}
         </label>
@@ -113,7 +116,15 @@ export default function ContactForm() {
             disabled={status.state === "loading"}
             className="px-6 py-2 font-bold text-white bg-blue-600 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] transition-all duration-200 hover:bg-blue-700 hover:scale-105 active:scale-95 active:shadow-[inset_-2px_-2px_0_0_#fff,inset_2px_2px_0_0_#000] disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            {status.state === "loading" ? "Envoi..." : "Envoyer"}
+            {status.state === "loading" ? (
+              <span className="flex items-center gap-2">
+                <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                </svg>
+                Envoi en cours...
+              </span>
+            ) : "Envoyer"}
           </button>
 
           {/* Fallback email direct */}

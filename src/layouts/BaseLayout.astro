@@ -91,11 +91,18 @@ const canonicalUrl = canonical ?? Astro.url.href;
     class="bg-gray-300 min-h-dvh pt-9"
     style="background-image: url('/fondprojet.png'); background-repeat: no-repeat; background-size: cover; background-position: center; background-attachment: fixed;"
   >
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-1 focus:left-1 focus:z-[100] focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:underline focus:shadow-[2px_2px_0_#000]"
+    >
+      Aller au contenu principal
+    </a>
+
     <header transition:persist="win95-menu">
       <MenuWindow client:load pathname={Astro.url.pathname} />
     </header>
 
-    <main>
+    <main id="main-content">
       <slot />
     </main>
 
