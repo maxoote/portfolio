@@ -25,6 +25,15 @@ const featuredIds = ["anna-partout", "mdn-maxime", "sth"];
 const featuredProjects = featuredIds
   .map(id => projects.find(p => p.id === id))
   .filter(Boolean);
+
+const extMap: Record<string, string> = {
+  'Print': '.ai',
+  'Audiovisuel': '.mp4',
+  'Web-design': '.html',
+  'Branding': '.psd',
+  'Photographie': '.raw',
+  'Programmation': '.js',
+};
 ---
 
 <BaseLayout
@@ -32,7 +41,7 @@ const featuredProjects = featuredIds
   description="Découvrez les projets de Maxime Mandin : design graphique, branding, audiovisuel, print, photographie et développement web."
 >
   <!-- Section plein viewport, sans scroll -->
-  <section class="h-[calc(100dvh-2.25rem)] flex flex-col p-2 md:p-3 overflow-hidden">
+  <section class="h-[calc(100dvh-2.25rem)] flex flex-col p-4 md:p-6 overflow-hidden">
 
     <!-- Fenêtre Win95 qui remplit toute la hauteur disponible -->
     <div class="flex-1 min-h-0 flex flex-col shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2">
@@ -82,47 +91,70 @@ const featuredProjects = featuredIds
 
         <!-- Panel principal : projets mis en avant -->
         <div class="flex-1 min-h-0 overflow-y-auto">
-          <div class="flex flex-col gap-6 p-6 md:p-8">
+          <div class="flex flex-col gap-5 px-6 py-5 md:px-8 md:py-6">
 
-            {featuredProjects.map((project, idx) => project && (
-              <a
-                href={`/projects/${project.id}`}
-                class="group flex h-[180px] md:h-[210px] overflow-hidden shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] bg-gray-200 animate-stagger-fade-in hover:-translate-y-0.5 hover:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,4px_4px_0_0_rgba(0,0,0,0.3)] transition-all duration-200"
-                style={`animation-delay: ${idx * 80}ms`}
-              >
-                <!-- Image -->
-                <div class="w-48 md:w-72 lg:w-80 flex-shrink-0 relative overflow-hidden">
-                  <Image
-                    src={project.image as ImageMetadata}
-                    alt={project.title}
-                    width={320}
-                    height={210}
-                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
-                  />
-                </div>
-                <!-- Séparateur inset -->
-                <div class="w-px flex-shrink-0 bg-[#808080] shadow-[1px_0_0_#fff]"></div>
-                <!-- Infos -->
-                <div class="flex-1 flex flex-col justify-between p-5 md:p-6 min-w-0 overflow-hidden">
-                  <div>
-                    <h2 class="font-bold text-base md:text-lg text-gray-900 leading-tight mb-2">{project.title}</h2>
-                    <div class="flex flex-wrap gap-1 mb-3">
-                      {project.categories?.slice(0, 2).map((cat: string) => (
-                        <span class="text-xs px-2 py-0.5 bg-gray-300 shadow-[inset_1px_1px_0_0_#fff,inset_-1px_-1px_0_0_#808080] no-select">{cat}</span>
-                      ))}
+            {featuredProjects.map((project, idx) => {
+              if (!project) return null;
+              const cat = project.categories?.[0] ?? "default";
+              const ext = extMap[cat] ?? '.exe';
+              const filename = `${project.title}${ext}`;
+              const excerpt = project.detailedDescription?.context?.content;
+              return (
+                <a
+                  href={`/projects/${project.id}`}
+                  class="group flex flex-col overflow-hidden shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] bg-gray-200 animate-stagger-fade-in hover:-translate-y-0.5 hover:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,4px_4px_0_0_rgba(0,0,0,0.3)] transition-all duration-200"
+                  style={`animation-delay: ${idx * 80}ms`}
+                >
+                  <!-- Title bar Win95 propre à chaque carte -->
+                  <div class="flex-shrink-0 flex items-center justify-between bg-blue-900 px-2 py-1">
+                    <span class="text-white text-xs font-bold truncate no-select">
+                      <span class="opacity-60 mr-1" aria-hidden="true">░</span>{filename}
+                    </span>
+                    <div class="flex gap-0.5 flex-shrink-0 ml-2" aria-hidden="true">
+                      <span class="px-1.5 py-0.5 bg-gray-400 shadow-[inset_1px_1px_0_0_#fff,inset_-1px_-1px_0_0_#000] text-black text-[10px] leading-none no-select">—</span>
+                      <span class="px-1.5 py-0.5 bg-gray-400 shadow-[inset_1px_1px_0_0_#fff,inset_-1px_-1px_0_0_#000] text-black text-[10px] leading-none no-select">□</span>
+                      <span class="px-1.5 py-0.5 bg-gray-400 shadow-[inset_1px_1px_0_0_#fff,inset_-1px_-1px_0_0_#000] text-black text-[10px] leading-none no-select">✕</span>
                     </div>
-                    {project.description && (
-                      <p class="text-xs md:text-sm text-gray-600 leading-relaxed line-clamp-3">{project.description}</p>
-                    )}
                   </div>
-                  <span class="text-xs text-blue-800 font-semibold group-hover:underline">Voir le projet →</span>
-                </div>
-              </a>
-            ))}
+                  <!-- Corps de la carte -->
+                  <div class="flex overflow-hidden">
+                    <!-- Image ratio 4/3 -->
+                    <div class="w-2/5 flex-shrink-0 aspect-[4/3] relative overflow-hidden">
+                      <Image
+                        src={project.image as unknown as ImageMetadata}
+                        alt={project.title}
+                        width={320}
+                        height={240}
+                        class="absolute inset-0 w-full h-full object-cover group-hover:[filter:saturate(0.7)] transition-[filter] duration-300"
+                        loading="lazy"
+                      />
+                    </div>
+                    <!-- Séparateur -->
+                    <div class="w-px flex-shrink-0 self-stretch bg-[#808080] shadow-[1px_0_0_#fff]"></div>
+                    <!-- Infos -->
+                    <div class="flex-1 flex flex-col justify-between p-4 md:p-5 min-w-0">
+                      <div>
+                        <h2 class="font-bold text-sm md:text-base text-gray-900 leading-tight mb-2">{project.title}</h2>
+                        <div class="flex flex-wrap gap-1 mb-3">
+                          {project.categories?.slice(0, 2).map((c: string) => (
+                            <span class="text-xs px-2 py-0.5 bg-gray-300 shadow-[inset_1px_1px_0_0_#fff,inset_-1px_-1px_0_0_#808080] no-select">{c}</span>
+                          ))}
+                        </div>
+                        {excerpt && (
+                          <p class="hidden md:block text-xs text-gray-600 leading-relaxed line-clamp-2">{excerpt}</p>
+                        )}
+                      </div>
+                      <span class="inline-block self-start mt-3 px-3 py-1 bg-gray-300 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-xs font-semibold no-select group-hover:shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff] transition-shadow">
+                        Voir le projet →
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              );
+            })}
 
             <!-- Boutons CTA en bas du panel -->
-            <div class="flex justify-end gap-2">
+            <div class="flex justify-end gap-2 pt-1">
               <a
                 href="/outils"
                 class="px-3 py-1 bg-gray-300 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-xs font-semibold hover:bg-gray-400 active:shadow-[inset_2px_2px_0_0_#000,inset_-2px_-2px_0_0_#fff] transition-colors no-select"
