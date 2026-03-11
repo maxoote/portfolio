@@ -250,3 +250,124 @@ body::before {
 ::view-transition-new(root) {
   animation: 300ms ease-out slide-from-right;
 }
+
+/* ─── ProjectCardMain — cartes fenêtres Win95 ─── */
+.project-card {
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  background: #d4d0c8;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0px #808080;
+}
+
+.win95-titlebar {
+  background: linear-gradient(to right, #000080, #1084d0);
+  color: white;
+  padding: 3px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: bold;
+  user-select: none;
+}
+.titlebar-controls {
+  display: flex;
+  gap: 2px;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+.titlebar-controls span {
+  display: inline-block;
+  background: #d4d0c8;
+  color: black;
+  border: 1px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  width: 16px;
+  height: 14px;
+  text-align: center;
+  line-height: 12px;
+  font-size: 10px;
+  cursor: default;
+}
+
+.card-body {
+  display: flex;
+  padding: 12px;
+  gap: 16px;
+}
+
+.card-image {
+  width: 42%;
+  flex-shrink: 0;
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  overflow: hidden;
+}
+.card-image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  transition: filter 0.2s ease;
+}
+.project-card:hover .card-image img {
+  filter: saturate(0.75);
+}
+
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 4px 0;
+  min-width: 0;
+}
+.card-content h2 {
+  font-size: 15px;
+  font-weight: bold;
+  color: #000000;
+  margin: 0;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.card-tag {
+  display: inline-block;
+  background: #d4d0c8;
+  border: 1px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  padding: 1px 6px;
+  font-size: 11px;
+}
+.card-desc {
+  font-size: 12px;
+  color: #444;
+  line-height: 1.4;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.win95-btn {
+  display: inline-block;
+  background: #d4d0c8;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  padding: 4px 12px;
+  font-size: 12px;
+  text-decoration: none;
+  color: black;
+  align-self: flex-start;
+  margin-top: auto;
+  cursor: default;
+}
+.win95-btn:hover {
+  border-color: #808080 #ffffff #ffffff #808080;
+}
