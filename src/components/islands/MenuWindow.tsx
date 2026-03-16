@@ -1,11 +1,10 @@
 import { useState } from "react"
 
 const links = [
-  { label: "Accueil",     href: "/" },
-  { label: "Mon travail", href: "/main" },
-  { label: "Projets",     href: "/catalogue" },
-  { label: "Outils",      href: "/outils" },
-  { label: "Contact",     href: "/contact" },
+  { label: "Accueil",  href: "/" },
+  { label: "Projets",  href: "/catalogue" },
+  { label: "Outils",   href: "/outils" },
+  { label: "Contact",  href: "/contact" },
 ]
 
 function isActive(href: string, pathname: string) {
