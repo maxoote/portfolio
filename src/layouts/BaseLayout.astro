@@ -12,7 +12,7 @@ interface Props {
 
 const {
   title,
-  description = "Portfolio de Maxime Mandin — graphiste freelance, développeur web et créatif multimédia en Vendée et Pays de la Loire.",
+  description = "Portfolio de Maxime Mandin, designer numérique spécialisé UI/UX et direction artistique. Étudiant BUT MMI Création Numérique — disponible en alternance dès septembre 2026.",
   ogImage = "/og-image.png",
   canonical,
 } = Astro.props;
@@ -33,7 +33,7 @@ const canonicalUrl = canonical ?? Astro.url.href;
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_FR" />
-    <meta property="og:site_name" content="Maxime Mandin — Graphiste Freelance" />
+    <meta property="og:site_name" content="Maxime Mandin — Designer UI/UX & Direction Artistique" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
@@ -55,8 +55,8 @@ const canonicalUrl = canonical ?? Astro.url.href;
             "@type": "Person",
             "name": "Maxime Mandin",
             "url": "https://mandinmaxime.vercel.app",
-            "jobTitle": "Graphiste Freelance & Développeur Web",
-            "description": "Étudiant en BUT MMI à Laval, spécialisé en design graphique, développement web et audiovisuel.",
+            "jobTitle": "Designer UI/UX & Direction Artistique",
+            "description": "Étudiant BUT MMI Création Numérique à Laval, spécialisé en UI/UX design, direction artistique et développement web.",
             "sameAs": [
               "https://www.linkedin.com/in/maxime-mandin",
               "https://www.instagram.com/mdn.maxime/",
@@ -65,8 +65,8 @@ const canonicalUrl = canonical ?? Astro.url.href;
           },
           {
             "@type": "LocalBusiness",
-            "name": "Maxime Mandin — Graphiste Freelance",
-            "description": "Création de logos, supports print, vidéo et sites web pour TPE et associations.",
+            "name": "Maxime Mandin — Designer UI/UX & Direction Artistique",
+            "description": "Portfolio de design UI/UX, direction artistique, branding et développement web.",
             "url": "https://mandinmaxime.vercel.app",
             "image": "https://mandinmaxime.vercel.app/og-image.png",
             "areaServed": ["Vendée", "Pays de la Loire", "Laval"],
