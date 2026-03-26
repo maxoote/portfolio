@@ -130,8 +130,8 @@ import picsnouv7j from "../assets/unsortedpics/7jaune.webp";
 import picsnouv8j from "../assets/unsortedpics/8jaune.webp";
 
 // Mes Premieres interviews
-import intro_horizontal from "../assets/MPI/into_horizontal.webp";
-import intro_vertical from "../assets/MPI/into_vertical.webp";
+import intro_horizontal from "../assets/MPI/intro_horizontal.webp";
+import intro_vertical from "../assets/MPI/intro_vertical.webp";
 import cap7media from "../assets/MPI/cap7media.webp";
 import arbitre from "../assets/MPI/arbitre.webp";
 import carton from "../assets/MPI/carton.webp";
