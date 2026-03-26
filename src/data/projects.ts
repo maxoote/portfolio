@@ -168,17 +168,17 @@ import matrice9 from "../assets/matrice/vueb.webp"
 
 
 // Marathon affiche
-import marat11 from "../assets/marat/Lost.png"
-import marat10 from "../assets/marat/Coldaim.png"
-import marat9 from "../assets/marat/Transcendance.png"
-import marat8 from "../assets/marat/Matrice.png"
-import marat7 from "../assets/marat/AileDuMoulin.png"
-import marat6 from "../assets/marat/Substrat.png"
-import marat5 from "../assets/marat/RESOLVE.png"
-import marat4 from "../assets/marat/DivasDuJazz.png"
-import marat3 from "../assets/marat/CDF.png"
-import marat2 from "../assets/marat/SweetAndSting.png"
-import marat1 from "../assets/marat/Mirabelle.png"
+import marat11 from "../assets/marat/Lost.webp"
+import marat10 from "../assets/marat/Coldaim.webp"
+import marat9 from "../assets/marat/Transcendance.webp"
+import marat8 from "../assets/marat/Matrice.webp"
+import marat7 from "../assets/marat/AileDuMoulin.webp"
+import marat6 from "../assets/marat/Substrat.webp"
+import marat5 from "../assets/marat/RESOLVE.webp"
+import marat4 from "../assets/marat/DivasDuJazz.webp"
+import marat3 from "../assets/marat/CDF.webp"
+import marat2 from "../assets/marat/SweetAndSting.webp"
+import marat1 from "../assets/marat/Mirabelle.webp"
 
 // --- LISTE DES PROJETS ---
 // Trié selon: Audiovisuel > Branding > Print > Programmation > Photographie
