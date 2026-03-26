@@ -155,6 +155,17 @@ import mdwd_15 from "../assets/motion_webdesigner/15.webp";
 import mdwd_16 from "../assets/motion_webdesigner/16.webp";
 import mdwd_17 from "../assets/motion_webdesigner/17.webp";
 
+// Matrice
+import matrice1 from "../assets/matrice/affiche.webp"
+import matrice2 from "../assets/matrice/mercure.webp"
+import matrice3 from "../assets/matrice/mockup.webp"
+import matrice4 from "../assets/matrice/variation2.webp"
+import matrice5 from "../assets/matrice/verre.webp"
+import matrice6 from "../assets/matrice/verrec.webp"
+import matrice7 from "../assets/matrice/v2.webp"
+import matrice8 from "../assets/matrice/vue.webp"
+import matrice9 from "../assets/matrice/vueb.webp"
+
 // --- LISTE DES PROJETS ---
 // Trié selon: Audiovisuel > Branding > Print > Programmation > Photographie
 
@@ -424,7 +435,7 @@ export const projects: Project[] = [
   {
     id: "matrice",
     title: "MATRICE",
-    image: /* TODO: import image de couverture matrice */ undefined,
+    image: matrice1,
     detailedDescription: {
       context: {
         title: "Brief & Contexte",
@@ -465,8 +476,15 @@ export const projects: Project[] = [
       },
     },
     gallery: [
-      /* TODO: assets matrice */
-    ],
+matrice1,
+matrice2,
+matrice3,
+matrice4,
+matrice5,
+matrice6,
+matrice7,
+matrice8,
+matrice9    ],
     tags: [
       "3D",
       "Blender",
