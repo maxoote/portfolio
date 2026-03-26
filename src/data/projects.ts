@@ -6,11 +6,6 @@ import type { Project } from "../types/projects";
 import logoMaxime from "../assets/m2studio/logoMaximeMandin.webp";
 // import photoProfile from "../assets/m2studio/photoprofile.webp";
 
-// Maxime en compétition
-import compet1 from "../assets/maxime_en_competition/1.webp";
-import compet2 from "../assets/maxime_en_competition/2.webp";
-import compet3 from "../assets/maxime_en_competition/3.webp";
-
 // mdn.maxime
 import mdnAnnonce1 from "../assets/mdnmaxime/Annonce1.webp";
 import mdnAnnonce2 from "../assets/mdnmaxime/Annonce2.webp";
@@ -134,40 +129,177 @@ import picsnouv6j from "../assets/unsortedpics/6jaune.webp";
 import picsnouv7j from "../assets/unsortedpics/7jaune.webp";
 import picsnouv8j from "../assets/unsortedpics/8jaune.webp";
 
+// Mes Premieres interviews
+import intro_horizontal from "../assets/MPI/into_horizontal.webp";
+import intro_vertical from "../assets/MPI/into_vertical.webp";
+import cap7media from "../assets/MPI/cap7media.webp";
+import arbitre from "../assets/MPI/arbitre.webp";
+import carton from "../assets/MPI/carton.webp";
+
+//motion design web designer
+import mdwd_1 from "../assets/motion_webdesigner/1.webp";
+import mdwd_2 from "../assets/motion_webdesigner/2.webp";
+import mdwd_3 from "../assets/motion_webdesigner/3.webp";
+import mdwd_4 from "../assets/motion_webdesigner/4.webp";
+import mdwd_5 from "../assets/motion_webdesigner/5.webp";
+import mdwd_6 from "../assets/motion_webdesigner/6.webp";
+import mdwd_7 from "../assets/motion_webdesigner/7.webp";
+import mdwd_8 from "../assets/motion_webdesigner/8.webp";
+import mdwd_9 from "../assets/motion_webdesigner/9.webp";
+import mdwd_10 from "../assets/motion_webdesigner/10.webp";
+import mdwd_11 from "../assets/motion_webdesigner/11.webp";
+import mdwd_12 from "../assets/motion_webdesigner/12.webp";
+import mdwd_13 from "../assets/motion_webdesigner/13.webp";
+import mdwd_14 from "../assets/motion_webdesigner/14.webp";
+import mdwd_15 from "../assets/motion_webdesigner/15.webp";
+import mdwd_16 from "../assets/motion_webdesigner/16.webp";
+import mdwd_17 from "../assets/motion_webdesigner/17.webp";
 
 // --- LISTE DES PROJETS ---
 // Trié selon: Audiovisuel > Branding > Print > Programmation > Photographie
 
 export const projects: Project[] = [
   // --- 🎬 AUDIOVISUEL ---
+
   {
-    id: "maxime-compet",
-    title: "Maxime en compétition",
-    image: compet1,
+    id: "interviews-fftir",
+    title: "Interviews Championnat de France",
+    image: intro_horizontal,
     detailedDescription: {
       context: {
-        title: "Contexte & Objectif",
-        content: "Série de stories Instagram documentant mon parcours en compétitions de tir sportif (départementales, régionales, nationales). Ce projet personnel allie ma passion pour le tir et mes compétences en communication visuelle pour promouvoir la discipline auprès d'un public large."
+        title: "Brief & Contexte",
+        content:
+          "Championnat de France de Tir Sportif 10m, Micropolis Besançon, janvier 2026. Brief auto-imposé avec fiche projet formalisée — 6 formats vidéo conçus en pré-production, 20 à 32 livrables prévus, fiche de droit à l'image préparée, proposition de mise à disposition des contenus à la FFTir. Production en conditions réelles de compétition, en binôme avec Sarah Mandin (journaliste/intervieweuse).",
       },
       role: {
-        title: "Mon Rôle",
-        intro: "Création complète des contenus visuels pour réseaux sociaux",
+        title: "Rôle & Production",
+        intro:
+          "Réalisateur, cadreur, monteur — binôme avec Sarah Mandin (journaliste/intervieweuse)",
         points: [
-          { title: "Design Graphique", content: "Conception des visuels de stories avec une identité visuelle cohérente et impactante, adaptée aux codes Instagram." },
-          { title: "Communication Sportive", content: "Rédaction et mise en forme des résultats de manière claire et engageante pour valoriser la performance." },
-          { title: "Régularité & Réactivité", content: "Publication systématique après chaque compétition, nécessitant une production rapide et efficace tout en maintenant la qualité visuelle." }
-        ]
+          {
+            title: "Pré-production",
+            content:
+              "Conception de 6 formats distincts pour couvrir plusieurs registres narratifs et plateformes : Fast & Curious (30-60s, TikTok/Reels), 3 questions à… (1-2min), Portrait express (2-3min, portfolio), Coulisses, Récap de journée, Teaser vitrine. Rédaction de la fiche projet, des fiches de droit à l'image, préparation de la liste des profils à interviewer (sportifs, arbitres, bénévoles, staff, FFTir).",
+          },
+          {
+            title: "Production terrain",
+            content:
+              "Tournage en conditions réelles sur 5 jours de championnat : cadrage, son et conduite d'interview en simultané, main levée sans trépied. Canon M50 Mark II, micro-canon directionnel sur caméra, 2 panneaux LED portables.",
+          },
+          {
+            title: "Post-production",
+            content:
+              "Montage sous DaVinci Resolve, étalonnage, mixage. Sélection radicale : sur +10 interviews tournées, 3 retenues, 2 formats livrés sur les 6 prévus. Publication début mars.",
+          },
+        ],
+      },
+      keyLearnings: {
+        title: "Ce que ce projet a réellement appris",
+        points: [
+          {
+            title: "Matériel & préparation terrain",
+            content:
+              "Pas de trépied sur un tournage multi-format solo : erreur de production éliminée définitivement. Micro-canon sur caméra en salle de compétition : insuffisant — le son doit être traité comme une contrainte technique prioritaire, pas secondaire.",
+          },
+          {
+            title: "Charge opérationnelle solo",
+            content:
+              "Gérer simultanément la qualité image, la qualité son et la conduite d'interview sans support stable : trois flux trop lourds pour un seul opérateur sans préparation matérielle adaptée.",
+          },
+          {
+            title: "La valeur d'un brief structuré",
+            content:
+              "Le brief a été rédigé, la fiche de droit à l'image préparée, une proposition faite à la FFTir. Le projet a été cadré comme une production réelle. Le terrain a corrigé le reste — c'est ça, la pré-production.",
+          },
+        ],
       },
       competencesDemontrees: {
-        title: "Compétences Démontrées",
-        content: "Design pour réseaux sociaux (format stories), communication sportive, personal branding, création de contenu régulier sous contrainte de temps, capacité à transformer des données brutes (résultats) en contenu visuellement attractif."
-      }
+        title: "Compétences démontrées",
+        content:
+          "Réalisation et conception de formats vidéo multi-plateformes, cadrage et captation terrain en conditions réelles, conduite d'interview, montage et étalonnage sous DaVinci Resolve, gestion de production solo (pré-production, tournage, post-production), rédaction de documents de production (fiche projet, droits à l'image).",
+      },
     },
-    gallery: [compet1, compet2, compet3],
-    url: "https://www.instagram.com/mdn.maxime/",
-    tags: ['Instagram Stories', 'Tir Sportif', 'Design Graphique', 'Communication', 'Personal Branding'],
-    categories: ["Audiovisuel"]
-  },  
+    gallery: [intro_horizontal, cap7media, intro_vertical, arbitre, carton],
+    tags: [
+      "Vidéo",
+      "Reportage",
+      "Interview",
+      "Tir Sportif",
+      "DaVinci Resolve",
+      "Production Terrain",
+      "Championnat de France",
+    ],
+    categories: ["Audiovisuel"],
+  },
+
+  {
+    id: "motion-webdesigner",
+    title: "Motion Design — Devenir Webdesigner",
+    image: mdwd_1,
+    detailedDescription: {
+      context: {
+        title: "Brief & Contexte",
+        content:
+          "Brief client MMI France — capsule vidéo d'1min30 présentant un métier post-BUT MMI à destination des étudiants actuels et futurs. Sujet retenu par l'équipe : Devenir Webdesigner. Production en agence de 4, 3 séances de 3h + temps perso, livrée en semaine 6.",
+      },
+      role: {
+        title: "Rôle & Contribution",
+        intro:
+          "Infographiste & Directeur Artistique Motion — production collective (agence de 4)",
+        points: [
+          {
+            title: "Pré-production",
+            content:
+              "Participation à la séance 1 : co-écriture du script, construction du storyboard, recherche DA globale. Définition du concept visuel — présentation face caméra incrustée sur fond custom, rythmée par des blocs infographiques animés.",
+          },
+          {
+            title: "Exécution motion design",
+            content:
+              "Réalisation de l'intégralité des assets motion de la capsule : intro/outro, les 3 mots-clés du webdesign (fluide, agréable, intuitive), débouchés métier, salaire, outils, cycle de production d'un site, sections accessibilité/responsive/contraste, passage formations MMI et Master. Chaque séquence conçue pour s'articuler avec les mouvements de la présentatrice — timing calé sur le rythme du script.",
+          },
+          {
+            title: "Workflow & livraison",
+            content:
+              "Storyboard infographique → création des assets sous Affinity Studio → intégration et animation sous DaVinci Resolve → coordination avec le montage final. Absent lors du tournage (Championnat de France) : tous les assets livrés en amont, documentés, prêts à intégration sans intervention plateau.",
+          },
+        ],
+      },
+      competencesDemontrees: {
+        title: "Compétences démontrées",
+        content:
+          "Motion design et infographie animée, conception d'assets pour incrustation vidéo, storyboard, synchronisation motion/parole, workflow de livraison en équipe de production, DaVinci Resolve, Affinity Studio. Aucun outil Adobe — pipeline complet sur stack alternative.",
+      },
+    },
+    gallery: [
+      mdwd_1,
+      mdwd_2,
+      mdwd_3,
+      mdwd_4,
+      mdwd_5,
+      mdwd_6,
+      mdwd_7,
+      mdwd_8,
+      mdwd_9,
+      mdwd_10,
+      mdwd_11,
+      mdwd_12,
+      mdwd_13,
+      mdwd_14,
+      mdwd_15,
+      mdwd_16,
+      mdwd_17,
+    ],
+    tags: [
+      "Motion Design",
+      "Infographie",
+      "Vidéo",
+      "DaVinci Resolve",
+      "Affinity Studio",
+      "Production Collective",
+    ],
+    categories: ["Audiovisuel"],
+  },
+
   {
     id: "mdn-maxime",
     title: "mdn.maxime",
@@ -175,41 +307,64 @@ export const projects: Project[] = [
     detailedDescription: {
       context: {
         title: "Contexte & Positionnement",
-        content: "Compte Instagram personnel dédié au storytelling créatif et à la documentation de mon processus de travail. Ce projet hybride mêle personal branding, pédagogie et création de contenu pour construire une identité professionnelle authentique et transparente auprès d'une communauté de créatifs et de pairs."
+        content:
+          "Portfolio grand public et archive créative en cours de construction. @mdn.maxime documente en temps réel l'ensemble de la production : affiches du Marathon 2026, interviews terrain, projets adaptés en motion, photographies (tir sportif, soirées, sport mécanique), résultats de compétition, streams Twitch de tir sportif, et formats éditoriaux en développement.",
       },
       role: {
-        title: "Mon Rôle & Production",
-        intro: "Création complète de contenu multimédia (vidéo, photo, design) pour documenter mon parcours créatif",
+        title: "Production & Formats",
+        intro: "Directeur Artistique, Photographe, Réalisateur, Monteur — Solo",
         points: [
-          { title: "Storytelling Vidéo", content: "Production de vidéos BTS (Behind The Scenes) expliquant ma démarche créative, mes choix techniques et mes problèmes rencontrés, dans un format authentique et pédagogique." },
-          { title: "Design Graphique Expérimental", content: "Création d'affiches et de visuels spontanés (série unsortedprint) pour expérimenter et me détendre, tout en alimentant mon feed avec du contenu varié." },
-          { title: "Communication Régulière", content: "Publication systématique de stories, posts et reels pour maintenir un lien avec ma communauté et documenter mon évolution." },
-          { title: "Montage & Post-production", content: "Édition des vidéos et retouche photo pour adapter le contenu aux codes Instagram tout en préservant l'authenticité du message." }
-        ]
-      },
-      keyLearnings: {
-        title: "Apprentissages Clés & Soft Skills",
-        points: [
-          { title: "Aisance Face Caméra", content: "L'exercice répété de parler face caméra et au micro m'a permis de développer une aisance orale et corporelle essentielle pour les présentations professionnelles." },
-          { title: "Vulgarisation Technique", content: "Capacité à expliquer des concepts techniques complexes (montage, design, code) de manière claire et accessible à différents publics." },
-          { title: "Transparence & Authenticité", content: "Partage non-filtré de mes échecs et succès pour créer une connexion authentique avec ma communauté et démystifier le processus créatif." },
-          { title: "Régularité de Production", content: "Discipline de création de contenu régulier malgré les contraintes de temps (études, freelance, compétitions sportives)." }
-        ]
+          {
+            title: "Affiches & Print",
+            content:
+              "Publication hebdomadaire des affiches du Marathon 2026. Chaque post documente un livrable réel — exploration graphique, événement fictif ou réel, adaptation d'un projet, réponse à un instant.",
+          },
+          {
+            title: "Vidéo & Interview",
+            content:
+              "Mise en ligne des interviews du Championnat de France de Tir Sportif. Reels documentant des sorties photo (foot, motocross). Formats en développement : tournois de sélection d'affiches, vidéos d'explication de processus, best-of de streams Twitch.",
+          },
+          {
+            title: "Photographie & Résultats",
+            content:
+              "Publication de séries photo (tir sportif, soirées, événements), résumés visuels de compétitions, annonces de streams. Chaque format pensé pour les codes de la plateforme — cadrage, rythme, mise en page.",
+          },
+        ],
       },
       vision: {
-        title: "Impact & Vision",
-        content: "Ce projet va au-delà du simple personal branding : c'est une vitrine vivante de mes compétences, un outil de réseautage professionnel et une archive de mon évolution créative. Il démontre ma capacité à créer du contenu engageant tout en gérant une identité de marque personnelle cohérente sur la durée."
+        title: "Trajectoire éditoriale",
+        content:
+          "Les formats en développement — tournois de sélection d'affiches, vidéos de processus créatif, best-of de streams — dessinent une trajectoire vers un contenu éditorial structuré. Le compte est le seul endroit où tous les projets coexistent sans hiérarchie : l'affiche du lundi matin, la photo prise à 23h dans les stands, le résultat d'une finale nationale.",
       },
       competencesDemontrees: {
-        title: "Compétences Démontrées",
-        content: "Personal branding stratégique, création de contenu multimédia (vidéo, photo, design), storytelling visuel, aisance orale et communication caméra, vulgarisation technique, gestion de communauté, régularité de production, authenticité professionnelle, expérimentation graphique."
-      }
+        title: "Compétences démontrées",
+        content:
+          "Direction artistique de contenu multi-format, photographie, montage vidéo sous DaVinci Resolve, motion sur projets, conception graphique de posts, cadrage et conduite d'interviews terrain, production régulière sous contrainte de cadence, personal branding stratégique.",
+      },
     },
-    gallery: [mdnStoryPort,mdnAnnonce1, mdnAnnonce2, mdnStream, mdnVid1, mdnVid2, mdnRetouche1, mdnRetouche2, mdnStoryRec],
+    gallery: [
+      mdnStoryPort,
+      mdnAnnonce1,
+      mdnAnnonce2,
+      mdnStream,
+      mdnVid1,
+      mdnVid2,
+      mdnRetouche1,
+      mdnRetouche2,
+      mdnStoryRec,
+    ],
     url: "https://www.instagram.com/mdn.maxime/",
-    tags: ['Personal Branding', 'Behind The Scenes', 'Storytelling', 'Instagram', 'Vidéo', 'Design Expérimental', 'Communication'],
-    categories: ["Audiovisuel"]
+    tags: [
+      "Personal Branding",
+      "Photographie",
+      "Vidéo",
+      "Motion",
+      "Instagram",
+      "Contenu Multi-Format",
+    ],
+    categories: ["Audiovisuel"],
   },
+
   {
     id: "unsorted-vid",
     title: "Unsorted Videos",
@@ -217,119 +372,249 @@ export const projects: Project[] = [
     detailedDescription: {
       context: {
         title: "Contexte & Démarche Artistique",
-        content: "Projet expérimental de création vidéo minimaliste publié sur YouTube et Instagram. Inspiré par l'esthétique du cinéma-vérité et du documentaire observationnel, ce projet capture des moments spontanés sans contexte ni post-production lourde. L'objectif est de valoriser l'authenticité brute et l'instant présent, en opposition à la sur-production dominante sur les réseaux sociaux."
+        content:
+          "Projet expérimental de création vidéo minimaliste publié sur YouTube et Instagram. Inspiré par l'esthétique du cinéma-vérité et du documentaire observationnel, ce projet capture des moments spontanés sans contexte ni post-production lourde. L'objectif est de valoriser l'authenticité brute et l'instant présent, en opposition à la sur-production dominante sur les réseaux sociaux.",
       },
       role: {
         title: "Mon Rôle",
         intro: "Captation et diffusion de contenus visuels spontanés",
         points: [
-          { title: "Captation Spontanée", content: "Tournage de séquences vidéo et photos sans mise en scène, directement du boîtier, privilégiant la réactivité et l'authenticité du moment." },
-          { title: "Direction Artistique Minimaliste", content: "Choix assumé d'une post-production volontairement légère pour préserver le caractère brut et documentaire des images." },
-          { title: "Curation & Publication", content: "Sélection et publication régulière de contenus sur YouTube et Instagram, créant une archive visuelle du quotidien sans narration imposée." }
-        ]
+          {
+            title: "Captation Spontanée",
+            content:
+              "Tournage de séquences vidéo et photos sans mise en scène, directement du boîtier, privilégiant la réactivité et l'authenticité du moment.",
+          },
+          {
+            title: "Direction Artistique Minimaliste",
+            content:
+              "Choix assumé d'une post-production volontairement légère pour préserver le caractère brut et documentaire des images.",
+          },
+          {
+            title: "Curation & Publication",
+            content:
+              "Sélection et publication régulière de contenus sur YouTube et Instagram, créant une archive visuelle du quotidien sans narration imposée.",
+          },
+        ],
       },
       vision: {
         title: "Vision Artistique",
-        content: "Ce projet questionne la sur-production et le perfectionnisme omniprésents dans la création de contenu digital. En publiant des vidéos 'unsorted' (non triées), je valorise l'imperfection et l'instant capturé comme œuvre en soi, dans une démarche proche du documentaire anthropologique ou du found footage artistique."
+        content:
+          "Ce projet questionne la sur-production et le perfectionnisme omniprésents dans la création de contenu digital. En publiant des vidéos 'unsorted' (non triées), je valorise l'imperfection et l'instant capturé comme œuvre en soi, dans une démarche proche du documentaire anthropologique ou du found footage artistique.",
       },
       competencesDemontrees: {
         title: "Compétences Démontrées",
-        content: "Direction artistique conceptuelle, captation vidéo réactive, sens du cadrage et de la composition instantanée, gestion de contenus multi-plateformes (YouTube, Instagram), capacité à développer une démarche créative cohérente sur la durée, compréhension des codes du cinéma-vérité et du documentaire."
-      }
+        content:
+          "Direction artistique conceptuelle, captation vidéo réactive, sens du cadrage et de la composition instantanée, gestion de contenus multi-plateformes (YouTube, Instagram), capacité à développer une démarche créative cohérente sur la durée, compréhension des codes du cinéma-vérité et du documentaire.",
+      },
     },
-    gallery: [],
+    gallery: [unsortedVidGif],
     url: "https://www.youtube.com/@unsortedvid", // Ajoute l'URL si tu l'as
-    tags: ['Vidéo Expérimentale', 'Cinéma Vérité', 'Documentaire', 'YouTube', 'Instagram', 'Captation Spontanée', 'Minimalisme'],
-    categories: ["Audiovisuel"]
+    tags: [
+      "Vidéo Expérimentale",
+      "Cinéma Vérité",
+      "Documentaire",
+      "YouTube",
+      "Instagram",
+      "Captation Spontanée",
+      "Minimalisme",
+    ],
+    categories: ["Audiovisuel"],
   },
-  
+
+  {
+    id: "matrice",
+    title: "MATRICE",
+    image: /* TODO: import image de couverture matrice */ undefined,
+    detailedDescription: {
+      context: {
+        title: "Brief & Contexte",
+        content:
+          "Brief conceptuel personnel — L'Ordre et le Fluide. Une scénographie virtuelle explorant la tension entre rigueur brutaliste et imprévisibilité des matières organiques. Objectif technique : pousser la maîtrise des shaders et du rendu photoréaliste jusqu'aux limites du moteur Cycles.",
+      },
+      role: {
+        title: "Pipeline 3D → Graphisme → Vidéo IA",
+        intro:
+          "Solo — Modélisation 3D, Rendu, Direction Artistique, Graphisme Éditorial, Direction Vidéo IA",
+        points: [
+          {
+            title: "Modélisation & Shaders (Blender / Cycles)",
+            content:
+              "Environnement architectural procédural : murs en béton banché via textures générées procéduralement (nœuds Noise/Musgrave + Bump), modificateurs Bevel et lignes de coffrage. Trois variations matière sur les sculptures : Mercure (Metallic max, Roughness ~0, réflexion spéculaire miroir), Verre (Transmission + IOR 1.45 simulant le cristal), Émission lumineuse (source active modifiant l'ambiance de la pièce). Rendu Cycles haute résolution (3000×2000px) avec Denoising.",
+          },
+          {
+            title: "Direction Artistique & Graphisme Éditorial",
+            content:
+              "Traitement duotone profond (bleu nuit / reflets néon) sur les renders pour basculer de l'esthétique photoréaliste vers une imagerie de scanner numérique. Superposition d'un wireframe vectoriel — boîtes de délimitation mathématiques sur les sphères. Cartouche technique en typographie monospace (paramètres moteur, coordonnées spatiales, IOR 1.45) intégré comme élément de mise en page éditorial.",
+          },
+          {
+            title: "Animation vidéo IA",
+            content:
+              "Utilisation des renders Blender comme start/end frames stricts dans un outil Image-to-Video IA — technique permettant d'animer les réflexions spéculaires complexes des sphères mercure tout en conservant la stabilité géométrique du décor (béton et sol laqué).",
+          },
+        ],
+      },
+      vision: {
+        title: "Le détail qui tue",
+        content:
+          "Un shader Principled BSDF réglé à la main sur du mercure liquide ou du cristal, ça ne se fait pas au hasard. L'IOR à 1.45 sur le verre, c'est le même indice que le cristal réel. La rigueur du tir de compétition — millimètre par millimètre — se retrouve dans le node editor de Blender. Même discipline, autre terrain.",
+      },
+      competencesDemontrees: {
+        title: "Compétences démontrées",
+        content:
+          "Modélisation 3D et rendu photoréaliste (Blender / Cycles), textures procédurales, Principled BSDF (Metallic, Transmission, IOR, Emission), HDRI Lighting, direction artistique et graphisme éditorial, duotone, typographie éditoriale, generation vidéo IA (Image-to-Video), Affinity Designer/Photo.",
+      },
+    },
+    gallery: [
+      /* TODO: assets matrice */
+    ],
+    tags: [
+      "3D",
+      "Blender",
+      "Cycles",
+      "Direction Artistique",
+      "Shaders",
+      "Vidéo IA",
+      "Graphisme Éditorial",
+    ],
+    categories: ["Audiovisuel"],
+  },
 
   // --- 🎨 BRANDING ---
+
   {
     id: "sth",
     title: "Société de Tir Herbretaise",
     image: sth1,
     detailedDescription: {
       context: {
-        title: "Contexte & Enjeux",
-        content: "Projet bénévole stratégique au sein de mon club de tir sportif, où j'occupe le poste de Responsable Communication depuis plusieurs années. L'enjeu principal : professionnaliser l'image de l'association pour attirer de nouveaux membres, fidéliser les bénévoles et renforcer la visibilité du club auprès des partenaires institutionnels et sponsors potentiels. Ce projet constitue mon laboratoire d'expérimentation réel où j'applique et teste mes apprentissages en communication multimédia."
+        title: "Brief & Contexte",
+        content:
+          "Client réel — association sportive créée dans les années 80 avec un logo unique datant de la même époque, aucune présence digitale structurée, aucune charte graphique. Mission auto-initiée : professionnaliser l'image du club de A à Z. Durée : depuis septembre 2022, toujours actif.",
       },
       role: {
-        title: "Mon Rôle & Responsabilités",
-        intro: "Gestion complète et autonome de la communication visuelle, numérique et événementielle du club",
+        title: "Rôle & Production",
+        intro:
+          "Responsable Communication — Direction Artistique, Développement Web, Production Print & Réseaux (Solo, bénévole)",
         points: [
-          { title: "Identité Visuelle & Branding", content: "Refonte complète de la charte graphique et création du logo en respectant les codes visuels du tir sportif et l'identité locale. Alignement avec les chartes des autres clubs de la région pour une cohérence fédérale." },
-          { title: "Développement & Gestion Web", content: "Conception, développement et maintenance du site internet WordPress (http://sth85.fr). Migration depuis une version HTML/CSS/JS pure vers un CMS pour permettre l'autonomie des bénévoles dans la publication de contenus (actualités, résultats, événements)." },
-          { title: "Design Print & Supports de Communication", content: "Création des affiches événementielles, flyers, supports de communication interne. Production régulière de visuels pour promouvoir les compétitions, challenges et événements organisés par le club." },
-          { title: "Gestion Réseaux Sociaux", content: "Animation des comptes Instagram et Facebook avec création de contenus engageants (stories, posts, visuels) pour valoriser les performances sportives et la vie du club." },
-          { title: "Organisation Événementielle", content: "Planification et coordination d'événements internes (Challenge Diabolo, Tournoi des Écoles de Tir) et externes pour renforcer la cohésion d'équipe, recruter de nouveaux membres et développer le rayonnement du club." }
-        ]
-      },
-      keyLearnings: {
-        title: "Apprentissages Clés & Compétences Développées",
-        points: [
-          { title: "Gestion de Projet Autonome", content: "Pilotage complet d'un projet de communication à long terme sans supervision directe, avec gestion des priorités et deadlines multiples." },
-          { title: "Adaptabilité Client/Utilisateur", content: "Compréhension des besoins d'utilisateurs non-techniques (bénévoles, membres du bureau) et adaptation des solutions (passage à WordPress pour faciliter l'autonomie)." },
-          { title: "Communication Multi-Supports", content: "Maîtrise de la cohérence visuelle sur différents médias : print, web, réseaux sociaux, signalétique événementielle." },
-          { title: "Gestion de Communauté", content: "Animation d'une communauté en ligne et hors-ligne, développement de l'engagement et de la fidélisation des membres." },
-          { title: "Évolution Technique Progressive", content: "Amélioration continue du site (SEO, optimisation, ajout de fonctionnalités) témoignant d'une démarche d'apprentissage et d'amélioration continue." }
-        ]
+          {
+            title: "Refonte identité visuelle",
+            content:
+              "Création d'une nouvelle identité complète depuis zéro — pas d'évolution de l'existant, pas de contrainte de continuité. Nouveau logo, charte graphique, palette, typographie. Alignement avec les chartes visuelles des clubs de la région pour cohérence fédérale, tout en conservant un ancrage local identifiable.",
+          },
+          {
+            title: "Développement WordPress",
+            content:
+              "Développement sur thème blank — pas de thème parent modifié, construction depuis la structure. Architecture pensée pour l'autonomie des bénévoles non-techniques : CMS, publication d'actualités, résultats de compétitions, événements. Migration depuis un site HTML/CSS/JS statique préexistant.",
+          },
+          {
+            title: "Production Print & Réseaux",
+            content:
+              "Création des affiches événementielles, flyers, supports de communication interne. Animation des comptes Instagram et Facebook — contenus réguliers sur les compétitions, les challenges internes, la vie du club. Organisation d'événements (Challenge Diabolo, Tournoi des Écoles de Tir) avec production des supports associés.",
+          },
+        ],
       },
       vision: {
-        title: "Projets en Cours & Vision Stratégique",
-        content: "Développement futur de contenus audiovisuels pour humaniser la communication : interviews de bénévoles, vidéo de présentation du club, reportages sur les compétitions nationales. Cette évolution vers l'audiovisuel témoigne d'une vision stratégique à long terme et d'une volonté de moderniser la communication sportive associative."
+        title: "Durée & Valeur",
+        content:
+          "Ce projet dure depuis 2022 sans interruption. Chaque affiche produite, chaque story publiée, chaque mise à jour du site est une livraison réelle pour un client réel — sans brief formalisé, sans deadline imposée, sans validation pédagogique. C'est le projet qui a formé les réflexes avant le stage.",
       },
       competencesDemontrees: {
-        title: "Compétences Démontrées",
-        content: "Gestion de projet autonome, identité visuelle et branding sportif, développement web WordPress, design print et événementiel, gestion de contenu multi-plateformes (web, RS, print), community management, organisation événementielle, adaptabilité aux besoins utilisateurs, évolution technique progressive, communication stratégique associative."
-      }
+        title: "Compétences démontrées",
+        content:
+          "Identité visuelle et branding sportif, développement WordPress sur thème blank, design print et événementiel, community management, gestion de projet autonome sur la durée, communication multi-supports (web, réseaux, print), Affinity Designer, HTML/CSS.",
+      },
     },
     gallery: [sth1, sth2, sth3, sth4, sth5, sth6, sth7, sth8],
     url: "http://sth85.fr/",
-    tags: ['Associatif', 'WordPress', 'Communication Globale', 'Branding Sportif', 'Gestion de Projet', 'Événementiel'],
-    categories: ["Branding"]
-  },  
+    tags: [
+      "Branding",
+      "WordPress",
+      "Identité Visuelle",
+      "Print",
+      "Communication Sportive",
+      "Gestion de Projet",
+    ],
+    categories: ["Branding"],
+  },
+
   {
     id: "maron-bouillie",
     title: "Maron Bouillie",
     image: mbLogo,
     detailedDescription: {
       context: {
-        title: "Contexte & Enjeux Stratégiques",
-        content: "Projet universitaire de grande envergure (SAE - Situation d'Apprentissage et d'Évaluation) simulant une mission d'agence complète. L'objectif : refondre intégralement la Direction Artistique de la marque Maron Bouillie, une marque de produits alimentaires artisanaux, pour la moderniser et la repositionner sur un marché concurrentiel. Le défi majeur était de créer une cohérence visuelle et narrative sur l'ensemble des supports de communication (print, digital, audiovisuel, packaging) tout en respectant les contraintes d'une identité de marque alimentaire (codes visuels, normes, attentes consommateurs)."
+        title: "Brief & Contexte",
+        content:
+          "Brief client réel — Maron Bouillie, marque de tote bags écoresponsables fabriqués à Paris. Mission : concevoir l'identité visuelle complète de la collection Paris Rétro et déployer un plan de communication plurimédia sur 12 semaines. Livrable central : une charte graphique production-ready couvrant logo, couleurs, typographie, photographie et déclinaisons sur 5 supports. Production en agence de 4 — contribution personnelle représentant environ 70% du livrable total.",
       },
       role: {
-        title: "Mon Rôle & Production Complète",
-        intro: "Contribution majeure à la refonte globale de l'identité de marque sur l'ensemble de la chaîne de production créative",
+        title: "Rôle & Production",
+        intro:
+          "Contributeur principal (≈70%) — Direction Artistique, Graphisme, Photographie — production collective (agence de 4)",
         points: [
-          { title: "Direction Artistique & Identité Visuelle", content: "Refonte complète du système d'identité : création du nouveau logo, définition de la palette de couleurs (harmonies, déclinaisons), sélection et hiérarchisation de la typographie pour garantir une cohérence sur tous les supports." },
-          { title: "Production Audiovisuelle", content: "Conception et réalisation d'une vidéo explainer présentant l'histoire et les valeurs de la marque, accompagnée d'animations motion design pour dynamiser le storytelling visuel et renforcer l'identité moderne." },
-          { title: "Photographie Studio & Produit", content: "Direction et réalisation de shootings photo : mise en scène produit (packshots professionnels avec éclairage studio), photographie lifestyle pour illustrer l'univers de la marque et créer une connexion émotionnelle avec les consommateurs." },
-          { title: "Design Print & Éditorial", content: "Création d'affiches promotionnelles et conception d'un magazine de marque (mise en page éditoriale, hiérarchie de l'information, intégration photos-textes) démontrant des compétences en design éditorial avancé." },
-          { title: "Web Design & Interface Digitale", content: "Conception des maquettes web (desktop et mobile) pour le site vitrine de la marque, intégrant la nouvelle identité visuelle et optimisant l'expérience utilisateur pour la présentation des produits." },
-          { title: "Stratégie Marketing & Communication", content: "Participation à la définition du positionnement de marque, des messages clés et de la stratégie de communication cross-média pour assurer une cohérence entre tous les points de contact." }
-        ]
+          {
+            title: "Design System complet",
+            content:
+              "Conception intégrale du design system : logo en 3 déclinaisons (Signature, Typographique, Symbole Iconique) avec zones de protection et tailles minimales documentées, palette chromatique 4 couleurs narratives (Parchemin, Encre, Vert Jardin Parisien, Bordeaux Château Maron) avec valeurs HEX/RGB/CMJN, système typographique hiérarchisé Boska/General Sans sur 4 niveaux de titres et 4 niveaux de texte.",
+          },
+          {
+            title: "Direction Artistique & Photographie",
+            content:
+              "Définition des règles de composition photographique : Paris en noir & blanc, sac en couleur saturée comme seul point focal du cadre. Production des visuels appliquant ces règles. Déclinaisons sur 5 supports : affiche, site web, réseaux sociaux, packaging, étiquettes.",
+          },
+          {
+            title: "Plan de communication plurimédia",
+            content:
+              "Contribution collective : analyse de marché (SWOT, PESTEL, concurrence, segmentation), personas, copy strategy, mediaplanning GANTT 12 semaines sur 5 canaux. Motion design de présentation, affiches de campagne.",
+          },
+        ],
       },
       keyLearnings: {
-        title: "Apprentissages Clés & Compétences Transversales",
+        title: "Apprentissages clés",
         points: [
-          { title: "Approche 360° & Vision Globale", content: "Maîtrise de la cohérence visuelle et narrative sur une multiplicité de supports (print, digital, audiovisuel, packaging), compétence essentielle en agence." },
-          { title: "Gestion de Contraintes Sectorielles", content: "Compréhension des codes visuels et des normes spécifiques au secteur alimentaire (clarté, appétence visuelle, confiance)." },
-          { title: "Production Multi-Médias", content: "Capacité à produire des contenus variés (vidéo, photo, print, web) avec un haut niveau de qualité sur chaque média." },
-          { title: "Travail en Équipe Projet", content: "Collaboration avec d'autres créatifs sur un projet complexe nécessitant coordination et synchronisation des livrables." },
-          { title: "Gestion de Projet Envergure", content: "Pilotage d'un projet de refonte complète avec multiples phases de production et deadlines serrées, similaire à un contexte professionnel d'agence." }
-        ]
+          {
+            title: "Cohérence système sur 5 supports",
+            content:
+              "Construire un design system qui tient sur l'affiche, le packaging, le feed Instagram et les étiquettes tissées simultanément — chaque décision typographique ou colorimétrique a des conséquences en cascade sur tous les supports.",
+          },
+          {
+            title: "DA sous contrainte marché",
+            content:
+              "Faire exister un produit à 37€ sur un marché saturé de tote bags à 5€ sans tomber dans le cliché touristique — la DA n'est pas décorative, elle est l'argument de vente.",
+          },
+        ],
       },
       competencesDemontrees: {
-        title: "Compétences Démontrées",
-        content: "Direction Artistique 360°, branding et identité visuelle, production audiovisuelle (vidéo explainer, motion design), photographie studio et produit (éclairage, mise en scène), design print et éditorial (affiches, magazine), web design et maquettage d'interface, stratégie de communication cross-média, gestion de projet complexe, cohérence visuelle multi-supports, sens esthétique et créativité appliquée au secteur alimentaire."
-      }
+        title: "Compétences démontrées",
+        content:
+          "Direction Artistique 360°, conception de design system complet, branding et identité visuelle, photographie produit et lifestyle, design print et éditorial, stratégie de communication plurimédia, Affinity Designer/Publisher/Photo, DaVinci Resolve.",
+      },
     },
-    gallery: [mbLogo, mbColor, mbTypo, mb1616, mb1627, mb1638, mb1677, mb1695, mb1718, mb1758, mb1760],
-    tags: ['Direction Artistique 360°', 'Branding', 'Motion Design', 'Photographie Studio', 'Design Éditorial', 'SAE', 'Projet d\'Agence'],
-    categories: ["Branding"]
+    gallery: [
+      mbLogo,
+      mbColor,
+      mbTypo,
+      mb1616,
+      mb1627,
+      mb1638,
+      mb1677,
+      mb1695,
+      mb1718,
+      mb1758,
+      mb1760,
+    ],
+    tags: [
+      "Direction Artistique",
+      "Branding",
+      "Design System",
+      "Photographie",
+      "Print",
+      "Motion Design",
+      "Communication Plurimédia",
+    ],
+    categories: ["Branding"],
   },
-  
+
   {
     id: "ta-solution-hypno",
     title: "TaSolutionHypno",
@@ -338,7 +623,7 @@ export const projects: Project[] = [
       context: {
         title: "Contexte & Enjeux",
         content:
-          "Accompagnement d'une hypnothérapeute dans le lancement de son activité libérale. L'enjeu principal : construire une identité visuelle professionnelle, rassurante et mémorable pour inspirer confiance dès le premier contact (flyer, carte de visite, bouche-à-oreille) et clarifier son positionnement face à une offre de soins alternative parfois méconnue."
+          "Accompagnement d'une hypnothérapeute dans le lancement de son activité libérale. L'enjeu principal : construire une identité visuelle professionnelle, rassurante et mémorable pour inspirer confiance dès le premier contact (flyer, carte de visite, bouche-à-oreille) et clarifier son positionnement face à une offre de soins alternative parfois méconnue.",
       },
       role: {
         title: "Mon Rôle & Direction Artistique",
@@ -348,139 +633,134 @@ export const projects: Project[] = [
           {
             title: "Identité Visuelle & Logo",
             content:
-              "Création du logo, définition de la palette colorimétrique et des choix typographiques pour traduire les valeurs clés de la pratique : apaisement, écoute, bienveillance et accompagnement."
+              "Création du logo, définition de la palette colorimétrique et des choix typographiques pour traduire les valeurs clés de la pratique : apaisement, écoute, bienveillance et accompagnement.",
           },
           {
             title: "Supports Print Professionnels",
             content:
-              "Conception des cartes de visite et des flyers promotionnels, en travaillant particulièrement la hiérarchie de l'information (prestations, coordonnées, prise de contact) afin de faciliter la compréhension pour un public large."
+              "Conception des cartes de visite et des flyers promotionnels, en travaillant particulièrement la hiérarchie de l'information (prestations, coordonnées, prise de contact) afin de faciliter la compréhension pour un public large.",
           },
           {
             title: "Cohérence de Marque",
             content:
-              "Mise en place de principes graphiques simples à réutiliser (marges, styles, iconographie) pour garantir une image homogène sur les futurs supports, qu'ils soient imprimés ou digitaux."
+              "Mise en place de principes graphiques simples à réutiliser (marges, styles, iconographie) pour garantir une image homogène sur les futurs supports, qu'ils soient imprimés ou digitaux.",
           },
           {
             title: "Accompagnement & Conseil",
             content:
-              "Conseil sur le ton visuel à adopter pour se différencier des codes médicaux classiques tout en restant crédible, et sur la manière d'utiliser les supports print dans sa communication locale."
-          }
-        ]
+              "Conseil sur le ton visuel à adopter pour se différencier des codes médicaux classiques tout en restant crédible, et sur la manière d'utiliser les supports print dans sa communication locale.",
+          },
+        ],
       },
       competencesDemontrees: {
         title: "Compétences Démontrées",
         content:
-          "Direction artistique pour une petite structure, création d'identité visuelle complète, design print (flyers, cartes de visite), travail sur une image de marque rassurante dans le domaine du bien-être, capacité à vulgariser des enjeux graphiques pour un client non spécialiste."
-      }
+          "Direction artistique pour une petite structure, création d'identité visuelle complète, design print (flyers, cartes de visite), travail sur une image de marque rassurante dans le domaine du bien-être, capacité à vulgariser des enjeux graphiques pour un client non spécialiste.",
+      },
     },
     gallery: [tshLogo, tshFlyer1, tshFlyer2, tshCarte1, tshCarte2],
-    tags: ['Branding', 'Identité Visuelle', 'Hypnothérapie', 'Bien‑être', 'Logo', 'Print', 'Carte de Visite', 'Flyer'],
-    categories: ["Branding", "Print"]
+    tags: [
+      "Branding",
+      "Identité Visuelle",
+      "Hypnothérapie",
+      "Bien‑être",
+      "Logo",
+      "Print",
+      "Carte de Visite",
+      "Flyer",
+    ],
+    categories: ["Branding", "Print"],
   },
-  
 
   // --- 🖨️ PRINT ---
+
   {
     id: "anna-partout",
     title: "Anna Partout",
     image: anna1,
     detailedDescription: {
       context: {
-        title: "Contexte & Objectifs",
+        title: "Brief & Contexte",
         content:
-          "Projet universitaire de design graphique autour de l'œuvre littéraire « Anna Partout ». L'objectif était de traduire visuellement l'univers du livre à travers une série d'affiches conceptuelles, en utilisant la typographie et la composition comme principaux vecteurs de narration."
+          "Brief client indirect — Anna Partout de Chloé Ronsin Le Mat. Produire une série d'affiches qui ne soit pas une illustration du roman, mais une matérialisation de la psyché du narrateur : obsession, surveillance, dissolution du réel dans le virtuel. Livrable final sélectionné et diffusé lors de la lecture publique au festival Le Quarante, Laval — avec invitation à monter sur scène aux côtés de l'auteure.",
       },
       role: {
-        title: "Réalisation & Direction Artistique",
+        title: "Direction Artistique & Réalisation",
         intro:
-          "Conception complète de la série d'affiches, de l'analyse de l'œuvre jusqu'aux fichiers prêts à être imprimés.",
+          "Solo — Conception, Direction Artistique, Exécution, Préparation print",
         points: [
           {
-            title: "Analyse de l'univers littéraire",
+            title: "Concept & Parti Pris Graphique",
             content:
-              "Lecture et déconstruction de l'œuvre pour identifier les thèmes centraux (errance, identité, fragments de vie) et définir un axe visuel cohérent pour l’ensemble de la série."
+              "La collision de deux univers visuels opposés pour traduire la tension centrale du roman. L'Ordre — grilles constructivistes, formes géométriques pures, typographie massive — représente le désir de contrôle du narrateur. Le Chaos — grain, bruit, coulures, lignes de code — traduit la saturation mentale et la perte de contact avec le réel. Trois séries : L'Inventaire Obsessionnel, La Construction du Sujet (références Bauhaus / Ballet Triadique), Le Flux et la Rupture (grille De Stijl qui fond).",
           },
           {
-            title: "Explorations typographiques",
+            title: "Exécution technique",
             content:
-              "Travail de la typographie comme matière expressive : jeu sur les corps, les espacements, les ruptures et les alignements pour suggérer le rythme du texte et l’état émotionnel du personnage."
+              "Hybridation vectoriel/matriciel systématique dans Affinity Studio : formes géométriques et aplats vectoriels pour la froideur clinique, ajout de grain et de textures papier en matriciel pour les interférences. Typographie sans-serif condensée autoritaire — elle occupe l'espace comme l'obsession, sans laisser de vide. Préparation print complète : fonds perdus, marges, exports en conditions réelles.",
           },
-          {
-            title: "Composition & Série d’affiches",
-            content:
-              "Création d’une série cohérente d’affiches, jouant sur les variations de mise en page, de formats et de densité visuelle, tout en conservant un système graphique commun (grille, marges, hiérarchie)."
-          },
-          {
-            title: "Préparation à l’impression",
-            content:
-              "Mise en page finalisée en respectant les contraintes techniques (fonds perdus, marges, lisibilité) et export des fichiers pour une impression de qualité."
-          }
-        ]
+        ],
       },
       vision: {
-        title: "Vision & Démarche Graphique",
+        title: "Impact & Diffusion",
         content:
-          "Ce projet a été l’occasion d’utiliser la série d’affiches comme un terrain d’exploration autour de la narration visuelle. Chaque affiche propose une variation sur le même univers, permettant de tester différents degrés d’abstraction tout en conservant une identité commune. Ce travail questionne la frontière entre lisibilité et expression graphique : jusqu’où peut-on pousser la typographie et la mise en page tout en restant compréhensible pour le lecteur ?"
+          "Les affiches ont été projetées sur scène pendant la lecture publique de l'auteure au festival Le Quarante à Laval. Chloé Ronsin Le Mat a invité les créateurs à monter sur scène avec elle pour la clôture de la performance. Une série d'affiches diffusée en festival, en présence de l'auteure — c'est la définition d'un livrable qui sort du cadre scolaire.",
       },
       competencesDemontrees: {
-        title: "Compétences Démontrées",
+        title: "Compétences démontrées",
         content:
-          "Design d’affiche, utilisation expressive de la typographie, travail en série cohérente, mise en page et hiérarchie visuelle, interprétation graphique d’un univers littéraire, préparation de fichiers pour l’impression."
-      }
+          "Direction artistique conceptuelle, design d'affiche, série graphique cohérente, typographie expressive, hybridation vectoriel/matriciel, interprétation graphique d'un univers littéraire, préparation fichiers pour impression, Affinity Designer/Publisher/Photo.",
+      },
     },
     gallery: [anna1, anna2, anna3, anna4, anna4b, anna4c, anna5, anna6],
-    tags: ['Affiche', 'Design Graphique', 'Typographie', 'Projet Universitaire', 'Littérature', 'Série d\'Affiches', 'Expérimentation Visuelle'],
-
-    categories: ["Print"]
+    tags: [
+      "Affiche",
+      "Direction Artistique",
+      "Typographie",
+      "Série Graphique",
+      "Constructivisme",
+      "Bauhaus",
+      "Festival",
+    ],
+    categories: ["Print"],
   },
-  
+
   {
     id: "unsorted-print",
     title: "Unsorted Print",
     image: upGrand,
     detailedDescription: {
       context: {
-        title: "Expérimentations & Archives Print",
+        title: "Concept & Positionnement",
         content:
-          "Dossier qui réunit mes créations print qui n’ont pas vocation à devenir des projets autonomes à part entière : affiches isolées, essais graphiques, flyers, tests de composition, etc. C’est un espace-archive pour rassembler et montrer ma production personnelle en design imprimé en dehors des commandes ou des projets universitaires structurés. Au sein de cet ensemble se trouve également une vraie série plus construite, « Unsorted Print », qui pousse plus loin la démarche expérimentale."
+          "Archive éditoriale personnelle. Réunit les créations print qui n'ont pas vocation à former un projet autonome — affiches isolées, explorations typographiques, flyers, tests de composition. Fonctionne comme un répertoire vivant de recherche graphique : production accumulée sans filtre, organisée selon une logique de curation éditoriale.",
       },
       role: {
-        title: "Réalisation & Direction Graphique",
-        intro:
-          "Création de l’ensemble des visuels, de l’esquisse à la préparation technique pour l’impression.",
+        title: "Direction Graphique & Curation",
+        intro: "Solo — Production, sélection éditoriale, préparation print",
         points: [
           {
-            title: "Regroupement de créations autonomes",
+            title: "Exploration sans contrainte",
             content:
-              "Sélection et organisation de visuels qui, pris individuellement, ne justifient pas un projet dédié, mais témoignent de recherches graphiques ponctuelles (typographie, couleur, texture, mise en page)."
+              "Pas de fil conducteur imposé — c'est précisément l'absence de contrainte qui est le principe. Chaque pièce explore un registre différent : couleur, typographie, composition, texture, densité visuelle. L'archive documente l'étendue de la gamme créative plutôt qu'un style homogène.",
           },
           {
-            title: "Série « Unsorted Print »",
+            title: "Production & Préparation print",
             content:
-              "Développement d’une série d’affiches plus aboutie à l’intérieur de cet ensemble, utilisant le principe d’images « non triées » comme terrain d’expérimentation sur la composition, la densité visuelle et la hiérarchie de l’information."
+              "Création continue, en parallèle de tous les autres projets. Certaines pièces répondent à un instant — une photo, une émotion, une contrainte typographique à tester. D'autres sont les traces d'explorations menées avant un projet client. Préparation print systématique : fonds perdus, marges, exports en conditions réelles d'impression.",
           },
-          {
-            title: "Explorations typographiques & visuelles",
-            content:
-              "Travail libre sur la typographie, les contrastes, la mise en page et les palettes colorées, sans contrainte de commande, pour tester rapidement des idées réutilisables ensuite dans des projets clients ou scolaires."
-          },
-          {
-            title: "Préparation print",
-            content:
-              "Mise en page et export des fichiers en conditions réelles d’impression (formats, fonds perdus, marges), permettant d’imprimer ces essais pour affichage, tests ou expositions."
-          }
-        ]
+        ],
       },
       vision: {
-        title: "Vision & Démarche",
+        title: "Lecture éditoriale",
         content:
-          "Unsorted Print fonctionne comme un répertoire vivant de recherches graphiques : un endroit où empiler, sans filtre, les essais imprimés qui jalonnent le processus créatif. La présence d’une série plus construite à l’intérieur de ce dossier montre comment des expérimentations isolées peuvent peu à peu se transformer en véritable projet cohérent."
+          "Un DA se lit aussi dans ce qu'il produit quand personne ne demande rien. UNSORTED PRINT est la preuve que la production ne s'arrête pas entre deux briefs. La cohérence n'est pas esthétique, elle est éditoriale : un regard qui sélectionne et expose ce qui mérite d'être montré parmi les essais.",
       },
       competencesDemontrees: {
-        title: "Compétences Démontrées",
+        title: "Compétences démontrées",
         content:
-          "Design d’affiche et de flyer, expérimentation typographique, mise en page print, gestion de la couleur, structuration d’un corpus de travaux personnels, capacité à faire évoluer de simples tests en série graphique plus aboutie."
-      }
+          "Design d'affiche et de flyer, exploration typographique, gestion de la couleur, mise en page print, curation et organisation d'un corpus de travaux, Affinity Designer/Publisher/Photo.",
+      },
     },
     gallery: [
       a3,
@@ -500,17 +780,139 @@ export const projects: Project[] = [
       upSch2,
       upStl,
       upChaumont1,
-      upChaumont2
+      upChaumont2,
     ],
-    tags: ['Print', 'Affiche', 'Flyer', 'Projet Personnel', 'Expérimentation Graphique', 'Typographie', 'Couleur', 'Recherche Visuelle'],
-
-    categories: ["Print"]
+    tags: [
+      "Print",
+      "Affiche",
+      "Typographie",
+      "Exploration Graphique",
+      "Archive",
+      "Expérimentation",
+    ],
+    categories: ["Print"],
   },
 
-
-  
+  {
+    id: "marathon-2026",
+    title: "Marathon 2026 — UNSORTEDPRINT°",
+    image: /* TODO: import image de couverture marathon */ undefined,
+    detailedDescription: {
+      context: {
+        title: "Brief & Contexte",
+        content:
+          "Brief auto-imposé brutal — 52 affiches en 52 semaines, sans thème fixé, sans filet. Un format par semaine, publié tous les lundis sur @mdn.maxime. La contrainte n'est pas le sujet. C'est la cadence.",
+      },
+      role: {
+        title: "Direction Artistique & Production",
+        intro:
+          "Solo — Brief, Direction Artistique, Exécution, Export, Publication",
+        points: [
+          {
+            title: "Règle du marathon",
+            content:
+              "Chaque affiche doit explorer un registre visuel différent du précédent. Un lundi peut être un événement réel, le suivant une sensation, le suivant une photo prise au mauvais moment. Pas de palette imposée, pas de famille typographique récurrente. La cohérence, c'est la discipline de production — pas le style.",
+          },
+          {
+            title: "Diversité des sujets",
+            content:
+              "Événements réels ou fictifs, explorations graphiques, projets IUT adaptés en format affiche (Les Ailes du Moulin — n°14), photographies personnelles, inspirations musicales ou filmiques, annonces personnelles, réponses à une émotion. Chaque semaine, un brief différent.",
+          },
+          {
+            title: "Cycle de production",
+            content:
+              "Brief personnel → explorations → exécution → export prêt à l'impression. Une semaine, pas de rallonge. Stack : Affinity Designer, Affinity Publisher, Affinity Photo.",
+          },
+        ],
+      },
+      vision: {
+        title: "Ce que ce projet prouve",
+        content:
+          "52 affiches, c'est 52 briefs rédigés, 52 DA définies, 52 livrables finalisés. N'importe quel DA senior reconnaîtra ce que ça coûte en rigueur mentale. C'est aussi, en creux, la preuve que la créativité n'est pas une ressource qui s'épuise — elle s'entraîne.",
+      },
+      competencesDemontrees: {
+        title: "Compétences démontrées",
+        content:
+          "Direction artistique à grande cadence, design d'affiche multi-registres, gestion du brief auto-imposé, polyvalence stylistique, production print hebdomadaire, Affinity Designer/Publisher/Photo.",
+      },
+    },
+    gallery: [
+      /* TODO: assets marathon 2026 */
+    ],
+    url: "https://www.instagram.com/mdn.maxime/",
+    tags: [
+      "Affiche",
+      "Marathon Créatif",
+      "Direction Artistique",
+      "Print",
+      "Typographie",
+      "Exploration Graphique",
+      "52 semaines",
+    ],
+    categories: ["Print"],
+  },
 
   // --- 💻 PROGRAMMATION ---
+
+  {
+    id: "les-ailes-du-moulin",
+    title: "Les Ailes du Moulin",
+    image: /* TODO: import image de couverture du site */ undefined,
+    detailedDescription: {
+      context: {
+        title: "Brief & Contexte",
+        content:
+          "Festival fictif. Brief auto-imposé : concevoir une identité visuelle de A à Z et la déployer sur un site WordPress production-ready — architecture de données complexe, responsive intégral, automatisation de l'import. Livrable annexe : une affiche de communication intégrée au Marathon 2026 (UNSORTEDPRINT°14).",
+      },
+      role: {
+        title: "Pipeline de Production Complet",
+        intro:
+          "Solo — DA, UI/UX, Intégration Front-End, Développement WordPress",
+        points: [
+          {
+            title: "Direction Artistique & Identité",
+            content:
+              "Contrainte de départ : créer un emblème à partir d'une forme géométrique neutre représentant des pales de moulin, en évitant formellement toute association visuelle indésirable. Résolution par isolation et abstraction géométrique stricte. Colorimétrie narrative à deux pôles : orange supérieur (soleil de jour) / bleu inférieur (Lac de la Tricherie, nuit). Cette dualité fonde toute la DA du site.",
+          },
+          {
+            title: "UI/UX — Structure bi-phasée",
+            content:
+              "Interface claire sur le Hero, bascule en Dark UI au premier scroll pour matérialiser la tombée de la nuit. Les dégradés orange/bleu de la DA deviennent des halos lumineux dans la section sombre, guidant le regard sur les grilles artistes et programmation. Responsive intégral mobile-first.",
+          },
+          {
+            title: "Développement WordPress & automatisation",
+            content:
+              "Déploiement de deux Custom Post Types (Artistes / Planning), création de taxonomies personnalisées (Jours, Scènes, Genres, Type de soirée), intégration ACF avancée (biographies, liens Spotify/YouTube, horaires, intensité). Développement de scripts PHP algorithmiques pour automatiser l'import via parsing CSV : 144 créneaux de concerts et 73 fiches artistes générés, nettoyés et liés automatiquement en base, avec prévention des doublons et mappage dynamique des champs ACF.",
+          },
+        ],
+      },
+      vision: {
+        title: "Le détail qui tue",
+        content:
+          "Importer 144 concerts à la main, c'est une après-midi perdue. Écrire le script qui les importe en 3 secondes, c'est du back-end. La DA est cohérente, le site est responsive, la base de données tient. C'est un pipeline de production complet — pas un projet d'école.",
+      },
+      competencesDemontrees: {
+        title: "Compétences démontrées",
+        content:
+          "Direction Artistique, UI/UX Design, intégration Front-End responsive, développement WordPress custom (CPT, ACF, taxonomies), scripting PHP pour automatisation d'imports CSV, Figma, Affinity Designer.",
+      },
+    },
+    gallery: [
+      /* TODO: assets les ailes du moulin */
+    ],
+    tags: [
+      "WordPress",
+      "Direction Artistique",
+      "UI/UX",
+      "PHP",
+      "ACF",
+      "Custom Post Types",
+      "Festival",
+      "Responsive",
+    ],
+    categories: ["Programmation", "Web-design"],
+  },
+
   {
     id: "mon-bureau",
     title: "Mon Bureau",
@@ -519,47 +921,54 @@ export const projects: Project[] = [
       context: {
         title: "Genèse du projet",
         content:
-          "À l’origine, j’ai conçu ce projet comme mon portfolio universitaire. Très vite, j’ai eu envie d’en faire une expérience plus immersive et narrative, ce qui l’a rendu moins adapté à une consultation rapide d’informations, mais beaucoup plus intéressant comme terrain d’expérimentation créatif."
+          "À l’origine, j’ai conçu ce projet comme mon portfolio universitaire. Très vite, j’ai eu envie d’en faire une expérience plus immersive et narrative, ce qui l’a rendu moins adapté à une consultation rapide d’informations, mais beaucoup plus intéressant comme terrain d’expérimentation créatif.",
       },
       role: {
         title: "Conception & Développement",
         intro:
-          "J’ai imaginé, dessiné et développé l’ensemble de cet univers, du concept de \"bureau virtuel\" jusqu’à l’intégration front-end.",
+          'J’ai imaginé, dessiné et développé l’ensemble de cet univers, du concept de "bureau virtuel" jusqu’à l’intégration front-end.',
         points: [
           {
             title: "Concept d’interface diégétique",
             content:
-              "J’ai choisi de transformer le portfolio en un bureau virtuel : plutôt qu’un simple menu, l’utilisateur explore un espace, ce qui rend la navigation plus ludique et narrative."
+              "J’ai choisi de transformer le portfolio en un bureau virtuel : plutôt qu’un simple menu, l’utilisateur explore un espace, ce qui rend la navigation plus ludique et narrative.",
           },
           {
             title: "Direction artistique de l’espace",
             content:
-              "J’ai défini les cadrages, les éléments visuels (fenêtre, bureau, objets) et l’ambiance globale pour représenter mon espace de travail idéal, en cohérence avec mon univers graphique et ma façon de créer."
+              "J’ai défini les cadrages, les éléments visuels (fenêtre, bureau, objets) et l’ambiance globale pour représenter mon espace de travail idéal, en cohérence avec mon univers graphique et ma façon de créer.",
           },
           {
             title: "Intégration & interactions",
             content:
-              "J’ai mis en place les zones cliquables, les transitions et la mise en scène des contenus afin de privilégier une expérience immersive plutôt qu’une simple page à faire défiler."
-          }
-        ]
+              "J’ai mis en place les zones cliquables, les transitions et la mise en scène des contenus afin de privilégier une expérience immersive plutôt qu’une simple page à faire défiler.",
+          },
+        ],
       },
       vision: {
         title: "Pivot créatif",
         content:
-          "Plutôt que de forcer ce projet à rentrer dans le cadre d’un portfolio \"classique\", j’ai décidé de l’assumer comme une extension de mon univers. « Mon Bureau » est devenu une pièce numérique dans laquelle on entre pour découvrir mon travail autrement. C’est un laboratoire où je teste des idées d’interfaces plus narratives, que je pourrai ensuite réutiliser dans des projets plus fonctionnels."
+          'Plutôt que de forcer ce projet à rentrer dans le cadre d’un portfolio "classique", j’ai décidé de l’assumer comme une extension de mon univers. « Mon Bureau » est devenu une pièce numérique dans laquelle on entre pour découvrir mon travail autrement. C’est un laboratoire où je teste des idées d’interfaces plus narratives, que je pourrai ensuite réutiliser dans des projets plus fonctionnels.',
       },
       competencesDemontrees: {
         title: "Compétences démontrées",
         content:
-          "Conception d’interface immersive, web-design narratif, réflexion UX entre esthétique et lisibilité, capacité à faire pivoter un projet en cours vers un objet plus expérimental, cohérence entre mon univers graphique et l’interface que je propose."
-      }
+          "Conception d’interface immersive, web-design narratif, réflexion UX entre esthétique et lisibilité, capacité à faire pivoter un projet en cours vers un objet plus expérimental, cohérence entre mon univers graphique et l’interface que je propose.",
+      },
     },
     gallery: [bureauMain, bureauAcceuil, bureauFenetre],
-    tags: ['Portfolio Expérimental', 'Interface Immersive', 'Web-design', 'Expérience Utilisateur', 'Interface Narrative', 'Projet Personnel'],
+    tags: [
+      "Portfolio Expérimental",
+      "Interface Immersive",
+      "Web-design",
+      "Expérience Utilisateur",
+      "Interface Narrative",
+      "Projet Personnel",
+    ],
     url: "https://perso.univ-lemans.fr/~i2400571/portfolio2/bureau.php",
-    categories: ["Programmation", "Web-design"]
+    categories: ["Programmation", "Web-design"],
   },
-  
+
   {
     id: "portfolio-2025",
     title: "Portfolio 2025",
@@ -568,7 +977,7 @@ export const projects: Project[] = [
       context: {
         title: "Contexte",
         content:
-          "Vous êtes actuellement dessus. Ce site est la version fonctionnelle et professionnelle de mon portfolio. Il est né d’un besoin simple : présenter clairement qui je suis, ce que je fais et comment je travaille, tout en tirant les leçons de mes précédentes expérimentations, notamment le projet « Mon Bureau »."
+          "Vous êtes actuellement dessus. Ce site est la version fonctionnelle et professionnelle de mon portfolio. Il est né d’un besoin simple : présenter clairement qui je suis, ce que je fais et comment je travaille, tout en tirant les leçons de mes précédentes expérimentations, notamment le projet « Mon Bureau ».",
       },
       role: {
         title: "Conception & Développement",
@@ -578,42 +987,50 @@ export const projects: Project[] = [
           {
             title: "Architecture & UX",
             content:
-              "J’ai simplifié la structure de navigation par rapport à mes anciens portfolios, pour aller droit au but : projets, profil, contact. L’objectif est de rendre la découverte de mon travail fluide, sans sacrifier la dimension visuelle."
+              "J’ai simplifié la structure de navigation par rapport à mes anciens portfolios, pour aller droit au but : projets, profil, contact. L’objectif est de rendre la découverte de mon travail fluide, sans sacrifier la dimension visuelle.",
           },
           {
             title: "Direction artistique du site",
             content:
-              "J’ai défini une identité visuelle sobre mais marquée (couleurs, typographies, rythme des sections) afin de laisser la place aux projets tout en affirmant mon univers graphique."
+              "J’ai défini une identité visuelle sobre mais marquée (couleurs, typographies, rythme des sections) afin de laisser la place aux projets tout en affirmant mon univers graphique.",
           },
           {
             title: "Tech stack (React + TypeScript)",
             content:
-              "J’ai développé le site entièrement en React avec TypeScript. Cela me permet d’avoir un code structuré, maintenable et évolutif, tout en profitant de composants réutilisables pour les différentes sections du portfolio."
+              "J’ai développé le site entièrement en React avec TypeScript. Cela me permet d’avoir un code structuré, maintenable et évolutif, tout en profitant de composants réutilisables pour les différentes sections du portfolio.",
           },
           {
             title: "Performances & confort de lecture",
             content:
-              "J’ai accordé une attention particulière à la lisibilité des textes, au comportement sur différents écrans et au temps de chargement, pour proposer une expérience agréable, que ce soit sur ordinateur ou mobile."
-          }
-        ]
+              "J’ai accordé une attention particulière à la lisibilité des textes, au comportement sur différents écrans et au temps de chargement, pour proposer une expérience agréable, que ce soit sur ordinateur ou mobile.",
+          },
+        ],
       },
       vision: {
         title: "Vision & évolution",
         content:
-          "Ce portfolio n’est pas une version figée : je le considère comme un projet vivant. J’y ajoute, j’y ajuste et j’y expérimente au fil de mes nouveaux projets. C’est à la fois une vitrine professionnelle et un espace de test pour mes idées en web-design et en développement front-end."
+          "Ce portfolio n’est pas une version figée : je le considère comme un projet vivant. J’y ajoute, j’y ajuste et j’y expérimente au fil de mes nouveaux projets. C’est à la fois une vitrine professionnelle et un espace de test pour mes idées en web-design et en développement front-end.",
       },
       competencesDemontrees: {
         title: "Compétences démontrées",
         content:
-          "Conception d’interface orientée utilisateur, web-design, développement front-end avec React et TypeScript, structuration d’un portfolio professionnel, optimisation de l’UX et de la lisibilité, mise en place d’une base technique évolutive pour faire vivre le site dans le temps."
-      }
+          "Conception d’interface orientée utilisateur, web-design, développement front-end avec React et TypeScript, structuration d’un portfolio professionnel, optimisation de l’UX et de la lisibilité, mise en place d’une base technique évolutive pour faire vivre le site dans le temps.",
+      },
     },
     gallery: [],
-    tags: ['Portfolio', 'React', 'TypeScript', 'Front-end', 'Développement Web', 'Web-design', 'UX', 'UI'],
+    tags: [
+      "Portfolio",
+      "React",
+      "TypeScript",
+      "Front-end",
+      "Développement Web",
+      "Web-design",
+      "UX",
+      "UI",
+    ],
 
-    categories: ["Programmation", "Web-design"]
+    categories: ["Programmation", "Web-design"],
   },
-  
 
   // --- 📸 PHOTOGRAPHIE ---
   {
@@ -623,13 +1040,33 @@ export const projects: Project[] = [
     detailedDescription: {
       context: {
         title: "Démarche",
-        content: "Un album photo dédié exclusivement à ma pratique du tir sportif. L'objectif est de documenter la discipline avec un regard esthétique et technique."
-      }
+        content:
+          "Un album photo dédié exclusivement à ma pratique du tir sportif. L'objectif est de documenter la discipline avec un regard esthétique et technique.",
+      },
     },
-    gallery: [tir9209, tir1798, tir1800, tir1807, tir9116, tir9170, tir9181, tir9201, tir9309A, tir9309ANB, tir9318, tir9854],
-    tags: ['Photographie', 'Tir Sportif', 'Album', 'Documentation', 'Esthétique Sportive'],
+    gallery: [
+      tir9209,
+      tir1798,
+      tir1800,
+      tir1807,
+      tir9116,
+      tir9170,
+      tir9181,
+      tir9201,
+      tir9309A,
+      tir9309ANB,
+      tir9318,
+      tir9854,
+    ],
+    tags: [
+      "Photographie",
+      "Tir Sportif",
+      "Album",
+      "Documentation",
+      "Esthétique Sportive",
+    ],
 
-    categories: ["Photographie"]
+    categories: ["Photographie"],
   },
   {
     id: "unsorted-pics",
@@ -638,11 +1075,49 @@ export const projects: Project[] = [
     detailedDescription: {
       context: {
         title: "Concept 'Unsorted'",
-        content: "Série de photos publiées 'sans contexte', brutes ou juste sorties du boîtier. Une démarche spontanée pour capturer l'instant."
-      }
+        content:
+          "Série de photos publiées 'sans contexte', brutes ou juste sorties du boîtier. Une démarche spontanée pour capturer l'instant.",
+      },
     },
-    gallery: [picsCover, pics0163, pics0531, pics0853, pics0862, pics1334, pics1598, pics2088, pics9462, pics9469, pics9484, pics9804, pics9810, picsMartin,picsnouv1n, picsnouv2n, picsnouv3n, picsnouv4n, picsnouv5n, picsnouv6n, picsnouv7n, picsnouv1j, picsnouv2j, picsnouv3j, picsnouv4j, picsnouv5j, picsnouv6j, picsnouv7j, picsnouv8j],
-    tags: ['Photographie', 'Projet Personnel', 'Captation Spontanée', 'Instant', 'Sans Contexte', 'Brut'],
-    categories: ["Photographie"]
-  }
+    gallery: [
+      picsCover,
+      pics0163,
+      pics0531,
+      pics0853,
+      pics0862,
+      pics1334,
+      pics1598,
+      pics2088,
+      pics9462,
+      pics9469,
+      pics9484,
+      pics9804,
+      pics9810,
+      picsMartin,
+      picsnouv1n,
+      picsnouv2n,
+      picsnouv3n,
+      picsnouv4n,
+      picsnouv5n,
+      picsnouv6n,
+      picsnouv7n,
+      picsnouv1j,
+      picsnouv2j,
+      picsnouv3j,
+      picsnouv4j,
+      picsnouv5j,
+      picsnouv6j,
+      picsnouv7j,
+      picsnouv8j,
+    ],
+    tags: [
+      "Photographie",
+      "Projet Personnel",
+      "Captation Spontanée",
+      "Instant",
+      "Sans Contexte",
+      "Brut",
+    ],
+    categories: ["Photographie"],
+  },
 ];
