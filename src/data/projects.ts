@@ -166,6 +166,20 @@ import matrice7 from "../assets/matrice/v2.webp"
 import matrice8 from "../assets/matrice/vue.webp"
 import matrice9 from "../assets/matrice/vueb.webp"
 
+
+// Marathon affiche
+import marat11 from "../assets/marat/Lost.png"
+import marat10 from "../assets/marat/Coldaim.png"
+import marat9 from "../assets/marat/Transcendance.png"
+import marat8 from "../assets/marat/Matrice.png"
+import marat7 from "../assets/marat/AileDuMoulin.png"
+import marat6 from "../assets/marat/Substrat.png"
+import marat5 from "../assets/marat/RESOLVE.png"
+import marat4 from "../assets/marat/DivasDuJazz.png"
+import marat3 from "../assets/marat/CDF.png"
+import marat2 from "../assets/marat/SweetAndSting.png"
+import marat1 from "../assets/marat/Mirabelle.png"
+
 // --- LISTE DES PROJETS ---
 // Trié selon: Audiovisuel > Branding > Print > Programmation > Photographie
 
@@ -180,12 +194,12 @@ export const projects: Project[] = [
       context: {
         title: "Brief & Contexte",
         content:
-          "Championnat de France de Tir Sportif 10m, Micropolis Besançon, janvier 2026. Brief auto-imposé avec fiche projet formalisée — 6 formats vidéo conçus en pré-production, 20 à 32 livrables prévus, fiche de droit à l'image préparée, proposition de mise à disposition des contenus à la FFTir. Production en conditions réelles de compétition, en binôme avec Sarah Mandin (journaliste/intervieweuse).",
+          "Championnat de France de Tir Sportif 10m, Micropolis Besançon, janvier 2026. Brief auto-imposé avec fiche projet formalisée — 6 formats vidéo conçus en pré-production, 20 à 32 livrables prévus, fiche de droit à l'image préparée, proposition de mise à disposition des contenus à la FFTir. Production en conditions réelles de compétition",
       },
       role: {
         title: "Rôle & Production",
         intro:
-          "Réalisateur, cadreur, monteur — binôme avec Sarah Mandin (journaliste/intervieweuse)",
+          "Réalisateur, cadreur, monteur ",
         points: [
           {
             title: "Pré-production",
@@ -814,7 +828,7 @@ matrice9    ],
   {
     id: "marathon-2026",
     title: "Marathon 2026 — UNSORTEDPRINT°",
-    image: /* TODO: import image de couverture marathon */ undefined,
+    image: marat11,
     detailedDescription: {
       context: {
         title: "Brief & Contexte",
@@ -855,7 +869,17 @@ matrice9    ],
       },
     },
     gallery: [
-      /* TODO: assets marathon 2026 */
+      marat11,
+marat10,
+marat9,
+marat8,
+marat7,
+marat6,
+marat5,
+marat4,
+marat3,
+marat2,
+marat1
     ],
     url: "https://www.instagram.com/mdn.maxime/",
     tags: [
