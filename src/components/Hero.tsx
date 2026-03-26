@@ -1,160 +1,184 @@
 import type { HeroData } from "../types/hero"
 import Window from "./ui/Window"
-import portrait from "../assets/photoprofil.png"
 import MenuWindow from "./MenuWindow"
-import RolesWindow from "./ui/RoleWindow"
-import { useNav } from "../navigation"
-import LogoSpin from "./ui/LogoWindow"
-import DraggableWindow from "./DraggableWindow"
+import { useNavigate } from "react-router-dom"
+import portrait from "../assets/photoprofil.png"
 
 type Props = { data: HeroData }
 
 export default function Hero({ data }: Props) {
-  const { name, tagline, intro } = data
-  const { goTo } = useNav()
+  const navigate = useNavigate()
+  const { name, tagline, status, location, badges } = data
 
   return (
-
     <section
-      className="py-4 min-h-dvh bg-[url('./assets/fondprojet.png')] bg-no-repeat bg-center bg-cover"
-      aria-label="Section de présentation de Mandin Maxime, étudiant BUT MMI et graphiste freelance"
+      className="min-h-dvh bg-[url('./assets/fondprojet.png')] bg-no-repeat bg-center bg-cover flex flex-col"
+      aria-label="Section de présentation de Mandin Maxime, en recherche d'alternance"
     >
-      {/* H1 SEO clair et visible */}
       <h1 className="sr-only">
-        {name} – Étudiant BUT MMI, graphiste, web-designer et vidéaste en Vendée et Pays de la Loire
+        {name} – {status || "Étudiant"} en Alternance
       </h1>
 
-      
+      <MenuWindow />
 
-      <div className="mx-auto max-w-6xl px-4 pt-8 md:py-16 overflow-hidden md:max-h-screen md:pt-0 md:max-w-screen lg:max-h-screen lg:pt-0 lg:max-w-screen">
-        {/* Mobile / small screen */}
-        <div className="grid grid-cols-1 grid-rows-8 gap-3 md:hidden">
-          <MenuWindow />
-
-          {/* Bloc 1 → titre+intro */}
-          <div className="row-span-3 animate-stagger-fade-in" style={{ animationDelay: "0ms" }}>
-            <Window
-              className="w-full h-fit"
-              title={name}
-              tailleTitle="text-lg sm:text-xl md:text-2xl"
-              titleClassName=""
-            >
-              <div className="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] bg-white border-2 p-2 md:p-3 h-full">
-                {/* Tagline en H2 (sous-titre) */}
-                <h2 className="text-base sm:text-lg md:text-2xl text-black font-semibold leading-tight">
-                  {tagline}
-                </h2>
-                <p className="mt-2 md:mt-4 text-sm md:text-base text-neutral-800 leading-relaxed">
-                  {intro}
-                </p>
-              </div>
-            </Window>
-          </div>
-
-          {/* Bloc 2 → portrait + logo */}
-          <div className="row-span-2 animate-stagger-fade-in" style={{ animationDelay: "100ms" }}>
-            <div className="grid grid-cols-2 gap-3 h-full">
+      <div className="flex-1 flex items-center justify-center px-4 py-6 md:py-0">
+        <div className="mx-auto max-w-6xl w-full">
+          {/* Desktop: Side-by-side layout */}
+          <div className="hidden md:grid md:grid-cols-12 md:gap-8 md:items-center">
+            {/* Portrait - Desktop */}
+            <div className="md:col-span-4 animate-stagger-fade-in md:animate-float-up" style={{ animationDelay: "0ms" }}>
               <Window
                 title="photo.webp"
                 titleClassName=""
-                tailleTitle="text-sm sm:text-base"
+                tailleTitle="text-sm"
                 className="h-fit"
               >
                 <img
                   src={portrait}
-                  alt="Portrait de Mandin Maxime, étudiant en BUT MMI et graphiste freelance"
-                  className="object-cover shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] animate-image-fade-in"
+                  alt={`Portrait de ${name}`}
+                  className="w-full object-cover shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] animate-image-fade-in"
                   loading="lazy"
                 />
               </Window>
-              <LogoSpin />
+            </div>
+
+            {/* Name, tagline, status, badges - Desktop */}
+            <div className="md:col-span-8 animate-stagger-fade-in space-y-4" style={{ animationDelay: "100ms" }}>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                {name}
+              </h2>
+              <p className="text-lg md:text-xl font-semibold text-gray-800">
+                {tagline}
+              </p>
+
+              {/* Status Badge */}
+              {status && (
+                <div>
+                  <span className="inline-block px-4 py-2 bg-red-600 text-white font-bold text-sm md:text-base shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] animate-pulse-glow">
+                    ● {status}
+                  </span>
+                </div>
+              )}
+
+              {location && (
+                <p className="text-xs md:text-sm text-gray-700">
+                  {location}
+                </p>
+              )}
+
+              {/* Badges */}
+              {badges && badges.length > 0 && (
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {badges.map((badge, idx) => (
+                    <span
+                      key={idx}
+                      className="px-3 py-1 bg-gray-200 border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-xs md:text-sm font-semibold text-gray-900 animate-stagger-fade-in"
+                      style={{ animationDelay: `${150 + idx * 50}ms` }}
+                    >
+                      {badge.label}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              {/* CTA Button */}
+              <div className="pt-4">
+                <button
+                  onClick={() => navigate("/main")}
+                  className="w-full md:w-auto hover:-translate-y-1 hover:shadow-md transition-all duration-250 ease-out active:scale-95"
+                  style={{ animationDelay: "300ms" }}
+                >
+                  <Window
+                    className="h-auto animate-stagger-fade-in"
+                    title="Découvrir mes projets"
+                    tailleTitle="text-base md:text-lg"
+                    titleClassName="bg-red-600 hover:bg-red-800"
+                    fleche
+                  >
+                    <></>
+                  </Window>
+                </button>
+              </div>
             </div>
           </div>
 
-          {/* Bloc 3 → rôles */}
-          <div className="row-span-3 flex flex-col gap-9 animate-stagger-fade-in" style={{ animationDelay: "200ms" }}>
-            <RolesWindow memphis={true} />
-            <button className="w-full" onClick={() => goTo("main")}>
+          {/* Mobile: Stacked layout */}
+          <div className="md:hidden">
+            <div className="animate-stagger-fade-in mb-6" style={{ animationDelay: "0ms" }}>
               <Window
-                className="h-auto"
-                title="Découvrir mes projets"
-                tailleTitle="text-base sm:text-lg md:text-xl"
-                titleClassName="hover:bg-red-800 bg-red-600"
-                fleche
+                title="photo.webp"
+                titleClassName=""
+                tailleTitle="text-sm"
+                className="h-fit"
               >
-                <></>
+                <img
+                  src={portrait}
+                  alt={`Portrait de ${name}`}
+                  className="w-full object-cover shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] animate-image-fade-in"
+                  loading="lazy"
+                />
               </Window>
-            </button>
-          </div>
-        </div>
+            </div>
 
-        {/* Desktop layout */}
-        <div className="hidden md:block relative min-h-screen">
-          {/* Menu window */}
-          <DraggableWindow defaultPosition={{ x: 20, y: 20 }} className="z-50">
-            <MenuWindow />
-          </DraggableWindow>
+            <div className="animate-stagger-fade-in space-y-3" style={{ animationDelay: "100ms" }}>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+                {name}
+              </h2>
+              <p className="text-base sm:text-lg font-semibold text-gray-800">
+                {tagline}
+              </p>
 
-          {/* Titre + intro window */}
-          <DraggableWindow defaultPosition={{ x: "0%", y: "0%" }} className="z-40">
-            <Window
-              className="w-fit max-w-6xl h-fit md:w-[60vw] lg:w-[60vw]"
-              title={name}
-              tailleTitle="text-6xl"
-              titleClassName=""
-            >
-              <div className="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] bg-white border-2 p-2 md:p-3 h-full">
-                <h2 className="text-base sm:text-lg md:text-2xl text-black font-semibold leading-tight">
-                  {tagline}
-                </h2>
-                <p className="mt-2 md:mt-4 text-sm md:text-base text-neutral-800 leading-relaxed">
-                  {intro}
+              {status && (
+                <div>
+                  <span className="inline-block px-3 py-1 bg-red-600 text-white font-bold text-xs sm:text-sm shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] animate-pulse-glow">
+                    ● {status}
+                  </span>
+                </div>
+              )}
+
+              {location && (
+                <p className="text-xs text-gray-700">
+                  {location}
                 </p>
+              )}
+
+              {badges && badges.length > 0 && (
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {badges.map((badge, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2 py-1 bg-gray-200 border-2 border-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-xs font-semibold text-gray-900 animate-stagger-fade-in"
+                      style={{ animationDelay: `${150 + idx * 50}ms` }}
+                    >
+                      {badge.label}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              {/* CTA Button */}
+              <div className="pt-3">
+                <button
+                  onClick={() => navigate("/main")}
+                  className="w-full hover:-translate-y-1 hover:shadow-md transition-all duration-250 ease-out active:scale-95"
+                  style={{ animationDelay: "300ms" }}
+                >
+                  <Window
+                    className="h-auto animate-stagger-fade-in"
+                    title="Découvrir mes projets"
+                    tailleTitle="text-base sm:text-lg"
+                    titleClassName="bg-red-600 hover:bg-red-800"
+                    fleche
+                  >
+                    <></>
+                  </Window>
+                </button>
               </div>
-            </Window>
-          </DraggableWindow>
-
-          {/* Portrait window */}
-          <DraggableWindow defaultPosition={{ x: "0%", y: "35%" }} className="z-40">
-            <Window
-              title="photo.webp"
-              titleClassName=""
-              tailleTitle="text-sm sm:text-base"
-              className="max-w-sm md:w-[25vw] lg:w-[25vw]"
-            >
-              <img
-                src={portrait}
-                alt="Portrait de Mandin Maxime, étudiant en BUT MMI et graphiste freelance"
-                className="object-cover shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] no-select"
-                loading="lazy"
-              />
-            </Window>
-          </DraggableWindow>
-
-          {/* Logo window */}
-          <DraggableWindow defaultPosition={{ x: "80%", y: "20%" }} className="z-40">
-            <LogoSpin />
-          </DraggableWindow>
-
-          {/* Roles window */}
-          <DraggableWindow defaultPosition={{ x: "28%", y: "35%" }} className="z-40">
-            <RolesWindow memphis={true} />
-          </DraggableWindow>
-
-          {/* Call-to-action window */}
-          <button className="w-full" onClick={() => goTo("main")}>
-            <Window
-              className="h-auto absolute bottom-10 left-1/5 right-1/5"
-              title="Découvrir mes projets"
-              tailleTitle="text-base sm:text-lg md:text-xl"
-              titleClassName="hover:bg-red-800 bg-red-600"
-              fleche
-            >
-              <></>
-            </Window>
-          </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   )
 }
+

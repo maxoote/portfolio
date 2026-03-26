@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+
+import icHtml     from '../assets/outils/html.png';
+import icTail     from '../assets/outils/tail.png';
+import icCss      from '../assets/outils/css.png';
+import icDv       from '../assets/outils/dv.png';
+import icJs       from '../assets/outils/js.png';
+import ic365      from '../assets/outils/365.png';
+import icPhp      from '../assets/outils/php.png';
+import icFigma    from '../assets/outils/figma.png';
+import icPub      from '../assets/outils/afpu.png';
+import icPhoto    from '../assets/outils/afp.png';
+import icDesigner from '../assets/outils/afd.png';
+import icReact    from '../assets/outils/react.png';
+import icTs       from '../assets/outils/ts.png';
+import icSql      from '../assets/outils/sql.png';
+
+const groups = [
+  {
+    id: "web",
+    label: "Développement Web",
+    skills: [
+      { id: "html",     label: "HTML",         score: 4,   scale: 5, note: "Structure, SEO sémantique",          img: icHtml },
+      { id: "css",      label: "CSS",           score: 3.5, scale: 5, note: "Layouts, animations",                img: icCss },
+      { id: "tailwind", label: "Tailwind",      score: 2.5, scale: 5, note: "Utilitaire, responsive",             img: icTail },
+      { id: "js",       label: "JavaScript",    score: 3,   scale: 5, note: "DOM, fetch, petites apps",           img: icJs },
+      { id: "react",    label: "React",         score: 2,   scale: 5, note: "Composants, hooks de base",          img: icReact },
+      { id: "ts",       label: "TypeScript",    score: 1,   scale: 5, note: "Types de base",                      img: icTs },
+      { id: "php",      label: "PHP",           score: 2,   scale: 5, note: "Pages dynamiques simples",           img: icPhp },
+      { id: "sql",      label: "SQL",           score: 1.5, scale: 5, note: "CRUD simple",                        img: icSql },
+    ],
+  },
+  {
+    id: "design",
+    label: "Design",
+    skills: [
+      { id: "figma",    label: "Figma",              score: 3.5, scale: 5, note: "Maquettes UI, prototypage",      img: icFigma },
+      { id: "designer", label: "Affinity Designer",  score: 4,   scale: 5, note: "Vectoriel, logos",              img: icDesigner },
+      { id: "pub",      label: "Affinity Publisher", score: 4,   scale: 5, note: "Mise en page print",             img: icPub },
+      { id: "photo",    label: "Affinity Photo",     score: 4.5, scale: 5, note: "Retouche, compositing",          img: icPhoto },
+    ],
+  },
+  {
+    id: "av",
+    label: "Audiovisuel",
+    skills: [
+      { id: "davinci",  label: "DaVinci Resolve",    score: 3,   scale: 5, note: "Montage, étalonnage, motion",   img: icDv },
+    ],
+  },
+  {
+    id: "bureau",
+    label: "Bureautique",
+    skills: [
+      { id: "o365",     label: "Office 365",         score: 4,   scale: 5, note: "Docs, slides, tableaux",        img: ic365 },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Mes outils & compétences — Maxime Mandin"
+  description="Découvrez les outils et compétences de Maxime Mandin : HTML, CSS, React, Figma, Affinity, DaVinci Resolve et plus."
+>
+  <section class="h-[calc(100dvh-2.25rem)] flex flex-col p-3 md:p-5 overflow-hidden">
+
+    <!-- Fenêtre principale -->
+    <div class="flex-1 min-h-0 flex flex-col shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2">
+
+      <!-- Barre de titre -->
+      <div class="flex-shrink-0 mb-2 flex items-center justify-between text-white px-3 py-1.5 bg-blue-900 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
+        <span class="font-semibold text-sm no-select">Mes outils &amp; compétences</span>
+        <div class="flex gap-1">
+          <span class="p-0.5 px-2 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select">—</span>
+          <span class="p-0.5 px-2 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select">□</span>
+          <span class="p-0.5 px-2 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select">✕</span>
+        </div>
+      </div>
+
+      <!-- Corps : sidebar + contenu -->
+      <div class="flex-1 min-h-0 flex overflow-hidden">
+
+        <!-- Sidebar catégories -->
+        <div class="w-40 md:w-48 flex-shrink-0 overflow-y-auto shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff] bg-white">
+          <div class="px-3 py-1.5 bg-gray-200 border-b border-gray-400 text-xs font-bold uppercase tracking-wide text-gray-600 no-select">
+            Catégories
+          </div>
+          {groups.map((g, idx) => (
+            <a
+              href={`#${g.id}`}
+              class="flex items-center justify-between px-4 py-2.5 text-xs md:text-sm border-b border-gray-100 last:border-0 hover:bg-blue-900 hover:text-white group transition-colors no-select animate-stagger-fade-in"
+              style={`animation-delay: ${idx * 50}ms`}
+            >
+              <span class="flex items-center gap-2">
+                <span class="opacity-40 group-hover:opacity-100 text-xs"><svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  class="w-3.5 h-3.5"
+>
+  <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+</svg></span>
+                {g.label}
+              </span>
+              <span class="text-xs text-gray-400 group-hover:text-white/60">{g.skills.length}</span>
+            </a>
+          ))}
+
+          <!-- CTA vers projets + contact -->
+          <div class="mt-auto p-3 border-t border-gray-300 flex flex-col gap-1.5">
+            <a
+              href="/catalogue"
+              class="block w-full text-center px-2 py-1.5 bg-gray-300 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-xs font-semibold hover:bg-gray-400 transition-colors no-select active:shadow-[inset_2px_2px_0_0_#000,inset_-2px_-2px_0_0_#fff]"
+            >
+              Voir les projets →
+            </a>
+            <a
+              href="/contact"
+              class="block w-full text-center px-2 py-1.5 bg-red-600 text-white shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-xs font-semibold hover:bg-red-700 transition-colors no-select active:shadow-[inset_2px_2px_0_0_#000,inset_-2px_-2px_0_0_#fff]"
+            >
+              Travailler ensemble →
+            </a>
+          </div>
+        </div>
+
+        <!-- Séparateur -->
+        <div class="w-1 flex-shrink-0 bg-[#808080] shadow-[1px_0_0_#fff]"></div>
+
+        <!-- Grille compétences (scrollable à l'intérieur) -->
+        <div class="flex-1 min-h-0 overflow-y-auto scroll-smooth p-4 md:p-6 space-y-8">
+
+          {groups.map((g) => (
+            <section id={g.id}>
+              <!-- En-tête de groupe -->
+              <div class="flex items-center gap-3 mb-4">
+                <h2 class="text-sm font-bold uppercase tracking-wider text-gray-600 no-select">{g.label}</h2>
+                <div class="flex-1 h-px bg-gray-300"></div>
+              </div>
+
+              <!-- Grille des outils du groupe -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {g.skills.map((s, idx) => {
+                  const pct = Math.max(0, Math.min(100, (s.score / s.scale) * 100));
+                  return (
+                    <div
+                      class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,4px_4px_0_0_rgba(0,0,0,0.25)] bg-gray-200 p-4 animate-stagger-fade-in hover:-translate-y-0.5 hover:shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,6px_6px_0_0_rgba(0,0,0,0.3)] transition-all duration-200"
+                      style={`animation-delay: ${idx * 60}ms`}
+                    >
+                      <div class="flex items-center gap-3 mb-3">
+                        <Image src={s.img} alt={`Logo ${s.label}`} class="w-9 h-9 object-contain" width={36} height={36} />
+                        <div class="flex-1 flex items-baseline justify-between">
+                          <span class="font-bold text-sm">{s.label}</span>
+                          <span class="text-xs text-gray-500">{s.score}/{s.scale}</span>
+                        </div>
+                      </div>
+
+                      <div
+                        class="h-4 shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff] bg-white overflow-hidden"
+                        role="progressbar"
+                        aria-valuemin={0}
+                        aria-valuemax={s.scale}
+                        aria-valuenow={s.score}
+                      >
+                        <div
+                          class="h-full bg-blue-700"
+                          style={`width: ${pct}%; animation: progress-fill ${700 + idx * 80}ms ease-out forwards`}
+                        />
+                      </div>
+
+                      {s.note && <p class="mt-2 text-xs text-gray-600 leading-snug">{s.note}</p>}
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+          ))}
+
+        </div>
+      </div>
+
+      <!-- Barre de statut -->
+      <div class="flex-shrink-0 flex gap-1 mt-1.5">
+        <span class="flex-1 text-xs px-2 py-0.5 shadow-[inset_1px_1px_0_0_#808080,inset_-1px_-1px_0_0_#fff] bg-gray-300 no-select">
+          {groups.reduce((acc, g) => acc + g.skills.length, 0)} outils répertoriés
+        </span>
+        <span class="text-xs px-2 py-0.5 shadow-[inset_1px_1px_0_0_#808080,inset_-1px_-1px_0_0_#fff] bg-gray-300 no-select">
+          {groups.length} catégories
+        </span>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>

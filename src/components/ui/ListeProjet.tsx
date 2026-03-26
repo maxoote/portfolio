@@ -23,8 +23,8 @@ export default function ListeProjet({ ids }: Props) {
   return (
     <div className="overflow-x-auto  overflow-y-hidden pl-8 lg:pl-0 w-full ">
       <ul className="flex w-auto lg:w-full gap-4 mt-3 pr-8 ">
-        {items.map(p => (
-          <li key={p.id} className="shrink-0 lg:shrink-1 lg:w-full">
+        {items.map((p, idx) => (
+          <li key={p.id} className="shrink-0 lg:shrink-1 lg:w-full animate-stagger-fade-in hover:scale-105 hover:-translate-y-1 hover:shadow-lg transition-all duration-250" style={{ animationDelay: `${idx * 40}ms` }}>
             <Window
               className="w-58 lg:w-full"
               title={p.title}

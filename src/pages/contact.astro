@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/islands/ContactForm';
+---
+
+<BaseLayout
+  title="Contact — Maxime Mandin"
+  description="Contactez Maxime Mandin pour un projet de design graphique, développement web ou audiovisuel en Vendée et Pays de la Loire."
+>
+  <section class="h-[calc(100dvh-2.25rem)] flex flex-col p-3 md:p-5 overflow-hidden">
+
+    <!-- Layout 2 colonnes -->
+    <div class="flex-1 min-h-0 flex flex-col md:flex-row gap-4 md:gap-5">
+
+      <!-- Colonne gauche : formulaire -->
+      <div class="flex-1 min-h-0 flex flex-col gap-2">
+        <p class="text-sm font-semibold text-gray-700 px-1">Un projet, une alternance, une question ? Je réponds sous 48h.</p>
+        <ContactForm client:load />
+      </div>
+
+      <!-- Colonne droite : liens sociaux -->
+      <div class="flex-shrink-0 w-full md:w-64 flex flex-col gap-4 md:gap-5">
+
+        <!-- Instagram -->
+        <a
+          href="https://www.instagram.com/mdn.maxime/"
+          target="_blank"
+          rel="noreferrer"
+          class="group block animate-window-bounce-in hover:-translate-y-0.5 transition-all duration-200"
+          style="animation-delay: 150ms"
+        >
+          <div class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2">
+            <div class="mb-2 flex items-center justify-between text-white px-3 py-1.5 bg-pink-600 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
+              <span class="font-semibold text-sm no-select">Instagram</span>
+              <span class="p-0.5 px-1.5 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select">✕</span>
+            </div>
+            <div class="shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff] bg-white px-3 py-2 text-center">
+              <p class="text-xs text-gray-600">@mdn.maxime</p>
+              <span class="inline-block mt-1 px-4 py-1 font-bold text-xs text-white bg-pink-600 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">Compte perso</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- LinkedIn -->
+        <a
+          href="https://www.linkedin.com/in/maxime-mandin"
+          target="_blank"
+          rel="noreferrer"
+          class="group block animate-window-bounce-in hover:-translate-y-0.5 transition-all duration-200"
+          style="animation-delay: 200ms"
+        >
+          <div class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2">
+            <div class="mb-2 flex items-center justify-between text-white px-3 py-1.5 bg-blue-700 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
+              <span class="font-semibold text-sm no-select">LinkedIn</span>
+              <span class="p-0.5 px-1.5 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select">✕</span>
+            </div>
+            <div class="shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff] bg-white px-3 py-2 text-center">
+              <p class="text-xs text-gray-600">maxime-mandin</p>
+              <span class="inline-block mt-1 px-4 py-1 font-bold text-xs text-white bg-blue-700 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">Profil professionnel</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Mon bureau -->
+        <a
+          href="https://perso.univ-lemans.fr/~i2400571/portfolio2/bureau.php"
+          target="_blank"
+          rel="noreferrer"
+          class="group block animate-window-bounce-in hover:-translate-y-0.5 transition-all duration-200"
+          style="animation-delay: 250ms"
+        >
+          <div class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2">
+            <div class="mb-2 flex items-center justify-between text-white px-3 py-1.5 bg-gray-700 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
+              <span class="font-semibold text-sm no-select">Mon bureau</span>
+              <span class="p-0.5 px-1.5 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select">✕</span>
+            </div>
+            <div class="shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff] bg-white px-3 py-2 text-center">
+              <p class="text-xs text-gray-600">Portfolio interactif</p>
+              <span class="inline-block mt-1 px-4 py-1 font-bold text-xs text-white bg-gray-700 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">Découvrir</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Barre de statut -->
+        <div class="mt-auto flex gap-1">
+          <span class="flex-1 text-xs px-2 py-1 shadow-[inset_1px_1px_0_0_#808080,inset_-1px_-1px_0_0_#fff] bg-gray-300 no-select">
+            Réponse sous 48h
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+</BaseLayout>

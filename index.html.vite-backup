@@ -31,15 +31,12 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@ton_handle" />
-    <meta name="twitter:creator" content="@ton_handle" />
+    <meta name="twitter:site" content="@mdn_maxime" />
+    <meta name="twitter:creator" content="@mdn_maxime" />
     <meta name="twitter:title" content="Graphiste Freelance Vendée | Logo, Print, Vidéo" />
     <meta name="twitter:description" content="Graphiste freelance pour TPE/PME en Vendée : logos, flyers, affiches, cartes de visite, vidéo." />
     <meta name="twitter:image" content="https://mandinmaxime.vercel.app/og-image.png" />
 
-    <!-- Favicon / icons (mettre ces fichiers dans public/) -->
-    <link rel="icon" href="/logo.png" type="image/png" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <!-- Theme color (mobile) -->
     <meta name="theme-color" content="#ffffff" />
@@ -61,6 +58,38 @@
             ],
             "jobTitle": "Graphiste Freelance",
             "description": "Graphiste freelance en Vendée, spécialisé en création de logos, supports print et vidéos pour TPE/PME."
+        }
+    </script>
+
+    <!-- JSON-LD LocalBusiness -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Maxime Mandin - Graphiste Freelance",
+            "description": "Graphiste freelance spécialisé en branding, design graphique, développement web et audiovisuel",
+            "areaServed": [
+                {
+                    "@type": "Place",
+                    "name": "Vendée"
+                },
+                {
+                    "@type": "Place",
+                    "name": "Pays de la Loire"
+                },
+                {
+                    "@type": "Place",
+                    "name": "Laval"
+                }
+            ],
+            "url": "https://mandinmaxime.vercel.app",
+            "image": "https://mandinmaxime.vercel.app/og-image.png",
+            "sameAs": [
+                "https://www.instagram.com/mdn.maxime/",
+                "https://www.linkedin.com/in/maxime-mandin/",
+                "https://github.com/maxoote"
+            ],
+            "priceRange": "€€"
         }
     </script>
 </head>

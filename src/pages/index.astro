@@ -1,0 +1,205 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import portrait from '../assets/photoprofil.png';
+import flechePng from '../assets/fleche.png';
+import { projects } from '../data/projects';
+
+const heroData = {
+  name: "Mandin Maxime",
+  tagline: "Je conçois des expériences visuelles du concept à la production",
+  intro: "Étudiant en deuxième année de BUT Métiers du Multimédia et de l'Internet à Laval, je conçois des projets alliant design graphique, développement web et communication digitale pour les petites entreprises et associations en Vendée et Pays de la Loire.",
+  status: "EN RECHERCHE D'ALTERNANCE",
+  location: "2ème année BUT MMI — Laval",
+  badges: ["Design Graphique", "Développement Web", "Audiovisuel & Branding"],
+};
+
+const categories = [...new Set(projects.flatMap(p => p.categories ?? []))];
+---
+
+<BaseLayout
+  title="Maxime Mandin — Designer UI/UX & Direction Artistique | Portfolio"
+  description="Portfolio de Maxime Mandin, designer numérique spécialisé UI/UX et direction artistique. Étudiant BUT MMI Création Numérique — disponible en alternance dès septembre 2026."
+>
+  <section
+    class="min-h-[calc(100dvh-2.25rem)] flex flex-col"
+    aria-label="Section de présentation de Mandin Maxime, en recherche d'alternance"
+  >
+    <h1 class="sr-only">{heroData.name} — {heroData.status}</h1>
+    <p class="sr-only">{heroData.intro}</p>
+
+    <div class="flex-1 flex items-center justify-center px-4 py-8 md:py-6">
+      <div class="mx-auto max-w-5xl w-full flex flex-col gap-4 md:gap-5">
+
+        <!-- Ligne 1 : Portrait + Profil -->
+        <div class="flex flex-col md:flex-row gap-4 md:gap-5 items-stretch">
+
+          <!-- Fenêtre portrait -->
+          <div
+            class="w-full md:w-56 flex-shrink-0 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2 animate-window-bounce-in"
+            style="animation-delay: 0ms"
+          >
+            <div class="mb-2 flex items-center justify-between text-white px-3 py-1.5 bg-blue-900 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
+              <span class="font-semibold text-xs no-select">photo.webp</span>
+              <div class="flex gap-1">
+                <span aria-hidden="true" class="p-0.5 px-1.5 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select cursor-default">—</span>
+                <span aria-hidden="true" class="p-0.5 px-1.5 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select cursor-default">□</span>
+                <span aria-hidden="true" class="p-0.5 px-1.5 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select cursor-default">✕</span>
+              </div>
+            </div>
+            <div class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] overflow-hidden" style="max-height: 260px">
+              <Image
+                src={portrait}
+                alt={`Portrait de ${heroData.name}`}
+                class="w-full h-full object-cover object-top block animate-image-fade-in"
+                loading="eager"
+              />
+            </div>
+            <div class="mt-1.5 flex">
+              <span class="flex-1 text-xs px-2 py-1 shadow-[inset_1px_1px_0_0_#808080,inset_-1px_-1px_0_0_#fff] bg-gray-300 no-select">
+                📍 {heroData.location}
+              </span>
+            </div>
+          </div>
+
+          <!-- Fenêtre profil -->
+          <div
+            class="flex-1 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2 animate-window-bounce-in flex flex-col"
+            style="animation-delay: 70ms"
+          >
+            <div class="mb-2 flex-shrink-0 flex items-center justify-between text-white px-3 py-1.5 bg-blue-900 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
+              <span class="font-semibold text-xs no-select">{heroData.name} — Profil</span>
+              <div class="flex gap-1">
+                <span aria-hidden="true" class="p-0.5 px-1.5 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select cursor-default">—</span>
+                <span aria-hidden="true" class="p-0.5 px-1.5 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select cursor-default">□</span>
+                <span aria-hidden="true" class="p-0.5 px-1.5 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select cursor-default">✕</span>
+              </div>
+            </div>
+
+            <div class="flex-1 shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff] bg-white p-5 space-y-4">
+              <div>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">{heroData.name}</h2>
+                <p class="text-sm md:text-base text-gray-600 mt-2 leading-relaxed">{heroData.tagline}</p>
+              </div>
+
+              <div>
+                <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-red-600 text-white font-bold text-xs shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] animate-pulse-glow">
+                  <span class="w-2 h-2 rounded-full bg-white inline-block"></span>
+                  {heroData.status}
+                </span>
+              </div>
+
+              <div>
+                <p class="text-xs text-gray-500 mb-2 font-semibold uppercase tracking-wide">Spécialisations</p>
+                <div class="flex flex-wrap gap-2">
+                  {heroData.badges.map((badge, idx) => (
+                    <span
+                      class="px-3 py-1 bg-gray-200 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#808080] text-xs font-semibold text-gray-900 animate-stagger-fade-in"
+                      style={`animation-delay: ${200 + idx * 60}ms`}
+                    >
+                      {badge}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-2 flex justify-end gap-2 flex-wrap">
+              <a href="/catalogue" class="px-4 py-1.5 bg-gray-300 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-xs font-semibold hover:bg-gray-400 transition-colors no-select active:shadow-[inset_2px_2px_0_0_#000,inset_-2px_-2px_0_0_#fff]">
+                Mes projets
+              </a>
+              <a href="/contact" class="px-4 py-1.5 bg-red-600 text-white shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-xs font-semibold hover:bg-red-700 transition-colors no-select active:shadow-[inset_2px_2px_0_0_#000,inset_-2px_-2px_0_0_#fff]">
+                Me contacter
+              </a>
+              <a href="/main" class="px-4 py-1.5 bg-gray-300 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-xs font-semibold hover:bg-gray-400 transition-colors no-select active:shadow-[inset_2px_2px_0_0_#000,inset_-2px_-2px_0_0_#fff] flex items-center gap-1.5">
+                Découvrir
+                <Image src={flechePng} alt="" class="h-3.5 w-3.5 no-select" draggable={false} />
+              </a>
+            </div>
+
+            <div class="mt-1.5 flex gap-1">
+              <span class="flex-1 text-xs px-2 py-1 shadow-[inset_1px_1px_0_0_#808080,inset_-1px_-1px_0_0_#fff] bg-gray-300 no-select">Prêt</span>
+              <span class="text-xs px-2 py-1 shadow-[inset_1px_1px_0_0_#808080,inset_-1px_-1px_0_0_#fff] bg-gray-300 no-select">Vendée &amp; Pays de la Loire</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Ligne 2 : 3 mini-widgets -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5">
+
+          <!-- Widget stats -->
+          <div
+            class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2 animate-window-bounce-in"
+            style="animation-delay: 150ms"
+          >
+            <div class="mb-2 flex items-center justify-between text-white px-3 py-1.5 bg-blue-900 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
+              <span class="font-semibold text-xs no-select">stats.exe</span>
+              <span aria-hidden="true" class="p-0.5 px-1.5 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select cursor-default">✕</span>
+            </div>
+            <div class="shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff] bg-white px-4 py-3 flex justify-around items-center gap-4">
+              <div class="text-center">
+                <p class="text-3xl font-bold text-gray-900">{projects.length}</p>
+                <p class="text-xs text-gray-500 mt-0.5">projets</p>
+              </div>
+              <div class="w-px h-8 bg-gray-300"></div>
+              <div class="text-center">
+                <p class="text-3xl font-bold text-gray-900">{categories.length}</p>
+                <p class="text-xs text-gray-500 mt-0.5">catégories</p>
+              </div>
+              <div class="w-px h-8 bg-gray-300"></div>
+              <div class="text-center">
+                <p class="text-3xl font-bold text-gray-900">2</p>
+                <p class="text-xs text-gray-500 mt-0.5">ans BUT</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Widget formation -->
+          <div
+            class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2 animate-window-bounce-in"
+            style="animation-delay: 200ms"
+          >
+            <div class="mb-2 flex items-center justify-between text-white px-3 py-1.5 bg-blue-900 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
+              <span class="font-semibold text-xs no-select">formation.txt</span>
+              <span aria-hidden="true" class="p-0.5 px-1.5 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select cursor-default">✕</span>
+            </div>
+            <div class="shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff] bg-white px-4 py-3 space-y-1.5">
+              <p class="font-bold text-sm text-gray-900">BUT Métiers du Multimédia</p>
+              <p class="text-xs text-gray-600">IUT de Laval — 2e année</p>
+              <p class="text-xs text-gray-500 pt-1 border-t border-gray-200">Spé. Création numérique</p>
+            </div>
+          </div>
+
+          <!-- Widget disponibilité -->
+          <div
+            class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2 animate-window-bounce-in"
+            style="animation-delay: 250ms"
+          >
+            <div class="mb-2 flex items-center justify-between text-white px-3 py-1.5 bg-red-600 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
+              <span class="font-semibold text-xs no-select">disponibilite.exe</span>
+              <span aria-hidden="true" class="p-0.5 px-1.5 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select cursor-default">✕</span>
+            </div>
+            <div class="shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff] bg-white px-4 py-3 text-center space-y-2">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-red-600 text-white font-bold text-xs shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] animate-pulse-glow">
+                <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                ALTERNANCE 2026
+              </span>
+              <p class="text-xs text-gray-500">Disponible dès juin 2026</p>
+            </div>
+            <div class="mt-2 flex justify-center">
+              <a
+                href="/contact"
+                class="px-4 py-1 bg-gray-300 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-xs font-semibold hover:bg-gray-400 transition-colors no-select active:shadow-[inset_2px_2px_0_0_#000,inset_-2px_-2px_0_0_#fff]"
+              >
+                Me contacter →
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,145 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { projects } from '../data/projects';
+import ProjectCardMain from '../components/ui/ProjectCardMain.astro';
+
+const categories = [
+  { name: "Tout",          label: "Tout voir" },
+  { name: "Audiovisuel",   label: "Audiovisuel" },
+  { name: "Branding",      label: "Branding" },
+  { name: "Photographie",  label: "Photographie" },
+  { name: "Print",         label: "Print" },
+  { name: "Programmation", label: "Programmation" },
+  { name: "Web-design",    label: "Web-design" },
+] as const;
+
+const categoryData = categories.map(cat => ({
+  ...cat,
+  count: cat.name === "Tout"
+    ? projects.length
+    : projects.filter(p => p.categories?.includes(cat.name as any)).length,
+}));
+
+const featuredIds = ["anna-partout", "mdn-maxime", "sth"];
+const featuredProjects = featuredIds
+  .map(id => projects.find(p => p.id === id))
+  .filter(Boolean);
+
+const extMap: Record<string, string> = {
+  'Print': '.ai',
+  'Audiovisuel': '.mp4',
+  'Web-design': '.html',
+  'Branding': '.psd',
+  'Photographie': '.raw',
+  'Programmation': '.html',
+};
+---
+
+<BaseLayout
+  title="Mon travail — Maxime Mandin"
+  description="Découvrez les projets de Maxime Mandin : design graphique, branding, audiovisuel, print, photographie et développement web."
+>
+  <!-- Section plein viewport, sans scroll -->
+  <section class="h-[calc(100dvh-2.25rem)] flex flex-col p-3 md:p-10 overflow-hidden">
+
+    <!-- Fenêtre Win95 qui remplit toute la hauteur disponible -->
+    <div class="flex-1 min-h-0 flex flex-col shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2">
+
+      <!-- Barre de titre -->
+      <div class="flex-shrink-0 mb-2 flex items-center justify-between text-white px-3 py-1.5 bg-blue-900 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
+        <span class="font-semibold text-sm no-select">Mon travail — Maxime Mandin</span>
+        <div class="flex gap-1">
+          <span class="p-0.5 px-2 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select">—</span>
+          <span class="p-0.5 px-2 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select">□</span>
+          <span class="p-0.5 px-2 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select">✕</span>
+        </div>
+      </div>
+
+      <!-- Corps : sidebar catégories + panel projets -->
+      <div class="flex-1 min-h-0 flex flex-col md:flex-row overflow-hidden">
+
+        <!-- Sidebar catégories -->
+        <div class="flex-shrink-0 flex md:flex-col overflow-x-auto md:overflow-y-auto md:overflow-x-hidden w-full md:w-44 shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff] bg-white border-b md:border-b-0 border-[#808080]">
+
+          <div class="hidden md:block px-2 py-1 bg-gray-200 border-b border-gray-400 text-xs font-bold uppercase tracking-wide text-gray-600 no-select flex-shrink-0">
+            Catégories
+          </div>
+
+          {categoryData.map((cat, idx) => (
+            <a
+              href="/catalogue"
+              onclick={cat.name !== "Tout"
+                ? `sessionStorage.setItem('wantedCat','${cat.name}'); return true;`
+                : "return true;"}
+              class="flex-shrink-0 md:flex-shrink flex items-center justify-between px-3 py-2 md:py-1.5 text-xs md:text-sm border-r md:border-r-0 md:border-b border-gray-200 last:border-0 hover:bg-blue-900 hover:text-white group animate-stagger-fade-in transition-colors no-select whitespace-nowrap"
+              style={`animation-delay: ${idx * 35}ms`}
+            >
+              <span class="flex items-center gap-1.5">
+                <span class="opacity-50 group-hover:opacity-100 text-xs">▶</span>
+                {cat.label}
+              </span>
+              <span class="ml-3 md:ml-0 text-xs text-gray-400 group-hover:text-white/60 no-select">
+                {cat.count}
+              </span>
+            </a>
+          ))}
+        </div>
+
+        <!-- Séparateur vertical (desktop uniquement) -->
+        <div class="hidden md:block w-1 flex-shrink-0 bg-[#808080] shadow-[1px_0_0_#fff]"></div>
+
+        <!-- Panel principal : projets mis en avant -->
+        <div class="flex-1 min-h-0 overflow-y-auto">
+          <div class="flex flex-col gap-5 px-6 py-5 md:px-8 md:py-6">
+
+            {featuredProjects.map((project, idx) => {
+              if (!project) return null;
+              const cat = project.categories?.[0] ?? "default";
+              const ext = extMap[cat] ?? '.exe';
+              const excerpt = project.detailedDescription?.context?.content;
+              return (
+                <ProjectCardMain
+                  title={project.title}
+                  image={project.image}
+                  href={`/projects/${project.id}`}
+                  categories={project.categories}
+                  excerpt={excerpt}
+                  extension={ext}
+                  idx={idx}
+                />
+              );
+            })}
+
+            <!-- Boutons CTA en bas du panel -->
+            <div class="flex justify-end gap-2 pt-1">
+              <a
+                href="/outils"
+                class="px-3 py-1 bg-gray-300 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-xs font-semibold hover:bg-gray-400 active:shadow-[inset_2px_2px_0_0_#000,inset_-2px_-2px_0_0_#fff] transition-colors no-select"
+              >
+                Mes outils
+              </a>
+              <a
+                href="/catalogue"
+                class="px-3 py-1 bg-gray-300 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-xs font-semibold hover:bg-gray-400 active:shadow-[inset_2px_2px_0_0_#000,inset_-2px_-2px_0_0_#fff] transition-colors no-select"
+              >
+                Voir tous les projets →
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Barre de statut Win95 -->
+      <div class="flex-shrink-0 flex gap-1 mt-1.5">
+        <span class="flex-1 text-xs px-2 py-0.5 shadow-[inset_1px_1px_0_0_#808080,inset_-1px_-1px_0_0_#fff] bg-gray-300 no-select">
+          {projects.length} projets disponibles
+        </span>
+        <span class="text-xs px-2 py-0.5 shadow-[inset_1px_1px_0_0_#808080,inset_-1px_-1px_0_0_#fff] bg-gray-300 no-select">
+          Vendée &amp; Pays de la Loire
+        </span>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>

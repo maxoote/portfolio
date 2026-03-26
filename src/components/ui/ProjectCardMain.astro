@@ -1,0 +1,57 @@
+---
+interface Props {
+  title: string
+  image: any
+  href: string
+  categories?: string[]
+  excerpt?: string
+  extension: string
+  idx?: number
+}
+
+const { title, image, href, categories = [], excerpt, extension, idx = 0 } = Astro.props
+const filename = `${title}${extension}`
+const imageSrc = (image as any)?.src ?? image
+---
+
+<a
+  href={href}
+  class="project-card block animate-stagger-fade-in"
+  style={`animation-delay: ${idx * 80}ms`}
+>
+  <!-- Title bar Win95 -->
+  <div class="win95-titlebar">
+    <span class="truncate">
+      <span style="opacity: 0.7; margin-right: 4px;" aria-hidden="true">▣</span>{filename}
+    </span>
+    <div class="titlebar-controls" aria-hidden="true">
+      <span>─</span>
+      <span>□</span>
+      <span>✕</span>
+    </div>
+  </div>
+
+  <!-- Corps de la carte -->
+  <div class="card-body">
+
+    <!-- Image inset Win95 -->
+    <div class="card-image">
+      <img src={imageSrc} alt={title} loading="lazy" />
+    </div>
+
+    <!-- Contenu texte -->
+    <div class="card-content">
+      <h2>{title}</h2>
+      {categories.length > 0 && (
+        <div class="card-tags">
+          {categories.slice(0, 2).map((cat) => (
+            <span class="card-tag">{cat}</span>
+          ))}
+        </div>
+      )}
+      {excerpt && <p class="card-desc">{excerpt}</p>}
+      <span class="win95-btn">Voir le projet →</span>
+    </div>
+
+  </div>
+</a>
