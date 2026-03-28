@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const links = [
   { label: "Accueil",  href: "/" },
@@ -13,8 +13,17 @@ function isActive(href: string, pathname: string) {
   return pathname === href || pathname.startsWith(href + "/")
 }
 
-export default function MenuWindow({ pathname = "" }: { pathname?: string }) {
+export default function MenuWindow({ pathname: initialPathname = "" }: { pathname?: string }) {
   const [open, setOpen] = useState(false)
+  const [pathname, setPathname] = useState(
+    typeof window !== "undefined" ? window.location.pathname : initialPathname
+  )
+
+  useEffect(() => {
+    const handler = () => setPathname(window.location.pathname)
+    document.addEventListener("astro:page-load", handler)
+    return () => document.removeEventListener("astro:page-load", handler)
+  }, [])
 
   return (
     <>

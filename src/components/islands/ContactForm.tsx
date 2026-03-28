@@ -131,10 +131,10 @@ export default function ContactForm() {
           <p className="mt-3 text-sm text-gray-700">
             Ou directement :{" "}
             <a
-              href="mailto:mandin85m@gmail.com"
+              href="mailto:maxime@mandinmaxime.fr"
               className="underline font-semibold hover:text-blue-700"
             >
-              mandin85m@gmail.com
+              maxime@mandinmaxime.fr
             </a>
           </p>
         </div>
