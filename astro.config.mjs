@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   output: 'static',
-  site: 'https://mandinmaxime.vercel.app',
+  site: 'https://mandinmaxime.fr',
   integrations: [
     react(),
     sitemap(),
