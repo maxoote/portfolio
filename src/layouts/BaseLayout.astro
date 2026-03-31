@@ -1,6 +1,7 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 import MenuWindow from '../components/islands/MenuWindow';
+import SpeedInsights from '@vercel/speed-insights/astro';
 import '../styles/global.css';
 
 interface Props {
@@ -109,5 +110,7 @@ const canonicalUrl = canonical ?? Astro.url.href;
       Spécialisations : graphisme, web design, print, audiovisuel.
       Zone de service : Vendée, Laval, Pays de la Loire.
     </footer>
+
+    <SpeedInsights />
   </body>
 </html>
