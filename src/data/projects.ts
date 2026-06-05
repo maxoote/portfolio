@@ -535,71 +535,71 @@ matrice9    ],
     ],
     categories: ["Audiovisuel"],
   }, 
-  {
-    id: "graphit-lancement",
-    title: "Graph'it — Lancement graphit.fr",
-    image: graphitLancCover,
-    detailedDescription: {
-      context: {
-        title: "Brief & Contexte",
-        content:
-          "Le 23 avril 2026, Graph'it Publicité bascule d'atelier-graphit.fr vers graphit.fr. Le lancement du nouveau nom de domaine et du rebranding complet nécessite un plan de communication en 5 temps et un kit de contenus visuels complet pour les réseaux sociaux. Mission réalisée dans le cadre du stage — en parallèle du développement du site.",
-      },
-      role: {
-        title: "Production & Diffusion",
-        intro:
-          "Conception et production du kit de lancement — Motion Design, Carrousel, Kit Réseaux Sociaux",
-        points: [
-          {
-            title: "Motion Design — Transformation de logo",
-            content:
-              "Animation de transformation morphologique de l'ancien logo vers le nouveau : zoom sur le 'ra' de l'ancien logo, interpolation des courbes vectorielles vers le nouveau 'ra', dézoom révélant le logotype complet. Style border (contour sans remplissage) sur fond sombre. Workflow : export SVG depuis Figma/Illustrator → DaVinci Resolve Fusion → animation des masques BSpline/Polygon avec keyframes. Rendu à 2160×2700px downscalé pour corriger le crénelage sur les courbes fines. Format final 9:16 Instagram Reels, durée 10-15 secondes. Publié le 23 avril 2026 à 18h.",
-          },
-          {
-            title: "Plan de communication en 5 temps",
-            content:
-              "8h00 : bascule de domaine. 9h00 : stories Instagram et Facebook avec logo animé et lien direct. 9h00 : email de lancement via MailerLite vers 700 contacts clients. 10h00 : post carrousel 4:5 en 4-6 slides (nouveau logo, charte, applications réelles). 18h00 : publication du Reel d'animation.",
-          },
-          {
-            title: "Métriques email — première heure",
-            content:
-              "Open rate 38% (benchmark B2B 20-25%), click rate 12% (benchmark 2-5%), click-to-open rate 32% (benchmark 10-15%), 108 clics vers graphit.fr dont 85 uniques, 0 spam complaint.",
-          },
-          {
-            title: "Kit réseaux sociaux",
-            content:
-              "Photos de profil Instagram, Facebook et Google Business, bannières Facebook et Google Business, templates pour publications de projets. Kit complet produit pour une autonomie totale de l'équipe Graph'it après le lancement.",
-          },
-        ],
-      },
-      competencesDemontrees: {
-        title: "Compétences démontrées",
-        content:
-          "Motion design et animation vectorielle (DaVinci Resolve Fusion), conception de plan de communication, production de kit réseaux sociaux, email marketing (MailerLite), analyse de métriques de campagne, production de contenus multi-formats (Reels, carrousel, stories, bannières), Affinity Designer.",
-      },
-    },
-    gallery: [
-      graphitLancCover,
-      graphitLanc1,
-      graphitLanc2,
-      graphitLanc3,
-      graphitLanc4,
-      graphitLanc5,
-    ],
-    url: "https://graphit.fr",
-    tags: [
-      "Motion Design",
-      "DaVinci Resolve",
-      "Réseaux Sociaux",
-      "Email Marketing",
-      "Plan de Communication",
-      "Lancement",
-      "Stage",
-      "Reels",
-    ],
-    categories: ["Audiovisuel"],
-  },
-
+//  {
+//    id: "graphit-lancement",
+//    title: "Graph'it — Lancement graphit.fr",
+//    image: graphitLancCover,
+//    detailedDescription: {
+//      context: {
+//        title: "Brief & Contexte",
+//        content:
+//          "Le 23 avril 2026, Graph'it Publicité bascule d'atelier-graphit.fr vers graphit.fr. Le lancement du nouveau nom de domaine et du rebranding complet nécessite un plan de communication en 5 temps et un kit de contenus visuels complet pour les réseaux sociaux. Mission réalisée dans le cadre du stage — en parallèle du développement du site.",
+//      },
+//      role: {
+//        title: "Production & Diffusion",
+//        intro:
+//          "Conception et production du kit de lancement — Motion Design, Carrousel, Kit Réseaux Sociaux",
+//        points: [
+//          {
+//            title: "Motion Design — Transformation de logo",
+//            content:
+//              "Animation de transformation morphologique de l'ancien logo vers le nouveau : zoom sur le 'ra' de l'ancien logo, interpolation des courbes vectorielles vers le nouveau 'ra', dézoom révélant le logotype complet. Style border (contour sans remplissage) sur fond sombre. Workflow : export SVG depuis Figma/Illustrator → DaVinci Resolve Fusion → animation des masques BSpline/Polygon avec keyframes. Rendu à 2160×2700px downscalé pour corriger le crénelage sur les courbes fines. Format final 9:16 Instagram Reels, durée 10-15 secondes. Publié le 23 avril 2026 à 18h.",
+//          },
+//          {
+//            title: "Plan de communication en 5 temps",
+//            content:
+//              "8h00 : bascule de domaine. 9h00 : stories Instagram et Facebook avec logo animé et lien direct. 9h00 : email de lancement via MailerLite vers 700 contacts clients. 10h00 : post carrousel 4:5 en 4-6 slides (nouveau logo, charte, applications réelles). 18h00 : publication du Reel d'animation.",
+//          },
+//          {
+//            title: "Métriques email — première heure",
+//            content:
+//              "Open rate 38% (benchmark B2B 20-25%), click rate 12% (benchmark 2-5%), click-to-open rate 32% (benchmark 10-15%), 108 clics vers graphit.fr dont 85 uniques, 0 spam complaint.",
+//          },
+//          {
+//            title: "Kit réseaux sociaux",
+//            content:
+//              "Photos de profil Instagram, Facebook et Google Business, bannières Facebook et Google Business, templates pour publications de projets. Kit complet produit pour une autonomie totale de l'équipe Graph'it après le lancement.",
+//          },
+//        ],
+//      },
+//      competencesDemontrees: {
+//        title: "Compétences démontrées",
+//        content:
+//          "Motion design et animation vectorielle (DaVinci Resolve Fusion), conception de plan de communication, production de kit réseaux sociaux, email marketing (MailerLite), analyse de métriques de campagne, production de contenus multi-formats (Reels, carrousel, stories, bannières), Affinity Designer.",
+//      },
+//    },
+//    gallery: [
+//      graphitLancCover,
+//      graphitLanc1,
+//      graphitLanc2,
+//      graphitLanc3,
+//      graphitLanc4,
+//      graphitLanc5,
+//    ],
+//    url: "https://graphit.fr",
+//    tags: [
+//      "Motion Design",
+//      "DaVinci Resolve",
+//      "Réseaux Sociaux",
+//      "Email Marketing",
+//      "Plan de Communication",
+//      "Lancement",
+//      "Stage",
+//      "Reels",
+//    ],
+//    categories: ["Audiovisuel"],
+//  },
+////
   // --- 🎨 BRANDING ---
 
   {
