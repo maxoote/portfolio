@@ -1,0 +1,610 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VISER — webdoc</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="boot-screen">
+    <div id="boot-text">
+      <p>VISER OS (C) 2026 Mandin Maxime</p>
+      <p>System RAM: 640K Basic, 15360K Extended</p>
+      <br>
+      <p class="ligne-cachee" id="boot-1">Initializing components...</p>
+      <p class="ligne-cachee" id="boot-2">Loading drivers................ OK</p>
+      <p class="ligne-cachee" id="boot-3">Starting VISER OS...</p>
+    </div>
+  </div>
+<div id="bureau">
+
+  <!-- Fond vidéo -->
+  <video id="fond-video" autoplay muted loop>
+    <source src="assets/videos/fond.mp4" type="video/mp4">
+  </video>
+  <img id="fond-video" src="assets/photos/fond1.webp" alt="Fond du bureau">
+
+  <!-- ================================================== -->
+  <!-- BARRE DE NAVIGATION EN HAUT (Style Taskbar)        -->
+  <!-- ================================================== -->
+  <div id="barre-nav-win95">
+    <!-- Brand / Start -->
+    <div class="menu-demarrer-container">
+      <button id="btn-demarrer" class="nav-brand no-select">
+        ★ Et après ?
+      </button>
+      
+      <div id="menu-demarrer" class="cachee">
+        <div class="menu-demarrer-items">
+          <div class="menu-item-dream"><span class="menu-icon">🎯</span> Jeux Olympiques</div>
+          <div class="menu-item-dream"><span class="menu-icon">🏢</span> Créer mon agence</div>
+          <div class="menu-separateur"></div>
+          <div class="menu-item-dream"><span class="menu-icon">🎓</span> Transmettre</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Séparateur -->
+    <div class="nav-separateur-win95"></div>
+
+    <!-- Nav desktop -->
+    <nav class="nav-desktop">
+      <!-- Ajoute la classe "active" sur le lien de la page en cours -->
+      <a href="https://mandinmaxime.fr" class="nav-link active no-select">Accueil</a>
+      <a href="https://mandinmaxime.fr/catalogue" class="nav-link no-select">Projets</a>
+      <a href="https://mandinmaxime.fr/outils" class="nav-link no-select">Outils</a>
+      <a href="https://mandinmaxime.fr/contact" class="nav-link no-select">Contact</a>
+    </nav>
+
+    <!-- Hamburger mobile -->
+    <button id="btn-menu-mobile" class="nav-mobile-btn no-select" aria-label="Navigation">
+      ≡
+    </button>
+  </div>
+
+  <!-- Dropdown mobile -->
+  <div id="menu-mobile-dropdown" class="menu-mobile-cache">
+    <a href="https://mandinmaxime.fr" class="mobile-link active no-select">Accueil</a>
+    <a href="https://mandinmaxime.fr/catalogue" class="mobile-link no-select">Projets</a>
+    <a href="https://mandinmaxime.fr/outils" class="mobile-link no-select">Outils</a>
+    <a href="https://mandinmaxime.fr/contact" class="mobile-link no-select">Contact</a>
+  </div>
+
+  <!-- ================================================== -->
+  <!-- ICÔNES DU BUREAU                                   -->
+  <!-- ================================================== -->
+  <div id="icones-bureau">
+
+    <div class="icone" data-cible="readme">
+      <div class="icone-img">📄</div>
+      <span>README.txt</span>
+    </div>
+
+    <div class="icone" data-cible="viser-exe">
+      <div class="icone-img">💿</div>
+      <span>viser.exe</span>
+    </div>
+
+    <div class="icone" data-cible="explorateur">
+      <div class="icone-img">📁</div>
+      <span>viser</span>
+    </div>
+
+  </div>
+
+
+  <!-- ================================================== -->
+  <!-- FENÊTRES                                           -->
+  <!-- ================================================== -->
+
+  <!-- README.txt -->
+  <div id="readme" class="fenetre win95-window cachee" style="top: 80px; left: 120px; width: 360px;">
+    <div class="fenetre-titre win95-titlebar">
+      <span>README.txt — Bloc-notes</span>
+      <div class="titlebar-controls">
+  <button class="btn-minimiser" data-cible="id-de-la-fenetre" title="Minimiser">_</button>
+  <button class="btn-agrandir" title="Agrandir">□</button>
+  <button class="btn-fermer" data-cible="id-de-la-fenetre" title="Fermer">✕</button>
+</div>
+    </div>
+    <div class="fenetre-contenu fenetre-notepad">
+      <pre>VISER — un webdoc
+═══════════════════════════════════
+
+Un projet documentaire sur la photographie sportive.
+VISER explore le geste de l'œil derrière l'objectif —
+technique, contraintes, processus, regard.
+
+—
+
+Double-cliquer sur viser.exe pour lancer le webdoc.
+Ouvrir le dossier viser pour explorer les notes.
+
+—
+
+[Mandin Maxime — BUT MMI — 2025]</pre>
+    </div>
+  </div>
+
+  <!-- viser.exe — lecteur vidéo plein écran dans la fenêtre -->
+  <div id="viser-exe" class="fenetre win95-window cachee avec-lecteur-video" style="top: 60px; left: 200px; width: 640px;">
+    <div class="fenetre-titre win95-titlebar">
+      <span>viser.exe</span>
+      <div class="titlebar-controls">
+  <button class="btn-minimiser" data-cible="id-de-la-fenetre" title="Minimiser">_</button>
+  <button class="btn-agrandir" title="Agrandir">□</button>
+  <button class="btn-fermer" data-cible="id-de-la-fenetre" title="Fermer">✕</button>
+</div>
+    </div>
+    <div class="fenetre-contenu fenetre-lecteur">
+      <video class="capsule-player" src="assets/videos/intro.mp4"></video>
+      <div class="controles-video">
+        <button class="btn-play-video">▶</button>
+        <button class="btn-stop-video">■</button>
+        <div class="barre-progression"><div class="progression-cursor"></div></div>
+        <span class="temps-video">0:00</span>
+        <input type="range" class="volume-video" min="0" max="1" step="0.05" value="1">
+        <button class="btn-fullscreen">⛶</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Explorateur de fichiers — deux panneaux + arborescence -->
+  <div id="explorateur" class="fenetre win95-window cachee" style="top: 110px; left: 400px; width: 480px;">
+    <div class="fenetre-titre win95-titlebar">
+      <span>viser — Explorateur</span>
+      <div class="titlebar-controls">
+  <button class="btn-minimiser" data-cible="id-de-la-fenetre" title="Minimiser">_</button>
+  <button class="btn-agrandir" title="Agrandir">□</button>
+  <button class="btn-fermer" data-cible="id-de-la-fenetre" title="Fermer">✕</button>
+</div>
+    </div>
+    <div class="barre-adresse">
+      <span class="label-adresse">Adresse :</span>
+      <div class="champ-adresse">C:\viser\</div>
+    </div>
+    <div class="fenetre-contenu explorateur-contenu-wrapper">
+      
+      <div class="explorateur-panneaux"> 
+
+        <div class="explorateur-arborescence">
+          
+          <div class="dossier actif" data-dossier="viser">📂 viser</div>
+          
+          <div class="dossier" data-dossier="outils" style="padding-left: 16px"><span class="icon-dossier">📁</span> outils</div>
+          <div class="contenu-arbo cachee">
+            <div class="fichier" data-cible="outils" data-type="note" style="padding-left: 32px">📄 note.txt</div>
+            <div class="fichier" data-cible="outils" data-type="video" style="padding-left: 32px">🎬 interview.mp4</div>
+          </div>
+          
+          <div class="dossier" data-dossier="contraintes" style="padding-left: 16px"><span class="icon-dossier">📁</span> contraintes</div>
+          <div class="contenu-arbo cachee">
+            <div class="fichier" data-cible="contraintes" data-type="note" style="padding-left: 32px">📄 note.txt</div>
+            <div class="fichier" data-cible="contraintes" data-type="video" style="padding-left: 32px">🎬 interview.mp4</div>
+          </div>
+          
+          <div class="dossier" data-dossier="production" style="padding-left: 16px"><span class="icon-dossier">📁</span> production</div>
+          <div class="contenu-arbo cachee">
+            <div class="fichier" data-cible="production" data-type="note" style="padding-left: 32px">📄 note.txt</div>
+            <div class="fichier" data-cible="production" data-type="video" style="padding-left: 32px">🎬 interview.mp4</div>
+          </div>
+          
+          <div class="dossier" data-dossier="performance" style="padding-left: 16px"><span class="icon-dossier">📁</span> performance</div>
+          <div class="contenu-arbo cachee">
+            <div class="fichier" data-cible="performance" data-type="note" style="padding-left: 32px">📄 note.txt</div>
+            <div class="fichier" data-cible="performance" data-type="video" style="padding-left: 32px">🎬 interview.mp4</div>
+          </div>
+          
+          <div class="dossier" data-dossier="viser-cap" style="padding-left: 16px"><span class="icon-dossier">📁</span> viser</div>
+          <div class="contenu-arbo cachee">
+            <div class="fichier" data-cible="viser-capsule" data-type="note" style="padding-left: 32px">📄 note.txt</div>
+            <div class="fichier" data-cible="viser-capsule" data-type="video" style="padding-left: 32px">🎬 interview.mp4</div>
+          </div>
+          
+          <div class="dossier" data-dossier="apres" style="padding-left: 16px"><span class="icon-dossier">📁</span> après</div>
+          <div class="contenu-arbo cachee">
+            <div class="fichier" data-cible="apres" data-type="note" style="padding-left: 32px">📄 note.txt</div>
+            <div class="fichier" data-cible="apres" data-type="video" style="padding-left: 32px">🎬 interview.mp4</div>
+          </div>
+          
+        </div>
+
+        <!-- Panneau droit : contenu dynamique (dossiers ou fichiers) -->
+        <div class="explorateur-fichiers">
+          
+          <div class="dossier-droit" data-dossier-cible="outils" data-dossier="viser">
+            <div class="icon-large">📁</div><span class="texte-nom">outils</span>
+          </div>
+          <div class="dossier-droit" data-dossier-cible="contraintes" data-dossier="viser">
+            <div class="icon-large">📁</div><span class="texte-nom">contraintes</span>
+          </div>
+          <div class="dossier-droit" data-dossier-cible="production" data-dossier="viser">
+            <div class="icon-large">📁</div><span class="texte-nom">production</span>
+          </div>
+          <div class="dossier-droit" data-dossier-cible="performance" data-dossier="viser">
+            <div class="icon-large">📁</div><span class="texte-nom">performance</span>
+          </div>
+          <div class="dossier-droit" data-dossier-cible="viser-cap" data-dossier="viser">
+            <div class="icon-large">📁</div><span class="texte-nom">viser</span>
+          </div>
+          <div class="dossier-droit" data-dossier-cible="apres" data-dossier="viser">
+            <div class="icon-large">📁</div><span class="texte-nom">après</span>
+          </div>
+
+          <div class="fichier cachee" data-cible="outils" data-type="note" data-dossier="outils">
+            <div class="icon-large">📄</div><span class="texte-nom">note.txt</span>
+          </div>
+          <div class="fichier cachee" data-cible="outils" data-type="video" data-dossier="outils">
+            <div class="icon-large">🎬</div><span class="texte-nom">interview.mp4</span>
+          </div>
+          
+          <div class="fichier cachee" data-cible="contraintes" data-type="note" data-dossier="contraintes">
+            <div class="icon-large">📄</div><span class="texte-nom">note.txt</span>
+          </div>
+          <div class="fichier cachee" data-cible="contraintes" data-type="video" data-dossier="contraintes">
+            <div class="icon-large">🎬</div><span class="texte-nom">interview.mp4</span>
+          </div>
+          
+          <div class="fichier cachee" data-cible="production" data-type="note" data-dossier="production">
+            <div class="icon-large">📄</div><span class="texte-nom">note.txt</span>
+          </div>
+          <div class="fichier cachee" data-cible="production" data-type="video" data-dossier="production">
+            <div class="icon-large">🎬</div><span class="texte-nom">interview.mp4</span>
+          </div>
+          
+          <div class="fichier cachee" data-cible="performance" data-type="note" data-dossier="performance">
+            <div class="icon-large">📄</div><span class="texte-nom">note.txt</span>
+          </div>
+          <div class="fichier cachee" data-cible="performance" data-type="video" data-dossier="performance">
+            <div class="icon-large">🎬</div><span class="texte-nom">interview.mp4</span>
+          </div>
+          
+          <div class="fichier cachee" data-cible="viser-capsule" data-type="note" data-dossier="viser-cap">
+            <div class="icon-large">📄</div><span class="texte-nom">note.txt</span>
+          </div>
+          <div class="fichier cachee" data-cible="viser-capsule" data-type="video" data-dossier="viser-cap">
+            <div class="icon-large">🎬</div><span class="texte-nom">interview.mp4</span>
+          </div>
+          
+          <div class="fichier cachee" data-cible="apres" data-type="note" data-dossier="apres">
+            <div class="icon-large">📄</div><span class="texte-nom">note.txt</span>
+          </div>
+          <div class="fichier cachee" data-cible="apres" data-type="video" data-dossier="apres">
+            <div class="icon-large">🎬</div><span class="texte-nom">interview.mp4</span>
+          </div>
+          
+        </div>
+
+      </div>
+    </div>
+    <div class="barre-etat">12 objet(s)</div>
+  </div>
+
+
+  <!-- ================================================== -->
+  <!-- CAPSULES — paires note.txt + interview.mp4         -->
+  <!-- ================================================== -->
+
+  <!-- OUTILS -->
+  <div id="outils-note" class="fenetre win95-window capsule-fenetre cachee" style="top: 150px; left: 180px; width: 320px;">
+    <div class="fenetre-titre win95-titlebar">
+      <span>outils — note.txt</span>
+      <div class="titlebar-controls">
+  <button class="btn-minimiser" data-cible="id-de-la-fenetre" title="Minimiser">_</button>
+  <button class="btn-agrandir" title="Agrandir">□</button>
+  <button class="btn-fermer" data-cible="id-de-la-fenetre" title="Fermer">✕</button>
+</div>
+    </div>
+    <div class="fenetre-contenu fenetre-notepad">
+      <pre>outils — note.txt
+═══════════════════════
+
+Boîtier        : [à compléter]
+Objectif       : [à compléter]
+Trépied        : [à compléter]
+Carte mémoire  : [à compléter]
+Logiciel       : [à compléter]
+
+[Notes à compléter]</pre>
+    </div>
+  </div>
+
+  <div id="outils-video" class="fenetre win95-window capsule-fenetre capsule-video cachee" style="top: 150px; left: 520px; width: 420px;">
+    <div class="fenetre-titre win95-titlebar">
+      <span>outils — interview.mp4</span>
+      <div class="titlebar-controls">
+  <button class="btn-minimiser" data-cible="id-de-la-fenetre" title="Minimiser">_</button>
+  <button class="btn-agrandir" title="Agrandir">□</button>
+  <button class="btn-fermer" data-cible="id-de-la-fenetre" title="Fermer">✕</button>
+</div>
+    </div>
+    <div class="fenetre-contenu fenetre-lecteur">
+      <video class="capsule-player" src="assets/videos/outils.mp4"></video>
+      <div class="controles-video">
+        <button class="btn-play-video">▶</button>
+        <button class="btn-stop-video">■</button>
+        <div class="barre-progression"><div class="progression-cursor"></div></div>
+        <span class="temps-video">0:00</span>
+        <input type="range" class="volume-video" min="0" max="1" step="0.05" value="1">
+        <button class="btn-fullscreen">⛶</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTRAINTES -->
+  <div id="contraintes-note" class="fenetre win95-window capsule-fenetre cachee" style="top: 150px; left: 180px; width: 320px;">
+    <div class="fenetre-titre win95-titlebar">
+      <span>contraintes — note.txt</span>
+      <div class="titlebar-controls">
+  <button class="btn-minimiser" data-cible="id-de-la-fenetre" title="Minimiser">_</button>
+  <button class="btn-agrandir" title="Agrandir">□</button>
+  <button class="btn-fermer" data-cible="id-de-la-fenetre" title="Fermer">✕</button>
+</div>
+    </div>
+    <div class="fenetre-contenu fenetre-notepad">
+      <pre>contraintes — note.txt
+══════════════════════════
+
+Lumière            : [à compléter]
+Distance minimale  : [à compléter]
+Vitesse obturation : [à compléter]
+Accréditations     : [à compléter]
+Zones interdites   : [à compléter]
+
+[Notes à compléter]</pre>
+    </div>
+  </div>
+
+  <div id="contraintes-video" class="fenetre win95-window capsule-fenetre capsule-video cachee" style="top: 150px; left: 520px; width: 420px;">
+    <div class="fenetre-titre win95-titlebar">
+      <span>contraintes — interview.mp4</span>
+      <div class="titlebar-controls">
+  <button class="btn-minimiser" data-cible="id-de-la-fenetre" title="Minimiser">_</button>
+  <button class="btn-agrandir" title="Agrandir">□</button>
+  <button class="btn-fermer" data-cible="id-de-la-fenetre" title="Fermer">✕</button>
+</div>
+    </div>
+    <div class="fenetre-contenu fenetre-lecteur">
+      <video class="capsule-player" src="assets/videos/contraintes.mp4"></video>
+      <div class="controles-video">
+        <button class="btn-play-video">▶</button>
+        <button class="btn-stop-video">■</button>
+        <div class="barre-progression"><div class="progression-cursor"></div></div>
+        <span class="temps-video">0:00</span>
+        <input type="range" class="volume-video" min="0" max="1" step="0.05" value="1">
+        <button class="btn-fullscreen">⛶</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCTION -->
+  <div id="production-note" class="fenetre win95-window capsule-fenetre cachee" style="top: 150px; left: 180px; width: 320px;">
+    <div class="fenetre-titre win95-titlebar">
+      <span>production — note.txt</span>
+<div class="titlebar-controls">
+  <button class="btn-minimiser" data-cible="id-de-la-fenetre" title="Minimiser">_</button>
+  <button class="btn-agrandir" title="Agrandir">□</button>
+  <button class="btn-fermer" data-cible="id-de-la-fenetre" title="Fermer">✕</button>
+</div>
+    </div>
+    <div class="fenetre-contenu fenetre-notepad">
+      <pre>production — note.txt
+═════════════════════════
+
+Préparation  : [à compléter]
+Prise de vue : [à compléter]
+Sélection    : [à compléter]
+Retouche     : [à compléter]
+Export       : [à compléter]
+
+[Notes à compléter]</pre>
+    </div>
+  </div>
+
+  <div id="production-video" class="fenetre win95-window capsule-fenetre capsule-video cachee" style="top: 150px; left: 520px; width: 420px;">
+    <div class="fenetre-titre win95-titlebar">
+      <span>production — interview.mp4</span>
+<div class="titlebar-controls">
+  <button class="btn-minimiser" data-cible="id-de-la-fenetre" title="Minimiser">_</button>
+  <button class="btn-agrandir" title="Agrandir">□</button>
+  <button class="btn-fermer" data-cible="id-de-la-fenetre" title="Fermer">✕</button>
+</div>
+    </div>
+    <div class="fenetre-contenu fenetre-lecteur">
+      <video class="capsule-player" src="assets/videos/production.mp4"></video>
+      <div class="controles-video">
+        <button class="btn-play-video">▶</button>
+        <button class="btn-stop-video">■</button>
+        <div class="barre-progression"><div class="progression-cursor"></div></div>
+        <span class="temps-video">0:00</span>
+        <input type="range" class="volume-video" min="0" max="1" step="0.05" value="1">
+        <button class="btn-fullscreen">⛶</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PERFORMANCE -->
+  <div id="performance-note" class="fenetre win95-window capsule-fenetre cachee" style="top: 150px; left: 180px; width: 320px;">
+    <div class="fenetre-titre win95-titlebar">
+      <span>performance — note.txt</span>
+      <div class="titlebar-controls">
+  <button class="btn-minimiser" data-cible="id-de-la-fenetre" title="Minimiser">_</button>
+  <button class="btn-agrandir" title="Agrandir">□</button>
+  <button class="btn-fermer" data-cible="id-de-la-fenetre" title="Fermer">✕</button>
+</div>
+    </div>
+    <div class="fenetre-contenu fenetre-notepad">
+      <pre>performance — note.txt
+══════════════════════════
+
+Compétition  : [à compléter]
+Date         : [à compléter]
+Lieu         : [à compléter]
+Conditions   : [à compléter]
+Résultats    : [à compléter]
+
+[Notes à compléter]</pre>
+    </div>
+  </div>
+
+  <div id="performance-video" class="fenetre win95-window capsule-fenetre capsule-video cachee" style="top: 150px; left: 520px; width: 420px;">
+    <div class="fenetre-titre win95-titlebar">
+      <span>performance — interview.mp4</span>
+<div class="titlebar-controls">
+  <button class="btn-minimiser" data-cible="id-de-la-fenetre" title="Minimiser">_</button>
+  <button class="btn-agrandir" title="Agrandir">□</button>
+  <button class="btn-fermer" data-cible="id-de-la-fenetre" title="Fermer">✕</button>
+</div>
+    </div>
+    <div class="fenetre-contenu fenetre-lecteur">
+      <video class="capsule-player" src="assets/videos/performance.mp4"></video>
+      <div class="controles-video">
+        <button class="btn-play-video">▶</button>
+        <button class="btn-stop-video">■</button>
+        <div class="barre-progression"><div class="progression-cursor"></div></div>
+        <span class="temps-video">0:00</span>
+        <input type="range" class="volume-video" min="0" max="1" step="0.05" value="1">
+        <button class="btn-fullscreen">⛶</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- VISER -->
+  <div id="viser-capsule-note" class="fenetre win95-window capsule-fenetre cachee" style="top: 150px; left: 180px; width: 320px;">
+    <div class="fenetre-titre win95-titlebar">
+      <span>viser — note.txt</span>
+<div class="titlebar-controls">
+  <button class="btn-minimiser" data-cible="id-de-la-fenetre" title="Minimiser">_</button>
+  <button class="btn-agrandir" title="Agrandir">□</button>
+  <button class="btn-fermer" data-cible="id-de-la-fenetre" title="Fermer">✕</button>
+</div>
+    </div>
+    <div class="fenetre-contenu fenetre-notepad">
+      <pre>viser — note.txt
+══════════════════
+
+Viser, c'est orienter son regard.
+C'est choisir quoi montrer — et quoi cacher.
+
+Définition personnelle : [à compléter]
+Dans ma pratique : [à compléter]
+
+[Notes à compléter]</pre>
+    </div>
+  </div>
+
+  <div id="viser-capsule-video" class="fenetre win95-window capsule-fenetre capsule-video cachee" style="top: 150px; left: 520px; width: 420px;">
+    <div class="fenetre-titre win95-titlebar">
+      <span>viser — interview.mp4</span>
+      <div class="titlebar-controls">
+  <button class="btn-minimiser" data-cible="id-de-la-fenetre" title="Minimiser">_</button>
+  <button class="btn-agrandir" title="Agrandir">□</button>
+  <button class="btn-fermer" data-cible="id-de-la-fenetre" title="Fermer">✕</button>
+</div>
+    </div>
+    <div class="fenetre-contenu fenetre-lecteur">
+      <video class="capsule-player" src="assets/videos/viser.mp4"></video>
+      <div class="controles-video">
+        <button class="btn-play-video">▶</button>
+        <button class="btn-stop-video">■</button>
+        <div class="barre-progression"><div class="progression-cursor"></div></div>
+        <span class="temps-video">0:00</span>
+        <input type="range" class="volume-video" min="0" max="1" step="0.05" value="1">
+        <button class="btn-fullscreen">⛶</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- APRÈS -->
+  <div id="apres-note" class="fenetre win95-window capsule-fenetre cachee" style="top: 150px; left: 180px; width: 320px;">
+    <div class="fenetre-titre win95-titlebar">
+      <span>après — note.txt</span>
+<div class="titlebar-controls">
+  <button class="btn-minimiser" data-cible="id-de-la-fenetre" title="Minimiser">_</button>
+  <button class="btn-agrandir" title="Agrandir">□</button>
+  <button class="btn-fermer" data-cible="id-de-la-fenetre" title="Fermer">✕</button>
+</div>
+    </div>
+    <div class="fenetre-contenu fenetre-notepad">
+      <pre>après — note.txt
+══════════════════
+
+Suite du projet    : [à compléter]
+Expositions        : [à compléter]
+Publications       : [à compléter]
+Ce que j'ai appris : [à compléter]
+
+[Notes à compléter]</pre>
+    </div>
+  </div>
+
+  <div id="apres-video" class="fenetre win95-window capsule-fenetre capsule-video cachee" style="top: 150px; left: 520px; width: 420px;">
+    <div class="fenetre-titre win95-titlebar">
+      <span>après — interview.mp4</span>
+<div class="titlebar-controls">
+  <button class="btn-minimiser" data-cible="id-de-la-fenetre" title="Minimiser">_</button>
+  <button class="btn-agrandir" title="Agrandir">□</button>
+  <button class="btn-fermer" data-cible="id-de-la-fenetre" title="Fermer">✕</button>
+</div>
+    </div>
+    <div class="fenetre-contenu fenetre-lecteur">
+      <video class="capsule-player" src="assets/videos/apres.mp4"></video>
+      <div class="controles-video">
+        <button class="btn-play-video">▶</button>
+        <button class="btn-stop-video">■</button>
+        <div class="barre-progression"><div class="progression-cursor"></div></div>
+        <span class="temps-video">0:00</span>
+        <input type="range" class="volume-video" min="0" max="1" step="0.05" value="1">
+        <button class="btn-fullscreen">⛶</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================================================== -->
+  <!-- BARRE DES TÂCHES EN BAS                            -->
+  <!-- ================================================== -->
+  <div id="barre-taches">
+
+    <div id="lecteur-audio-bas">
+      <div class="taskbar-gripper"></div>
+      <button id="btn-audio">▶</button>
+      <span id="label-audio">🔊</span>
+      <input type="range" id="volume-audio" class="slider-retro" min="0" max="1" step="0.05" value="0.5">
+      <audio id="audio-ambiance">
+        <source src="assets/audio/ambiance.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+
+    <div id="taskbar-fenetres">
+      </div>
+
+    <div id="tracker-succes"></div>
+
+    <div id="system-tray">
+      <span id="horloge-win95">00:00</span>
+    </div>
+<div id="popup-erreur" class="fenetre win95-window cachee" style="width: 380px; z-index: 999999;">
+    <div class="fenetre-titre win95-titlebar" style="background-color: #800000;"> <span>Erreur Système</span>
+      <div class="titlebar-controls">
+        <button class="btn-fermer-popup">✕</button>
+      </div>
+    </div>
+    <div class="popup-contenu">
+      <div class="popup-icon">⚠️</div>
+      <div class="popup-message">
+        <p><strong>Chemin d'accès introuvable.</strong></p>
+        <p style="margin-top: 8px;">Action concrète manquante pour générer ce futur. Le temps d'écran actuel (28h) est incompatible avec la requête demandée.</p>
+      </div>
+    </div>
+    <div class="popup-actions">
+      <button class="btn-win95 btn-ok-popup">OK</button>
+    </div>
+  </div>
+  </div> <div id="conteneur-succes"></div>
+<!-- LA SOURIS FANTÔME -->
+  <div id="curseur-fantome"></div>
+</div> <script src="js/script.js"></script>
+</body>
+</html>
