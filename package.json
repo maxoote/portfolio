@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && cp -r viser dist/viser",
     "preview": "astro preview",
     "lint": "eslint ."
   },
