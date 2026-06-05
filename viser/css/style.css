@@ -1,0 +1,1361 @@
+/* ===================================================
+   Variables CSS — tokens Win95
+   Miroir du bloc @theme de global.css.
+   Inlinés ici car @import bloque en file://
+   =================================================== */
+:root {
+  --color-win-surface: #c0c0c0;
+  --color-win-highlight: #ffffff;
+  --color-win-shadow: #808080;
+  --color-win-dark: #000000;
+  --color-win-title: #000080;
+  --color-win-title-text: #ffffff;
+
+  --shadow-win-outset:
+    inset 1px 1px 0px var(--color-win-highlight),
+    inset -1px -1px 0px var(--color-win-dark),
+    inset 2px 2px 0px var(--color-win-surface),
+    inset -2px -2px 0px var(--color-win-shadow);
+
+  --shadow-win-inset:
+    inset 1px 1px 0px var(--color-win-shadow),
+    inset -1px -1px 0px var(--color-win-highlight),
+    inset 2px 2px 0px var(--color-win-dark),
+    inset -2px -2px 0px var(--color-win-surface);
+
+  /* Aliases — compatibilité avec l'ancien code */
+  --bleu-win95: var(--color-win-title);
+  --gris-win95: var(--color-win-surface);
+  --blanc: var(--color-win-highlight);
+  --noir: var(--color-win-dark);
+}
+
+/* ===================================================
+   COMPOSANTS WIN95 — copiés de global.css
+   =================================================== */
+
+.win95-window {
+  background-color: #d1d5db; /* L'équivalent exact de bg-gray-300 */
+  padding: 8px; /* L'équivalent de p-2 sur le parent */
+  /* On recrée ton effet Tailwind : inset 2px + ombre portée de 8px */
+  box-shadow: inset 2px 2px 0 0 #fff, 
+              inset -2px -2px 0 0 #000, 
+              8px 8px 0 0 rgba(0,0,0,0.5);
+  border: none; /* On supprime la bordure 1px classique */
+}
+
+.win95-titlebar {
+  background-color: #1e3a8a; /* L'équivalent de bg-blue-900 */
+  color: white;
+  padding: 8px 12px; /* L'équivalent de px-3 py-2 */
+  margin-bottom: 8px; /* L'équivalent de mb-2 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 600; /* font-semibold */
+  /* Le biseau intérieur de la barre de titre */
+  box-shadow: inset 2px 2px 0 0 #fff, 
+              inset -2px -2px 0 0 #000;
+  user-select: none;
+}
+/* ===================================================
+   BOUTONS DE LA BARRE DE TITRE
+   =================================================== */
+.titlebar-controls {
+  display: flex;
+  gap: 4px; /* Espace entre les boutons */
+  flex-shrink: 0;
+}
+
+.titlebar-controls button {
+  background-color: #9ca3af; /* bg-gray-400 */
+  color: black;
+  /* On force une taille carrée fixe pour que tous les boutons soient identiques */
+  width: 24px;
+  height: 24px;
+  box-shadow: inset 2px 2px 0 0 #fff, inset -2px -2px 0 0 #000;
+  border: none;
+  font-family: "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0; /* On retire le padding pour laisser Flexbox centrer */
+  line-height: 1;
+}
+
+/* Ajustement optique pour centrer les caractères spéciaux _ □ ✕ */
+.btn-minimiser { align-items: flex-start !important; padding-top: 2px !important; }
+.btn-agrandir { font-size: 16px !important; }
+
+/* Effet d'enfoncement au clic pour TOUS les boutons */
+.titlebar-controls button:active {
+  box-shadow: inset 2px 2px 0 0 #000, inset -2px -2px 0 0 #fff;
+  /* Le texte descend un peu pour donner l'illusion d'appui physique */
+  padding-top: 2px;
+  padding-left: 2px;
+}
+
+/* 
+  Classe ajoutée par le JS pour le mode Plein écran (Agrandir).
+  On calcule la taille de l'écran moins la barre de nav (36px) et la barre des tâches (36px).
+*/
+.fenetre.maximized {
+  top: 36px !important; 
+  left: 0 !important;
+  width: 100vw !important;
+  height: calc(100vh - 72px) !important; 
+  z-index: 999 !important;
+}
+
+/* ===================================================
+   RESET & TYPOGRAPHIE RÉTRO
+   =================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* On force TOUS les éléments à utiliser la police historique de Windows */
+  font-family: "MS Sans Serif", "Microsoft Sans Serif", Tahoma, sans-serif;
+}
+
+body {
+  overflow: hidden;
+  background: #000;
+  /* MAGIE RÉTRO : On désactive le lissage moderne pour faire "baver" les pixels */
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
+}
+
+/* ===================================================
+   BUREAU
+   =================================================== */
+#bureau {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+  font-size: 12px; /* Taille de base classique de l'époque */
+}
+
+#fond-video {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* ===================================================
+   BARRE DE NAVIGATION EN HAUT (Taskbar Clone)
+   =================================================== */
+
+#barre-nav-win95 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  height: 36px; /* h-9 */
+  background-color: #d1d5db; /* bg-gray-300 */
+  display: flex;
+  align-items: center;
+  padding: 0 4px; /* px-1 */
+  gap: 4px; /* gap-1 */
+  /* Ombre de la barre principale */
+  box-shadow: inset 0 -1px 0 0 #808080, 0 1px 0 0 #000;
+}
+
+.nav-brand {
+  height: 28px; /* h-7 */
+  padding: 0 12px; /* px-3 */
+  display: flex;
+  align-items: center;
+  gap: 6px; /* gap-1.5 */
+  font-weight: 700;
+  font-size: 12px;
+  white-space: nowrap;
+  text-decoration: none;
+  color: black;
+  background-color: #d1d5db;
+  box-shadow: inset 2px 2px 0 0 #fff, inset -2px -2px 0 0 #000;
+}
+
+.nav-brand:hover {
+  background-color: #e5e7eb; /* hover:bg-gray-200 */
+}
+
+.nav-brand:active {
+  box-shadow: inset 2px 2px 0 0 #000, inset -2px -2px 0 0 #fff;
+}
+
+.nav-separateur-win95 {
+  height: 20px; /* h-5 */
+  width: 1px;
+  margin: 0 2px; /* mx-0.5 */
+  background-color: #808080;
+  box-shadow: 1px 0 0 #fff;
+  flex-shrink: 0;
+}
+
+.nav-desktop {
+  display: none; /* hidden */
+  align-items: center;
+  gap: 2px; /* gap-0.5 */
+  flex: 1;
+}
+
+@media (min-width: 768px) {
+  .nav-desktop {
+    display: flex; /* md:flex */
+  }
+}
+
+.nav-link {
+  height: 28px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  color: black;
+  transition: background-color 0.2s;
+  /* État inactif par défaut */
+  background-color: #d1d5db; /* bg-gray-300 */
+  box-shadow: inset 2px 2px 0 0 #fff, inset -2px -2px 0 0 #808080;
+}
+
+.nav-link:hover {
+  background-color: #e5e7eb;
+}
+
+.nav-link:active {
+  box-shadow: inset 2px 2px 0 0 #808080, inset -2px -2px 0 0 #fff;
+}
+
+/* État Actif (page courante) */
+.nav-link.active {
+  background-color: #9ca3af; /* bg-gray-400 */
+  box-shadow: inset 2px 2px 0 0 #808080, inset -2px -2px 0 0 #fff;
+}
+
+/* Hamburger mobile */
+.nav-mobile-btn {
+  margin-left: auto;
+  height: 28px;
+  padding: 0 10px; /* px-2.5 */
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 14px; /* text-sm */
+  background-color: #d1d5db;
+  box-shadow: inset 2px 2px 0 0 #fff, inset -2px -2px 0 0 #000;
+  border: none;
+  cursor: pointer;
+  color: black;
+}
+
+.nav-mobile-btn:active {
+  box-shadow: inset 2px 2px 0 0 #000, inset -2px -2px 0 0 #fff;
+}
+
+@media (min-width: 768px) {
+  .nav-mobile-btn {
+    display: none; /* md:hidden */
+  }
+}
+
+/* Dropdown mobile */
+#menu-mobile-dropdown {
+  position: fixed;
+  top: 36px; /* top-9 */
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background-color: #d1d5db; /* bg-gray-300 */
+  box-shadow: 0 4px 0 0 #000;
+  display: block; /* Modifié via JS */
+  animation: menu-slide-down 250ms ease-out;
+}
+
+@media (min-width: 768px) {
+  #menu-mobile-dropdown {
+    display: none !important; /* md:hidden */
+  }
+}
+
+.menu-mobile-cache {
+  display: none !important;
+}
+
+.mobile-link {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px; /* py-2.5 px-4 */
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  color: black;
+  border-bottom: 1px solid #808080;
+}
+
+.mobile-link:last-child {
+  border-bottom: none;
+}
+
+.mobile-link.active {
+  background-color: #1e3a8a; /* bg-blue-900 */
+  color: white;
+}
+
+.mobile-link:not(.active):hover {
+  background-color: #1e3a8a;
+  color: white;
+}
+
+/* ===================================================
+   ICÔNES DU BUREAU
+   =================================================== */
+#icones-bureau {
+  position: absolute;
+  top: 52px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 5;
+}
+
+/* ===================================================
+   ICÔNES DU BUREAU
+   =================================================== */
+.icone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  cursor: pointer;
+  color: white;
+  /* On remplace l'ombre floue par un contour noir de 1px net et dur */
+  text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+  font-size: 12px;
+  text-align: center;
+  padding: 8px;
+  user-select: none;
+  border: 1px solid transparent;
+}
+
+.icone:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px dotted #ffffff;
+}
+
+.icone-img {
+  font-size: 40px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+/* ===================================================
+   FENÊTRE WIN95
+   Layout et position uniquement.
+   Le visuel (background, border, box-shadow) vient
+   de la classe .win95-window importée via global.css.
+   =================================================== */
+.fenetre {
+  position: absolute;
+  z-index: 10;
+  min-width: 200px;
+  min-height: 80px;
+  resize: both;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Poignée de resize visible en bas à droite */
+.fenetre::after {
+  content: "◢";
+  position: absolute;
+  bottom: 0;
+  right: 3px;
+  font-size: 14px;
+  color: var(--color-win-shadow);
+  pointer-events: none;
+  line-height: 1;
+}
+
+/* Fenêtres vidéo : resize horizontal seulement (ratio 16:9 gère la hauteur) */
+.capsule-video,
+.avec-lecteur-video {
+  resize: horizontal !important; /* On bloque le redimensionnement vertical */
+  height: fit-content !important; /* La fenêtre s'adapte parfaitement à la hauteur de la vidéo + contrôles */
+  min-width: 320px; /* Pour éviter de casser les contrôles */
+  max-width: 90vw;
+}
+
+/* ===================================================
+   BARRE DE TITRE
+   cursor et flex-shrink uniquement.
+   Le visuel vient de .win95-titlebar importée via global.css.
+   =================================================== */
+.fenetre-titre {
+  cursor: move;
+  flex-shrink: 0;
+}
+
+/* Bouton fermer — même style visuel que .titlebar-controls span
+   mais avec cursor: pointer (c'est un <button>, pas un <span>) */
+.btn-fermer {
+  background: var(--color-win-surface);
+  border: 1px solid;
+  border-color: var(--color-win-highlight) var(--color-win-shadow) var(--color-win-shadow) var(--color-win-highlight);
+  width: 16px;
+  height: 14px;
+  font-size: 10px;
+  font-weight: bold;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0;
+  line-height: 12px;
+  text-align: center;
+  color: var(--color-win-dark);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-fermer:active {
+  border-color: var(--color-win-shadow) var(--color-win-highlight) var(--color-win-highlight) var(--color-win-shadow);
+}
+
+/* ===================================================
+   CONTENU DE FENÊTRE
+   =================================================== */
+.fenetre-contenu {
+  flex: 1;
+  overflow: auto;
+  padding: 0; /* Remis à 0 car le parent gère déjà l'espacement */
+}
+
+/* Style Bloc-notes */
+.fenetre-notepad {
+  padding: 0;
+  background: white;
+}
+
+.fenetre-notepad pre {
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  white-space: pre-wrap;
+  padding: 10px 12px;
+  min-height: 180px;
+  line-height: 1.6;
+  color: var(--color-win-dark);
+}
+
+/* Caché */
+.cachee {
+  display: none;
+}
+/* ===================================================
+   EXPLORATEUR DE FICHIERS (Style Portfolio)
+   =================================================== */
+.explorateur-contenu-wrapper {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: #d1d5db; /* Fond principal de l'explorateur */
+}
+
+/* La barre d'adresse en haut */
+.barre-adresse {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  background-color: #d1d5db;
+  font-size: 13px;
+  flex-shrink: 0;
+  /* Ligne biseautée pour séparer de la zone des fichiers */
+  box-shadow: 0 2px 0 0 #fff, 0 3px 0 0 #808080;
+  margin-bottom: 3px;
+}
+
+.label-adresse {
+  white-space: nowrap;
+  font-weight: bold;
+  color: black;
+}
+
+/* Le champ de texte d'adresse (creusé) */
+.champ-adresse {
+  flex: 1;
+  background-color: white;
+  box-shadow: inset 2px 2px 0 0 #000, inset -2px -2px 0 0 #fff;
+  border: none;
+  padding: 4px 6px;
+  font-size: 13px;
+  font-family: inherit;
+  color: black;
+  outline: none;
+}
+
+/* Empêcher la sélection de texte comme sur une vraie application */
+.explorateur-arborescence {
+  width: 160px;
+  min-width: 160px;
+  flex-shrink: 0;
+  -webkit-user-select: none; /* Safari */
+  user-select: none; /* Standard */
+}
+
+/* Éléments cliquables (dossiers et fichiers) */
+.dossier, .fichier {
+  cursor: pointer;
+  padding: 4px 6px;
+  white-space: nowrap;
+  color: black;
+  margin-bottom: 2px;
+  border: 1px dotted transparent; /* Prépare la bordure pour l'état actif */
+}
+
+/* Élément ACTIF (Dossier OU Fichier) avec la couleur de la DA et le pointillé Win95 */
+.explorateur-arborescence .dossier.actif,
+.explorateur-arborescence .fichier.actif {
+  background-color: #1e3a8a; /* bg-blue-900 */
+  color: white;
+  border: 1px dotted #ffffff; /* Bordure pointillée typique */
+}
+/* Le conteneur qui force l'affichage côte à côte */
+.explorateur-panneaux {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  min-height: 220px;
+  padding: 6px 8px; /* Espacement gris autour des panneaux blancs */
+  gap: 6px; /* Gouttière grise entre les deux colonnes */
+}
+
+/* Les deux grandes zones blanches (creusées) */
+.explorateur-arborescence,
+.explorateur-fichiers {
+  background-color: white;
+  box-shadow: inset 2px 2px 0 0 #000, inset -2px -2px 0 0 #fff;
+  padding: 6px;
+  overflow-y: auto;
+  font-size: 13px;
+}
+
+.explorateur-arborescence {
+  width: 160px;
+  min-width: 160px;
+  flex-shrink: 0;
+}
+
+/* Le panneau droit devient une grille flexible */
+.explorateur-fichiers {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;       /* Permet de revenir à la ligne */
+  align-content: flex-start; /* Aligne tout en haut */
+  gap: 16px;
+  padding: 16px;
+}
+
+/* Style des éléments (dossiers et fichiers de droite) */
+.explorateur-fichiers .dossier-droit,
+.explorateur-fichiers .fichier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 76px;
+  cursor: pointer;
+  padding: 4px;
+  margin: 0;
+  text-align: center;
+  white-space: normal; /* Autorise le texte à passer à la ligne si besoin */
+}
+
+/* L'icône énorme (emoji) */
+.explorateur-fichiers .icon-large {
+  font-size: 36px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+/* Le texte en dessous */
+.explorateur-fichiers .texte-nom {
+  font-size: 12px;
+  padding: 2px 4px;
+  color: black;
+  border: 1px dotted transparent; /* Prépare la bordure au survol */
+}
+
+/* Le survol (Hover) fausse sélection Windows */
+.explorateur-fichiers .dossier-droit:hover .texte-nom,
+.explorateur-fichiers .fichier:hover .texte-nom {
+  background-color: #1e3a8a; /* Ton bleu profond */
+  color: white;
+  border: 1px dotted #ffffff;
+}
+
+/* On s'assure que le fond transparent est forcé (annule ton ancien hover gris/bleu) */
+.explorateur-fichiers .dossier-droit:hover,
+.explorateur-fichiers .fichier:hover {
+  background-color: transparent !important;
+}
+
+/* Important pour la logique JS (Doit pouvoir masquer l'élément même si on est en display flex) */
+.cachee {
+  display: none !important;
+}
+/* ===================================================
+   LECTEUR VIDÉO CUSTOM WIN95 (Style Portfolio)
+   =================================================== */
+.fenetre-lecteur {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background: #000;
+}
+
+.capsule-player {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  background: #000;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* La barre de contrôle en bas */
+.controles-video {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  background-color: #d1d5db; /* Ton gris bg-gray-300 */
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  /* Léger biseau pour décoller la barre de la vidéo */
+  box-shadow: inset 2px 2px 0 0 #fff, inset -2px -2px 0 0 #808080;
+}
+
+/* Boutons avec les ombres 2px typiques de ta DA */
+.btn-play-video,
+.btn-stop-video,
+.btn-fullscreen {
+  background-color: #d1d5db;
+  box-shadow: inset 2px 2px 0 0 #fff, inset -2px -2px 0 0 #000;
+  border: none;
+  width: 28px;
+  height: 24px;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  flex-shrink: 0;
+  font-weight: bold;
+}
+
+/* Effet d'enfoncement très marqué au clic */
+.btn-play-video:active,
+.btn-stop-video:active,
+.btn-fullscreen:active {
+  box-shadow: inset 2px 2px 0 0 #000, inset -2px -2px 0 0 #fff;
+  padding-top: 2px;
+  padding-left: 2px;
+}
+
+/* Barre de lecture creusée */
+.barre-progression {
+  flex: 1;
+  height: 16px;
+  background-color: #fff;
+  box-shadow: inset 2px 2px 0 0 #000, inset -2px -2px 0 0 #808080;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  min-width: 40px;
+}
+
+/* Le remplissage bleu (couleur de ta barre de titre) */
+.progression-cursor {
+  height: 100%;
+  background-color: #1e3a8a; 
+  width: 0%;
+}
+
+.temps-video {
+  font-size: 12px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  color: black;
+  white-space: nowrap;
+  min-width: 36px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* OVERRIDE DU SLIDER DE VOLUME 
+  On supprime le rond bleu moderne pour un curseur carré rétro
+*/
+.volume-video {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 64px;
+  height: 16px;
+  background: #fff;
+  box-shadow: inset 2px 2px 0 0 #000, inset -2px -2px 0 0 #808080;
+  cursor: pointer;
+  flex-shrink: 0;
+  outline: none;
+  margin: 0 4px;
+}
+
+/* Le "bouton" qu'on attrape (Chrome/Safari) */
+.volume-video::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 20px; /* Plus haut que la piste pour dépasser un peu */
+  background: #d1d5db;
+  box-shadow: inset 1px 1px 0 0 #fff, inset -1px -1px 0 0 #000;
+  border: 1px solid #000;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+/* Le "bouton" qu'on attrape (Firefox) */
+.volume-video::-moz-range-thumb {
+  width: 12px;
+  height: 20px;
+  background: #d1d5db;
+  box-shadow: inset 1px 1px 0 0 #fff, inset -1px -1px 0 0 #000;
+  border: 1px solid #000;
+  cursor: pointer;
+  border-radius: 0;
+}
+/* ===================================================
+   BARRE DES TÂCHES EN BAS
+   =================================================== */
+#barre-taches {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 36px;
+  background: #d1d5db; /* var(--color-win-surface) */
+  border-top: 2px solid #fff; /* var(--color-win-highlight) */
+  display: flex;
+  align-items: center;
+  padding: 2px 2px;
+  gap: 4px;
+  z-index: 200;
+}
+
+/* --- Module Audio Gauche --- */
+#lecteur-audio-bas {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 6px 0 2px;
+  border-right: 2px solid #808080;
+  flex-shrink: 0;
+  height: 100%;
+}
+
+.taskbar-gripper {
+  width: 3px;
+  height: 22px;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #808080;
+  margin-right: 2px;
+}
+
+#btn-audio {
+  background: #d1d5db;
+  box-shadow: inset 1px 1px 0 0 #fff, inset -1px -1px 0 0 #000;
+  border: 1px solid #808080;
+  padding: 1px 6px;
+  height: 22px;
+  cursor: pointer;
+  font-size: 11px;
+  color: black;
+}
+
+#btn-audio:active {
+  box-shadow: inset 1px 1px 0 0 #000, inset -1px -1px 0 0 #fff;
+}
+
+#label-audio {
+  font-size: 14px;
+  color: black;
+}
+
+/* Le slider audio re-stylé façon rétro */
+.slider-retro {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 70px;
+  height: 16px;
+  background: #fff;
+  box-shadow: inset 2px 2px 0 0 #000, inset -2px -2px 0 0 #808080;
+  cursor: pointer;
+  outline: none;
+}
+
+.slider-retro::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 20px;
+  background: #d1d5db;
+  box-shadow: inset 1px 1px 0 0 #fff, inset -1px -1px 0 0 #000;
+  border: 1px solid #000;
+  border-radius: 0;
+}
+
+.slider-retro::-moz-range-thumb {
+  width: 12px;
+  height: 20px;
+  background: #d1d5db;
+  box-shadow: inset 1px 1px 0 0 #fff, inset -1px -1px 0 0 #000;
+  border: 1px solid #000;
+  border-radius: 0;
+}
+
+/* --- Zone Centrale (Boutons de fenêtres) --- */
+#taskbar-fenetres {
+  flex: 1;
+  display: flex;
+  gap: 2px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 100%;
+  align-items: center;
+}
+
+.btn-taskbar {
+  background: #d1d5db;
+  box-shadow: inset 1px 1px 0 0 #fff, inset -1px -1px 0 0 #000;
+  border: 1px solid #808080;
+  min-width: 40px;
+  height: 26px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  flex-shrink: 0;
+}
+
+.btn-taskbar-minimise {
+  box-shadow: inset 1px 1px 0 0 #000, inset -1px -1px 0 0 #fff;
+  background: #e5e7eb;
+}
+
+/* --- System Tray Droite (Horloge) --- */
+#system-tray {
+  box-shadow: inset 1px 1px 0 0 #808080, inset -1px -1px 0 0 #fff;
+  padding: 4px 8px;
+  margin-right: 2px;
+  display: flex;
+  align-items: center;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+#horloge-win95 {
+  font-size: 11px;
+  font-family: "Arial", sans-serif;
+  color: black;
+  user-select: none;
+}
+/* ===================================================
+   ÉTATS D'INTERACTION (Sélection et Focus)
+   =================================================== */
+
+/* Icône du bureau sélectionnée */
+.icone.selectionne {
+  background-color: #000080; /* Bleu foncé */
+  border: 1px dotted #ffffff;
+}
+
+/* Barre de titre inactive (fenêtre en arrière-plan) */
+.win95-titlebar.inactive {
+  background-color: #808080 !important; /* Gris foncé classique */
+}
+/* ===================================================
+   CURSEURS RÉTRO WIN95 (Souris Fantôme)
+   =================================================== */
+
+/* 1. On cache la VRAIE souris sur tout le site, tout le temps */
+* {
+  cursor: none !important;
+}
+
+/* 2. Notre fausse souris en HTML */
+#curseur-fantome {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  background-image: url('../assets/cursor.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none; /* Très important : empêche la fausse souris de bloquer les clics */
+  z-index: 999999999; /* Toujours au-dessus de tout */
+  /* C'est ici qu'on crée le fondu magique de 3 secondes ! */
+  transition: opacity 3s ease; 
+}
+
+/* 3. L'état "Pointer" (le doigt qui clique) */
+#curseur-fantome.pointer {
+  background-image: url('../assets/pointer.png');
+  /* On décale un peu l'image pour que le bout du doigt tombe au bon endroit */
+  transform-origin: top left;
+  margin-top: 0px; 
+  margin-left: -6px; 
+}
+
+/* 4. Quand le mode Dreamcore s'active, on passe l'opacité à 0 */
+body.dreamcore-mode #curseur-fantome {
+  opacity: 0;
+}
+/* ===================================================
+   ÉCRAN DE DÉMARRAGE (BIOS)
+   =================================================== */
+#boot-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  color: #c0c0c0; /* Gris clair typique du BIOS */
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
+  z-index: 99999; /* Par-dessus TOUT le reste */
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.5s ease-out; /* Pour le fondu de disparition */
+}
+
+.ligne-cachee {
+  display: none;
+}
+
+/* ===================================================
+   RESPONSIVE MOBILE (Fenêtres en plein écran forcé)
+   =================================================== */
+@media (max-width: 768px) {
+  .fenetre {
+    /* Écrase les positions JS pour forcer le plein écran */
+    top: 36px !important; 
+    left: 0 !important;
+    width: 100vw !important;
+     transform: none !important;
+    /* Hauteur totale moins la nav (36px) et la taskbar (36px) */
+    height: calc(100vh - 72px) !important; 
+    
+    /* On désactive la possibilité de redimensionner */
+    resize: none !important;
+  }
+
+  /* La petite poignée triangulaire ◢ en bas à droite ne sert plus à rien */
+  .fenetre::after {
+    display: none !important;
+  }
+
+  /* Le bouton "Agrandir" (□) de la barre de titre devient inutile */
+  .btn-agrandir {
+    display: none !important;
+  }
+
+  /* Ajustements spécifiques pour les capsules vidéo sur mobile */
+  .capsule-video, .avec-lecteur-video {
+    min-width: 100vw !important; /* Force la largeur totale */
+  }
+
+  .controles-video {
+    flex-wrap: wrap; /* Permet aux boutons de passer à la ligne si c'est trop serré */
+  }
+  
+}
+
+/* ===================================================
+   SYSTÈME DE SUCCÈS (ACHIEVEMENTS)
+   =================================================== */
+#conteneur-succes {
+  position: fixed;
+  bottom: 44px; /* Juste au-dessus de la barre des tâches */
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 9999999 !important;
+  pointer-events: none; /* Empêche de bloquer les clics de la souris en dessous */
+}
+
+.succes-notification {
+  background-color: #d1d5db; /* Gris classique */
+  box-shadow: inset 2px 2px 0 0 #fff, inset -2px -2px 0 0 #000, 4px 4px 0 0 rgba(0,0,0,0.3);
+  border: 1px solid #808080;
+  width: 260px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  /* Animation d'apparition puis disparition après 4.5 secondes */
+  animation: notif-slide-up 0.4s ease-out, notif-fade-out 0.5s ease-in 4.5s forwards;
+}
+
+.succes-icon {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.succes-texte {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.succes-texte h4 {
+  margin: 0;
+  font-size: 11px;
+  color: #000080; /* Bleu Windows */
+  text-transform: uppercase;
+}
+
+.succes-texte p {
+  margin: 0;
+  font-size: 12px;
+  color: black;
+  font-weight: bold;
+}
+
+.succes-texte span {
+  font-weight: normal;
+  font-size: 11px;
+  color: #333;
+}
+
+@keyframes notif-slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes notif-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; transform: translateY(-10px); }
+}
+/* ===================================================
+   TRACKER DE SUCCÈS (Dans la taskbar)
+   =================================================== */
+#tracker-succes {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 4px;
+  margin-right: 4px;
+  /* Ligne de séparation creusée */
+  border-left: 1px solid #808080;
+  border-right: 1px solid #fff;
+  height: 24px;
+}
+
+.succes-slot {
+  width: 20px;
+  height: 20px;
+  background: #d1d5db;
+  /* Case creusée pour les succès verrouillés */
+  box-shadow: inset 1px 1px 0 0 #000, inset -1px -1px 0 0 #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  position: relative;
+  cursor: help;
+  /* Grisé et un peu transparent */
+  filter: grayscale(100%) opacity(0.6);
+}
+
+/* Quand le succès est débloqué */
+.succes-slot.debloque {
+  filter: none; /* Retour de la couleur */
+  /* La case ressort en relief */
+  box-shadow: inset 1px 1px 0 0 #fff, inset -1px -1px 0 0 #808080;
+  cursor: pointer;
+}
+
+/* Le petit Tooltip jaune de Windows 95 au survol */
+.tooltip-succes {
+  display: none;
+  position: absolute;
+  bottom: 28px; /* Apparaît au-dessus de la barre des tâches */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffe1; /* Le vrai jaune pâle Win95 */
+  color: black;
+  border: 1px solid black;
+  padding: 3px 6px;
+  font-family: "MS Sans Serif", sans-serif;
+  font-size: 11px;
+  white-space: nowrap;
+  z-index: 100000;
+  pointer-events: none;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.succes-slot:hover .tooltip-succes {
+  display: block;
+}
+
+/* ===================================================
+   ANIMATION : ÉCRITURE NÉVROSÉE
+   =================================================== */
+.ecriture-en-cours::after {
+  content: "_";
+  animation: blink-cursor 0.8s step-end infinite;
+  display: inline-block;
+  margin-left: 2px;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+/* ===================================================
+   EFFETS VISUELS DREAMCORE (Phases 1 et 2)
+   =================================================== */
+
+/* 1. État de BASE (Le réveil) 
+   Transition courte (2s) : quand on bouge la souris, on revient vite à la réalité. */
+.fenetre {
+  transition: box-shadow 3s ease, filter 2s ease-in-out, opacity 2s ease-in-out !important;
+  filter: contrast(1) blur(0px) brightness(1);
+  opacity: 1;
+}
+
+#fond-video {
+  transition: filter 2s ease-in-out !important;
+  filter: saturate(1) hue-rotate(0deg) blur(0px) brightness(1);
+}
+
+/* --- PHASE 1 : LE DÉBUT DU RÊVE (Léger) --- */
+body.dreamcore-mode .fenetre {
+  box-shadow: inset 0 0 20px 0 rgba(255, 255, 255, 0.4), 
+              inset 0 0 20px 0 rgba(255, 255, 255, 0.4), 
+              0 0 40px 0 rgba(255, 255, 255, 0.7) !important;
+  filter: contrast(1.1) blur(0.8px) brightness(0.9); 
+}
+
+body.dreamcore-mode #fond-video {
+  filter: saturate(1.8) hue-rotate(25deg) blur(3px) brightness(0.8) !important;
+}
+
+
+/* --- PHASE 2 : L'ABYSSE (Extrêmement sombre et flou) --- */
+body.dreamcore-deep .fenetre {
+  /* On allonge énormément la transition pour que la chute prenne 25 secondes */
+  transition: filter 25s ease-in-out, opacity 25s ease-in-out !important;
+  filter: contrast(0.8) blur(12px) brightness(0.1);
+  opacity: 0.1; /* Les fenêtres disparaissent presque dans l'obscurité */
+}
+
+body.dreamcore-deep #fond-video {
+  transition: filter 25s ease-in-out !important;
+  /* Désaturation totale, très grand flou, et quasi noir */
+  filter: saturate(0) hue-rotate(45deg) blur(30px) brightness(0.05) !important;
+}
+
+/* ===================================================
+   MENU DÉMARRER ("Et après ?")
+   =================================================== */
+.menu-demarrer-container {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#btn-demarrer {
+  background-color: #d1d5db;
+  box-shadow: inset 1px 1px 0 0 #fff, inset -1px -1px 0 0 #000, 
+              inset 2px 2px 0 0 #d1d5db, inset -2px -2px 0 0 #808080;
+  border: none;
+  cursor: pointer;
+}
+
+#btn-demarrer:active, #btn-demarrer.actif {
+  box-shadow: inset 1px 1px 0 0 #000, inset -1px -1px 0 0 #fff, 
+              inset 2px 2px 0 0 #808080, inset -2px -2px 0 0 #d1d5db;
+  padding-top: 2px;
+  padding-left: 14px;
+}
+
+#menu-demarrer {
+  position: absolute;
+  top: 34px; /* Collé juste sous la barre */
+  left: 0;
+  background-color: #d1d5db;
+  /* Le vrai biseau complexe Windows 95 */
+  box-shadow: inset 1px 1px 0 0 #fff, inset -1px -1px 0 0 #000, 
+              inset 2px 2px 0 0 #d1d5db, inset -2px -2px 0 0 #808080,
+              4px 4px 0 0 rgba(0,0,0,0.5);
+  display: flex;
+  z-index: 100000;
+  padding: 2px;
+}
+
+/* La barre verticale à gauche du menu (Vrai style Win95) */
+.menu-demarrer-sidebar {
+  background: #808080; /* Le gris foncé iconique de l'époque */
+  width: 26px;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 6px;
+}
+
+.menu-demarrer-sidebar span {
+  color: white;
+  /* La police historique de cette barre latérale était Arial */
+  font-family: "Arial", sans-serif; 
+  font-weight: bold;
+  font-size: 15px;
+  letter-spacing: 1px;
+  transform: rotate(-90deg);
+  transform-origin: left bottom;
+  white-space: nowrap;
+  margin-left: 19px;
+  margin-bottom: 8px;
+}
+
+.menu-demarrer-items {
+  display: flex;
+  flex-direction: column;
+  min-width: 220px;
+  padding: 2px;
+  background-color: #d1d5db;
+}
+
+.menu-item-dream {
+  padding: 6px 12px 6px 8px;
+  cursor: pointer;
+  font-size: 12px;
+  color: black;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-item-dream:hover {
+  background-color: #000080;
+  color: white;
+}
+
+/* On "abîme" les émojis pour qu'ils aient l'air vieux et granuleux */
+.menu-icon {
+  font-size: 16px;
+  filter: grayscale(0.2) contrast(1.5) drop-shadow(1px 1px 0px rgba(0,0,0,0.2));
+}
+
+/* Le vrai séparateur creusé horizontal */
+.menu-separateur {
+  height: 2px;
+  margin: 4px 2px;
+  border-top: 1px solid #808080;
+  border-bottom: 1px solid #fff;
+}
+/* ===================================================
+   POP-UP ERREUR FATALE
+   =================================================== */
+#popup-erreur {
+  position: fixed; /* Force le centrage exact */
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%);
+  resize: none !important; 
+}
+
+.popup-contenu {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  background: #d1d5db;
+}
+
+.popup-icon { font-size: 36px; line-height: 1; }
+.popup-message { font-size: 12px; color: black; line-height: 1.4;}
+
+.popup-actions {
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  background: #d1d5db;
+}
+
+.btn-win95 {
+  background-color: #d1d5db;
+  box-shadow: inset 2px 2px 0 0 #fff, inset -2px -2px 0 0 #000;
+  border: 1px solid #000;
+  padding: 4px 32px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  color: black;
+}
+.btn-win95:active {
+  box-shadow: inset 2px 2px 0 0 #000, inset -2px -2px 0 0 #fff;
+  padding-top: 5px;
+}
+
+/* ===================================================
+   MODE VISEUR (Isolation par la vidéo)
+   =================================================== */
+
+/* On ajoute des transitions douces aux éléments de l'interface qui n'en avaient pas encore */
+#icones-bureau, #barre-nav-win95, #barre-taches {
+  transition: filter 1.5s ease-in-out;
+}
+
+/* L'obscurité s'abat sur tout l'écran, SAUF la vidéo active */
+body.mode-viseur #fond-video,
+body.mode-viseur #icones-bureau,
+body.mode-viseur #barre-nav-win95,
+body.mode-viseur #barre-taches,
+body.mode-viseur .fenetre:not(.fenetre-video-active) {
+  /* On baisse drastiquement la luminosité et on désature un peu */
+  filter: brightness(0.15) grayscale(0.6) blur(1px) !important; 
+}
+
+/* La fenêtre de la vidéo ressort et brille dans le noir */
+.fenetre-video-active {
+  z-index: 99999 !important; /* Passe au-dessus de tout */
+  box-shadow: 0 0 80px rgba(255, 255, 255, 0.15), 
+              inset 2px 2px 0 0 #fff, 
+              inset -2px -2px 0 0 #000 !important;
+}

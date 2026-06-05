@@ -180,6 +180,31 @@ import marat3 from "../assets/marat/CDF.webp"
 import marat2 from "../assets/marat/SweetAndSting.webp"
 import marat1 from "../assets/marat/Mirabelle.webp"
 
+
+
+
+// PROJETS GRAPH'IT — À coller dans projects.ts
+// Section recommandée : avant les projets Programmation existants
+//
+// IMPORTS À AJOUTER en haut de projects.ts :
+//
+ // Graph'it — Site
+ import graphitCover from "../assets/graphit/cover.webp";
+ import graphit1 from "../assets/graphit/1.webp";
+ import graphit2 from "../assets/graphit/2.webp";
+ import graphit3 from "../assets/graphit/3.webp";
+ import graphit4 from "../assets/graphit/4.webp";
+ import graphit5 from "../assets/graphit/5.webp";
+//
+// // Graph'it — Lancement
+// import graphitLancCover from "../assets/graphit-lancement/cover.webp";
+// import graphitLanc1 from "../assets/graphit-lancement/1.webp";
+// import graphitLanc2 from "../assets/graphit-lancement/2.webp";
+// import graphitLanc3 from "../assets/graphit-lancement/3.webp";
+// import graphitLanc4 from "../assets/graphit-lancement/4.webp";
+// import graphitLanc5 from "../assets/graphit-lancement/5.webp";
+
+
 // --- LISTE DES PROJETS ---
 // Trié selon: Audiovisuel > Branding > Print > Programmation > Photographie
 
@@ -507,6 +532,70 @@ matrice9    ],
       "Shaders",
       "Vidéo IA",
       "Graphisme Éditorial",
+    ],
+    categories: ["Audiovisuel"],
+  }, 
+  {
+    id: "graphit-lancement",
+    title: "Graph'it — Lancement graphit.fr",
+    image: graphitLancCover,
+    detailedDescription: {
+      context: {
+        title: "Brief & Contexte",
+        content:
+          "Le 23 avril 2026, Graph'it Publicité bascule d'atelier-graphit.fr vers graphit.fr. Le lancement du nouveau nom de domaine et du rebranding complet nécessite un plan de communication en 5 temps et un kit de contenus visuels complet pour les réseaux sociaux. Mission réalisée dans le cadre du stage — en parallèle du développement du site.",
+      },
+      role: {
+        title: "Production & Diffusion",
+        intro:
+          "Conception et production du kit de lancement — Motion Design, Carrousel, Kit Réseaux Sociaux",
+        points: [
+          {
+            title: "Motion Design — Transformation de logo",
+            content:
+              "Animation de transformation morphologique de l'ancien logo vers le nouveau : zoom sur le 'ra' de l'ancien logo, interpolation des courbes vectorielles vers le nouveau 'ra', dézoom révélant le logotype complet. Style border (contour sans remplissage) sur fond sombre. Workflow : export SVG depuis Figma/Illustrator → DaVinci Resolve Fusion → animation des masques BSpline/Polygon avec keyframes. Rendu à 2160×2700px downscalé pour corriger le crénelage sur les courbes fines. Format final 9:16 Instagram Reels, durée 10-15 secondes. Publié le 23 avril 2026 à 18h.",
+          },
+          {
+            title: "Plan de communication en 5 temps",
+            content:
+              "8h00 : bascule de domaine. 9h00 : stories Instagram et Facebook avec logo animé et lien direct. 9h00 : email de lancement via MailerLite vers 700 contacts clients. 10h00 : post carrousel 4:5 en 4-6 slides (nouveau logo, charte, applications réelles). 18h00 : publication du Reel d'animation.",
+          },
+          {
+            title: "Métriques email — première heure",
+            content:
+              "Open rate 38% (benchmark B2B 20-25%), click rate 12% (benchmark 2-5%), click-to-open rate 32% (benchmark 10-15%), 108 clics vers graphit.fr dont 85 uniques, 0 spam complaint.",
+          },
+          {
+            title: "Kit réseaux sociaux",
+            content:
+              "Photos de profil Instagram, Facebook et Google Business, bannières Facebook et Google Business, templates pour publications de projets. Kit complet produit pour une autonomie totale de l'équipe Graph'it après le lancement.",
+          },
+        ],
+      },
+      competencesDemontrees: {
+        title: "Compétences démontrées",
+        content:
+          "Motion design et animation vectorielle (DaVinci Resolve Fusion), conception de plan de communication, production de kit réseaux sociaux, email marketing (MailerLite), analyse de métriques de campagne, production de contenus multi-formats (Reels, carrousel, stories, bannières), Affinity Designer.",
+      },
+    },
+    gallery: [
+      graphitLancCover,
+      graphitLanc1,
+      graphitLanc2,
+      graphitLanc3,
+      graphitLanc4,
+      graphitLanc5,
+    ],
+    url: "https://graphit.fr",
+    tags: [
+      "Motion Design",
+      "DaVinci Resolve",
+      "Réseaux Sociaux",
+      "Email Marketing",
+      "Plan de Communication",
+      "Lancement",
+      "Stage",
+      "Reels",
     ],
     categories: ["Audiovisuel"],
   },
@@ -1071,6 +1160,109 @@ marat1
       "UI",
     ],
 
+    categories: ["Programmation", "Web-design"],
+  },
+  {
+    id: "graphit",
+    title: "Graph'it — graphit.fr",
+    image: graphitCover,
+    detailedDescription: {
+      context: {
+        title: "Brief & Contexte",
+        content:
+          "Stage de 10 semaines au sein de Graph'it Publicité, agence de communication visuelle aux Herbiers (Vendée). Mission unique : refonte complète du site web dans le cadre d'un rebranding total — passage d'atelier-graphit.fr vers graphit.fr, avec migration de domaine, nouveau site en production et lancement public le 23 avril 2026. Responsable unique du projet du diagnostic initial au déploiement.",
+      },
+      role: {
+        title: "Pipeline complet — Stratégie → Dev → Lancement",
+        intro:
+          "Responsable unique — Stratégie, UX/UI, Développement WordPress, SEO, Import automatisé, Photographie studio, Migration de domaine",
+        points: [
+          {
+            title: "Diagnostic & Stratégie",
+            content:
+              "Analyse du site existant via données OVHcloud et Google Search Console : 36 554 pages vues annuelles dont 95,5% générées par des bots, moins de 1 600 sessions humaines réelles, 16 clics pour 213 impressions sur Search Console, position moyenne 9,8. La page la plus visitée était le logo GIF intégré dans les signatures mail — le site ne jouait aucun rôle dans la génération de contacts. Benchmark de 11 agences vendéennes concurrentes conduit sur Figma : navigations surchargées, contenu massivement textuel, réalisations reléguées en bas de page. Contre-positionnement retenu : images dominantes, navigation réduite à 4 entrées, valorisation systématique des projets.",
+          },
+          {
+            title: "Conception UX & Direction Artistique",
+            content:
+              "Zoning et wireframes complets desktop et mobile sur Figma — 4 templates (accueil, page service, réalisations, détail projet). Document de validation client avec options A/B argumentées sur 6 choix structurants. Direction artistique définie collectivement avec l'équipe : palette cyan #26BDBE / navy #0C1219 / blanc neutre, typographies Nunito Black / Satisfy / DM Sans.",
+          },
+          {
+            title: "Développement WordPress from scratch",
+            content:
+              "Thème WordPress entièrement développé depuis zéro — pas d'Elementor, pas de page builder. CSS custom organisé en 4 fichiers thématiques, assets compilés via Vite, versionnement Git continu. Architecture de données : CPT projet avec taxonomie type_service hiérarchique (4 familles parentes, 12 termes enfants), champs Meta Box déclarés en PHP. Fonctionnalités : filtrage AJAX avec debounce 400ms, modale projet chargée en AJAX avec History API (URL partageable par projet), smooth scroll Lenis, IntersectionObserver pour animations staggerées, parallax hero, configurateur interactif véhicule (séquence d'animation promise-based sur 3 niveaux de marquage), comparateur Avant/Après scroll-driven desktop / range mobile, carrousel clients CSS pur. Tracking : GA4 via GTM avec 6 événements custom, Microsoft Clarity, schema.org LocalBusiness JSON-LD.",
+          },
+          {
+            title: "Import de 352 projets & SEO automatisé",
+            content:
+              "Pipeline d'import custom : Google Sheets 30 colonnes, génération des métadonnées SEO par lot via Google Apps Script connecté à l'API Gemini, plugin WordPress custom avec interface admin, barre de progression AJAX temps réel et terminal de log, import par lots de 5 pour éviter les timeouts serveur. Résultat : 313 projets publiés avec métadonnées Rank Math complètes au lancement. Stratégie SEO en 3 niveaux, permalinks localisés (/flocage-vehicule-les-herbiers/), 5 pages rédigées avec structure H1/H2/H3 et FAQ Schema.org.",
+          },
+          {
+            title: "Missions complémentaires",
+            content:
+              "Signatures mail HTML table-based pour 3 membres de l'équipe — compatibilité multi-clients mail (Outlook moteur Word), logo animé GIF, testées sur Litmus. Séance photo studio des supports print de l'agence : setup flash cobra + fond papier blanc, post-traitement pour intégration portfolio. Migration de domaine en 15 minutes : SSL Let's Encrypt, Better Search Replace en base, redirections 301 .htaccess, Google Search Console.",
+          },
+        ],
+      },
+      keyLearnings: {
+        title: "Apprentissages clés",
+        points: [
+          {
+            title: "Validation client ≠ acceptation",
+            content:
+              "Un commanditaire peut valider une maquette statique sans en avoir intégré toutes les implications visuelles et fonctionnelles, et revenir dessus plusieurs semaines plus tard. Leçon concrète : systématiser les prototypes interactifs Figma avant de coder, documenter formellement chaque validation.",
+          },
+          {
+            title: "Diagnostic avant conception",
+            content:
+              "Définir l'architecture de données (CPT, taxonomies, champs) avant la première maquette garantit que les interfaces sont ancrées dans ce que le système peut réellement produire — et non dans des représentations déconnectées des contraintes techniques.",
+          },
+          {
+            title: "La confiance préexistante pèse autant que la qualité",
+            content:
+              "Mes wireframes ont structuré la maquette finale, mais la direction artistique visible appartenait à Charlène — collaboratrice en qui les fondateurs avaient davantage confiance. Un arbitrage à anticiper et négocier plus tôt dans le projet.",
+          },
+        ],
+      },
+      vision: {
+        title: "Résultat",
+        content:
+          "Site en production sur graphit.fr depuis le 23 avril 2026. 313 projets publiés, 5 pages optimisées, toutes les fonctionnalités livrées. Le principal point de contact numérique actif de l'agence n'était pas son site — c'était le logo GIF dans les signatures mail. Corriger ça, c'était le vrai brief.",
+      },
+      competencesDemontrees: {
+        title: "Compétences démontrées",
+        content:
+          "Audit SEO et stratégie digitale, benchmark concurrentiel, UX/UI et wireframing Figma, développement WordPress custom (PHP, Meta Box, CPT, taxonomies), CSS custom avancé (animations, scroll-driven), JavaScript (AJAX, History API, IntersectionObserver, Lenis), Vite, Git/GitHub, import automatisé via Google Apps Script + API Gemini, SEO technique (Rank Math, Schema.org, GA4, GTM, Clarity), intégration email HTML multi-clients, photographie studio, migration de domaine OVH.",
+      },
+    },
+    gallery: [
+      graphitCover,
+      graphit1,
+      graphit2,
+      graphit3,
+      graphit4,
+      graphit5,
+      graphit6,
+      graphit7,
+      graphit8,
+      graphit9,
+      graphit10,
+    ],
+    url: "https://graphit.fr",
+    tags: [
+      "WordPress",
+      "PHP",
+      "CSS Custom",
+      "JavaScript",
+      "AJAX",
+      "SEO",
+      "UX/UI",
+      "Figma",
+      "Vite",
+      "Meta Box",
+      "Stage",
+      "Stratégie Digitale",
+    ],
     categories: ["Programmation", "Web-design"],
   },
 
