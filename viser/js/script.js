@@ -10,6 +10,23 @@ let noteEnCours = null;
 // Capsule vidéo en cours (ID capsule, ex : "outils")
 let videoEnCours = null;
 
+// ================================================== //
+// DONNÉES DES PHOTOS PAR DOSSIER                     //
+// ================================================== //
+const PHOTOS_PAR_DOSSIER = {
+  "outils":       ["assets/photos/a.jpg", "assets/photos/strealtur.jpg"],
+  "contraintes":  ["assets/photos/contraintes_01.png", "assets/photos/contraintes_02.png", "assets/photos/contraintes_03.png"],
+  "production":   ["assets/photos/maison.jpg", "assets/photos/reve.jpg"],
+  "performance":  ["assets/photos/N20.png", "assets/photos/tir.jpg", "assets/photos/b.jpg"],
+  "viser-capsule":["assets/photos/viser.jpg"],
+  "apres":        ["assets/photos/grandroude.jpg", "assets/photos/abeille.jpg"]
+};
+
+// Index de la photo actuellement affichée dans la visionneuse
+let photoIndexEnCours = 0;
+// Dossier de photos actuellement ouvert
+let photoDossierEnCours = null;
+
 // Fenêtre en cours de déplacement
 let fenetreEnDrag = null;
 let offsetX = 0;
@@ -239,7 +256,7 @@ function initialiser() {
         fichier.classList.add("actif");
       }
 
-      chargerCapsule(fichier.dataset.cible, fichier.dataset.type);
+      chargerCapsule(fichier.dataset.cible, fichier.dataset.type, fichier.dataset.index);
     });
   } 
 
@@ -297,10 +314,7 @@ function initialiser() {
 
   // On force l'affichage du dossier racine au chargement de la page
   filtrerFichiers("viser");
-  // Volume de l'audio ambiance via le slider
-  document.querySelector("#volume-audio").addEventListener("input", function() {
-    document.querySelector("#audio-ambiance").volume = this.value;
-  });
+  
 
   // Drag — mousedown sur la barre de titre
   let titres = document.querySelectorAll(".fenetre-titre");
@@ -334,9 +348,7 @@ function initialiser() {
     initialiserLecteurVideo(lecteur);
   }
 
-  // Bouton audio ambiance
-  document.querySelector("#btn-audio").addEventListener("click", toggleAudio);
-
+ 
   // ================================================== //
   // NAVIGATION TASKBAR (Mobile Menu)                   //
   // ================================================== //
@@ -459,6 +471,9 @@ function initialiser() {
   // À la toute fin de la fonction initialiser()
   filtrerFichiers("viser");
 
+  // Initialiser la visionneuse d'images
+  initVisionneuse();
+
 
   // ================================================== //
   // LA BARRE D'ÉTAT QUI PENSE (Voix intérieure)        //
@@ -514,6 +529,68 @@ function initialiser() {
       // Si on sort de la fenêtre, on annule tout
       clearTimeout(timeoutParalysie);
     });
+  }
+// ================================================== //
+  // LECTEUR FICTION SONORE                             //
+  // ================================================== //
+  let audioFiction = document.querySelector("#audio-fiction");
+  let btnPlayFiction = document.querySelector("#btn-play-fiction");
+  let btnStopFiction = document.querySelector("#btn-stop-fiction");
+  let barreFiction = document.querySelector("#barre-fiction");
+  let cursorFiction = document.querySelector("#cursor-fiction");
+  let tempsFiction = document.querySelector("#temps-fiction");
+
+  // SÉCURITÉ : On vérifie que les éléments existent dans le HTML avant d'agir
+  if (btnPlayFiction && audioFiction) {
+    
+    btnPlayFiction.addEventListener("click", function() {
+      if (audioFiction.paused) {
+        audioFiction.play();
+        btnPlayFiction.textContent = "⏸";
+      } else {
+        audioFiction.pause();
+        btnPlayFiction.textContent = "▶";
+      }
+    });
+
+    btnStopFiction.addEventListener("click", function() {
+      audioFiction.pause();
+      audioFiction.currentTime = 0;
+      btnPlayFiction.textContent = "▶";
+    });
+
+    audioFiction.addEventListener("timeupdate", function() {
+      if (!audioFiction.duration) return;
+      let pct = (audioFiction.currentTime / audioFiction.duration) * 100;
+      cursorFiction.style.width = pct + "%";
+      let min = Math.floor(audioFiction.currentTime / 60);
+      let sec = Math.floor(audioFiction.currentTime % 60);
+      tempsFiction.textContent = min + ":" + (sec < 10 ? "0" : "") + sec;
+    });
+
+    barreFiction.addEventListener("click", function(evt) {
+      if (!audioFiction.duration) return;
+      let rect = barreFiction.getBoundingClientRect();
+      audioFiction.currentTime = ((evt.clientX - rect.left) / rect.width) * audioFiction.duration;
+    });
+    // Gestion du volume de la fiction sonore
+    let volumeFiction = document.querySelector("#volume-fiction");
+    if (volumeFiction) {
+      volumeFiction.addEventListener("input", function() {
+        audioFiction.volume = this.value;
+      });
+    }
+    barreFiction.addEventListener("click", function(evt) {
+      if (!audioFiction.duration) return;
+      let rect = barreFiction.getBoundingClientRect();
+      audioFiction.currentTime = ((evt.clientX - rect.left) / rect.width) * audioFiction.duration;
+    });
+
+    // --- NOUVEAU : La fiction sonore protège du cauchemar ---
+    audioFiction.addEventListener("play", reinitialiserInactivite);
+    audioFiction.addEventListener("pause", reinitialiserInactivite);
+    audioFiction.addEventListener("ended", reinitialiserInactivite);
+  
   }
 }
 
@@ -594,9 +671,9 @@ function mettreAuPremierPlan(fenetreActive) {
 // CAPSULES                                           //
 // ================================================== //
 
-// Ouvre une fenêtre de capsule selon le type ("note" ou "video")
+// Ouvre une fenêtre de capsule selon le type ("note", "video" ou "photo")
 // Ferme automatiquement la fenêtre précédente du même type
-function chargerCapsule(idCapsule, type) {
+function chargerCapsule(idCapsule, type, index) {
   let idFenetre = idCapsule + "-" + type;
 
   if (type === "note") {
@@ -626,6 +703,11 @@ function chargerCapsule(idCapsule, type) {
     }
     videoEnCours = idCapsule;
     ouvrirFenetre(idFenetre);
+
+  } else if (type === "photo") {
+    // Ouvre la visionneuse sur la photo cliquée
+    let idx = (index !== undefined) ? parseInt(index) : 0;
+    ouvrirVisionneuse(idCapsule, idx);
   }
 }
 
@@ -643,6 +725,90 @@ function reinitialiserVideo(lecteur) {
   let temps = lecteur.querySelector(".temps-video");
   if (temps) temps.textContent = "0:00";
 }
+
+
+// ================================================== //
+// VISIONNEUSE D'IMAGES WIN95                         //
+// ================================================== //
+
+function ouvrirVisionneuse(idCapsule, index) {
+  let photos = PHOTOS_PAR_DOSSIER[idCapsule];
+  if (!photos || photos.length === 0) return;
+
+  photoIndexEnCours = Math.max(0, Math.min(index, photos.length - 1));
+  photoDossierEnCours = idCapsule;
+
+  afficherPhotoVisionneuse();
+
+  // Ouvrir la fenêtre
+  let visionneuse = document.getElementById("visionneuse");
+  if (visionneuse) {
+    visionneuse.classList.remove("cachee");
+    mettreAuPremierPlan(visionneuse);
+
+    // Créer/réactiver le bouton taskbar
+    let barre = document.querySelector("#barre-taches");
+    let btnExistant = barre.querySelector("[data-fenetre='visionneuse']");
+    if (btnExistant) {
+      btnExistant.dataset.minimisee = "false";
+      btnExistant.classList.remove("btn-taskbar-minimise");
+    } else {
+      creerBoutonTaskbar("visionneuse");
+    }
+  }
+}
+
+function afficherPhotoVisionneuse() {
+  let photos = PHOTOS_PAR_DOSSIER[photoDossierEnCours];
+  if (!photos) return;
+
+  let img = document.getElementById("visionneuse-img");
+  let titre = document.getElementById("visionneuse-titre");
+  let compteur = document.getElementById("visionneuse-compteur");
+  let btnPrev = document.getElementById("btn-photo-prev");
+  let btnNext = document.getElementById("btn-photo-next");
+
+  if (!img) return;
+
+  let src = photos[photoIndexEnCours];
+  img.src = src;
+
+  // Titre = nom du fichier (dernier segment du path)
+  let nomFichier = src.split("/").pop();
+  if (titre) titre.textContent = nomFichier + " — Visionneuse d'images";
+
+  // Compteur "2 / 3"
+  if (compteur) compteur.textContent = (photoIndexEnCours + 1) + " / " + photos.length;
+
+  // Afficher/masquer les boutons selon la position
+  if (btnPrev) btnPrev.disabled = (photoIndexEnCours === 0);
+  if (btnNext) btnNext.disabled = (photoIndexEnCours === photos.length - 1);
+}
+
+function initVisionneuse() {
+  let btnPrev = document.getElementById("btn-photo-prev");
+  let btnNext = document.getElementById("btn-photo-next");
+
+  if (btnPrev) {
+    btnPrev.addEventListener("click", function() {
+      if (photoDossierEnCours && photoIndexEnCours > 0) {
+        photoIndexEnCours--;
+        afficherPhotoVisionneuse();
+      }
+    });
+  }
+
+  if (btnNext) {
+    btnNext.addEventListener("click", function() {
+      let photos = PHOTOS_PAR_DOSSIER[photoDossierEnCours];
+      if (photoDossierEnCours && photos && photoIndexEnCours < photos.length - 1) {
+        photoIndexEnCours++;
+        afficherPhotoVisionneuse();
+      }
+    });
+  }
+}
+
 
 
 // Filtre les éléments du panneau droit et met à jour l'adresse
@@ -818,37 +984,46 @@ function toggleAudio() {
 
 // Créer un bouton dans la taskbar pour la fenêtre qui vient d'ouvrir
 function creerBoutonTaskbar(idFenetre) {
-  let barre = document.querySelector("#taskbar-fenetres");
+  // CORRECTION ICI : on cible la bonne zone centrale !
+  let barre = document.querySelector("#taskbar-fenetres"); 
+  let fenetre = document.querySelector("#" + idFenetre);
 
-  // Icône emoji selon le type de fenêtre
-  let icones = {
-    "readme": "📄",
-    "viser-exe": "💿",
-    "explorateur": "📁",
-    "outils-note": "📄", "outils-video": "🎬",
-    "contraintes-note": "📄", "contraintes-video": "🎬",
-    "production-note": "📄", "production-video": "🎬",
-    "performance-note": "📄", "performance-video": "🎬",
-    "viser-capsule-note": "📄", "viser-capsule-video": "🎬",
-    "apres-note": "📄", "apres-video": "🎬"
+  let iconesSrc = {
+    "readme": "assets/file.png",
+    "viser-exe": "assets/film.png",
+    "explorateur": "assets/folder.png",
+    "fiction-sonore": "assets/audio.png",
+    "visionneuse": "assets/image.png",
+    "outils-note": "assets/file.png", "outils-video": "assets/film.png",
+    "contraintes-note": "assets/file.png", "contraintes-video": "assets/film.png",
+    "production-note": "assets/file.png", "production-video": "assets/film.png",
+    "performance-note": "assets/file.png", "performance-video": "assets/film.png",
+    "viser-capsule-note": "assets/file.png", "viser-capsule-video": "assets/film.png",
+    "apres-note": "assets/file.png", "apres-video": "assets/film.png"
   };
+
+  let src = iconesSrc[idFenetre] || "assets/file.png";
 
   let btn = document.createElement("button");
   btn.classList.add("btn-taskbar");
   btn.dataset.fenetre = idFenetre;
   btn.dataset.minimisee = "false";
-  btn.textContent = icones[idFenetre] || "🗗";
-  btn.title = idFenetre;
+
+  let img = document.createElement("img");
+  img.src = src;
+  img.alt = idFenetre;
+  img.style.width = "20px";
+  img.style.height = "20px";
+  img.style.imageRendering = "pixelated";
+  btn.appendChild(img);
 
   btn.addEventListener("click", function() {
     let fen = document.querySelector("#" + idFenetre);
     if (btn.dataset.minimisee === "false") {
-      // Minimiser : cacher la fenêtre mais garder le bouton
       fen.classList.add("cachee");
       btn.dataset.minimisee = "true";
       btn.classList.add("btn-taskbar-minimise");
     } else {
-      // Restaurer
       fen.classList.remove("cachee");
       btn.dataset.minimisee = "false";
       btn.classList.remove("btn-taskbar-minimise");
@@ -976,7 +1151,7 @@ document.addEventListener('mouseover', (e) => {
 // --- GESTION DE L'INACTIVITÉ (DREAMCORE) ---
 
 // Temps avant que l'OS ne commence à "rêver" (3 secondes au lieu de 15)
-const TEMPS_AVANT_DREAMCORE = 3000; 
+const TEMPS_AVANT_DREAMCORE = 7000; 
 
 function reinitialiserInactivite() {
   if (isDreamcoreActive) {
@@ -986,34 +1161,65 @@ function reinitialiserInactivite() {
   clearTimeout(timerInactivite);
 
   // --- SÉCURITÉ VIDÉO ---
-  // Si une vidéo (autre que le fond) est en lecture, on bloque totalement le cauchemar
   let videos = document.querySelectorAll("video");
   for (let v of videos) {
-    if (!v.paused && !v.ended && v.id !== "fond-video") {
-      return; // On sort de la fonction SANS lancer le minuteur !
-    }
+    if (!v.paused && !v.ended && v.id !== "fond-video") return;
+  }
+
+  // --- SÉCURITÉ AUDIO (Nouvelle) ---
+  let audioFiction = document.getElementById("audio-fiction");
+  if (audioFiction && !audioFiction.paused && !audioFiction.ended) {
+    return; // Si la fiction est en lecture, on bloque le cauchemar !
   }
 
   timerInactivite = setTimeout(lancerDreamcore, TEMPS_AVANT_DREAMCORE);
 }
+let intervalFadeAudio; // Pour gérer la montée progressive du volume
+
 function lancerDreamcore() {
   isDreamcoreActive = true;
-  
-  // ---> DÉBUT PHASE 1
   document.body.classList.add("dreamcore-mode");
+
+  // --- LE SON DU CAUCHEMAR ---
+  let audioCauchemar = document.getElementById("audio-cauchemar");
+  if (audioCauchemar) {
+    audioCauchemar.volume = 0; // On commence dans le silence
+    audioCauchemar.preservesPitch = false;
+    audioCauchemar.mozPreservesPitch = false;
+    audioCauchemar.webkitPreservesPitch = false;
+    audioCauchemar.playbackRate = 0.6; // Son déjà ralenti
+    audioCauchemar.play();
+
+    // Fondu progressif du volume (monte de 5% toutes les 200ms)
+    let vol = 0;
+    clearInterval(intervalFadeAudio);
+    intervalFadeAudio = setInterval(() => {
+      if (vol < 0.8) { // Volume max bloqué à 80% pour ne pas exploser les oreilles
+        vol += 0.05;
+        audioCauchemar.volume = Math.min(vol, 1);
+      } else {
+        clearInterval(intervalFadeAudio);
+      }
+    }, 200);
+  }
   
-  // ---> PROGRAMMATION DE LA PHASE 2 (L'abysse très sombre)
-  // J'ai mis 20000 (20 secondes). Tu peux mettre 30000 pour 30s !
+  // ---> PROGRAMMATION DE LA PHASE 2 (L'abysse)
   timerDeepDreamcore = setTimeout(() => {
     document.body.classList.add("dreamcore-deep");
+    // Le son s'effondre encore plus dans la phase 2
+    if (audioCauchemar) audioCauchemar.playbackRate = 0.25; 
   }, 20000); 
   
-  let iconeExplorateur = document.querySelector('.icone[data-cible="explorateur"] .icone-img');
-  if (iconeExplorateur) {
-    iconeExplorateur.dataset.original = iconeExplorateur.textContent;
-    iconeExplorateur.textContent = "🪑"; 
+  // --- GESTION DE L'IMAGE (La chaise) ---
+  let imageExplorateur = document.querySelector('.icone[data-cible="explorateur"] .icone-img img');
+  if (imageExplorateur) {
+    if (!imageExplorateur.dataset.originalSrc) {
+      imageExplorateur.dataset.originalSrc = imageExplorateur.getAttribute('src');
+    }
+    imageExplorateur.src = "assets/chaise.png"; 
   }
 
+  // --- GESTION DE L'HORLOGE ---
   let horloge = document.getElementById("horloge-win95");
   if (horloge) {
     const symboles = ["¥", "§", "‡", "†", "∞", "∅", "∑", "≈", "0", "1", "X", "?"];
@@ -1028,20 +1234,29 @@ function lancerDreamcore() {
     }, 100);
   }
 }
+
 function stopperDreamcore() {
   isDreamcoreActive = false;
   
-  // On nettoie tout et on annule la phase 2 si elle n'avait pas commencé
   document.body.classList.remove("dreamcore-mode");
   document.body.classList.remove("dreamcore-deep");
   clearTimeout(timerDeepDreamcore);
+
+  // --- ARRÊT DU SON CAUCHEMAR ---
+  clearInterval(intervalFadeAudio);
+  let audioCauchemar = document.getElementById("audio-cauchemar");
+  if (audioCauchemar) {
+    audioCauchemar.pause();
+    audioCauchemar.currentTime = 0; // On le coupe net et on le remet à zéro
+  }
   
-  // ... (Garde le reste de ta fonction)
-  let iconeExplorateur = document.querySelector('.icone[data-cible="explorateur"] .icone-img');
-  if (iconeExplorateur && iconeExplorateur.dataset.original) {
-    iconeExplorateur.textContent = iconeExplorateur.dataset.original;
+  // --- RESTAURATION DE L'IMAGE ---
+  let imageExplorateur = document.querySelector('.icone[data-cible="explorateur"] .icone-img img');
+  if (imageExplorateur && imageExplorateur.dataset.originalSrc) {
+    imageExplorateur.src = imageExplorateur.dataset.originalSrc;
   }
 
+  // --- RESTAURATION DE L'HORLOGE ---
   clearInterval(intervalGlitchHorloge);
   let horloge = document.getElementById("horloge-win95");
   if (horloge) {

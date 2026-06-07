@@ -362,11 +362,12 @@ body {
 }
 
 .icone-img {
-  font-size: 40px;
-  line-height: 1;
-  margin-bottom: 6px;
+  height: 40px;
 }
-
+.icone-img img {
+  max-width: 100%;
+  max-height: 100%;
+}
 /* ===================================================
    FENÊTRE WIN95
    Layout et position uniquement.
@@ -564,7 +565,15 @@ body {
   min-width: 160px;
   flex-shrink: 0;
 }
-
+.explorateur-arborescence img{
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+}
+.explorateur-fichiers img {
+  width: 32px;
+  height: 32px;
+}
 /* Le panneau droit devient une grille flexible */
 .explorateur-fichiers {
   flex: 1;
@@ -632,7 +641,22 @@ body {
   flex-direction: column;
   background: #000;
 }
+/* ===================================================
+   LIENS RÉTR0 DANS LE BLOC-NOTES
+   =================================================== */
+.lien-retro {
+  color: #0000FF; /* Le vrai bleu hypertexte classique */
+  text-decoration: underline;
+  cursor: pointer !important; /* Force le curseur clic de ta souris fantôme */
+}
 
+.lien-retro:hover {
+  color: #FF0000; /* Devient rouge au survol, très Y2K */
+}
+
+.lien-retro:visited {
+  color: #800080; /* Violet classique quand on a déjà cliqué */
+}
 .capsule-player {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -640,6 +664,9 @@ body {
   background: #000;
   display: block;
   flex-shrink: 0;
+}
+.vertical {
+  aspect-ratio: 9 / 16;
 }
 
 /* La barre de contrôle en bas */
@@ -1358,4 +1385,89 @@ body.mode-viseur .fenetre:not(.fenetre-video-active) {
   box-shadow: 0 0 80px rgba(255, 255, 255, 0.15), 
               inset 2px 2px 0 0 #fff, 
               inset -2px -2px 0 0 #000 !important;
+}
+/* ===================================================
+   VISIONNEUSE D'IMAGES WIN95
+   =================================================== */
+
+.visionneuse-contenu {
+  display: flex;
+  flex-direction: column;
+  background: #000;
+  padding: 0;
+}
+
+.visionneuse-zone-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  min-height: 300px;
+  max-height: 60vh;
+  overflow: hidden;
+  position: relative;
+}
+
+#visionneuse-img {
+  max-width: 100%;
+  max-height: 60vh;
+  width: auto;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  /* Rendu pixelisé cohérent avec la DA rétro */
+  image-rendering: auto;
+}
+
+/* Barre de navigation bas de la visionneuse */
+.visionneuse-barre {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 6px 10px;
+  background-color: #d1d5db;
+  box-shadow: inset 2px 2px 0 0 #fff, inset -2px -2px 0 0 #808080;
+  flex-shrink: 0;
+}
+
+#visionneuse-compteur {
+  font-size: 12px;
+  color: black;
+  min-width: 40px;
+  text-align: center;
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+}
+
+.btn-win95-photo {
+  background-color: #d1d5db;
+  box-shadow: inset 2px 2px 0 0 #fff, inset -2px -2px 0 0 #000;
+  border: none;
+  padding: 3px 10px;
+  font-size: 11px;
+  cursor: pointer;
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  color: black;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-win95-photo:active {
+  box-shadow: inset 2px 2px 0 0 #000, inset -2px -2px 0 0 #fff;
+  padding-top: 5px;
+  padding-left: 12px;
+}
+
+.btn-win95-photo:disabled {
+  color: #808080;
+  cursor: default;
+  box-shadow: inset 1px 1px 0 0 #808080;
+}
+
+/* Icône image dans l'explorateur (même style que .icon-large existant) */
+.explorateur-fichiers .fichier[data-type="photo"] .icon-large img,
+.explorateur-arborescence .fichier[data-type="photo"] img {
+  /* Pas de style spécial nécessaire, suit le style global */
 }
