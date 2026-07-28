@@ -81,7 +81,7 @@ export default function ContactForm() {
           value={formData.subject}
           onChange={handleChange}
           required
-          placeholder="Projet, alternance, question..."
+          placeholder="Projet, collaboration, question..."
           className={inputClass}
         />
       </div>

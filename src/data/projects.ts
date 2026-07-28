@@ -3,13 +3,29 @@ import type { Project } from "../types/projects";
 // --- IMPORTS DES ASSETS ---
 
 // MUE (SAÉ 4.Crea.01)
-import mueCover from "../assets/mue/cover.png";
-import mueAffiche from "../assets/mue/affiche.png";
-import mueParcours from "../assets/mue/parcours.png";
-import mueSupports from "../assets/mue/supports.png";
-import mueCatalogue from "../assets/mue/catalogue.png";
-import mueLivret from "../assets/mue/livret.png";
-import mueReseaux from "../assets/mue/reseaux.png";
+import mue01 from "../assets/mue/01.webp";
+import mue02 from "../assets/mue/02.webp";
+import mue03 from "../assets/mue/03.webp";
+import mue04 from "../assets/mue/04.webp";
+import mue05 from "../assets/mue/05.webp";
+import mue06 from "../assets/mue/06.webp";
+import mue07 from "../assets/mue/07.webp";
+import mue08 from "../assets/mue/08.webp";
+import mue09 from "../assets/mue/09.webp";
+import mue010 from "../assets/mue/010.webp";
+import mue011 from "../assets/mue/011.webp";
+import mue012 from "../assets/mue/012.webp";
+import mue013 from "../assets/mue/013.webp";
+import mue014 from "../assets/mue/014.webp";
+import mue015 from "../assets/mue/015.webp";
+import mue016 from "../assets/mue/016.webp";
+import mue017 from "../assets/mue/017.webp";
+import mue018 from "../assets/mue/018.webp";
+import mue019 from "../assets/mue/019.webp";
+import mue020 from "../assets/mue/020.webp";
+import mue021 from "../assets/mue/021.webp";
+import mue022 from "../assets/mue/022.webp";
+import mue023 from "../assets/mue/023.webp";
 
 // M2 Studio (Assets généraux)
 import logoMaxime from "../assets/m2studio/logoMaximeMandin.webp";
@@ -223,10 +239,10 @@ export const projects: Project[] = [
   {
     id: "mue",
     title: "MUE — Traditions Coréennes en Tension",
-    image: mueCover,
+    image: mue01,
     categories: ["Branding", "Print", "Web-design"],
     tags: ["Identité visuelle", "Direction artistique", "Édition", "Scénographie", "SAÉ 4.Crea.01"],
-    gallery: [mueAffiche, mueParcours, mueSupports, mueCatalogue, mueLivret, mueReseaux],
+    gallery: [mue02, mue03, mue04, mue05, mue06, mue07, mue08, mue09, mue010, mue011, mue012, mue013, mue014, mue015, mue016, mue017, mue018, mue019, mue020, mue021, mue022, mue023],
     detailedDescription: {
       context: {
         title: "Le contexte",

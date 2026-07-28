@@ -15,6 +15,12 @@ const heroData = {
 };
 
 const categories = [...new Set(projects.flatMap(p => p.categories ?? []))];
+
+// Projets mis en avant sur l'accueil (ordre = ordre d'affichage)
+const featuredIds = ["mue", "anna-partout", "matrice"];
+const featured = featuredIds
+  .map(id => projects.find(p => p.id === id))
+  .filter((p): p is NonNullable<typeof p> => Boolean(p));
 ---
 
 <BaseLayout
@@ -125,7 +131,42 @@ const categories = [...new Set(projects.flatMap(p => p.categories ?? []))];
 
         </div>
 
-        <!-- Ligne 2 : 3 mini-widgets -->
+        <!-- Ligne 2 : projets à la une -->
+        <div
+          class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2 animate-window-bounce-in"
+          style="animation-delay: 120ms"
+        >
+          <div class="mb-2 flex items-center justify-between text-white px-3 py-1.5 bg-blue-900 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
+            <span class="font-semibold text-xs no-select">ALaUne.exe — Projets à la une</span>
+            <a href="/catalogue" class="p-0.5 px-2 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select hover:bg-gray-500 transition-colors">Tout voir →</a>
+          </div>
+          <div class="shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff] bg-white p-3">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {featured.map((p, idx) => (
+                <a
+                  href={`/projects/${p.id}`}
+                  class="group block animate-stagger-fade-in"
+                  style={`animation-delay: ${200 + idx * 80}ms`}
+                >
+                  <div class="relative aspect-[4/3] overflow-hidden shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff] bg-gray-100">
+                    <img
+                      src={(p.image as any)?.src ?? p.image}
+                      alt={p.title}
+                      class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.04]"
+                      loading="eager"
+                      decoding="async"
+                    />
+                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-3 pt-8 pb-2.5">
+                      <p class="text-white text-xs font-semibold leading-tight line-clamp-2">{p.title}</p>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Ligne 3 : 3 mini-widgets -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5">
 
           <!-- Widget stats -->
@@ -133,11 +174,11 @@ const categories = [...new Set(projects.flatMap(p => p.categories ?? []))];
             class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2 animate-window-bounce-in"
             style="animation-delay: 150ms"
           >
-            <div class="mb-2 flex items-center justify-between text-white px-3 py-1.5 bg-blue-900 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
+            <div class="mb-2 flex items-center justify-between text-white  px-3 py-1.5 bg-blue-900 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
               <span class="font-semibold text-xs no-select">stats.exe</span>
               <span aria-hidden="true" class="p-0.5 px-1.5 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select cursor-default">✕</span>
             </div>
-            <div class="shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff] bg-white px-4 py-3 flex justify-around items-center gap-4">
+            <div class="shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff] bg-white h-5/7 px-4 py-3 flex justify-around items-center gap-4">
               <div class="text-center">
                 <p class="text-3xl font-bold text-gray-900">{projects.length}</p>
                 <p class="text-xs text-gray-500 mt-0.5">projets</p>
@@ -161,40 +202,42 @@ const categories = [...new Set(projects.flatMap(p => p.categories ?? []))];
             style="animation-delay: 200ms"
           >
             <div class="mb-2 flex items-center justify-between text-white px-3 py-1.5 bg-blue-900 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
-              <span class="font-semibold text-xs no-select">formation.txt</span>
+              <span class="font-semibold text-xs no-select">parcours.exe</span>
               <span aria-hidden="true" class="p-0.5 px-1.5 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select cursor-default">✕</span>
             </div>
-            <div class="shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff] bg-white px-4 py-3 space-y-1.5">
-              <p class="font-bold text-sm text-gray-900">BUT Métiers du Multimédia</p>
-              <p class="text-xs text-gray-600">IUT de Laval · 3e année</p>
-              <p class="text-xs text-gray-500 pt-1 border-t border-gray-200">Spé. Création numérique</p>
+            <div class="shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff] bg-white h-5/7 px-4 py-3 space-y-1.5">
+              <p class="font-bold text-sm text-gray-900">BUT MMI · 3e année</p>
+              <p class="text-xs text-gray-600">IUT de Laval · Spé. Création numérique</p>
+              <p class="text-xs text-gray-900 pt-1 border-t border-gray-200">
+                <span class="font-semibold">Alternance :</span> UIMM Mayenne
+              </p>
             </div>
           </div>
 
-          <!-- Widget disponibilité -->
+          <!-- Widget webdoc VISER -->
           <div
             class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2 animate-window-bounce-in"
-            style="animation-delay: 250ms"
+            style="animation-delay: 300ms"
           >
             <div class="mb-2 flex items-center justify-between text-white px-3 py-1.5 bg-blue-900 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
-              <span class="font-semibold text-xs no-select">alternance.exe</span>
+              <span class="font-semibold text-xs no-select">viser.webdoc</span>
               <span aria-hidden="true" class="p-0.5 px-1.5 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select cursor-default">✕</span>
             </div>
-            <div class="shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff] bg-white px-4 py-3 text-center space-y-2">
-              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-900 text-white font-bold text-xs shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
-                <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
-                UIMM MAYENNE
-              </span>
-              <p class="text-xs text-gray-500">Alternant · 3e année BUT MMI</p>
-            </div>
-            <div class="mt-2 flex justify-center">
+            <div class="shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff] bg-white px-4 py-3 text-center space-y-1.5">
+              <p class="font-bold text-sm text-gray-900">VISER</p>
+              <p class="text-xs text-gray-500">Webdoc autoportrait : mon parcours de tireur sportif, en interactif</p>
+              <div class="mt-2 flex justify-center">
               <a
-                href="/contact"
+                href="/viser/"
+                target="_blank"
+                rel="noreferrer"
                 class="px-4 py-1 bg-gray-300 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-xs font-semibold hover:bg-gray-400 transition-colors no-select active:shadow-[inset_2px_2px_0_0_#000,inset_-2px_-2px_0_0_#fff]"
               >
-                Me contacter →
+                Lancer le webdoc →
               </a>
             </div>
+            </div>
+            
           </div>
 
         </div>

@@ -12,7 +12,7 @@ interface Props {
 
 const {
   title,
-  description = "Portfolio de Maxime Mandin, designer numérique spécialisé UI/UX et direction artistique. Étudiant BUT MMI Création Numérique — disponible en alternance dès septembre 2026.",
+  description = "Portfolio de Maxime Mandin, designer numérique spécialisé UI/UX et direction artistique. Étudiant BUT MMI Création Numérique, en alternance chez UIMM Mayenne.",
   ogImage = "/og-image.png",
   canonical,
 } = Astro.props;
@@ -69,7 +69,7 @@ const canonicalUrl = canonical ?? Astro.url.href;
             "description": "Portfolio de design UI/UX, direction artistique, branding et développement web.",
             "url": "https://mandinmaxime.vercel.app",
             "image": "https://mandinmaxime.vercel.app/og-image.png",
-            "areaServed": ["Vendée", "Pays de la Loire", "Laval"],
+            "areaServed": ["Mayenne", "Laval", "Vendée", "Pays de la Loire"],
             "priceRange": "€€"
           }
         ]
@@ -105,9 +105,10 @@ const canonicalUrl = canonical ?? Astro.url.href;
     </main>
 
     <footer class="sr-only">
-      Portfolio de Mandin Maxime — Étudiant en BUT MMI à Laval.
+      Portfolio de Mandin Maxime, étudiant en 3e année de BUT MMI à Laval,
+      alternant chez UIMM Mayenne.
       Spécialisations : graphisme, web design, print, audiovisuel.
-      Zone de service : Vendée, Laval, Pays de la Loire.
+      Zone : Mayenne, Laval, Pays de la Loire.
     </footer>
   </body>
 </html>
