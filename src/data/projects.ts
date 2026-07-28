@@ -2,6 +2,15 @@ import type { Project } from "../types/projects";
 
 // --- IMPORTS DES ASSETS ---
 
+// MUE (SAÉ 4.Crea.01)
+import mueCover from "../assets/mue/cover.png";
+import mueAffiche from "../assets/mue/affiche.png";
+import mueParcours from "../assets/mue/parcours.png";
+import mueSupports from "../assets/mue/supports.png";
+import mueCatalogue from "../assets/mue/catalogue.png";
+import mueLivret from "../assets/mue/livret.png";
+import mueReseaux from "../assets/mue/reseaux.png";
+
 // M2 Studio (Assets généraux)
 import logoMaxime from "../assets/m2studio/logoMaximeMandin.webp";
 // import photoProfile from "../assets/m2studio/photoprofile.webp";
@@ -209,6 +218,46 @@ import marat1 from "../assets/marat/Mirabelle.webp"
 // Trié selon: Audiovisuel > Branding > Print > Programmation > Photographie
 
 export const projects: Project[] = [
+
+  // --- 🏛️ MUE (case study phare) ---
+  {
+    id: "mue",
+    title: "MUE — Traditions Coréennes en Tension",
+    image: mueCover,
+    categories: ["Branding", "Print", "Web-design"],
+    tags: ["Identité visuelle", "Direction artistique", "Édition", "Scénographie", "SAÉ 4.Crea.01"],
+    gallery: [mueAffiche, mueParcours, mueSupports, mueCatalogue, mueLivret, mueReseaux],
+    detailedDescription: {
+      context: {
+        title: "Le contexte",
+        content:
+          "MUE est une exposition fictive d'art contemporain coréen imaginée au Palais de Tokyo, à Paris. En 2026, la France et la Corée fêtent les 140 ans de leur traité d'amitié, et le Centre Pompidou, fermé pour rénovation, ouvre à Séoul le Centre Pompidou Hanwha. MUE fait le mouvement inverse : pendant que l'art moderne français part vers Séoul, l'art contemporain coréen vient à Paris. Autour de dix artistes, l'exposition raconte comment l'art coréen d'aujourd'hui ne tourne pas le dos à sa tradition, mais s'en empare, la casse et la transforme. Une mue : changer de forme sans perdre ce qu'on est.",
+      },
+      role: {
+        title: "Ce que nous avons produit",
+        intro: "Campagne plurimédia complète, en binôme avec Eliot Châtaignier (motion et spot par Eliot).",
+        points: [
+          { title: "Identité", content: "logo à ondes concentriques né d'un yin-yang, charte graphique, système de 13 pictogrammes (une œuvre = un signe)." },
+          { title: "Parti pris", content: "aucun plan distribué. Le visiteur se laisse guider par la lumière et les pictogrammes ; le parcours en épingle va de la tradition vers la rupture numérique." },
+          { title: "Système d'affiche", content: "onze affiches, une par œuvre, aucune identique. Recto image, verso infos en colonnes noires, micro-perforations et pose à demi-collée : l'affiche se fragmente au fil de l'expo. Une mue littérale." },
+          { title: "Catalogue", content: "reliure Seonjang cousue main, papier Hanji, 250 exemplaires numérotés, fil vermillon en écho à l'or de Yee Sookyung." },
+          { title: "Médiation", content: "cartels à QR code, site web trilingue (FR/EN/KO) sans aucune orientation, livret pédagogique en chéquier qui se déchire." },
+          { title: "La Manufacture", content: "atelier final de linogravure : le visiteur imprime lui-même le plan qu'on lui a refusé à l'entrée, avec une matrice imprimée en 3D." },
+        ],
+      },
+      vision: {
+        title: "La cohérence",
+        content:
+          "Rien n'est décoratif. Quelques motifs reviennent d'un support à l'autre : la mue, la cassure réparée et sublimée, l'objet unique, la transparence, la rencontre de la tradition et du numérique. Chaque objet raconte, à son échelle, la même histoire que l'exposition entière.",
+      },
+      competencesDemontrees: {
+        title: "Compétences démontrées",
+        content:
+          "Direction artistique globale, création d'identité, design éditorial et print technique (micro-perforation, reliure), scénographie et signalétique, UX mobile-first multilingue, cohérence de campagne plurimédia.",
+      },
+    },
+  },
+
   // --- 🎬 AUDIOVISUEL ---
 
   {

@@ -22,13 +22,13 @@ const structuredData = {
   "@type": "VisualArtwork",
   "name": project.title,
   "description": shortDesc,
-  "image": ogImageSrc ? `https://mandinmaxime.vercel.app${ogImageSrc}` : undefined,
+  "image": ogImageSrc ? `https://mandinmaxime.fr${ogImageSrc}` : undefined,
   "artMedium": project.categories?.[0] ?? "Digital Design",
   "artform": "Digital Design",
   "creator": {
     "@type": "Person",
     "name": "Maxime Mandin",
-    "url": "https://mandinmaxime.vercel.app"
+    "url": "https://mandinmaxime.fr"
   }
 };
 ---
@@ -41,7 +41,7 @@ const structuredData = {
   <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
   <div class="py-8 px-4 md:px-8">
-    <div class="mx-auto max-w-4xl">
+    <div class="mx-auto max-w-7xl">
 
       <!-- Breadcrumb -->
       <nav aria-label="Fil d'Ariane" class="mb-4 flex items-center gap-1 text-xs px-2 py-1 shadow-[inset_1px_1px_0_0_#808080,inset_-1px_-1px_0_0_#fff] bg-gray-300 animate-fade-in">
@@ -52,37 +52,8 @@ const structuredData = {
         <span class="font-semibold text-gray-900 truncate">{project.title}</span>
       </nav>
 
-      <!-- Détail du projet -->
+      <!-- Détail du projet : layout agence (fenêtre infos sticky + galerie) -->
       <ProjectDetailIsland project={project} client:load />
-
-      <!-- CTA contextuel -->
-      <div
-        class="shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000,8px_8px_0_0_rgba(0,0,0,0.5)] bg-gray-300 p-2 mt-10 animate-stagger-fade-in"
-        style="animation-delay: 700ms"
-      >
-        <div class="mb-2 flex items-center justify-between text-white px-3 py-1.5 bg-blue-900 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000]">
-          <span class="font-semibold text-xs no-select">action.exe</span>
-          <span class="p-0.5 px-1.5 bg-gray-400 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] text-black text-xs no-select">✕</span>
-        </div>
-        <div class="shadow-[inset_2px_2px_0_0_#808080,inset_-2px_-2px_0_0_#fff] bg-white px-6 py-5 text-center">
-          <p class="font-bold text-gray-900 mb-1">Ce projet vous intéresse ?</p>
-          <p class="text-sm text-gray-600 mb-4">Discutons de votre projet ensemble.</p>
-          <div class="flex flex-wrap gap-3 justify-center">
-            <a
-              href="/contact"
-              class="px-6 py-2 font-bold text-white bg-red-600 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] hover:bg-red-700 transition-colors no-select active:shadow-[inset_2px_2px_0_0_#000,inset_-2px_-2px_0_0_#fff]"
-            >
-              Me contacter
-            </a>
-            <a
-              href="/catalogue"
-              class="px-6 py-2 font-bold bg-gray-300 shadow-[inset_2px_2px_0_0_#fff,inset_-2px_-2px_0_0_#000] hover:bg-gray-400 transition-colors no-select active:shadow-[inset_2px_2px_0_0_#000,inset_-2px_-2px_0_0_#fff]"
-            >
-              Voir tous les projets
-            </a>
-          </div>
-        </div>
-      </div>
 
     </div>
   </div>
